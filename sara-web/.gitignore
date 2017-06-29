@@ -108,3 +108,4 @@ tests/coverage_html/
 tests/.coverage
 tests/report/
 .directory
+db.sqlite3
