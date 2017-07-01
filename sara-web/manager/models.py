@@ -2,7 +2,7 @@ from django.db import models
 
 class RequirementType(models.Model):
     id = models.IntegerField
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, blank=False, null=False)
 
 
     def __str__(self):
@@ -11,7 +11,7 @@ class RequirementType(models.Model):
 class Requirement(models.Model):
     id = models.IntegerField
     type = models.ForeignKey('RequirementType')
-    description = models.CharField(max_length=100)
+    description = models.CharField(max_length=100, blank=False, null=False)
 
 
     def __str__(self):
