@@ -1,0 +1,170 @@
+[
+   {
+	"id": 1,
+	"abbreviation": "LAB 01",
+	"name": "Laboratório de Informática I",
+	"capacity": 20,
+	"area": ""
+   }
+   {
+	"id": 2,
+	"abbreviation": "LAB 02",
+	"name": "Laboratório de Informática II",
+	"capacity": 40,
+	"area": ""
+   }
+   {
+	"id": 3,
+	"abbreviation": "LAB 03",
+	"name": "Laboratório de Informática III",
+	"capacity": 40,
+	"area": ""
+   }
+   {
+	"id": 4,
+	"abbreviation": "LAB 04",
+	"name": "Laboratório de Informática IV",
+	"capacity": 40,
+	"area": ""
+   }
+   {
+	"id": 5,
+	"abbreviation": "O-120",
+	"name": "ITCP",
+	"capacity": 30,
+	"area": ""
+   }
+   {
+	"id": 6,
+	"abbreviation": "O-203",
+	"name": "S 06",
+	"capacity": 50,
+	"area": ""
+   }
+   {
+	"id": 7,
+	"abbreviation": "O-205",
+	"name": "S 08",
+	"capacity": 40,
+	"area": ""
+   }
+   {
+	"id": 8,
+	"abbreviation": "O-207",
+	"name": "S 10",
+	"capacity": 40,
+	"area": ""
+   }
+   {
+	"id": 9,
+	"abbreviation": "O-209",
+	"name": "S 12",
+	"capacity": 60,
+	"area": ""
+   }
+   {
+	"id": 10,
+	"abbreviation": "L-003",
+	"name": "Áudio 03",
+	"capacity": 45,
+	"area": ""
+   }
+   {
+	"id": 11,
+	"abbreviation": "L-101",
+	"name": "Sala L-101",
+	"capacity": 45,
+	"area": ""
+   }
+   {
+	"id": 12,
+	"abbreviation": "L-102",
+	"name": "Sala L-102",
+	"capacity": 50,
+	"area": ""
+   }
+   {
+	"id": 13,
+	"abbreviation": "L-103",
+	"name": "Sala L-103",
+	"capacity": 50,
+	"area": ""
+   }
+   {
+	"id": 14,
+	"abbreviation": "L-104",
+	"name": "Laboratório Informática V",
+	"capacity": 40,
+	"area": ""
+   }
+   {
+	"id": 15,
+	"abbreviation": "L-105",
+	"name": "Sala L-105",
+	"capacity": 40,
+	"area": ""
+   }
+   {
+	"id": 16,
+	"abbreviation": "L-106",
+	"name": "Sala L-106",
+	"capacity": 30,
+	"area": ""
+   }
+   {
+	"id": 17,
+	"abbreviation": "D-102",
+	"name": "Sala 01",
+	"capacity": 35,
+	"area": ""
+   }
+   {
+	"id": 18,
+	"abbreviation": "D-105",
+	"name": "Sala 02",
+	"capacity": 35,
+	"area": ""
+   }
+   {
+	"id": 19,
+	"abbreviation": "D-108",
+	"name": "Sala 05",
+	"capacity": 40,
+	"area": ""
+   }
+   {
+	"id": 20,
+	"abbreviation": "D-109",
+	"name": "Sala 06",
+	"capacity": 40,
+	"area": ""
+   }
+   {
+	"id": 21,
+	"abbreviation": "D-111",
+	"name": "Sala 08",
+	"capacity": 35,
+	"area": ""
+   }
+   {
+	"id": 22,
+	"abbreviation": "D-112",
+	"name": "Sala 09",
+	"capacity": 35,
+	"area": ""
+   }
+   {
+	"id": 23,
+	"abbreviation": "D-202",
+	"name": "Sala 11",
+	"capacity": 40,
+	"area": ""
+   }
+   {
+	"id": 24,
+	"abbreviation": "F-005",
+	"name": "Sala de Fisica",
+	"capacity": 45,
+	"area": ""
+   }
+]
