@@ -1,0 +1,205 @@
+[
+  {
+    "id": 1,
+    "cod": "ADM500",
+	"full_name": "Introdução a Administração",
+	"workload": 60,
+	"semester_number": 1
+  }
+  {
+	"id": 2,
+    "cod": "INF026",
+	"full_name": "Introdução a Computação",
+	"workload": 60,
+	"semester_number": 1
+  }
+  {
+	"id": 3,
+    "cod": "INF026",
+	"full_name": "Introdução à Lógica",
+	"workload": 60,
+	"semester_number": 1
+  }
+  {
+	"id": 4,
+    "cod": "LET100",
+	"full_name": "Língua Portuguesa",
+	"workload": 60,
+	"semester_number": 1
+  }
+  {
+	"id": 5,
+    "cod": "MAT222",
+	"full_name": "Matemática I",
+	"workload": 90,
+	"semester_number": 1
+  }
+  {
+	"id": 6,
+    "cod": "HUM103",
+	"full_name": "Metodologia de Pesquisa",
+	"workload": 60,
+	"semester_number": 2
+  }
+  {
+	"id": 7,
+    "cod": "HUM103",
+	"full_name": "Estrutura de Dados e Algoritmos",
+	"workload": 90,
+	"semester_number": 2
+  }
+  {
+	"id": 8,
+    "cod": "INF028",
+	"full_name": "Arquitetura de Computadores e Software Básico",
+	"workload": 60,
+	"semester_number": 2
+  }
+  {
+	"id": 9,
+    "cod": "INF029",
+	"full_name": "Laboratório de Programação",
+	"workload": 60,
+	"semester_number": 2
+  }
+  {
+	"id": 10,
+    "cod": "LET102",
+	"full_name": "Inglês",
+	"workload": 60,
+	"semester_number": 3
+  }
+  {
+    "id": 11,
+	"cod": "INF007",
+	"full_name": "Banco de Dados I",
+	"workload": 90,
+	"semester_number": 3
+  }
+  {
+    "id": 12,
+	"cod": "INF009",
+	"full_name": "Sistemas Operacionais",
+	"workload": 90,
+	"semester_number": 3
+  }
+  {
+    "id": 13,
+	"cod": "INF021",
+	"full_name": "Estágio Supervisionado",
+	"workload": 300,
+	"semester_number": 3
+  }
+  {
+    "id": 14,
+	"cod": "INF008",
+	"full_name": "Programação Orientada a Objetos",
+	"workload": 90,
+	"semester_number": 3
+  }
+  {
+    "id": 15,
+	"cod": "INF0011",
+	"full_name": "Padrões de Projeto",
+	"workload": 90,
+	"semester_number": 4
+  }
+  {
+    "id": 16,
+    "cod": "INF012",
+	"full_name": "Programação Web",
+	"workload": 90,
+	"semester_number": 4
+  }
+  {
+    "id": 17,
+    "cod": "INF010",
+	"full_name": "Banco de Dados II",
+	"workload": 90,
+	"semester_number": 4
+  }
+  {
+    "id": 18,
+	"cod": "INF015",
+	"full_name": "Rede de Computadores I",
+	"workload": 60,
+	"semester_number": 4
+  }
+  {
+    "id": 19,
+	"cod": "INF030",
+	"full_name": "Métodos Científicos em Computação",
+	"workload": 30,
+	"semester_number": 5
+  }
+  {
+    "id": 20,
+	"cod": "INF014",
+	"full_name": "Engenharia de Software",
+	"workload": 90,
+	"semester_number": 5
+  }
+  {
+    "id": 21,
+	"cod": "INF017",
+	"full_name": "Rede de Computadores II",
+	"workload": 60,
+	"semester_number": 5
+  }
+  {
+    "id": 22,
+	"cod": "INF022",
+	"full_name": "Tópicos Avançados",
+	"workload": 60,
+	"semester_number": 5
+  }
+  {
+    "id": 23,
+	"cod": "ADM550",
+	"full_name": "Empreendedorismo",
+	"workload": 60,
+	"semester_number": 5
+  }
+  {
+    "id": 24,
+	"cod": "HUM100",
+	"full_name": "Filosofia",
+	"workload": 60,
+	"semester_number": 5
+  }
+  {
+    "id": 25,
+	"cod": "INF018",
+	"full_name": "Auditoria e Segurança de Sistemas",
+	"workload": 60,
+	"semester_number": 6
+  }
+  {
+    "id": 26,
+	"cod": "INF019",
+	"full_name": "Gerência de Projetos",
+	"workload": 60,
+	"semester_number": 6
+  }
+  {
+    "id": 27,
+	"cod": "INF016",
+	"full_name": "Arquitetura de Software",
+	"workload": 90,
+	"semester_number": 6
+  }
+  {
+    "id": 28,
+	"cod": "INF020",
+	"full_name": "Sistemas Distribuídos",
+	"workload": 60,
+	"semester_number": 6
+  }
+  {
+    "id": 29,
+	"cod": "INF023",
+	"full_name": "Trabalho de Conclusão de Curso",
+	"workload": 60,
+	"semester_number": 6
+  }
+]

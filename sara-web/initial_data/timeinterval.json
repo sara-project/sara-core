@@ -1,0 +1,97 @@
+[
+  {
+	"id": 1,
+    "startTime": "07:00",
+	"endTime": "07:50"
+  }
+  {
+	"id": 2,
+    "startTime": "07:50",
+	"endTime": "08:40"
+  }
+  {
+	"id": 3,
+    "startTime": "08:40",
+	"endTime": "09:30"
+  }
+  {
+	"id": 4,
+    "startTime": "09:30",
+	"endTime": "10:20"
+  }
+  {
+	"id": 5,
+    "startTime": "10:20",
+	"endTime": "11:10"
+  }
+  {
+	"id": 6,
+    "startTime": "11:10",
+	"endTime": "12:00"
+  }
+  {
+	"id": 7,
+    "startTime": "12:00",
+	"endTime": "12:50"
+  }
+  {
+	"id": 8,
+    "startTime": "12:50",
+	"endTime": "13:40"
+  }
+  {
+	"id": 9,
+    "startTime": "13:40",
+	"endTime": "14:30"
+  }
+  {
+	"id": 10,
+    "startTime": "14:30",
+	"endTime": "15:20"
+  }
+  {
+	"id": 11,
+    "startTime": "15:20",
+	"endTime": "16:10"
+  }
+  {
+	"id": 12,
+    "startTime": "16:10",
+	"endTime": "17:00"
+  }
+  {
+	"id": 13,
+    "startTime": "16:10",
+	"endTime": "17:00"
+  }
+  {
+	"id": 14,
+    "startTime": "17:00",
+	"endTime": "17:50"
+  }
+  {
+	"id": 15,
+    "startTime": "17:50",
+	"endTime": "18:40"
+  }
+  {
+	"id": 16,
+    "startTime": "18:40",
+	"endTime": "19:30"
+  }
+  {
+	"id": 17,
+    "startTime": "19:30",
+	"endTime": "20:20"
+  }
+  {
+	"id": 18,
+    "startTime": "20:20",
+	"endTime": "21:10"
+  }
+  {
+	"id": 19,
+    "startTime": "21:10",
+	"endTime": "22:00"
+  }
+]
