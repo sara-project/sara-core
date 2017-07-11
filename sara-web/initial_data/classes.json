@@ -1,317 +1,317 @@
 [
     {
-        "id": "1",
-        "course_id": "",
-        "name": "ADM500 T03",
-        "professor": "Washington",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"1",
+        "course_id":"",
+        "name":"ADM500 T03",
+        "professor":"Washington",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "2",
-        "course_id": "",
-        "name": "ADM545 T01",
-        "professor": "Washington",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"2",
+        "course_id":"",
+        "name":"ADM545 T01",
+        "professor":"Washington",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "3",
-        "course_id": "",
-        "name": "ADM550 T01",
-        "professor": "Katia Miranda",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"3",
+        "course_id":"",
+        "name":"ADM550 T01",
+        "professor":"Katia Miranda",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "4",
-        "course_id": "",
-        "name": "HUM100 T01",
-        "professor": "Ricardo Almeida",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"4",
+        "course_id":"",
+        "name":"HUM100 T01",
+        "professor":"Ricardo Almeida",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "5",
-        "course_id": "",
-        "name": "HUM102 T01",
-        "professor": "Samir",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"5",
+        "course_id":"",
+        "name":"HUM102 T01",
+        "professor":"Samir",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "6",
-        "course_id": "",
-        "name": "INF006",
-        "professor": "Allan",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
-     {
-        "id": "7",
-        "course_id": "",
-        "name": "INF007",
-        "professor": "Grinaldo",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"6",
+        "course_id":"",
+        "name":"INF006",
+        "professor":"Allan",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "8",
-        "course_id": "",
-        "name": "INF008",
-        "professor": "Fred",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"7",
+        "course_id":"",
+        "name":"INF007",
+        "professor":"Grinaldo",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "8",
-        "course_id": "",
-        "name": "INF009",
-        "professor": "Jowaner",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"8",
+        "course_id":"",
+        "name":"INF008",
+        "professor":"Fred",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "9",
-        "course_id": "",
-        "name": "INF010",
-        "professor": "Pablo",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"9",
+        "course_id":"",
+        "name":"INF009",
+        "professor":"Jowaner",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "10",
-        "course_id": "",
-        "name": "INF011",
-        "professor": "Sandro",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"10",
+        "course_id":"",
+        "name":"INF010",
+        "professor":"Pablo",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "11",
-        "course_id": "",
-        "name": "INF012",
-        "professor": "Manoel",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"11",
+        "course_id":"",
+        "name":"INF011",
+        "professor":"Sandro",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "12",
-        "course_id": "",
-        "name": "INF014",
-        "professor": "Simone",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"12",
+        "course_id":"",
+        "name":"INF012",
+        "professor":"Manoel",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "13",
-        "course_id": "",
-        "name": "INF015",
-        "professor": "Grinaldo",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"13",
+        "course_id":"",
+        "name":"INF014",
+        "professor":"Simone",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "14",
-        "course_id": "",
-        "name": "INF016",
-        "professor": "Sandro",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"14",
+        "course_id":"",
+        "name":"INF015",
+        "professor":"Grinaldo",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "15",
-        "course_id": "",
-        "name": "INF017",
-        "professor": "AC",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"15",
+        "course_id":"",
+        "name":"INF016",
+        "professor":"Sandro",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "16",
-        "course_id": "",
-        "name": "INF018",
-        "professor": "Mauricio",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"16",
+        "course_id":"",
+        "name":"INF017",
+        "professor":"AC",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "17",
-        "course_id": "",
-        "name": "INF019",
-        "professor": "Jowaner",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"17",
+        "course_id":"",
+        "name":"INF018",
+        "professor":"Mauricio",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "18",
-        "course_id": "",
-        "name": "INF020",
-        "professor": "Allan",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"18",
+        "course_id":"",
+        "name":"INF019",
+        "professor":"Jowaner",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "19",
-        "course_id": "",
-        "name": "INF021",
-        "professor": "Ronaldo",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"19",
+        "course_id":"",
+        "name":"INF020",
+        "professor":"Allan",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "20",
-        "course_id": "",
-        "name": "INF022",
-        "professor": "Renato",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"20",
+        "course_id":"",
+        "name":"INF021",
+        "professor":"Ronaldo",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "21",
-        "course_id": "",
-        "name": "INF023 T01",
-        "professor": "Manoel",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"21",
+        "course_id":"",
+        "name":"INF022",
+        "professor":"Renato",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "22",
-        "course_id": "",
-        "name": "INF023 T02",
-        "professor": "Manoel",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"22",
+        "course_id":"",
+        "name":"INF023 T01",
+        "professor":"Manoel",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "23",
-        "course_id": "",
-        "name": "INF026",
-        "professor": "AC",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"23",
+        "course_id":"",
+        "name":"INF023 T02",
+        "professor":"Manoel",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "24",
-        "course_id": "",
-        "name": "INF027 T01",
-        "professor": "Fred",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"24",
+        "course_id":"",
+        "name":"INF026",
+        "professor":"AC",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "25",
-        "course_id": "",
-        "name": "INF027 T03",
-        "professor": "Luiz Machado",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"25",
+        "course_id":"",
+        "name":"INF027 T01",
+        "professor":"Fred",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "26",
-        "course_id": "",
-        "name": "INF027 T02",
-        "professor": "Romilson",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"26",
+        "course_id":"",
+        "name":"INF027 T03",
+        "professor":"Luiz Machado",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "27",
-        "course_id": "",
-        "name": "INF028",
-        "professor": "AC",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"27",
+        "course_id":"",
+        "name":"INF027 T02",
+        "professor":"Romilson",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "28",
-        "course_id": "",
-        "name": "INF029",
-        "professor": "Renato",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"28",
+        "course_id":"",
+        "name":"INF028",
+        "professor":"AC",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "29",
-        "course_id": "",
-        "name": "INF030",
-        "professor": "Renato",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"29",
+        "course_id":"",
+        "name":"INF029",
+        "professor":"Renato",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "30",
-        "course_id": "",
-        "name": "INF031",
-        "professor": "Romilson",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"30",
+        "course_id":"",
+        "name":"INF030",
+        "professor":"Renato",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "31",
-        "course_id": "",
-        "name": "LET100 T04",
-        "professor": "Dayse Sacramento",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"31",
+        "course_id":"",
+        "name":"INF031",
+        "professor":"Romilson",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "32",
-        "course_id": "",
-        "name": "LET102 T01",
-        "professor": "Socorro",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"32",
+        "course_id":"",
+        "name":"LET100 T04",
+        "professor":"Dayse Sacramento",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "33",
-        "course_id": "",
-        "name": "LET102 T02",
-        "professor": "Marcos",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
-    }
+        "id":"33",
+        "course_id":"",
+        "name":"LET102 T01",
+        "professor":"Socorro",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
     {
-        "id": "33",
-        "course_id": "",
-        "name": "MAT222 T01",
-        "professor": "Diana Cruz",
-        "size": "",
-        "year": "2017",
-        "semester": "1"
+        "id":"34",
+        "course_id":"",
+        "name":"LET102 T02",
+        "professor":"Marcos",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
+    },
+    {
+        "id":"35",
+        "course_id":"",
+        "name":"MAT222 T01",
+        "professor":"Diana Cruz",
+        "size":"",
+        "year":"2017",
+        "semester":"1"
     }
 ]

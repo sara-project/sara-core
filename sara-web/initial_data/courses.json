@@ -1,205 +1,170 @@
 [
-  {
-    "id": 1,
-    "cod": "ADM500",
-	"full_name": "Introdução a Administração",
-	"workload": 60,
-	"semester_number": 1
-  }
-  {
-	"id": 2,
-    "cod": "INF026",
-	"full_name": "Introdução a Computação",
-	"workload": 60,
-	"semester_number": 1
-  }
-  {
-	"id": 3,
-    "cod": "INF026",
-	"full_name": "Introdução à Lógica",
-	"workload": 60,
-	"semester_number": 1
-  }
-  {
-	"id": 4,
-    "cod": "LET100",
-	"full_name": "Língua Portuguesa",
-	"workload": 60,
-	"semester_number": 1
-  }
-  {
-	"id": 5,
-    "cod": "MAT222",
-	"full_name": "Matemática I",
-	"workload": 90,
-	"semester_number": 1
-  }
-  {
-	"id": 6,
-    "cod": "HUM103",
-	"full_name": "Metodologia de Pesquisa",
-	"workload": 60,
-	"semester_number": 2
-  }
-  {
-	"id": 7,
-    "cod": "HUM103",
-	"full_name": "Estrutura de Dados e Algoritmos",
-	"workload": 90,
-	"semester_number": 2
-  }
-  {
-	"id": 8,
-    "cod": "INF028",
-	"full_name": "Arquitetura de Computadores e Software Básico",
-	"workload": 60,
-	"semester_number": 2
-  }
-  {
-	"id": 9,
-    "cod": "INF029",
-	"full_name": "Laboratório de Programação",
-	"workload": 60,
-	"semester_number": 2
-  }
-  {
-	"id": 10,
-    "cod": "LET102",
-	"full_name": "Inglês",
-	"workload": 60,
-	"semester_number": 3
-  }
-  {
-    "id": 11,
-	"cod": "INF007",
-	"full_name": "Banco de Dados I",
-	"workload": 90,
-	"semester_number": 3
-  }
-  {
-    "id": 12,
-	"cod": "INF009",
-	"full_name": "Sistemas Operacionais",
-	"workload": 90,
-	"semester_number": 3
-  }
-  {
-    "id": 13,
-	"cod": "INF021",
-	"full_name": "Estágio Supervisionado",
-	"workload": 300,
-	"semester_number": 3
-  }
-  {
-    "id": 14,
-	"cod": "INF008",
-	"full_name": "Programação Orientada a Objetos",
-	"workload": 90,
-	"semester_number": 3
-  }
-  {
-    "id": 15,
-	"cod": "INF0011",
-	"full_name": "Padrões de Projeto",
-	"workload": 90,
-	"semester_number": 4
-  }
-  {
-    "id": 16,
-    "cod": "INF012",
-	"full_name": "Programação Web",
-	"workload": 90,
-	"semester_number": 4
-  }
-  {
-    "id": 17,
-    "cod": "INF010",
-	"full_name": "Banco de Dados II",
-	"workload": 90,
-	"semester_number": 4
-  }
-  {
-    "id": 18,
-	"cod": "INF015",
-	"full_name": "Rede de Computadores I",
-	"workload": 60,
-	"semester_number": 4
-  }
-  {
-    "id": 19,
-	"cod": "INF030",
-	"full_name": "Métodos Científicos em Computação",
-	"workload": 30,
-	"semester_number": 5
-  }
-  {
-    "id": 20,
-	"cod": "INF014",
-	"full_name": "Engenharia de Software",
-	"workload": 90,
-	"semester_number": 5
-  }
-  {
-    "id": 21,
-	"cod": "INF017",
-	"full_name": "Rede de Computadores II",
-	"workload": 60,
-	"semester_number": 5
-  }
-  {
-    "id": 22,
-	"cod": "INF022",
-	"full_name": "Tópicos Avançados",
-	"workload": 60,
-	"semester_number": 5
-  }
-  {
-    "id": 23,
-	"cod": "ADM550",
-	"full_name": "Empreendedorismo",
-	"workload": 60,
-	"semester_number": 5
-  }
-  {
-    "id": 24,
-	"cod": "HUM100",
-	"full_name": "Filosofia",
-	"workload": 60,
-	"semester_number": 5
-  }
-  {
-    "id": 25,
-	"cod": "INF018",
-	"full_name": "Auditoria e Segurança de Sistemas",
-	"workload": 60,
-	"semester_number": 6
-  }
-  {
-    "id": 26,
-	"cod": "INF019",
-	"full_name": "Gerência de Projetos",
-	"workload": 60,
-	"semester_number": 6
-  }
-  {
-    "id": 27,
-	"cod": "INF016",
-	"full_name": "Arquitetura de Software",
-	"workload": 90,
-	"semester_number": 6
-  }
-  {
-    "id": 28,
-	"cod": "INF020",
-	"full_name": "Sistemas Distribuídos",
-	"workload": 60,
-	"semester_number": 6
-  }
-  {
-    "id": 29,
-	"cod": "INF023",
-	"full_name": "Trabalho de Conclusão de Curso",
-	"workload": 60,
-	"semester_number": 6
-  }
+    {
+        "id":1,
+        "abbreviation":"LAB 01",
+        "name":"Laboratório de Informática I",
+        "capacity":20,
+        "area":""
+    },
+    {
+        "id":2,
+        "abbreviation":"LAB 02",
+        "name":"Laboratório de Informática II",
+        "capacity":40,
+        "area":""
+    },
+    {
+        "id":3,
+        "abbreviation":"LAB 03",
+        "name":"Laboratório de Informática III",
+        "capacity":40,
+        "area":""
+    },
+    {
+        "id":4,
+        "abbreviation":"LAB 04",
+        "name":"Laboratório de Informática IV",
+        "capacity":40,
+        "area":""
+    },
+    {
+        "id":5,
+        "abbreviation":"O-120",
+        "name":"ITCP",
+        "capacity":30,
+        "area":""
+    },
+    {
+        "id":6,
+        "abbreviation":"O-203",
+        "name":"S 06",
+        "capacity":50,
+        "area":""
+    },
+    {
+        "id":7,
+        "abbreviation":"O-205",
+        "name":"S 08",
+        "capacity":40,
+        "area":""
+    },
+    {
+        "id":8,
+        "abbreviation":"O-207",
+        "name":"S 10",
+        "capacity":40,
+        "area":""
+    },
+    {
+        "id":9,
+        "abbreviation":"O-209",
+        "name":"S 12",
+        "capacity":60,
+        "area":""
+    },
+    {
+        "id":10,
+        "abbreviation":"L-003",
+        "name":"Áudio 03",
+        "capacity":45,
+        "area":""
+    },
+    {
+        "id":11,
+        "abbreviation":"L-101",
+        "name":"Sala L-101",
+        "capacity":45,
+        "area":""
+    },
+    {
+        "id":12,
+        "abbreviation":"L-102",
+        "name":"Sala L-102",
+        "capacity":50,
+        "area":""
+    },
+    {
+        "id":13,
+        "abbreviation":"L-103",
+        "name":"Sala L-103",
+        "capacity":50,
+        "area":""
+    },
+    {
+        "id":14,
+        "abbreviation":"L-104",
+        "name":"Laboratório Informática V",
+        "capacity":40,
+        "area":""
+    },
+    {
+        "id":15,
+        "abbreviation":"L-105",
+        "name":"Sala L-105",
+        "capacity":40,
+        "area":""
+    },
+    {
+        "id":16,
+        "abbreviation":"L-106",
+        "name":"Sala L-106",
+        "capacity":30,
+        "area":""
+    },
+    {
+        "id":17,
+        "abbreviation":"D-102",
+        "name":"Sala 01",
+        "capacity":35,
+        "area":""
+    },
+    {
+        "id":18,
+        "abbreviation":"D-105",
+        "name":"Sala 02",
+        "capacity":35,
+        "area":""
+    },
+    {
+        "id":19,
+        "abbreviation":"D-108",
+        "name":"Sala 05",
+        "capacity":40,
+        "area":""
+    },
+    {
+        "id":20,
+        "abbreviation":"D-109",
+        "name":"Sala 06",
+        "capacity":40,
+        "area":""
+    },
+    {
+        "id":21,
+        "abbreviation":"D-111",
+        "name":"Sala 08",
+        "capacity":35,
+        "area":""
+    },
+    {
+        "id":22,
+        "abbreviation":"D-112",
+        "name":"Sala 09",
+        "capacity":35,
+        "area":""
+    },
+    {
+        "id":23,
+        "abbreviation":"D-202",
+        "name":"Sala 11",
+        "capacity":40,
+        "area":""
+    },
+    {
+        "id":24,
+        "abbreviation":"F-005",
+        "name":"Sala de Fisica",
+        "capacity":45,
+        "area":""
+    }
 ]

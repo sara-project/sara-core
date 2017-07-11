@@ -1,91 +1,90 @@
 [
     {
-        "id": "1",
-        "professor": "Washington"
-    }
+        "id":"1",
+        "professor":"Washington"
+    },
     {
-        "id": "2",
-        "professor": "Katia Miranda"
-    }
+        "id":"2",
+        "professor":"Katia Miranda"
+    },
     {
-        "id": "3",
-        "professor": "Ricardo Almeida"
-    }
+        "id":"3",
+        "professor":"Ricardo Almeida"
+    },
     {
-        "id": "4",
-        "professor": "Samir"
-    }
+        "id":"4",
+        "professor":"Samir"
+    },
     {
-        "id": "5",
-        "professor": "Allan"
-    }
-     {
-        "id": "6",
-        "professor": "Grinaldo"
-    }
+        "id":"5",
+        "professor":"Allan"
+    },
     {
-        "id": "7",
-        "professor": "Fred"
-    }
+        "id":"6",
+        "professor":"Grinaldo"
+    },
     {
-        "id": "8",
-        "professor": "Jowaner"
-    }
+        "id":"7",
+        "professor":"Fred"
+    },
     {
-        "id": "9",
-        "professor": "Pablo"
-    }
+        "id":"8",
+        "professor":"Jowaner"
+    },
     {
-        "id": "10",
-        "professor": "Sandro"
-    }
+        "id":"9",
+        "professor":"Pablo"
+    },
     {
-        "id": "11",
-        "professor": "Manoel"
-    }
+        "id":"10",
+        "professor":"Sandro"
+    },
     {
-        "id": "12",
-        "professor": "Simone"
-    }
+        "id":"11",
+        "professor":"Manoel"
+    },
     {
-        "id": "13",
-        "professor": "AC",
-    }
+        "id":"12",
+        "professor":"Simone"
+    },
     {
-        "id": "14",
-        "professor": "Mauricio",
-    }
+        "id":"13",
+        "professor":"AC"
+    },
     {
-        "id": "15",
-        "professor": "Ronaldo",
-    }
+        "id":"14",
+        "professor":"Mauricio"
+    },
     {
-        "id": "16",
-        "professor": "Renato",
-    }
+        "id":"15",
+        "professor":"Ronaldo"
+    },
     {
-        "id": "17",
-        "professor": "Luiz Machado",
-    }
+        "id":"16",
+        "professor":"Renato"
+    },
     {
-        "id": "18",
-        "professor": "Romilson"
-    }
+        "id":"17",
+        "professor":"Luiz Machado"
+    },
     {
-        "id": "19",
-        "professor": "Dayse Sacramento",
-    }
+        "id":"18",
+        "professor":"Romilson"
+    },
     {
-        "id": "20",
-        "professor": "Socorro"
-    }
+        "id":"19",
+        "professor":"Dayse Sacramento"
+    },
     {
-        "id": "21",
-        "professor": "Marcos"
-    }
+        "id":"20",
+        "professor":"Socorro"
+    },
     {
-        "id": "22",
-        "professor": "Diana Cruz"
-
+        "id":"21",
+        "professor":"Marcos"
+    },
+    {
+        "id":"22",
+        "professor":"Diana Cruz"
     }
 ]
