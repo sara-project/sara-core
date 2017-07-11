@@ -1,0 +1,14 @@
+[
+    {
+        "id":1,
+        "name":"Matutino"
+    },
+    {
+        "id":2,
+        "startTime":"Vespertino"
+    },
+    {
+        "id":3,
+        "startTime":"Noturno"
+    }
+]
