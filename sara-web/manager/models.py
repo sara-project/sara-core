@@ -57,7 +57,7 @@ class Room(models.Model):
     id = models.IntegerField
     code = models.CharField(max_length=20, blank=False, null=False)
     description = models.CharField(max_length=100, blank=False, null=False)
-    capacity = models.IntegerField
+    capacity = models.PositiveSmallIntegerField(default=0)
     type = models.ForeignKey('RoomType')
     area = models.ForeignKey('Area')
 
