@@ -22,12 +22,36 @@
                 "id": 1,
                 "name": "Equipamento"
         }
-    }
+    },
     {
         "model": "manager.RequirementType",
         "fields":  {
                 "id": 2,
                 "name": "Acessibilidade"
+        }
+    },
+    {
+        "model": "manager.Requirement",
+        "fields":  {
+            "id":"1",
+            "description":"DataShow",
+            "type": 1
+        }
+    },
+    {
+        "model": "manager.Requirement",
+        "fields":  {
+            "id":"2",
+            "description":"Rampa de Acesso",
+            "type": 2
+        }
+    },
+    {
+        "model": "manager.Requirement",
+        "fields":  {
+            "id":"3",
+            "description":"Elevador",
+            "type": 2
         }
     }
 ]
