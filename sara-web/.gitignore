@@ -101,6 +101,8 @@ myvenv/
 .mypy_cache/
 
 #Others
+*.sqlite3
+./*.sqlite3
 MANIFEST
 docs/locale/
 node_modules/
