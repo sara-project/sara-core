@@ -40,9 +40,10 @@ class Area(models.Model):
     id = models.IntegerField
     code = models.CharField(max_length=20, blank=False, null=False)
     description = models.CharField(max_length=100, blank=False, null=False)
+    campus = models.ForeignKey('Campus')
 
     def __str__(self):
-        return self.name
+        return self.code +' - ' + self.description
 
 class RoomType(models.Model):
     id = models.IntegerField
