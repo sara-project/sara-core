@@ -1,0 +1,33 @@
+[
+    {
+        "model": "manager.Institution",
+        "fields":  {
+                "id": 1,
+                "acronym": "IFBA",
+                "name": "Instituto Federal de Educação Ciência e Tecnologia"
+        }
+    },
+    {
+        "model": "manager.Campus",
+        "fields":  {
+                "id": 1,
+                "name": "Salvador",
+                "address": "R. Emídio dos Santos, s/n - Barbalho",
+                "institution": 1
+        }
+    },
+    {
+        "model": "manager.RequirementType",
+        "fields":  {
+                "id": 1,
+                "name": "Equipamento"
+        }
+    }
+    {
+        "model": "manager.RequirementType",
+        "fields":  {
+                "id": 2,
+                "name": "Acessibilidade"
+        }
+    }
+]
