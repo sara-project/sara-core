@@ -4,7 +4,7 @@
         "fields":  {
                 "id": 1,
                 "acronym": "IFBA",
-                "name": "Instituto Federal de Educação Ciência e Tecnologia"
+                "name": "Instituto Federal de EducaÃ§Ã£o CiÃªncia e Tecnologia"
         }
     },
     {
@@ -12,7 +12,7 @@
         "fields":  {
                 "id": 1,
                 "name": "Salvador",
-                "address": "R. Emídio dos Santos, s/n - Barbalho",
+                "address": "R. EmÃ­dio dos Santos, s/n - Barbalho",
                 "institution": 1
         }
     },
