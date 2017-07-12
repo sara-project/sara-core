@@ -33,25 +33,170 @@
     {
         "model": "manager.Requirement",
         "fields":  {
-            "id":"1",
-            "description":"DataShow",
+            "id": "1",
+            "description": "DataShow",
             "type": 1
         }
     },
     {
         "model": "manager.Requirement",
         "fields":  {
-            "id":"2",
-            "description":"Rampa de Acesso",
+            "id": "2",
+            "description": "Rampa de Acesso",
             "type": 2
         }
     },
     {
         "model": "manager.Requirement",
         "fields":  {
-            "id":"3",
-            "description":"Elevador",
+            "id": "3",
+            "description": "Elevador",
             "type": 2
         }
+    },
+    {
+        "model": "manager.Area",
+        "fields":  {
+            "id":1,
+            "code": "Bloco A",
+            "description": "Prédio Administrativo",
+            "campus": 1
+        }
+    },
+    {
+        "model": "manager.Area",
+        "fields":  {
+            "id":2,
+            "code": "Bloco B",
+            "description": "Antigo Pav 1",
+            "campus": 1
+        }
+    },
+    {
+        "model": "manager.Area",
+        "fields":  {
+            "id":3,
+            "code": "Bloco D",
+            "description": "Antigo Pav 2",
+            "campus": 1
+        }
+    },
+    {
+        "model": "manager.Area",
+        "fields":  {
+            "id":4,
+            "code": "Bloco E",
+            "description": "Eletrotécnica",
+            "campus": 1
+        }
+    },
+    {
+        "model": "manager.Area",
+        "fields":  {
+            "id":5,
+            "code": "Bloco F",
+            "description": "Prédio Física",
+            "campus": 1
+        }
+    },
+    {
+        "model": "manager.Area",
+        "fields":  {
+            "id":6,
+            "code": "Bloco G",
+            "description": "Canteiro de Obras",
+            "campus": 1
+        }
+    },
+    {
+        "model": "manager.Area",
+        "fields":  {
+            "id":7,
+            "code": "Bloco H",
+            "description": "Prédio Física",
+            "campus": 1
+        }
+    },
+    {
+        "model": "manager.Area",
+        "fields":  {
+            "id":8,
+            "code": "Bloco K",
+            "description": "Biblioteca",
+            "campus": 1
+        }
+    },
+    {
+        "model": "manager.Area",
+        "fields":  {
+            "id":9,
+            "code": "Bloco L",
+            "description": "Metalurgia",
+            "campus": 1
+        }
+    },
+    {
+        "model": "manager.Area",
+        "fields":  {
+            "id":10,
+            "code": "Bloco O",
+            "description": "Antigo Pav 7",
+            "campus": 1
+        }
+    },
+    {
+        "model": "manager.Area",
+        "fields":  {
+            "id":11,
+            "code": "Bloco P",
+            "description": "Antigo Pav 8",
+            "campus": 1
+        }
+    },
+    {
+        "model": "manager.Area",
+        "fields":  {
+            "id":12,
+            "code": "Labs Automação",
+            "description": "",
+            "campus": 1
+        }
+    },
+    {
+        "model": "manager.Area",
+        "fields":  {
+            "id":13,
+            "code": "Labs Física",
+            "description": "",
+            "campus": 1
+        }
+    },
+    {
+        "model": "manager.Area",
+        "fields":  {
+            "id":14,
+            "code": "Labs Informática (1 - 4)",
+            "description": "",
+            "campus": 1
+        }
+    },
+    {
+        "model": "manager.Area",
+        "fields":  {
+            "id":15,
+            "code": "Labs Química",
+            "description": "",
+            "campus": 1
+        }
+    },
+    {
+        "model": "manager.Area",
+        "fields":  {
+            "id":16,
+            "code": "LAFIR",
+            "description": "",
+            "campus": 1
+        }
     }
+
 ]
