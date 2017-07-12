@@ -63,3 +63,8 @@ class Room(models.Model):
 
     def __str__(self):
         return self.description
+
+class Teacher(models.Model):
+    id = models.IntegerField
+    name = models.CharField(max_length=100, blank=false, null=false)
+    
