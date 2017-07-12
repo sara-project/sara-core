@@ -87,6 +87,9 @@ venv/
 ENV/
 myvenv/
 
+#Migrations
+*/migrations/
+
 # Spyder project settings
 .spyderproject
 .spyproject
