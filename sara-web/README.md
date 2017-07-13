@@ -35,8 +35,34 @@ Install project requirements save in requirements.txt
 pip install -r requirements.txt
 ```
 
+### Initialize Default Data
+> This section is optional. Just run the commands bellow if you want load a default dataset.
+
+Create the migration files by running:
+
+```
+python manage.py makemigrations
+```
+
+and after, apply them:
+
+```
+python manage.py migrate --run syncdb
+```
+
+Run the command bellow to load initial data:
+
+```
+python manage.py loaddata fixtures/initial_data.json
+```
 
 ### Running
+
+You'll need to create a user with higher permissions, called "super user". To create a super user, run:
+
+```
+python manage.py createsuperuser
+```
 
 Run the main python module
 
