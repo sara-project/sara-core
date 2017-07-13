@@ -6,6 +6,9 @@ from .models import Requirement
 from .models import Area
 from .models import RoomType
 from .models import Room
+from .models import Teacher
+from .models import Program
+from .models import Course
 
 admin.site.register(Institution)
 admin.site.register(Campus)
