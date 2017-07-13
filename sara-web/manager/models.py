@@ -110,3 +110,17 @@ class Program(models.Model):
     class Meta:
         verbose_name = 'Curso'
         verbose_name_plural = 'Cursos'
+
+class Course(models.Model):
+    id = models.IntegerField
+    code = models.CharField(max_length=20, blank=False, null=False)
+    name = models.CharField(max_length=200, blank=False, null=False)
+    workload = models.PositiveSmallIntegerField(default=0)
+    semester_number = models.PositiveSmallIntegerField(default=0)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Disciplina'
+        verbose_name_plural = 'Disciplinas'

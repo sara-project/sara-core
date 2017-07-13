@@ -643,5 +643,295 @@
           "acronym":"ADS",
           "name":"Análise e Desenvolvimento de Sistemas"
       }
+    },
+    {
+      "model": "manager.Course",
+      "fields": {
+          "id": 1,
+          "code": "ADM500",
+          "name": "Introdução a Administração",
+          "workload": 60,
+          "semester_number": 1
+      }
+    },
+    {
+      "model": "manager.Course",
+      "fields": {
+          "id": 2,
+          "code": "INF026",
+          "name": "Introdução a Computação",
+          "workload": 60,
+          "semester_number": 1
+      }
+    },
+    {
+      "model": "manager.Course",
+      "fields": {
+          "id": 3,
+          "code": "INF026",
+          "name": "Introdução à Lógica",
+          "workload": 60,
+          "semester_number": 1
+      }
+    },
+    {
+      "model": "manager.Course",
+      "fields": {
+          "id": 4,
+          "code": "LET100",
+          "name": "Língua Portuguesa",
+          "workload": 60,
+          "semester_number": 1
+      }
+    },
+    {
+      "model": "manager.Course",
+      "fields": {
+          "id": 5,
+          "code": "MAT222",
+          "name": "Matemática I",
+          "workload": 90,
+          "semester_number": 1
+      }
+    },
+    {
+      "model": "manager.Course",
+      "fields": {
+          "id": 6,
+          "code": "HUM103",
+          "name": "Metodologia de Pesquisa",
+          "workload": 60,
+          "semester_number": 2
+      }
+    },
+    {
+      "model": "manager.Course",
+      "fields": {
+          "id": 7,
+          "code": "HUM103",
+          "name": "Estrutura de Dados e Algoritmos",
+          "workload": 90,
+          "semester_number": 2
+      }
+    },
+    {
+      "model": "manager.Course",
+      "fields": {
+          "id": 8,
+            "code": "INF028",
+          "name": "Arquitetura de Computadores e Software Básico",
+          "workload": 60,
+          "semester_number": 2
+      }
+    },
+    {
+      "model": "manager.Course",
+      "fields": {
+          "id": 9,
+          "code": "INF029",
+          "name": "Laboratório de Programação",
+          "workload": 60,
+          "semester_number": 2
+      }
+    },
+    {
+      "model": "manager.Course",
+      "fields": {
+          "id": 10,
+          "code": "LET102",
+          "name": "Inglês",
+          "workload": 60,
+          "semester_number": 3
+      }
+    },
+    {
+      "model": "manager.Course",
+      "fields": {
+          "id": 11,
+          "code": "INF007",
+          "name": "Banco de Dados I",
+          "workload": 90,
+          "semester_number": 3
+      }
+    },
+    {
+      "model": "manager.Course",
+      "fields": {
+          "id": 12,
+          "code": "INF009",
+          "name": "Sistemas Operacionais",
+          "workload": 90,
+          "semester_number": 3
+      }
+    },
+    {
+      "model": "manager.Course",
+      "fields": {
+          "id": 13,
+          "code": "INF021",
+          "name": "Estágio Supervisionado",
+          "workload": 300,
+          "semester_number": 3
+        }
+    },
+    {
+      "model": "manager.Course",
+      "fields": {
+          "id": 14,
+          "code": "INF008",
+          "name": "Programação Orientada a Objetos",
+          "workload": 90,
+          "semester_number": 3
+      }
+    },
+    {
+      "model": "manager.Course",
+      "fields": {
+          "id": 15,
+          "code": "INF0011",
+          "name": "Padrões de Projeto",
+          "workload": 90,
+          "semester_number": 4
+      }
+    },
+    {
+      "model": "manager.Course",
+      "fields": {
+          "id": 16,
+          "code": "INF012",
+          "name": "Programação Web",
+          "workload": 90,
+          "semester_number": 4
+      }
+    },
+    {
+      "model": "manager.Course",
+      "fields": {
+          "id": 17,
+          "code": "INF010",
+          "name": "Banco de Dados II",
+          "workload": 90,
+          "semester_number": 4
+      }
+    },
+    {
+      "model": "manager.Course",
+      "fields": {
+          "id": 18,
+          "code": "INF015",
+          "name": "Rede de Computadores I",
+          "workload": 60,
+          "semester_number": 4
+      }
+    },
+    {
+      "model": "manager.Course",
+      "fields": {
+          "id": 19,
+          "code": "INF030",
+          "name": "Métodos Científicos em Computação",
+          "workload": 30,
+          "semester_number": 5
+      }
+    },
+    {
+      "model": "manager.Course",
+      "fields": {
+          "id": 20,
+          "code": "INF014",
+          "name": "Engenharia de Software",
+          "workload": 90,
+          "semester_number": 5
+      }
+    },
+    {
+      "model": "manager.Course",
+      "fields": {
+          "id": 21,
+          "code": "INF017",
+          "name": "Rede de Computadores II",
+          "workload": 60,
+          "semester_number": 5
+      }
+    },
+    {
+      "model": "manager.Course",
+      "fields": {
+          "id": 22,
+          "code": "INF022",
+          "name": "Tópicos Avançados",
+          "workload": 60,
+          "semester_number": 5
+      }
+    },
+    {
+      "model": "manager.Course",
+      "fields": {
+          "id": 23,
+          "code": "ADM550",
+          "name": "Empreendedorismo",
+          "workload": 60,
+          "semester_number": 5
+      }
+    },
+    {
+      "model": "manager.Course",
+      "fields": {
+          "id": 24,
+          "code": "HUM100",
+          "name": "Filosofia",
+          "workload": 60,
+          "semester_number": 5
+      }
+    },
+    {
+      "model": "manager.Course",
+      "fields": {
+          "id": 25,
+          "code": "INF018",
+          "name": "Auditoria e Segurança de Sistemas",
+          "workload": 60,
+          "semester_number": 6
+      }
+    },
+    {
+      "model": "manager.Course",
+      "fields": {
+          "id": 26,
+          "code": "INF019",
+          "name": "Gerência de Projetos",
+          "workload": 60,
+          "semester_number": 6
+      }
+    },
+    {
+      "model": "manager.Course",
+      "fields": {
+          "id": 27,
+          "code": "INF016",
+          "name": "Arquitetura de Software",
+          "workload": 90,
+          "semester_number": 6
+      }
+    },
+    {
+      "model": "manager.Course",
+      "fields": {
+          "id": 28,
+          "code": "INF020",
+          "name": "Sistemas Distribuídos",
+          "workload": 60,
+          "semester_number": 6
+      }
+    },
+    {
+      "model": "manager.Course",
+      "fields": {
+          "id": 29,
+          "code": "INF023",
+          "name": "Trabalho de Conclusão de Curso",
+          "workload": 60,
+          "semester_number": 6
+      }
     }
 ]
