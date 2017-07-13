@@ -47,13 +47,17 @@ python manage.py makemigrations
 and after, apply them:
 
 ```
-python manage.py migrate --run syncdb
+python manage.py makemigrations manager
+```
+and
+```
+python manage.py migrate
 ```
 
 Run the command bellow to load initial data:
 
 ```
-python manage.py loaddata fixtures/initial_data.json
+python manage.py loaddata manager/fixtures/initial_data.json
 ```
 
 ### Running
