@@ -98,3 +98,15 @@ class Teacher(models.Model):
     class Meta:
         verbose_name = 'Professor'
         verbose_name_plural = 'Professores'
+
+class Program(models.Model):
+    id = models.IntegerField
+    acronym = models.CharField(max_length=20, blank=False, null=False)
+    name = models.CharField(max_length=200, blank=False, null=False)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Curso'
+        verbose_name_plural = 'Cursos'

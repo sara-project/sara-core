@@ -636,5 +636,12 @@
             "id": 22,
             "name": "Fred"
         }
+    },
+    {
+      "model": "manager.Program",
+      "fields": {
+          "acronym":"ADS",
+          "name":"Análise e Desenvolvimento de Sistemas"
+      }
     }
 ]
