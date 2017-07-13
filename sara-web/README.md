@@ -15,6 +15,9 @@ Python 3.5 or superior
 You need to install a DB(SqLite, PostgreSQL) of your choice to create the tables and to invoke services.
 ```
 
+> You can see a short (and very good) tutorial about Python and Django [here](https://tutorial.djangogirls.org/).
+  In the Django Girls tutorial you will find specific steps for your operating system.
+
 ### Installing
 
 Create the python virtualenv
