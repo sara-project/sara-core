@@ -1,2 +1,22 @@
+#NetBeans and java
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+*.class
+*.jar
+*.war
+*.ear
+
 #Others
 .directory
+*.so
+*.log
+*.out
+*~
+*.swp
+*.DS_Store
+*.lock
