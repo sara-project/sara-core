@@ -1,0 +1,10 @@
+[
+    {
+        "population_number": 5000,
+        "max_generation": 4000, 
+        "probability_mutation" : 0.1,
+        "probability_crossover": 0.1,
+        "select_percent": 0.1,
+        "probability_elite": 0.1
+    }
+]
