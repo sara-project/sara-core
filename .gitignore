@@ -20,3 +20,12 @@ nbdist/
 *.swp
 *.DS_Store
 *.lock
+/sara-engine/IFBAClassRoomAssignmentPlugin/nbproject/private/
+/sara-engine/MenuExport/nbproject/private/
+/sara-engine/sara-ga-default-plugin/nbproject/private/
+/sara-engine/SaraGeneticAlgorithmsPlugin/nbproject/private/
+/sara-engine-prototype/IFBAClassRoomAssignmentPlugin/nbproject/private/
+/sara-engine-prototype/SaraGeneticAlgorithmsPlugin/nbproject/private/
+/sara-engine-prototype/sara-dashboard/nbproject/private/
+/sara-engine-prototype/sara-interfaces/nbproject/private/
+/sara-engine-prototype/sara-shell/nbproject/private/

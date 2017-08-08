@@ -10,8 +10,8 @@ import java.util.logging.Logger;
 
 public class ProjectController extends IProjectController {
 
-    public ProjectController() {
-        nameActivePlugins = new ArrayList<>();
+    public ProjectController(int availableProcessors) {
+        super(availableProcessors);
     }
 
     @Override
@@ -54,6 +54,5 @@ public class ProjectController extends IProjectController {
         this.dataJars = dataJars;
     }
 
-    private List<String> nameActivePlugins;
     private URLClassLoader dataJars;
 }

@@ -7,12 +7,9 @@
 <!-- the Compile on Save feature is turned off for the project. -->
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
-<project name="sara-shell" default="default" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant">
-    <description>Builds, tests, and runs the project sara-shell.</description>
+<project name="SaraGeneticAlgorithmsPlugin" default="default" basedir=".">
+    <description>Builds, tests, and runs the project SaraGeneticAlgorithmsPlugin.</description>
     <import file="nbproject/build-impl.xml"/>
-    <target name="-post-jar">
-        <get src="http://central.maven.org/maven2/org/json/json/20170516/json-20170516.jar" dest="./dist/lib"/>
-    </target>
     <!--
 
     There exist several targets which are by default empty and which can be 
@@ -61,7 +58,7 @@
 
     An example of overriding the target for project execution could look like this:
 
-        <target name="run" depends="sara-shell-impl.jar">
+        <target name="run" depends="SaraGeneticAlgorithmsPlugin-impl.jar">
             <exec dir="bin" executable="launcher.exe">
                 <arg file="${dist.jar}"/>
             </exec>

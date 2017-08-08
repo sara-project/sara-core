@@ -1,12 +1,19 @@
-package org.sara.interfaces.abstractyfactory;
+package org.sara.interfaces.abstractfactories;
 
-public abstract class IAbstractFactory {
+import org.sara.interfaces.algorithms.ga.chromosome.IChromosome;
+import org.sara.interfaces.algorithms.ga.chromosome.IPopulation;
 
-    public static IAbstractFactory getInstance() {
+public abstract class ICRAssignmentFactory {
+    
+    public static ICRAssignmentFactory getInstance()
+    {
         return instance;
     }
+    public abstract  IChromosome CreateChromosome();
+    public abstract  IPopulation CreatePopulation();
 
-    protected IAbstractFactory() {
-    }
-    protected static IAbstractFactory instance = null;
+    // public IEditorAbstractFactory CreateEditorAbstractFactory();
+     
+    protected ICRAssignmentFactory() {}
+    protected static ICRAssignmentFactory instance = null;
 }

@@ -6,8 +6,10 @@ import java.util.List;
 
 public abstract class IProjectController implements IObservable {
 
-    public IProjectController() {
+    public IProjectController(int availableProcessors) {
+        AVAILABLE_PROCESSORS = availableProcessors;
         observers = new ArrayList<>();
+        nameActivePlugins = new ArrayList<>();
     }
 
     public abstract void addNameActivePlugin(String name);
@@ -37,5 +39,7 @@ public abstract class IProjectController implements IObservable {
         }
     }
 
+    public final int AVAILABLE_PROCESSORS;
     protected List<IObserver> observers;
+    protected List<String> nameActivePlugins;
 }
