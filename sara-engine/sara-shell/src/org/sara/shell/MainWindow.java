@@ -16,7 +16,7 @@ public class MainWindow extends javax.swing.JFrame {
         jToolBar = new javax.swing.JMenuBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Editor Framework");
+        setTitle("No Title");
         setJMenuBar(jToolBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

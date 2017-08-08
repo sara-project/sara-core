@@ -13,9 +13,9 @@ import java.util.logging.Logger;
 
 public class Core extends ICore {
 
-    public static void initialize() {
+    public static void initialize(int availableProcessors) {
         if (instance == null) {
-            instance = new Core();
+            instance = new Core(availableProcessors);
         }
     }
 
@@ -27,9 +27,9 @@ public class Core extends ICore {
         return projectController;
     }
 
-    protected Core() {
+    protected Core(int availableProcessors) {
         uiController = new UiController();
-        projectController = new ProjectController();
+        projectController = new ProjectController(availableProcessors);
     }
 
     public static void initPlugins() {
@@ -45,6 +45,7 @@ public class Core extends ICore {
         String[] plugins = currentDir.list();
         int i;
         URL[] jars = new URL[plugins.length];
+        System.out.println("Loading plugins...");
         for (i = 0; i < plugins.length; i++) {
 
             System.out.println(i + 1 + " - " + plugins[i].split("\\.")[0]);
@@ -73,7 +74,7 @@ public class Core extends ICore {
             }
             getInstance().getProjectController().addNameActivePlugin(tempName);
         }
-
+        System.out.println("Load completed...");
         new Thread() {
 
             @Override
