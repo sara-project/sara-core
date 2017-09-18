@@ -12,6 +12,7 @@ public abstract class AbstractCrossover implements ICrossover {
         this.parameterInfos = new GAConfigLoader();
     }
 
+    @Override
     public IPopulation makeOffspring(IPopulation population, int size) {
         DefaultPopulation newPop = new DefaultPopulation();
         Random parents = new Random();

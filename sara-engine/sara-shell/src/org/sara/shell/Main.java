@@ -1,8 +1,32 @@
 package org.sara.shell;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.json.simple.parser.ParseException;
+
 public class Main {
 
     public static void main(String[] args) {
+        
+        args = new String[1];
+        args[0] = "./exemplo_request.json";
+        if(args.length <= 0) {
+            System.err.println("Missing args...");
+            return ;
+        }
+        
+        JSONHandler handler = new  JSONHandler();
+        try {
+            handler.LoadJson(args[0]);
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         int availableProcessors = Runtime.getRuntime().availableProcessors();
         String osName = System.getProperty("os.name");
 
@@ -21,5 +45,6 @@ public class Main {
 
         Core.initialize(availableProcessors);
         Core.initPlugins();
+        
     }
 }
