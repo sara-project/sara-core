@@ -11,7 +11,7 @@
     <description>Builds, tests, and runs the project sara-shell.</description>
     <import file="nbproject/build-impl.xml"/>
     <target name="-post-jar">
-        <get src="http://central.maven.org/maven2/org/json/json/20170516/json-20170516.jar" dest="./dist/lib"/>
+        <get src="http://central.maven.org/maven2/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar" dest="./dist/lib"/>
     </target>
     <!--
 

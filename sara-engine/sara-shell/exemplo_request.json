@@ -1,0 +1,35 @@
+{
+  "rooms": [
+      {
+        "id": 1,
+        "capacity": 40
+      },
+      {
+        "id": 2,
+        "capacity": 40
+      },
+      {
+        "id": 3,
+        "capacity": 40
+      }
+  ],
+  "classes": [
+    {
+      "id": 1,
+      "size": 20
+    },
+    {
+        "id": 2,
+        "size": 40
+    },
+    {
+        "id": 3,
+        "size": 40
+    }
+  ],
+  "slots": [
+    {
+      "id": 1
+    }
+  ]
+}
