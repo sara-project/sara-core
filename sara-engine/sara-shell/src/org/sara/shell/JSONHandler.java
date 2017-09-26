@@ -46,8 +46,8 @@ public class JSONHandler {
             if(classesHash.containsKey(id))
                 throw new Exception("Json File is invalid. There is Room duplicated (id: "+id+").");
             
-            classesHash.put(id, new SchoolClass(s_class.get("id").toString(),
-                                   Integer.parseInt(s_class.get("size").toString())));
+            //classesHash.put(id, new SchoolClass(s_class.get("id").toString(),
+            //                       Integer.parseInt(s_class.get("size").toString())));
         }
 
         it = slots.iterator();
@@ -58,7 +58,7 @@ public class JSONHandler {
             if(slotsHash.containsKey(id))
                 throw new Exception("Json File is invalid. There is Room duplicated (id: "+id+").");
             
-            slotsHash.put(id, new Slot(slot.get("id").toString()));
+            //slotsHash.put(id, new Slot(slot.get("id").toString()));
         }
     }
 }
