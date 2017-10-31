@@ -4,10 +4,13 @@ import java.io.FileNotFoundException;
 import org.sara.interfaces.model.Room;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import org.json.simple.*;
 import org.json.simple.parser.*;
+import org.sara.interfaces.model.Schedule;
 import org.sara.interfaces.model.SchoolClass;
 import org.sara.interfaces.model.Slot;
 
@@ -46,8 +49,20 @@ public class JSONHandler {
             if(classesHash.containsKey(id))
                 throw new Exception("Json File is invalid. There is Room duplicated (id: "+id+").");
             
-            //classesHash.put(id, new SchoolClass(s_class.get("id").toString(),
-            //                       Integer.parseInt(s_class.get("size").toString())));
+            List<Schedule> schedules = new ArrayList<>();
+            JSONArray jschedules = (JSONArray) jsonObject.get("schedules");
+            Iterator sch = jschedules.iterator();
+            
+            while(sch.hasNext()){
+                JSONObject schedule = (JSONObject) it.next();
+                schedules.add(new Schedule(Integer.parseInt(schedule.get("id").toString()),
+                                           Integer.parseInt(schedule.get("day").toString()),
+                                           Integer.parseInt(schedule.get("timeInterval").toString())));
+            
+            }
+
+            classesHash.put(id, new SchoolClass(s_class.get("id").toString(),
+                                   Integer.parseInt(s_class.get("size").toString()), schedules));
         }
 
         it = slots.iterator();
