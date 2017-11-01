@@ -54,7 +54,7 @@ public class JSONHandler {
             Iterator sch = jschedules.iterator();
             
             while(sch.hasNext()){
-                JSONObject schedule = (JSONObject) it.next();
+                JSONObject schedule = (JSONObject) sch.next();
                 schedules.add(new Schedule(Integer.parseInt(schedule.get("id").toString()),
                                            Integer.parseInt(schedule.get("day").toString()),
                                            Integer.parseInt(schedule.get("timeInterval").toString())));
@@ -73,7 +73,10 @@ public class JSONHandler {
             if(slotsHash.containsKey(id))
                 throw new Exception("Json File is invalid. There is Room duplicated (id: "+id+").");
             
-            //slotsHash.put(id, new Slot(slot.get("id").toString()));
+            JSONObject schedule = (JSONObject) slot.get("schedule");
+            slotsHash.put(id, new Slot(slot.get("id").toString(), new Schedule(Integer.parseInt(schedule.get("id").toString()),
+                                                                    Integer.parseInt(schedule.get("day").toString()),
+                                                                    Integer.parseInt(schedule.get("timeInterval").toString()))));
         }
     }
 }
