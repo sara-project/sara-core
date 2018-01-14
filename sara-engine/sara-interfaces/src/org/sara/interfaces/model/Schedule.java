@@ -16,7 +16,6 @@ public class Schedule {
         
         Schedule other = (Schedule) o;
         
-        
         return other.day == this.day && other.timeInterval == this.timeInterval;
     }
     

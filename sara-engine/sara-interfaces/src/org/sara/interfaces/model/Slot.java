@@ -3,9 +3,10 @@ package org.sara.interfaces.model;
 
 public class Slot {
     
-    public Slot(String id, Schedule schedule) {
+    public Slot(int id, Schedule schedule, Room room) {
         this.id = id;
         this.schedule = schedule;
+        this.room = room;
     }
     
     public boolean isEmpty() {
@@ -36,8 +37,8 @@ public class Slot {
         return c1 && c2;
     }
     
-    private final String id;
-    private Room room;
+    private final int id;
+    private final Room room;
+    private final Schedule schedule;
     private SchoolClass sClass;
-    private Schedule schedule;
 }

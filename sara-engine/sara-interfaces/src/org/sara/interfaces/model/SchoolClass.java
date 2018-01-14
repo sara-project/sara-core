@@ -5,10 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 
 
-
 public class SchoolClass {
     
-    public SchoolClass(String id, int size, List<Schedule> schedules) {
+    public SchoolClass(int id, int size, List<Schedule> schedules) {
         this.id = id;
         this.size = size;
         this.schedules =  new SchedulesMap(schedules);
@@ -41,9 +40,9 @@ public class SchoolClass {
         return schedulesSet;
     }
     
-    private final String id;
+    private final int id;
     private final int size;
-    private SchedulesMap schedules;
+    private final SchedulesMap schedules;
     
     private class SchedulesMap {
     
