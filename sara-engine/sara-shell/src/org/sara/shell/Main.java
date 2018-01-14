@@ -1,9 +1,14 @@
 package org.sara.shell;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.simple.parser.ParseException;
+import org.sara.interfaces.model.Room;
+import org.sara.interfaces.model.Schedule;
+import org.sara.interfaces.model.SchoolClass;
+import org.sara.interfaces.model.Slot;
 
 public class Main {
 
@@ -16,35 +21,82 @@ public class Main {
             return ;
         }
         
-        JSONHandler handler = new  JSONHandler();
-        try {
-            handler.LoadJson(args[0]);
-        } catch (IOException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ParseException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
         int availableProcessors = Runtime.getRuntime().availableProcessors();
         String osName = System.getProperty("os.name");
+        String jsonFile = args[0];
+        
+        System.out.println();
+        System.out.println("----------------------------------------- ");
+        System.out.println("System Information");
+        System.out.println();
+        System.out.println("- Operational System: " + osName);
+        System.out.println("- Available Processors: " + availableProcessors);
+        
+        
+        System.out.println();
+        System.out.println("----------------------------------------- ");
+        System.out.println("Models Information");
+        System.out.println();
 
+        System.out.println("- Starting loading models...");
+
+        HashMap<String, Schedule> schedulesHash = new HashMap<>();
+        HashMap<String, Slot> slotsHash = new HashMap<>();
+        HashMap<String, SchoolClass> classesHash = new HashMap<>();
+        HashMap<String, Room> roomsHash = new HashMap<>();
+
+        //This block will load the models
+        {
+            try {
+                JSONHandler handler = new JSONHandler(jsonFile);
+                schedulesHash = handler.getSchedulesHash();
+                slotsHash = handler.getSlotsHash();
+                classesHash = handler.getClassesHash();
+                roomsHash = handler.getRoomsHash();
+
+            } catch (IOException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ParseException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }//Releases the json handler after this block executes
+        
+        System.out.println("  ...loading completed successfully!");
+        System.out.println();
+        
+        System.out.println(" - " + schedulesHash.size() + " schedules;");
+        System.out.println(" - " + slotsHash.size() + " slots;");
+        System.out.println(" - " + classesHash.size() + " classes;");
+        System.out.println(" - " + roomsHash.size() + " rooms.");
+        System.out.println();
+        
+       
+        System.out.println();
+        System.out.println("----------------------------------------- ");
+        System.out.println("Models Information");
+        System.out.println();
+        
         try {
-            System.out.print("Starting copying of plugins... ");
+            System.out.print("- Starting copying of plugins... ");
             if (osName.toUpperCase().contains("LINUX") || osName.toUpperCase().contains("MAC"))
                 Runtime.getRuntime().exec("sh refresh_plugins.sh");
             else
                 throw new Exception("The script for windows is not implemented.");
             
-            System.out.println("the script was successful.");
+            System.out.println("  ... the script was successful!");
         } catch (Exception ex) {
-            System.err.println("fail to executing script that ails plugins.");
+            System.err.println("Failed to execute the script that copies the plug-in.");
             System.err.println(ex.getMessage());
         }
+        
+        System.out.println();
+        System.out.println("----------------------------------------- ");
+        System.out.println("Initialize System");
+        System.out.println();
 
         Core.initialize(availableProcessors);
         Core.initPlugins();
-        
     }
 }
