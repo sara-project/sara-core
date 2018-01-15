@@ -1,4 +1,12 @@
 {
+    "ga_config": {
+        "population_number": 5000,
+        "max_generation": 4000,
+        "mutation_probability": 0.1,
+        "crossover_probability": 0.1,
+        "select_probability": 0.1,
+        "elitism_probability": 0.1
+    },
     "schedules": [
         {
             "id": 13,
@@ -156,6 +164,788 @@
             "id": 3,
             "type": 3,
             "priority": 3
+        }
+    ],
+    "rooms": [
+        {
+            "id": 89,
+            "specifications": [],
+            "capacity": 10
+        },
+        {
+            "id": 90,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 91,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 92,
+            "specifications": [],
+            "capacity": 10
+        },
+        {
+            "id": 29,
+            "specifications": [],
+            "capacity": 40
+        },
+        {
+            "id": 26,
+            "specifications": [],
+            "capacity": 45
+        },
+        {
+            "id": 25,
+            "specifications": [],
+            "capacity": 45
+        },
+        {
+            "id": 96,
+            "specifications": [],
+            "capacity": 35
+        },
+        {
+            "id": 97,
+            "specifications": [],
+            "capacity": 35
+        },
+        {
+            "id": 98,
+            "specifications": [],
+            "capacity": 50
+        },
+        {
+            "id": 99,
+            "specifications": [],
+            "capacity": 45
+        },
+        {
+            "id": 100,
+            "specifications": [],
+            "capacity": 30
+        },
+        {
+            "id": 101,
+            "specifications": [],
+            "capacity": 50
+        },
+        {
+            "id": 102,
+            "specifications": [],
+            "capacity": 50
+        },
+        {
+            "id": 27,
+            "specifications": [],
+            "capacity": 40
+        },
+        {
+            "id": 93,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 94,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 95,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 103,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 104,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 105,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 106,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 17,
+            "specifications": [],
+            "capacity": 35
+        },
+        {
+            "id": 18,
+            "specifications": [],
+            "capacity": 35
+        },
+        {
+            "id": 107,
+            "specifications": [],
+            "capacity": 40
+        },
+        {
+            "id": 108,
+            "specifications": [],
+            "capacity": 40
+        },
+        {
+            "id": 19,
+            "specifications": [],
+            "capacity": 40
+        },
+        {
+            "id": 20,
+            "specifications": [],
+            "capacity": 40
+        },
+        {
+            "id": 109,
+            "specifications": [],
+            "capacity": 40
+        },
+        {
+            "id": 21,
+            "specifications": [],
+            "capacity": 35
+        },
+        {
+            "id": 22,
+            "specifications": [],
+            "capacity": 35
+        },
+        {
+            "id": 110,
+            "specifications": [],
+            "capacity": 60
+        },
+        {
+            "id": 23,
+            "specifications": [],
+            "capacity": 40
+        },
+        {
+            "id": 111,
+            "specifications": [],
+            "capacity": 40
+        },
+        {
+            "id": 112,
+            "specifications": [],
+            "capacity": 25
+        },
+        {
+            "id": 113,
+            "specifications": [],
+            "capacity": 25
+        },
+        {
+            "id": 114,
+            "specifications": [],
+            "capacity": 24
+        },
+        {
+            "id": 115,
+            "specifications": [],
+            "capacity": 30
+        },
+        {
+            "id": 116,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 117,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 118,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 119,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 120,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 121,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 122,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 123,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 24,
+            "specifications": [],
+            "capacity": 45
+        },
+        {
+            "id": 30,
+            "specifications": [],
+            "capacity": 40
+        },
+        {
+            "id": 124,
+            "specifications": [],
+            "capacity": 48
+        },
+        {
+            "id": 125,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 126,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 127,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 128,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 129,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 130,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 131,
+            "specifications": [],
+            "capacity": 15
+        },
+        {
+            "id": 132,
+            "specifications": [],
+            "capacity": 15
+        },
+        {
+            "id": 133,
+            "specifications": [],
+            "capacity": 25
+        },
+        {
+            "id": 134,
+            "specifications": [],
+            "capacity": 25
+        },
+        {
+            "id": 135,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 136,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 137,
+            "specifications": [],
+            "capacity": 35
+        },
+        {
+            "id": 138,
+            "specifications": [],
+            "capacity": 20
+        },
+        {
+            "id": 139,
+            "specifications": [],
+            "capacity": 30
+        },
+        {
+            "id": 140,
+            "specifications": [],
+            "capacity": 11
+        },
+        {
+            "id": 141,
+            "specifications": [],
+            "capacity": 20
+        },
+        {
+            "id": 34,
+            "specifications": [],
+            "capacity": 20
+        },
+        {
+            "id": 142,
+            "specifications": [],
+            "capacity": 20
+        },
+        {
+            "id": 143,
+            "specifications": [],
+            "capacity": 20
+        },
+        {
+            "id": 144,
+            "specifications": [],
+            "capacity": 10
+        },
+        {
+            "id": 33,
+            "specifications": [],
+            "capacity": 20
+        },
+        {
+            "id": 145,
+            "specifications": [],
+            "capacity": 10
+        },
+        {
+            "id": 147,
+            "specifications": [],
+            "capacity": 10
+        },
+        {
+            "id": 148,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 10,
+            "specifications": [],
+            "capacity": 45
+        },
+        {
+            "id": 149,
+            "specifications": [],
+            "capacity": 10
+        },
+        {
+            "id": 150,
+            "specifications": [],
+            "capacity": 20
+        },
+        {
+            "id": 11,
+            "specifications": [],
+            "capacity": 45
+        },
+        {
+            "id": 12,
+            "specifications": [],
+            "capacity": 50
+        },
+        {
+            "id": 13,
+            "specifications": [],
+            "capacity": 50
+        },
+        {
+            "id": 14,
+            "specifications": [],
+            "capacity": 40
+        },
+        {
+            "id": 15,
+            "specifications": [],
+            "capacity": 40
+        },
+        {
+            "id": 16,
+            "specifications": [],
+            "capacity": 30
+        },
+        {
+            "id": 151,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 31,
+            "specifications": [],
+            "capacity": 40
+        },
+        {
+            "id": 153,
+            "specifications": [],
+            "capacity": 40
+        },
+        {
+            "id": 154,
+            "specifications": [],
+            "capacity": 40
+        },
+        {
+            "id": 155,
+            "specifications": [],
+            "capacity": 40
+        },
+        {
+            "id": 156,
+            "specifications": [],
+            "capacity": 40
+        },
+        {
+            "id": 35,
+            "specifications": [],
+            "capacity": 30
+        },
+        {
+            "id": 152,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 5,
+            "specifications": [],
+            "capacity": 30
+        },
+        {
+            "id": 6,
+            "specifications": [],
+            "capacity": 50
+        },
+        {
+            "id": 32,
+            "specifications": [],
+            "capacity": 40
+        },
+        {
+            "id": 7,
+            "specifications": [],
+            "capacity": 40
+        },
+        {
+            "id": 157,
+            "specifications": [],
+            "capacity": 40
+        },
+        {
+            "id": 8,
+            "specifications": [],
+            "capacity": 40
+        },
+        {
+            "id": 158,
+            "specifications": [],
+            "capacity": 40
+        },
+        {
+            "id": 9,
+            "specifications": [],
+            "capacity": 60
+        },
+        {
+            "id": 37,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 38,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 39,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 60,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 40,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 52,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 57,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 58,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 46,
+            "specifications": [],
+            "capacity": 20
+        },
+        {
+            "id": 47,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 48,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 49,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 50,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 51,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 53,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 54,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 55,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 56,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 62,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 63,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 64,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 61,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 44,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 41,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 59,
+            "specifications": [],
+            "capacity": 30
+        },
+        {
+            "id": 45,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 43,
+            "specifications": [],
+            "capacity": 40
+        },
+        {
+            "id": 36,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 42,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 86,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 65,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 66,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 67,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 68,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 69,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 70,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 71,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 72,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 73,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 74,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 75,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 76,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 77,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 1,
+            "specifications": [],
+            "capacity": 20
+        },
+        {
+            "id": 2,
+            "specifications": [],
+            "capacity": 40
+        },
+        {
+            "id": 3,
+            "specifications": [],
+            "capacity": 40
+        },
+        {
+            "id": 4,
+            "specifications": [],
+            "capacity": 40
+        },
+        {
+            "id": 78,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 79,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 80,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 81,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 82,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 83,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 84,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 85,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 87,
+            "specifications": [],
+            "capacity": 0
+        },
+        {
+            "id": 88,
+            "specifications": [],
+            "capacity": 0
         }
     ],
     "slots": [
@@ -26776,788 +27566,6 @@
                 88
             ],
             "requirements": []
-        }
-    ],
-    "rooms": [
-        {
-            "id": 89,
-            "specifications": [],
-            "capacity": 10
-        },
-        {
-            "id": 90,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 91,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 92,
-            "specifications": [],
-            "capacity": 10
-        },
-        {
-            "id": 29,
-            "specifications": [],
-            "capacity": 40
-        },
-        {
-            "id": 26,
-            "specifications": [],
-            "capacity": 45
-        },
-        {
-            "id": 25,
-            "specifications": [],
-            "capacity": 45
-        },
-        {
-            "id": 96,
-            "specifications": [],
-            "capacity": 35
-        },
-        {
-            "id": 97,
-            "specifications": [],
-            "capacity": 35
-        },
-        {
-            "id": 98,
-            "specifications": [],
-            "capacity": 50
-        },
-        {
-            "id": 99,
-            "specifications": [],
-            "capacity": 45
-        },
-        {
-            "id": 100,
-            "specifications": [],
-            "capacity": 30
-        },
-        {
-            "id": 101,
-            "specifications": [],
-            "capacity": 50
-        },
-        {
-            "id": 102,
-            "specifications": [],
-            "capacity": 50
-        },
-        {
-            "id": 27,
-            "specifications": [],
-            "capacity": 40
-        },
-        {
-            "id": 93,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 94,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 95,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 103,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 104,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 105,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 106,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 17,
-            "specifications": [],
-            "capacity": 35
-        },
-        {
-            "id": 18,
-            "specifications": [],
-            "capacity": 35
-        },
-        {
-            "id": 107,
-            "specifications": [],
-            "capacity": 40
-        },
-        {
-            "id": 108,
-            "specifications": [],
-            "capacity": 40
-        },
-        {
-            "id": 19,
-            "specifications": [],
-            "capacity": 40
-        },
-        {
-            "id": 20,
-            "specifications": [],
-            "capacity": 40
-        },
-        {
-            "id": 109,
-            "specifications": [],
-            "capacity": 40
-        },
-        {
-            "id": 21,
-            "specifications": [],
-            "capacity": 35
-        },
-        {
-            "id": 22,
-            "specifications": [],
-            "capacity": 35
-        },
-        {
-            "id": 110,
-            "specifications": [],
-            "capacity": 60
-        },
-        {
-            "id": 23,
-            "specifications": [],
-            "capacity": 40
-        },
-        {
-            "id": 111,
-            "specifications": [],
-            "capacity": 40
-        },
-        {
-            "id": 112,
-            "specifications": [],
-            "capacity": 25
-        },
-        {
-            "id": 113,
-            "specifications": [],
-            "capacity": 25
-        },
-        {
-            "id": 114,
-            "specifications": [],
-            "capacity": 24
-        },
-        {
-            "id": 115,
-            "specifications": [],
-            "capacity": 30
-        },
-        {
-            "id": 116,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 117,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 118,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 119,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 120,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 121,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 122,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 123,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 24,
-            "specifications": [],
-            "capacity": 45
-        },
-        {
-            "id": 30,
-            "specifications": [],
-            "capacity": 40
-        },
-        {
-            "id": 124,
-            "specifications": [],
-            "capacity": 48
-        },
-        {
-            "id": 125,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 126,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 127,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 128,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 129,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 130,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 131,
-            "specifications": [],
-            "capacity": 15
-        },
-        {
-            "id": 132,
-            "specifications": [],
-            "capacity": 15
-        },
-        {
-            "id": 133,
-            "specifications": [],
-            "capacity": 25
-        },
-        {
-            "id": 134,
-            "specifications": [],
-            "capacity": 25
-        },
-        {
-            "id": 135,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 136,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 137,
-            "specifications": [],
-            "capacity": 35
-        },
-        {
-            "id": 138,
-            "specifications": [],
-            "capacity": 20
-        },
-        {
-            "id": 139,
-            "specifications": [],
-            "capacity": 30
-        },
-        {
-            "id": 140,
-            "specifications": [],
-            "capacity": 11
-        },
-        {
-            "id": 141,
-            "specifications": [],
-            "capacity": 20
-        },
-        {
-            "id": 34,
-            "specifications": [],
-            "capacity": 20
-        },
-        {
-            "id": 142,
-            "specifications": [],
-            "capacity": 20
-        },
-        {
-            "id": 143,
-            "specifications": [],
-            "capacity": 20
-        },
-        {
-            "id": 144,
-            "specifications": [],
-            "capacity": 10
-        },
-        {
-            "id": 33,
-            "specifications": [],
-            "capacity": 20
-        },
-        {
-            "id": 145,
-            "specifications": [],
-            "capacity": 10
-        },
-        {
-            "id": 147,
-            "specifications": [],
-            "capacity": 10
-        },
-        {
-            "id": 148,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 10,
-            "specifications": [],
-            "capacity": 45
-        },
-        {
-            "id": 149,
-            "specifications": [],
-            "capacity": 10
-        },
-        {
-            "id": 150,
-            "specifications": [],
-            "capacity": 20
-        },
-        {
-            "id": 11,
-            "specifications": [],
-            "capacity": 45
-        },
-        {
-            "id": 12,
-            "specifications": [],
-            "capacity": 50
-        },
-        {
-            "id": 13,
-            "specifications": [],
-            "capacity": 50
-        },
-        {
-            "id": 14,
-            "specifications": [],
-            "capacity": 40
-        },
-        {
-            "id": 15,
-            "specifications": [],
-            "capacity": 40
-        },
-        {
-            "id": 16,
-            "specifications": [],
-            "capacity": 30
-        },
-        {
-            "id": 151,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 31,
-            "specifications": [],
-            "capacity": 40
-        },
-        {
-            "id": 153,
-            "specifications": [],
-            "capacity": 40
-        },
-        {
-            "id": 154,
-            "specifications": [],
-            "capacity": 40
-        },
-        {
-            "id": 155,
-            "specifications": [],
-            "capacity": 40
-        },
-        {
-            "id": 156,
-            "specifications": [],
-            "capacity": 40
-        },
-        {
-            "id": 35,
-            "specifications": [],
-            "capacity": 30
-        },
-        {
-            "id": 152,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 5,
-            "specifications": [],
-            "capacity": 30
-        },
-        {
-            "id": 6,
-            "specifications": [],
-            "capacity": 50
-        },
-        {
-            "id": 32,
-            "specifications": [],
-            "capacity": 40
-        },
-        {
-            "id": 7,
-            "specifications": [],
-            "capacity": 40
-        },
-        {
-            "id": 157,
-            "specifications": [],
-            "capacity": 40
-        },
-        {
-            "id": 8,
-            "specifications": [],
-            "capacity": 40
-        },
-        {
-            "id": 158,
-            "specifications": [],
-            "capacity": 40
-        },
-        {
-            "id": 9,
-            "specifications": [],
-            "capacity": 60
-        },
-        {
-            "id": 37,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 38,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 39,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 60,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 40,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 52,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 57,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 58,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 46,
-            "specifications": [],
-            "capacity": 20
-        },
-        {
-            "id": 47,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 48,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 49,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 50,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 51,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 53,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 54,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 55,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 56,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 62,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 63,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 64,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 61,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 44,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 41,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 59,
-            "specifications": [],
-            "capacity": 30
-        },
-        {
-            "id": 45,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 43,
-            "specifications": [],
-            "capacity": 40
-        },
-        {
-            "id": 36,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 42,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 86,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 65,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 66,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 67,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 68,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 69,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 70,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 71,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 72,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 73,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 74,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 75,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 76,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 77,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 1,
-            "specifications": [],
-            "capacity": 20
-        },
-        {
-            "id": 2,
-            "specifications": [],
-            "capacity": 40
-        },
-        {
-            "id": 3,
-            "specifications": [],
-            "capacity": 40
-        },
-        {
-            "id": 4,
-            "specifications": [],
-            "capacity": 40
-        },
-        {
-            "id": 78,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 79,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 80,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 81,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 82,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 83,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 84,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 85,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 87,
-            "specifications": [],
-            "capacity": 0
-        },
-        {
-            "id": 88,
-            "specifications": [],
-            "capacity": 0
         }
     ]
 }
