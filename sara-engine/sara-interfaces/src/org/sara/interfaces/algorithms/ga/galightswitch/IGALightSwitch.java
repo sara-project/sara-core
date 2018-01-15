@@ -1,5 +1,7 @@
-package org.sara.interfaces.algorithms.ga.core;
+package org.sara.interfaces.algorithms.ga.galightswitch;
 
-public interface ITerminate {
+import org.sara.interfaces.algorithms.ga.core.IGeneration;
+
+public interface IGALightSwitch {
     public boolean stop(IGeneration generation);    
 }

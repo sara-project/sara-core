@@ -1,7 +1,6 @@
 package org.sara.sarageneticalgorithmsplugin.core;
 
 import org.sara.interfaces.algorithms.ga.core.IGAManager;
-import org.sara.interfaces.algorithms.ga.core.ITerminate;
 import org.sara.interfaces.algorithms.ga.core.IGAParameters;
 import javax.swing.event.EventListenerList;
 import org.sara.sarageneticalgorithmsplugin.events.Generation;
@@ -13,10 +12,9 @@ import org.sara.interfaces.algorithms.ga.crossover.ICrossover;
 import org.sara.interfaces.algorithms.ga.selection.ISelection;
 import org.sara.interfaces.algorithms.ga.mutation.IMutation;
 import org.sara.interfaces.algorithms.ga.fitness.IFitness;
+import org.sara.interfaces.algorithms.ga.galightswitch.IGALightSwitch;
 
 public class GAEngine {
-
-    
 
     public GAEngine(IGAManager gaConfiguratorIF, IGAParameters gaParameterIF) {
         this.listenerList = new EventListenerList();
@@ -30,7 +28,7 @@ public class GAEngine {
         ISelection selection = gaConfiguratorIF.getSelection();
         ICrossover crossover = gaConfiguratorIF.getCrossover();
         IMutation mutation = gaConfiguratorIF.getMutation();
-        ITerminate terminate = gaConfiguratorIF.getTerminate();
+        IGALightSwitch terminate = gaConfiguratorIF.getGALightSwitch();
         pop = gaConfiguratorIF.getPopulationFactory().makePopulation(gaParameterIF.getPopulationSize());
         fitness.evaluate(pop);
         this.fireNewGenerationEvent(new NewGenerationEvent(new Generation(genNumber, pop)));
@@ -44,7 +42,6 @@ public class GAEngine {
             System.gc();
             Thread.yield();
         } while (!terminate.stop(new Generation(genNumber, pop)));
-
     }
 
     public IPopulation getPopulation() {

@@ -3,11 +3,13 @@ package org.sara.interfaces;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.List;
+import org.sara.interfaces.algorithms.ga.IGAEngine;
 
 public abstract class IProjectController implements IObservable {
 
-    public IProjectController(int availableProcessors) {
-        AVAILABLE_PROCESSORS = availableProcessors;
+    public IProjectController() {
+        AVAILABLE_PROCESSORS = Runtime.getRuntime().availableProcessors();
+        OS_NAME = System.getProperty("os.name");
         observers = new ArrayList<>();
         nameActivePlugins = new ArrayList<>();
     }
@@ -19,6 +21,14 @@ public abstract class IProjectController implements IObservable {
     public abstract List<IPlugin> pluginsByType(Object type);
 
     public abstract void setDataJars(URLClassLoader dataJars);
+    
+    public IGAEngine getGAEngine() {
+        return currentGAEngine;
+    }
+    
+    public void setGAEngine(IGAEngine engine) {
+        this.currentGAEngine = engine;
+    }
 
     @Override
     public void registerObserver(IObserver observer) {
@@ -40,6 +50,8 @@ public abstract class IProjectController implements IObservable {
     }
 
     public final int AVAILABLE_PROCESSORS;
+    public final String OS_NAME;
     protected List<IObserver> observers;
     protected List<String> nameActivePlugins;
+    protected IGAEngine currentGAEngine;
 }

@@ -13,9 +13,9 @@ import java.util.logging.Logger;
 
 public class Core extends ICore {
 
-    public static void initialize(int availableProcessors) {
+    public static void initialize() {
         if (instance == null) {
-            instance = new Core(availableProcessors);
+            instance = new Core();
         }
     }
 
@@ -27,15 +27,18 @@ public class Core extends ICore {
         return projectController;
     }
 
-    protected Core(int availableProcessors) {
+    protected Core() {
         uiController = new UiController();
-        projectController = new ProjectController(availableProcessors);
+        projectController = new ProjectController();
+        pluginsActived = false;
     }
 
     public static void initPlugins() {
-        initGeneralPlugins();
+        if(!pluginsActived)
+            initGeneralPlugins();
     }
-    public static void initGeneralPlugins() {
+    
+    private static void initGeneralPlugins() {
 
         File currentDir = new File("./plugins");
         
@@ -48,7 +51,7 @@ public class Core extends ICore {
         System.out.println("Loading plugins...");
         for (i = 0; i < plugins.length; i++) {
 
-            System.out.println(i + 1 + " - " + plugins[i].split("\\.")[0]);
+            System.out.println("\t" + i + 1 + " - " + plugins[i].split("\\.")[0]);
 
             try {
                 jars[i] = (new File("./plugins/" + plugins[i])).toURL();
@@ -65,6 +68,7 @@ public class Core extends ICore {
                 tempName = "org.sara." + factoryName.toLowerCase() + "." + factoryName;
                 IPlugin plugin = (IPlugin) Class.forName(tempName, true, ulc).newInstance();
                 plugin.initialize();
+                projectController.addNameActivePlugin(factoryName);
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
             } catch (InstantiationException ex) {
@@ -88,7 +92,8 @@ public class Core extends ICore {
             }
         }.start();
     }
-
-    private UiController uiController;
-    private ProjectController projectController;
+    
+    private static boolean pluginsActived;
+    private static UiController uiController;
+    private static ProjectController projectController;
 }

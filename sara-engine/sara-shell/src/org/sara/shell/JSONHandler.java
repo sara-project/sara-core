@@ -14,7 +14,6 @@ import org.sara.interfaces.model.Schedule;
 import org.sara.interfaces.model.SchoolClass;
 import org.sara.interfaces.model.Slot;
 
-//http://crunchify.com/how-to-read-json-object-from-file-in-java/
 public class JSONHandler {
 
     public JSONHandler(String jsonFile) throws FileNotFoundException, IOException, ParseException, Exception{ 
@@ -183,4 +182,5 @@ public class JSONHandler {
     private final HashMap<String, Slot> slotsHash;
     private final HashMap<String, SchoolClass> classesHash;
     private final HashMap<String, Room> roomsHash;
+    private HashMap<String, String> gaConfig;
 }

@@ -10,10 +10,6 @@ import java.util.logging.Logger;
 
 public class ProjectController extends IProjectController {
 
-    public ProjectController(int availableProcessors) {
-        super(availableProcessors);
-    }
-
     @Override
     public void addNameActivePlugin(String name) {
         nameActivePlugins.add(name);

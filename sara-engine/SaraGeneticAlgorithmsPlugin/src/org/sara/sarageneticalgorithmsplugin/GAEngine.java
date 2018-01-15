@@ -1,11 +1,11 @@
 package org.sara.sarageneticalgorithmsplugin;
 
 import javax.swing.event.EventListenerList;
+import org.sara.interfaces.algorithms.ga.IGAEngine;
 import org.sara.interfaces.algorithms.ga.chromosome.IChromosome;
 import org.sara.interfaces.algorithms.ga.chromosome.IPopulation;
 import org.sara.interfaces.algorithms.ga.core.IGAManager;
 import org.sara.interfaces.algorithms.ga.core.IGAParameters;
-import org.sara.interfaces.algorithms.ga.core.ITerminate;
 import org.sara.interfaces.algorithms.ga.crossover.ICrossover;
 import org.sara.interfaces.algorithms.ga.fitness.IFitness;
 import org.sara.interfaces.algorithms.ga.mutation.IMutation;
@@ -13,8 +13,9 @@ import org.sara.interfaces.algorithms.ga.selection.ISelection;
 import org.sara.sarageneticalgorithmsplugin.events.Generation;
 import org.sara.sarageneticalgorithmsplugin.events.NewGenerationEvent;
 import org.sara.sarageneticalgorithmsplugin.events.NewGenerationListener;
+import org.sara.interfaces.algorithms.ga.galightswitch.IGALightSwitch;
 
-public class GAEngine {
+public class GAEngine implements IGAEngine{
 
     protected EventListenerList listenerList = new EventListenerList();
 
@@ -22,17 +23,24 @@ public class GAEngine {
         this.gaManager = gaManager;
         this.gaParameters = gaParameters;
     }
+    @Override
+    public void startGA() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     public void run() {
         int genNumber = 1;
+        
         IFitness fitness = gaManager.getFitness();
         ISelection selection = gaManager.getSelection();
         ICrossover crossover = gaManager.getCrossover();
         IMutation mutation = gaManager.getMutation();
-        ITerminate terminate = gaManager.getTerminate();
+        IGALightSwitch terminate = gaManager.getGALightSwitch();
+        
         population = gaManager.getPopulationFactory().makePopulation(gaParameters.getPopulationSize());
         fitness.evaluate(population);
         this.fireNewGenerationEvent(new NewGenerationEvent(new Generation(genNumber, population)));
+        
         do {
             IPopulation selected = selection.select(population, gaParameters.getSelectionPercent());
             population = crossover.makeOffspring(population, gaParameters.getPopulationSize());
@@ -43,7 +51,6 @@ public class GAEngine {
             System.gc();
             Thread.yield();
         } while (!terminate.stop(new Generation(genNumber, population)));
-
     }
 
     public IPopulation getPopulation() {

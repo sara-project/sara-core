@@ -5,6 +5,7 @@ import org.sara.interfaces.algorithms.ga.crossover.ICrossover;
 import org.sara.interfaces.algorithms.ga.fitness.IFitness;
 import org.sara.interfaces.algorithms.ga.mutation.IMutation;
 import org.sara.interfaces.algorithms.ga.selection.ISelection;
+import org.sara.interfaces.algorithms.ga.galightswitch.IGALightSwitch;
 
 public interface IGAManager {
 
@@ -18,5 +19,5 @@ public interface IGAManager {
 
     public IMutation getMutation();
 
-    public ITerminate getTerminate();
+    public IGALightSwitch getGALightSwitch();
 }

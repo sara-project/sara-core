@@ -1,6 +1,7 @@
 package org.sara.shell;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,8 +23,11 @@ public class Main {
         }
         
         int availableProcessors = Runtime.getRuntime().availableProcessors();
+
         String osName = System.getProperty("os.name");
         String jsonFile = args[0];
+        Date startDate, endDate;
+        startDate = new Date();
         
         System.out.println();
         System.out.println("----------------------------------------- ");
@@ -72,10 +76,9 @@ public class Main {
         System.out.println(" - " + roomsHash.size() + " rooms.");
         System.out.println();
         
-       
         System.out.println();
         System.out.println("----------------------------------------- ");
-        System.out.println("Models Information");
+        System.out.println("Manager Plugins");
         System.out.println();
         
         try {
@@ -92,11 +95,31 @@ public class Main {
         }
         
         System.out.println();
+        System.out.print("- ");
+        Core.initialize();
+        Core.initPlugins();
+        
+        System.out.println();
         System.out.println("----------------------------------------- ");
         System.out.println("Initialize System");
         System.out.println();
+        
+        Core.getInstance().getProjectController().getGAEngine().startGA();
 
-        Core.initialize(availableProcessors);
-        Core.initPlugins();
+        System.out.println("Progress Bar");
+        System.out.print("[");
+        for(int i = 0; i < 100; i++) {
+            if(i < 20)    
+                System.out.print("#");
+            else
+                System.out.print(".");
+        }
+
+        System.out.print("] " + "20%");
+        System.out.println();
+        
+        endDate = new Date();
+        System.out.println("Start Date: " + startDate);
+        System.out.println("End Date: " + endDate);
     }
 }
