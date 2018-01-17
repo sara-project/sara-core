@@ -10,6 +10,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.simple.*;
 import org.json.simple.parser.*;
+import org.sara.interfaces.model.GAConfiguration;
 import org.sara.interfaces.model.Schedule;
 import org.sara.interfaces.model.SchoolClass;
 import org.sara.interfaces.model.Slot;
@@ -21,15 +22,21 @@ public class JSONHandler {
         this.slotsHash = new HashMap<>();
         this.classesHash = new HashMap<>();
         this.roomsHash = new HashMap<>();
+        this.gaConfig = new GAConfiguration();
         
         JSONObject jsonObject = (JSONObject) ((new JSONParser()).parse(new FileReader(jsonFile)));
-       
+        
+        this.schedulesHandler((JSONObject) jsonObject.get("ga_config"));
         this.schedulesHandler((JSONArray) jsonObject.get("schedules"));
         this.roomsHandler((JSONArray) jsonObject.get("rooms"));
         this.slotsHandler((JSONArray) jsonObject.get("slots"));
         this.classesHandler((JSONArray) jsonObject.get("classes"));
     }
-
+    
+    public GAConfiguration getGAConfiguration() {
+        return gaConfig;
+    }
+     
     public HashMap<String, Schedule> getSchedulesHash() {
         return schedulesHash;
     }
@@ -45,7 +52,66 @@ public class JSONHandler {
     public HashMap<String, Room> getRoomsHash() {
         return roomsHash;
     }
-
+    
+    private void schedulesHandler(JSONObject configuration) {
+        if(configuration != null) {
+            Object populationNumber = configuration.get("population_number");
+            Object maxGeneration = configuration.get("max_generation");
+            Object mutationProbability = configuration.get("mutation_probability");
+            Object crossoverProbability = configuration.get("crossover_probability");
+            Object selectProbability = configuration.get("select_probability");
+            Object elitismProbability = configuration.get("elitism_probability");
+            
+            if(populationNumber != null) {
+                try {
+                   gaConfig.setPopulationNumber(Integer.parseInt(populationNumber.toString()));
+                } catch(Exception ex) {
+                    System.out.println("Json with wrong value to 'population_number' property. The value was ignored...");
+                }
+            }
+            
+            if(maxGeneration != null) {
+                try {
+                   gaConfig.setMaxGeneration(Integer.parseInt(maxGeneration.toString()));
+                } catch(Exception ex) {
+                    System.out.println("Json with wrong value to 'max_generation' property. The value was ignored...");
+                }
+            }
+               
+            if(mutationProbability != null) {
+                try {
+                   gaConfig.setMutationProbability(Double.parseDouble(mutationProbability.toString()));
+                } catch(Exception ex) {
+                    System.out.println("Json with wrong value to 'mutation_probability' property. The value was ignored...");
+                }
+            }
+            
+            if(crossoverProbability != null) {
+                try {
+                   gaConfig.setCrossoverProbability(Double.parseDouble(crossoverProbability.toString()));
+                } catch(Exception ex) {
+                    System.out.println("Json with wrong value to 'crossover_probability' property. The value was ignored...");
+                }
+            }
+            
+            if(selectProbability != null) {
+                try {
+                   gaConfig.setSelectProbability(Double.parseDouble(selectProbability.toString()));
+                } catch(Exception ex) {
+                    System.out.println("Json with wrong value to 'select_probability' property. The value was ignored...");
+                }
+            }
+            
+            if(elitismProbability != null) {
+                try {
+                   gaConfig.setElitismProbability(Double.parseDouble(elitismProbability.toString()));
+                } catch(Exception ex) {
+                    System.out.println("Json with wrong value to 'elitism_probability' property. The value was ignored...");
+                }
+            }
+        }
+    }
+            
     private void schedulesHandler(JSONArray schedules) throws Exception {
         Iterator it;
         
@@ -182,5 +248,5 @@ public class JSONHandler {
     private final HashMap<String, Slot> slotsHash;
     private final HashMap<String, SchoolClass> classesHash;
     private final HashMap<String, Room> roomsHash;
-    private HashMap<String, String> gaConfig;
+    private final GAConfiguration gaConfig;
 }

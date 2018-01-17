@@ -1,7 +1,7 @@
 package org.sara.interfaces.abstractfactories;
 
 import org.sara.interfaces.algorithms.ga.chromosome.IChromosome;
-import org.sara.interfaces.algorithms.ga.chromosome.IPopulation;
+import org.sara.interfaces.algorithms.ga.population.IPopulation;
 
 public abstract class ICRAssignmentFactory {
     

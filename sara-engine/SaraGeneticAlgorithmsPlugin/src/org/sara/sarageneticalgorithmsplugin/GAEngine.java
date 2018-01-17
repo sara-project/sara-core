@@ -1,11 +1,11 @@
 package org.sara.sarageneticalgorithmsplugin;
 
 import javax.swing.event.EventListenerList;
+import org.sara.interfaces.ICore;
 import org.sara.interfaces.algorithms.ga.IGAEngine;
 import org.sara.interfaces.algorithms.ga.chromosome.IChromosome;
-import org.sara.interfaces.algorithms.ga.chromosome.IPopulation;
-import org.sara.interfaces.algorithms.ga.core.IGAManager;
-import org.sara.interfaces.algorithms.ga.core.IGAParameters;
+import org.sara.interfaces.algorithms.ga.population.IPopulation;
+import org.sara.interfaces.abstractfactories.IPopulationFactory;
 import org.sara.interfaces.algorithms.ga.crossover.ICrossover;
 import org.sara.interfaces.algorithms.ga.fitness.IFitness;
 import org.sara.interfaces.algorithms.ga.mutation.IMutation;
@@ -14,37 +14,34 @@ import org.sara.sarageneticalgorithmsplugin.events.Generation;
 import org.sara.sarageneticalgorithmsplugin.events.NewGenerationEvent;
 import org.sara.sarageneticalgorithmsplugin.events.NewGenerationListener;
 import org.sara.interfaces.algorithms.ga.galightswitch.IGALightSwitch;
+import org.sara.interfaces.model.GAConfiguration;
 
 public class GAEngine implements IGAEngine{
 
-    protected EventListenerList listenerList = new EventListenerList();
-
-    public GAEngine(IGAManager gaManager, IGAParameters gaParameters) {
-        this.gaManager = gaManager;
-        this.gaParameters = gaParameters;
+    public GAEngine() {
+       this.gaConfiguration = ICore.getInstance().getModelController().getGaConfiguration();
+       this.listenerList = new EventListenerList();
     }
+    
     @Override
     public void startGA() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void run() {
-        int genNumber = 1;
+       int genNumber = 1;
         
-        IFitness fitness = gaManager.getFitness();
-        ISelection selection = gaManager.getSelection();
-        ICrossover crossover = gaManager.getCrossover();
-        IMutation mutation = gaManager.getMutation();
-        IGALightSwitch terminate = gaManager.getGALightSwitch();
+        IFitness fitness = this.gaConfiguration.getFitness();
+        ISelection selection = this.gaConfiguration.getSelection();
+        ICrossover crossover = this.gaConfiguration.getCrossover();
+        IMutation mutation = this.gaConfiguration.getMutation();
+        IGALightSwitch terminate = this.gaConfiguration.getGaLightSwitch();
+        IPopulationFactory populationFactory = null;
         
-        population = gaManager.getPopulationFactory().makePopulation(gaParameters.getPopulationSize());
+        population = populationFactory.makePopulation(this.gaConfiguration.getPopulationNumber());
         fitness.evaluate(population);
         this.fireNewGenerationEvent(new NewGenerationEvent(new Generation(genNumber, population)));
         
         do {
-            IPopulation selected = selection.select(population, gaParameters.getSelectionPercent());
-            population = crossover.makeOffspring(population, gaParameters.getPopulationSize());
-            mutation.mutate(population, gaParameters.getMutationPercent());
+            IPopulation selected = selection.select(population, this.gaConfiguration.getSelectProbability());
+            population = crossover.makeOffspring(population, this.gaConfiguration.getPopulationNumber());
+            mutation.mutate(population, this.gaConfiguration.getMutationProbability());
             fitness.evaluate(population);
             genNumber++;
             this.fireNewGenerationEvent(new NewGenerationEvent(new Generation(genNumber, population)));
@@ -80,8 +77,8 @@ public class GAEngine implements IGAEngine{
             }
         }
     }
-
-    private final IGAManager gaManager;
-    private final IGAParameters gaParameters;
+    
+    protected EventListenerList listenerList;
+    private final GAConfiguration gaConfiguration;
     private IPopulation population;
 }

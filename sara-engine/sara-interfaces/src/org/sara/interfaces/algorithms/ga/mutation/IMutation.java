@@ -1,7 +1,7 @@
 package org.sara.interfaces.algorithms.ga.mutation;
 
-import org.sara.interfaces.algorithms.ga.chromosome.IPopulation;
+import org.sara.interfaces.algorithms.ga.population.IPopulation;
 
 public interface IMutation {
-    public void mutate(IPopulation population, float rate);
+    public void mutate(IPopulation population, double rate);
 }

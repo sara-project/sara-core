@@ -1,7 +1,7 @@
 package org.sara.sarageneticalgorithmsplugin;
 
-import org.sara.interfaces.algorithms.ga.chromosome.IPopulation;
-import org.sara.interfaces.algorithms.ga.chromosome.IPopulationFactory;
+import org.sara.interfaces.algorithms.ga.population.IPopulation;
+import org.sara.interfaces.abstractfactories.IPopulationFactory;
 import org.sara.interfaces.algorithms.ga.core.IGAManager;
 import org.sara.interfaces.algorithms.ga.crossover.ICrossover;
 import org.sara.interfaces.algorithms.ga.fitness.IFitness;

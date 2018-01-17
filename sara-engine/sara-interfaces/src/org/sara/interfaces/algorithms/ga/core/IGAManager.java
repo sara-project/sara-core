@@ -1,6 +1,6 @@
 package org.sara.interfaces.algorithms.ga.core;
 
-import org.sara.interfaces.algorithms.ga.chromosome.IPopulationFactory;
+import org.sara.interfaces.abstractfactories.IPopulationFactory;
 import org.sara.interfaces.algorithms.ga.crossover.ICrossover;
 import org.sara.interfaces.algorithms.ga.fitness.IFitness;
 import org.sara.interfaces.algorithms.ga.mutation.IMutation;

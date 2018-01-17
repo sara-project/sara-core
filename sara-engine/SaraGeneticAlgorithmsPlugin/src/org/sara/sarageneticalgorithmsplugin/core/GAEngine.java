@@ -7,7 +7,7 @@ import org.sara.sarageneticalgorithmsplugin.events.Generation;
 import org.sara.sarageneticalgorithmsplugin.events.NewGenerationEvent;
 import org.sara.sarageneticalgorithmsplugin.events.NewGenerationListener;
 import org.sara.interfaces.algorithms.ga.chromosome.IChromosome;
-import org.sara.interfaces.algorithms.ga.chromosome.IPopulation;
+import org.sara.interfaces.algorithms.ga.population.IPopulation;
 import org.sara.interfaces.algorithms.ga.crossover.ICrossover;
 import org.sara.interfaces.algorithms.ga.selection.ISelection;
 import org.sara.interfaces.algorithms.ga.mutation.IMutation;

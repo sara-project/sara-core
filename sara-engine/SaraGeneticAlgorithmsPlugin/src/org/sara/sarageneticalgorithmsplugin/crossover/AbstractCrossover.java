@@ -4,7 +4,7 @@ import org.sara.interfaces.algorithms.ga.crossover.ICrossover;
 import java.util.Random;
 import org.sara.sarageneticalgorithmsplugin.defaultoptions.chromosome.DefaultPopulation;
 import org.sara.interfaces.algorithms.ga.chromosome.IChromosome;
-import org.sara.interfaces.algorithms.ga.chromosome.IPopulation;
+import org.sara.interfaces.algorithms.ga.population.IPopulation;
 
 public abstract class AbstractCrossover implements ICrossover {
 

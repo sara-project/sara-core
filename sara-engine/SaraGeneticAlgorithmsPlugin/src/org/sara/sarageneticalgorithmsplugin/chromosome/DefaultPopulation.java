@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import org.sara.interfaces.algorithms.ga.chromosome.IChromosome;
-import org.sara.interfaces.algorithms.ga.chromosome.IPopulation;
+import org.sara.interfaces.algorithms.ga.population.IPopulation;
 
 public class DefaultPopulation implements IPopulation {
 

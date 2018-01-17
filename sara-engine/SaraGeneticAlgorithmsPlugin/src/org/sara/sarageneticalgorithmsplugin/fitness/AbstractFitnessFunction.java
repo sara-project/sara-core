@@ -3,7 +3,7 @@ package org.sara.sarageneticalgorithmsplugin.fitness;
 import org.sara.interfaces.algorithms.ga.fitness.IFitness;
 import java.util.List;
 import org.sara.interfaces.algorithms.ga.chromosome.IChromosome;
-import org.sara.interfaces.algorithms.ga.chromosome.IPopulation;
+import org.sara.interfaces.algorithms.ga.population.IPopulation;
 
 public abstract class AbstractFitnessFunction implements IFitness {
 

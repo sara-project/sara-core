@@ -2,14 +2,9 @@ package org.sara.shell;
 
 import java.io.IOException;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.simple.parser.ParseException;
-import org.sara.interfaces.model.Room;
-import org.sara.interfaces.model.Schedule;
-import org.sara.interfaces.model.SchoolClass;
-import org.sara.interfaces.model.Slot;
 
 public class Main {
 
@@ -36,6 +31,11 @@ public class Main {
         System.out.println("- Operational System: " + osName);
         System.out.println("- Available Processors: " + availableProcessors);
         
+        System.out.println();
+        System.out.println("----------------------------------------- ");
+        System.out.println("Initializing the Core");
+        System.out.println();
+        Core.initialize();
         
         System.out.println();
         System.out.println("----------------------------------------- ");
@@ -44,19 +44,15 @@ public class Main {
 
         System.out.println("- Starting loading models...");
 
-        HashMap<String, Schedule> schedulesHash = new HashMap<>();
-        HashMap<String, Slot> slotsHash = new HashMap<>();
-        HashMap<String, SchoolClass> classesHash = new HashMap<>();
-        HashMap<String, Room> roomsHash = new HashMap<>();
-
         //This block will load the models
         {
             try {
                 JSONHandler handler = new JSONHandler(jsonFile);
-                schedulesHash = handler.getSchedulesHash();
-                slotsHash = handler.getSlotsHash();
-                classesHash = handler.getClassesHash();
-                roomsHash = handler.getRoomsHash();
+                Core.getInstance().getModelController().setSchedules(handler.getSchedulesHash());
+                Core.getInstance().getModelController().setSlots(handler.getSlotsHash());
+                Core.getInstance().getModelController().setSchoolClass(handler.getClassesHash());
+                Core.getInstance().getModelController().setRooms(handler.getRoomsHash());
+                Core.getInstance().getModelController().setGaConfiguration(handler.getGAConfiguration());
 
             } catch (IOException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -70,10 +66,13 @@ public class Main {
         System.out.println("  ...loading completed successfully!");
         System.out.println();
         
-        System.out.println(" - " + schedulesHash.size() + " schedules;");
-        System.out.println(" - " + slotsHash.size() + " slots;");
-        System.out.println(" - " + classesHash.size() + " classes;");
-        System.out.println(" - " + roomsHash.size() + " rooms.");
+        System.out.println(" - " + Core.getInstance().getModelController().getSchedules().size() + " schedules;");
+        System.out.println(" - " + Core.getInstance().getModelController().getSlots().size() + " slots;");
+        System.out.println(" - " + Core.getInstance().getModelController().getSchoolClass().size() + " classes;");
+        System.out.println(" - " + Core.getInstance().getModelController().getRooms().size() + " rooms.");
+        System.out.println();
+        System.out.println(" - Genetic Algorithm Configuration");
+        System.out.println(Core.getInstance().getModelController().getGaConfiguration());
         System.out.println();
         
         System.out.println();
@@ -93,10 +92,7 @@ public class Main {
             System.err.println("Failed to execute the script that copies the plug-in.");
             System.err.println(ex.getMessage());
         }
-        
-        System.out.println();
-        System.out.print("- ");
-        Core.initialize();
+
         Core.initPlugins();
         
         System.out.println();

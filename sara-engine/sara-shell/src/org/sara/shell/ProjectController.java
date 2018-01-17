@@ -7,9 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.sara.interfaces.IModelController;
 
 public class ProjectController extends IProjectController {
-
+    
     @Override
     public void addNameActivePlugin(String name) {
         nameActivePlugins.add(name);

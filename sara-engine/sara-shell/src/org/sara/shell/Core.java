@@ -10,6 +10,7 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.sara.interfaces.IModelController;
 
 public class Core extends ICore {
 
@@ -19,17 +20,25 @@ public class Core extends ICore {
         }
     }
 
+    @Override
     public IUiController getUiController() {
         return uiController;
     }
 
+    @Override
     public IProjectController getProjectController() {
         return projectController;
+    }
+    
+    @Override
+    public IModelController getModelController() {
+        return modelcontroller;
     }
 
     protected Core() {
         uiController = new UiController();
         projectController = new ProjectController();
+        modelcontroller =  new ModelController();
         pluginsActived = false;
     }
 
@@ -96,4 +105,5 @@ public class Core extends ICore {
     private static boolean pluginsActived;
     private static UiController uiController;
     private static ProjectController projectController;
+    private static ModelController modelcontroller;
 }

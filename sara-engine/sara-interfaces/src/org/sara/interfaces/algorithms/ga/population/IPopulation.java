@@ -1,6 +1,7 @@
-package org.sara.interfaces.algorithms.ga.chromosome;
+package org.sara.interfaces.algorithms.ga.population;
 
 import java.util.List;
+import org.sara.interfaces.algorithms.ga.chromosome.IChromosome;
 
 public interface IPopulation {
 

@@ -1,7 +1,7 @@
 package org.sara.interfaces.algorithms.ga.selection;
 
-import org.sara.interfaces.algorithms.ga.chromosome.IPopulation;
+import org.sara.interfaces.algorithms.ga.population.IPopulation;
 
 public interface ISelection {
-    public IPopulation select(IPopulation population, float percent);
+    public IPopulation select(IPopulation population, double percent);
 }

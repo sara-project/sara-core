@@ -1,7 +1,7 @@
 package org.sara.interfaces.algorithms.ga.core.events;
 
 import java.util.EventObject;
-import org.sara.interfaces.algorithms.ga.chromosome.IPopulation;
+import org.sara.interfaces.algorithms.ga.population.IPopulation;
 
 public class NewGenerationEvent extends EventObject {
 

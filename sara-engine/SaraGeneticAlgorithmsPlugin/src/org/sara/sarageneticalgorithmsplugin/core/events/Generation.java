@@ -1,6 +1,6 @@
 package org.sara.sarageneticalgorithmsplugin.core.events;
 
-import org.sara.interfaces.algorithms.ga.chromosome.IPopulation;
+import org.sara.interfaces.algorithms.ga.population.IPopulation;
 import org.sara.interfaces.algorithms.ga.core.IGeneration;
 
 public class Generation implements IGeneration {
