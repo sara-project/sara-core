@@ -16,7 +16,7 @@ public class NewGenerationEvent extends EventObject{
     }
     
     public int getGenNumber(){
-        return ((Generation) this.source).getGenNumber();
+        return ((Generation) this.source).getNumber();
     }    
     
 }

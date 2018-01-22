@@ -31,7 +31,7 @@ public class IntegerGene extends AbstractGene implements IGene {
 
     @Override
     public Object clone() {
-        return new IntegerGene(((Integer) this.getAllele()).intValue());
+        return new IntegerGene(((Integer) this.getAllele()));
     }
 
     public int getMaxValue() {

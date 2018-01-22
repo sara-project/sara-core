@@ -27,6 +27,7 @@ public class GAConfiguration {
              GAConfiguration.hasInitialized = true;
         }
     }
+
     // <editor-fold defaultstate="collapsed" desc="Getters e Setters"> 
     
     public int getPopulationNumber() {

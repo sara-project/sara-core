@@ -1,4 +1,4 @@
-package org.sara.sarageneticalgorithmsplugin;
+package org.sara.sarageneticalgorithmsplugin.ga;
 
 import org.sara.interfaces.algorithms.ga.core.IGAParameters;
 

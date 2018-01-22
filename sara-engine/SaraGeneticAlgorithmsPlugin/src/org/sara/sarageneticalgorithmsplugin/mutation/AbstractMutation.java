@@ -8,7 +8,7 @@ public abstract class AbstractMutation implements IMutation {
 
     @Override
     public void mutate(IPopulation population, double rate) {
-        int qtdeMutations = (int) (population.size() * rate);
+        int qtdeMutations = (int) (population.getSize() * rate);
         for (int i = 0; i < qtdeMutations; i++) {
             IChromosome chromosome = population.getRandomChromosome();
             this.mutate(chromosome);

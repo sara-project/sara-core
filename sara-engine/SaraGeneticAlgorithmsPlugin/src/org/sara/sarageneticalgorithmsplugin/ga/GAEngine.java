@@ -1,4 +1,4 @@
-package org.sara.sarageneticalgorithmsplugin;
+package org.sara.sarageneticalgorithmsplugin.ga;
 
 import javax.swing.event.EventListenerList;
 import org.sara.interfaces.ICore;
@@ -15,24 +15,38 @@ import org.sara.sarageneticalgorithmsplugin.events.NewGenerationEvent;
 import org.sara.sarageneticalgorithmsplugin.events.NewGenerationListener;
 import org.sara.interfaces.algorithms.ga.galightswitch.IGALightSwitch;
 import org.sara.interfaces.model.GAConfiguration;
+import org.sara.sarageneticalgorithmsplugin.chromosome.IFBAChromosome;
+import org.sara.sarageneticalgorithmsplugin.core.PopulationFactory;
+import org.sara.sarageneticalgorithmsplugin.crossover.TwoPointCrossover;
+import org.sara.sarageneticalgorithmsplugin.fitness.IFBACAFitness;
+import org.sara.sarageneticalgorithmsplugin.galightswitch.IFBAGALightSwitch;
+import org.sara.sarageneticalgorithmsplugin.mutation.SwapGene;
+import org.sara.sarageneticalgorithmsplugin.selection.BestSelection;
 
 public class GAEngine implements IGAEngine{
 
     public GAEngine() {
        this.gaConfiguration = ICore.getInstance().getModelController().getGaConfiguration();
+       //Assigns the genetic operators that will be used
+       this.gaConfiguration.setGaLightSwitch(new IFBAGALightSwitch(this.gaConfiguration.getMaxGeneration()));
+       this.gaConfiguration.setSelection(new BestSelection()); //needs review
+       this.gaConfiguration.setCrossover(new TwoPointCrossover()); //needs review
+       this.gaConfiguration.setMutation(new SwapGene()); //needs review
+       this.gaConfiguration.setFitness(new IFBACAFitness()); //needs review
+       
        this.listenerList = new EventListenerList();
     }
     
     @Override
     public void startGA() {
-       int genNumber = 1;
+        int genNumber = 1;
         
+        IPopulationFactory populationFactory = new PopulationFactory();
         IFitness fitness = this.gaConfiguration.getFitness();
         ISelection selection = this.gaConfiguration.getSelection();
         ICrossover crossover = this.gaConfiguration.getCrossover();
         IMutation mutation = this.gaConfiguration.getMutation();
         IGALightSwitch terminate = this.gaConfiguration.getGaLightSwitch();
-        IPopulationFactory populationFactory = null;
         
         population = populationFactory.makePopulation(this.gaConfiguration.getPopulationNumber());
         fitness.evaluate(population);
@@ -48,6 +62,9 @@ public class GAEngine implements IGAEngine{
             System.gc();
             Thread.yield();
         } while (!terminate.stop(new Generation(genNumber, population)));
+        
+        this.population.sortByFitness();
+        population.getAllChromosomes();
     }
 
     public IPopulation getPopulation() {

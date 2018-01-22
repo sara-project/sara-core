@@ -1,5 +1,6 @@
 package org.sara.sarageneticalgorithmsplugin;
 
+import org.sara.sarageneticalgorithmsplugin.ga.GAEngine;
 import org.sara.interfaces.ICore;
 import org.sara.interfaces.IPlugin;
 import org.sara.interfaces.abstractfactories.ICRAssignmentFactory;

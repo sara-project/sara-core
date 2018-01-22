@@ -15,7 +15,7 @@ public interface IPopulation {
 
     public void sortByFitness();
 
-    public int size();
+    public int getSize();
 
     public IChromosome getBestChromosome();
 }

@@ -13,6 +13,7 @@ public class TwoPointCrossover extends AbstractCrossover {
     protected void crossover(IChromosome parentA, IChromosome parentB) {
         int pointA = (new Random()).nextInt(parentA.getSize());
         int pointB = (new Random()).nextInt(parentA.getSize() - pointA) + pointA;
+        
         for (int i = pointA; i < pointB; i++) {
             IGene aux = parentA.getGene(i);
             parentA.setGene(parentB.getGene(i), i);

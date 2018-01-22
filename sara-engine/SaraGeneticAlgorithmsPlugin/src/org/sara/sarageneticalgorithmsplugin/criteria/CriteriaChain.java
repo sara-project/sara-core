@@ -6,10 +6,6 @@ import java.util.Iterator;
 import org.sara.interfaces.algorithms.ga.fitness.criterias.ICriteria;
 
 public class CriteriaChain {
-
-    int count = 0;
-    private ArrayList myFilters = new ArrayList();
-
     protected float processFilter(IChromosome chromosome) {
         count = 0;
         float fitness = 0;
@@ -23,10 +19,13 @@ public class CriteriaChain {
         return fitness;
     }
 
-    protected void addFilter(ICriteria filter) {
-    }
+    protected void addFilter(ICriteria filter) {}
 
     protected void removeFilter(int index) {
         this.myFilters.remove(index);
     }
+    
+    private int count = 0;
+    private ArrayList myFilters = new ArrayList();
+
 }

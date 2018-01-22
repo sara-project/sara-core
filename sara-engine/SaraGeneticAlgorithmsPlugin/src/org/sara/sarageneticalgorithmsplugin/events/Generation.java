@@ -5,27 +5,19 @@ import org.sara.interfaces.algorithms.ga.population.IPopulation;
 
 public class Generation implements IGeneration {
 
-    public Generation(int genNumber, IPopulation population) {
-        this.setGenNumber(genNumber);
-        this.setPopulation(population);
+    public Generation(int generation, IPopulation population) {
+        this.generation = generation;
+        this.population = population;
     }
 
-    public int getGenNumber() {
-        return genNumber;
-    }
-
-    private void setGenNumber(int genNumber) {
-        this.genNumber = genNumber;
+    public int getNumber() {
+        return generation;
     }
 
     public IPopulation getPopulation() {
         return population;
     }
 
-    private void setPopulation(IPopulation population) {
-        this.population = population;
-    }
-
-    private int genNumber;
-    private IPopulation population;
+    private final int generation;
+    private final IPopulation population;
 }

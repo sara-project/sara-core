@@ -1,50 +1,48 @@
-package org.sara.sarageneticalgorithmsplugin.chromosome.samples;
+package org.sara.sarageneticalgorithmsplugin.chromosome;
 
-import org.sara.sarageneticalgorithmsplugin.chromosome.AbstractChromosome;
-import org.sara.sarageneticalgorithmsplugin.genes.IntegerGene;
 import org.sara.interfaces.algorithms.ga.chromosome.IChromosome;
+import org.sara.sarageneticalgorithmsplugin.genes.IntegerGene;
 
-public class IntegerChromosome extends AbstractChromosome {
-
+public class IntegerChromosome extends AbstractChromosome{
+    
     public IntegerChromosome(int size) {
         this(size, Integer.MAX_VALUE);
         this.isValid = true;
     }
-
+    
     public IntegerChromosome(int size, int rangeValue) {
         super(size);
-        this.setRange(rangeValue);
+        this.setRangeValue(rangeValue);
     }
 
     @Override
     public IChromosome getRandom() {
         IntegerChromosome random = new IntegerChromosome(this.getSize(), this.getRangeValue());
-        for (int i = 0; i < random.getSize(); i++) {
-            random.setGene(new IntegerGene(this.getRangeValue(), true), i);
-        }
-        return random;
+        for(int i = 0; i < random.getSize(); i++)
+            random.setGene(new IntegerGene(this.getRangeValue(),true), i);
+        return random;        
     }
 
     @Override
-    public AbstractChromosome getNewInstance() {
+     public  AbstractChromosome getNewInstance(){
         return new IntegerChromosome(this.getSize(), this.getRangeValue());
-    }
+     }  
 
     public int getRangeValue() {
         return rangeValue;
     }
 
-    public void setRange(int rangeValue) {
+    public void setRangeValue(int rangeValue) {
         this.rangeValue = rangeValue;
     }
-
+    
     @Override
-    public void setValidation(boolean valor) {
-        this.isValid = valor;
+    public void setValidation(boolean valor){
+        this.isValid=valor;
     }
-
+    
     @Override
-    public boolean getValidation() {
+    public boolean getValidation(){
         return isValid;
     }
 

@@ -3,11 +3,16 @@ package org.sara.sarageneticalgorithmsplugin.genes;
 import org.sara.interfaces.algorithms.ga.genes.IGene;
 
 public abstract class AbstractGene {
-
-    public abstract IGene getRandom();
-
+    
     @Override
     public abstract Object clone();
+
+    @Override
+    public String toString() {
+        return this.getAllele().toString();
+    }
+ 
+    public abstract IGene getRandom();
 
     public AbstractGene(Object allele) {
         this.setAllele(allele);
@@ -21,9 +26,5 @@ public abstract class AbstractGene {
         return this.allele;
     }
 
-    @Override
-    public String toString() {
-        return this.getAllele().toString();
-    }
     private Object allele;
 }
