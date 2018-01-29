@@ -7,7 +7,7 @@ import org.sara.interfaces.algorithms.ga.mutation.IMutation;
 import org.sara.interfaces.algorithms.ga.selection.ISelection;
 
 
-public class GAConfiguration {
+public class GAConfiguration implements Cloneable{
     
     @SuppressWarnings("WARNING: The default parameters should be checked!")
     public GAConfiguration() {
@@ -19,13 +19,13 @@ public class GAConfiguration {
             System.out.println();
 
             this.populationNumber = 5000;
-             this.maxGeneration = 4000;
-             this.mutationProbability = 0.1;
-             this.crossoverProbability  = 0.1;
-             this.selectProbability = 0.1;
-             this.elitismProbability = 0.1;
-             GAConfiguration.hasInitialized = true;
-        }
+            this.maxGeneration = 4000;
+            this.mutationProbability = 0.1;
+            this.crossoverProbability  = 0.1;
+            this.selectProbability = 0.1;
+            this.elitismProbability = 0.1;
+            GAConfiguration.hasInitialized = true;
+        }      
     }
 
     // <editor-fold defaultstate="collapsed" desc="Getters e Setters"> 

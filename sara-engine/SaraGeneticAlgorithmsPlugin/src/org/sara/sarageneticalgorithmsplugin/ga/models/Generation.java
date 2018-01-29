@@ -1,4 +1,4 @@
-package org.sara.sarageneticalgorithmsplugin.events;
+package org.sara.sarageneticalgorithmsplugin.ga.models;
 
 import org.sara.interfaces.algorithms.ga.core.IGeneration;
 import org.sara.interfaces.algorithms.ga.population.IPopulation;
@@ -10,10 +10,12 @@ public class Generation implements IGeneration {
         this.population = population;
     }
 
+    @Override
     public int getNumber() {
         return generation;
     }
 
+    @Override
     public IPopulation getPopulation() {
         return population;
     }

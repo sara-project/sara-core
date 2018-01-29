@@ -1,25 +1,32 @@
 package org.sara.interfaces.model;
 
 
-public class Slot {
+public class Slot implements Cloneable{
     
     public Slot(int id, Schedule schedule, Room room) {
         this.id = id;
         this.schedule = schedule;
         this.room = room;
     }
+    public int getID() {
+        return this.id;
+    }
     
     public boolean isEmpty() {
-    
-        return sClass == null;
+        return this.sClass == null;
     }
     
     public void toEmpty() {
         this.sClass = null;
     }
     
-    public void fill(SchoolClass sClass) {
-        this.sClass = sClass;
+    public boolean fill(SchoolClass sClass) {
+        if(this.isValid(sClass)) {
+            this.sClass = sClass;
+            this.sClass.allocate(this.getSchedule());
+            return true;
+        }
+        return false;
     }
     
     public boolean hasSameSchedule(SchoolClass sClass) {
@@ -30,11 +37,24 @@ public class Slot {
         return this.schedule == schedule;
     }
     
+    public boolean isValid(SchoolClass sClass) {
+        return this.hasSameSchedule(sClass) && this.room.thisFits(sClass) && this.isEmpty();
+    }
+    
     public boolean isValid() {
-        boolean c1 = hasSameSchedule(this.sClass);
-        boolean c2 = room.thisFits(sClass);
+        return this.isValid(this.sClass);
+    }
+    
+    public SchoolClass getSchoolClass() {
+        return this.sClass;
+    }
 
-        return c1 && c2;
+    public int getRoom() {
+        return this.room.getID();
+    }
+    
+    public Schedule getSchedule() {
+       return this.schedule;
     }
     
     private final int id;

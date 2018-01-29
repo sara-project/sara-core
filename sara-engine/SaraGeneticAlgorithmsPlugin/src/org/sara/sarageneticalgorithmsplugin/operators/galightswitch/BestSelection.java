@@ -1,8 +1,8 @@
-package org.sara.sarageneticalgorithmsplugin.selection;
+package org.sara.sarageneticalgorithmsplugin.operators.galightswitch;
 
 import org.sara.interfaces.algorithms.ga.selection.ISelection;
-import org.sara.sarageneticalgorithmsplugin.defaultoptions.chromosome.IFBAPopulation;
 import org.sara.interfaces.algorithms.ga.population.IPopulation;
+import org.sara.sarageneticalgorithmsplugin.ga.models.Population;
 
 public class BestSelection implements ISelection {
 
@@ -10,7 +10,7 @@ public class BestSelection implements ISelection {
     public IPopulation select(IPopulation population, double rate) {
         int countSelections = (int) (population.getSize() * rate);
         
-        IPopulation newPopulation = new IFBAPopulation();
+        IPopulation newPopulation = new Population(countSelections);
         
         population.sortByFitness();
         

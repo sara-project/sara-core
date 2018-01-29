@@ -65,7 +65,7 @@ public class Core extends ICore {
             try {
                 jars[i] = (new File("./plugins/" + plugins[i])).toURL();
             } catch (MalformedURLException ex) {
-                Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+                System.err.println(ex.getMessage());
             }
         }
         URLClassLoader ulc = new URLClassLoader(jars);
@@ -78,12 +78,8 @@ public class Core extends ICore {
                 IPlugin plugin = (IPlugin) Class.forName(tempName, true, ulc).newInstance();
                 plugin.initialize();
                 projectController.addNameActivePlugin(factoryName);
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (InstantiationException ex) {
-                Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IllegalAccessException ex) {
-                Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
+                 System.err.println(ex.getMessage());
             }
             getInstance().getProjectController().addNameActivePlugin(tempName);
         }
@@ -97,7 +93,6 @@ public class Core extends ICore {
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Core.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                Core.getInstance().getUiController().repaintWindow();
             }
         }.start();
     }

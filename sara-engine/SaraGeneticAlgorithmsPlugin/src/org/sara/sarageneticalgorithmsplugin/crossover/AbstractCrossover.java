@@ -3,15 +3,15 @@ package org.sara.sarageneticalgorithmsplugin.crossover;
 import org.sara.interfaces.algorithms.ga.crossover.ICrossover;
 import java.util.Random;
 import org.sara.interfaces.ICore;
-import org.sara.sarageneticalgorithmsplugin.defaultoptions.chromosome.IFBAPopulation;
 import org.sara.interfaces.algorithms.ga.chromosome.IChromosome;
 import org.sara.interfaces.algorithms.ga.population.IPopulation;
+import org.sara.sarageneticalgorithmsplugin.ga.models.Population;
 
 public abstract class AbstractCrossover implements ICrossover {
 
     @Override
     public IPopulation makeOffspring(IPopulation population, int size) {
-        IFBAPopulation newPop = new IFBAPopulation();
+        IPopulation newPop = new Population(size);
         Random parents = new Random();
 
         int x = 0;

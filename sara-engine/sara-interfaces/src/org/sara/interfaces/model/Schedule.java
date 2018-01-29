@@ -1,7 +1,7 @@
 package org.sara.interfaces.model;
 
 
-public class Schedule {
+public class Schedule implements Cloneable {
     
     public Schedule (int id, int day, int timeInterval) {
         this.id = id;
@@ -19,6 +19,17 @@ public class Schedule {
         return other.day == this.day && other.timeInterval == this.timeInterval;
     }
     
+    public int getDay() {
+        return this.day;
+    }
+    
+    public int getTimeInterval() {
+        return this.timeInterval;
+    }
+
+    public int getID() {
+        return this.id;
+    }
     
     private final int id;
     private final int day;

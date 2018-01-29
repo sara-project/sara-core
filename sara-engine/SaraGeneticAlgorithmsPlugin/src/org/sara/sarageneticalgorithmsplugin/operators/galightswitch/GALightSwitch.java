@@ -1,11 +1,11 @@
-package org.sara.sarageneticalgorithmsplugin.galightswitch;
+package org.sara.sarageneticalgorithmsplugin.operators.galightswitch;
 
 import org.sara.interfaces.algorithms.ga.core.IGeneration;
 import org.sara.interfaces.algorithms.ga.galightswitch.IGALightSwitch;
 
-public class IFBAGALightSwitch  implements IGALightSwitch{
+public class GALightSwitch  implements IGALightSwitch{
     
-    public IFBAGALightSwitch(int maxGenerationNumber) {
+    public GALightSwitch(int maxGenerationNumber) {
         this.maxGenerationNumber = maxGenerationNumber;
     }
 

@@ -23,6 +23,10 @@ public abstract class IProjectController implements IObservable {
     public abstract void setDataJars(URLClassLoader dataJars);
     
     public IGAEngine getGAEngine() {
+        if(currentGAEngine == null) {
+           System.out.println("No genetic algorithm engine was added");
+           System.exit(1);
+        }
         return currentGAEngine;
     }
     

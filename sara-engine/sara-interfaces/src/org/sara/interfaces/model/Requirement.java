@@ -1,7 +1,7 @@
 package org.sara.interfaces.model;
 
 
-public class Requirement {
+public class Requirement implements Cloneable{
     
     public Requirement (String id, int capacity) {
         this.id = id;

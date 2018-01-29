@@ -13,6 +13,7 @@ import org.json.simple.parser.*;
 import org.sara.interfaces.model.GAConfiguration;
 import org.sara.interfaces.model.Schedule;
 import org.sara.interfaces.model.SchoolClass;
+import org.sara.interfaces.model.ClassSchedule;
 import org.sara.interfaces.model.Slot;
 
 public class JSONHandler {
@@ -22,11 +23,12 @@ public class JSONHandler {
         this.slotsHash = new HashMap<>();
         this.classesHash = new HashMap<>();
         this.roomsHash = new HashMap<>();
+        this.classScheduleHashHash = new HashMap<>();
         this.gaConfig = new GAConfiguration();
         
         JSONObject jsonObject = (JSONObject) ((new JSONParser()).parse(new FileReader(jsonFile)));
         
-        this.schedulesHandler((JSONObject) jsonObject.get("ga_config"));
+        this.parametersHandler((JSONObject) jsonObject.get("ga_config"));
         this.schedulesHandler((JSONArray) jsonObject.get("schedules"));
         this.roomsHandler((JSONArray) jsonObject.get("rooms"));
         this.slotsHandler((JSONArray) jsonObject.get("slots"));
@@ -48,12 +50,16 @@ public class JSONHandler {
     public HashMap<String, SchoolClass> getClassesHash() {
         return classesHash;
     }
+    
+    public HashMap<String, ClassSchedule> getClassSchedulesHash() {
+        return classScheduleHashHash;
+    }
 
     public HashMap<String, Room> getRoomsHash() {
         return roomsHash;
     }
     
-    private void schedulesHandler(JSONObject configuration) {
+    private void parametersHandler(JSONObject configuration) {
         if(configuration != null) {
             Object populationNumber = configuration.get("population_number");
             Object maxGeneration = configuration.get("max_generation");
@@ -224,6 +230,7 @@ public class JSONHandler {
                 List<Schedule> scSchedules = new ArrayList<>();
                 JSONArray jschedules = (JSONArray) schedules;                
                 Iterator sch = jschedules.iterator();
+                SchoolClass sClass = new SchoolClass(Integer.parseInt(id.toString()), Integer.parseInt(size.toString()));
 
                 while(sch.hasNext()){
                     String scheduleID = sch.next().toString();
@@ -232,14 +239,15 @@ public class JSONHandler {
                     
                     if(schObj == null)
                         throw new Exception("Json File is invalid. There is any Schedule with id = " + scheduleID + ".");
-                        
+                    
                     scSchedules.add(schObj);
+                    sClass.addSchedule(schObj);
+                    ClassSchedule cSchedule = new ClassSchedule(sClass, schObj);
+                    this.classScheduleHashHash.put(Integer.toString(cSchedule.getID()), cSchedule);
                 }
 
-                classesHash.put(id.toString(),
-                                new SchoolClass(Integer.parseInt(id.toString()),
-                                                Integer.parseInt(size.toString()),
-                                                scSchedules));
+                classesHash.put(id.toString(), sClass);
+              
             }
         }
     }
@@ -248,5 +256,6 @@ public class JSONHandler {
     private final HashMap<String, Slot> slotsHash;
     private final HashMap<String, SchoolClass> classesHash;
     private final HashMap<String, Room> roomsHash;
+    private final HashMap<String, ClassSchedule> classScheduleHashHash;
     private final GAConfiguration gaConfig;
 }
