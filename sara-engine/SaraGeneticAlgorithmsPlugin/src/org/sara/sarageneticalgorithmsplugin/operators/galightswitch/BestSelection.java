@@ -8,7 +8,7 @@ public class BestSelection implements ISelection {
 
     @Override
     public IPopulation select(IPopulation population, double rate) {
-        int countSelections = (int) (population.getSize() * rate);
+        /*int countSelections = (int) (population.getSize() * rate);
         
         IPopulation newPopulation = new Population(countSelections);
         
@@ -17,6 +17,7 @@ public class BestSelection implements ISelection {
         for (int i = 0; i < countSelections; i++) {
             newPopulation.addChromosome(population.getChromosome(i));
         }
-        return newPopulation;
+        return newPopulation;*/
+        return null;
     }
 }

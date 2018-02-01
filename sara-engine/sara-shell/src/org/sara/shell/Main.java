@@ -10,8 +10,6 @@ public class Main {
 
     public static void main(String[] args) {
         
-        args = new String[1];
-        args[0] = "./ads_room_mapping.json";
         if(args.length <= 0) {
             System.err.println("Missing args...");
             return ;
@@ -31,8 +29,6 @@ public class Main {
         System.out.println("- Operational System: " + osName);
         System.out.println("- Available Processors: " + availableProcessors);
         
-        
-        
         System.out.println();
         System.out.println("----------------------------------------- ");
         System.out.println("Manager Plugins");
@@ -51,6 +47,12 @@ public class Main {
             System.err.println(ex.getMessage());
         }
         
+        //Workaround to ensure that previous script has completed
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
         
         System.out.println();
         System.out.println("----------------------------------------- ");
@@ -111,18 +113,6 @@ public class Main {
         System.out.println();
         
         Core.getInstance().getProjectController().getGAEngine().startGA();
-
-//        System.out.println("Progress Bar");
-//        System.out.print("[");
-//        for(int i = 0; i < 100; i++) {
-//            if(i < 20)    
-//                System.out.print("#");
-//            else
-//                System.out.print(".");
-//        }
-//
-//        System.out.print("] " + "20%");
-//        System.out.println();
         
         endDate = new Date();
         System.out.println("Start Date: " + startDate);

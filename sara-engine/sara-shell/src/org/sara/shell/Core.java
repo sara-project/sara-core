@@ -8,8 +8,6 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.sara.interfaces.IModelController;
 
 public class Core extends ICore {
@@ -84,17 +82,6 @@ public class Core extends ICore {
             getInstance().getProjectController().addNameActivePlugin(tempName);
         }
         System.out.println("Load completed...");
-        new Thread() {
-
-            @Override
-            public void run() {
-                try {
-                    this.sleep(500);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(Core.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        }.start();
     }
     
     private static boolean pluginsActived;

@@ -12,7 +12,7 @@ public abstract class AbstractCrossover implements ICrossover {
     @Override
     public IPopulation makeOffspring(IPopulation population, int size) {
         IPopulation newPop = new Population(size);
-        Random parents = new Random();
+        /*Random parents = new Random();
 
         int x = 0;
         population.sortByFitness();
@@ -28,7 +28,7 @@ public abstract class AbstractCrossover implements ICrossover {
             if (newPop.getSize() > ICore.getInstance().getModelController().getGaConfiguration().getPopulationNumber())
                 continue;
             newPop.addChromosome(parentB);
-        }
+        }*/
         return newPop;
     }
 

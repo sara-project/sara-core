@@ -18,6 +18,19 @@ public class SchoolClass implements Cloneable{
         this.schedules =  new SchedulesMap(this);
     }
     
+    public int getID() {
+        return this.id;
+    }
+    
+    public ClassSchedule getClassSchedule(Schedule schedule) {
+        for(ClassSchedule cs : this.schedules.classTimeTables.values())
+            if(cs.getSchedule().equals(schedule)) {
+                return (ClassSchedule) cs.clone();
+            }
+        
+        return null;
+    }
+
     public void addSchedule(Schedule schedule) {
         this.schedules.add(schedule);
     }

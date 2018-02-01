@@ -6,12 +6,6 @@
             <file>file:/D:/Workspace-Icaro/SandroFramework/EditorInterfaces/src/editor/framework/interfaces/decorators/IDecorator.java</file>
         </group>
         <group name="EditorFramework"/>
-        <group name="tcc">
-            <file>file:/home/icarojerry/projects/tcc/sara-project/sara-core/sara-engine/sara-interfaces/src/org/sara/interfaces/algorithms/ga/chromosome/IChromosome.java</file>
-            <file>file:/home/icarojerry/projects/tcc/sara-project/sara-core/sara-engine/sara-interfaces/src/org/sara/interfaces/algorithms/ga/chromosome/IPopulationFactory.java</file>
-            <file>file:/home/icarojerry/projects/tcc/sara-project/sara-core/sara-engine/sara-interfaces/src/org/sara/interfaces/model/SchoolClass.java</file>
-            <file>file:/home/icarojerry/projects/tcc/sara-project/sara-core/sara-engine/sara-interfaces/src/org/sara/interfaces/algorithms/ga/chromosome/IPopulation.java</file>
-            <file>file:/home/icarojerry/projects/tcc/sara-project/sara-core/sara-engine/sara-interfaces/src/org/sara/interfaces/model/Slot.java</file>
-        </group>
+        <group name="tcc"/>
     </open-files>
 </project-private>

@@ -19,6 +19,11 @@ public class Schedule implements Cloneable {
         return other.day == this.day && other.timeInterval == this.timeInterval;
     }
     
+    @Override
+    public Object clone() {
+        return new Schedule(this.id, this.day, this.timeInterval);
+    }
+    
     public int getDay() {
         return this.day;
     }

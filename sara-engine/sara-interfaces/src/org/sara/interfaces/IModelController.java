@@ -1,6 +1,7 @@
 package org.sara.interfaces;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -67,14 +68,14 @@ public abstract class IModelController {
     }
 
     public Map<String, Slot> getSlots() {
-        return (Map<String, Slot>) this.slots;
+        return (Map<String, Slot>) this.slots.clone();
     }
 
     public void setSlots(HashMap<String, Slot> slots) {
         this.slots = slots;
     }
     
-    public Map<Integer, List<ClassSchedule>> separateClassScheduleByDay(ClassSchedule[] classSchedules) {
+    public Map<Integer, List<ClassSchedule>> separateClassScheduleByDay(List<ClassSchedule> classSchedules) {
         HashMap<Integer, List<ClassSchedule>> classSchedulesByDay = new HashMap<>();
         
         for (ClassSchedule classSchedule : classSchedules) {
@@ -89,7 +90,7 @@ public abstract class IModelController {
         return (Map<Integer, List<ClassSchedule>>) classSchedulesByDay.clone();
     }
     
-    public Map<Integer, List<ClassSchedule>> ClassScheduleBySchedule(ClassSchedule[] classSchedules) {
+    public Map<Integer, List<ClassSchedule>> ClassScheduleBySchedule(List<ClassSchedule> classSchedules) {
         HashMap<Integer, List<ClassSchedule>> classSchedulesBySchedule = new HashMap<>();
         
         for (ClassSchedule classSchedule : classSchedules) {
@@ -104,7 +105,7 @@ public abstract class IModelController {
         return (Map<Integer, List<ClassSchedule>>) classSchedulesBySchedule.clone();
     }
 
-    public Map<Integer, List<Schedule>> separateSchedulesByDay(Schedule[] schedules) {
+    public Map<Integer, List<Schedule>> separateSchedulesByDay(List<Schedule> schedules) {
         HashMap<Integer, List<Schedule>> schedulesByDay = new HashMap<>();
         
         for (Schedule schedule : schedules) {
@@ -119,8 +120,8 @@ public abstract class IModelController {
         return (Map<Integer, List<Schedule>>) schedulesByDay.clone();
     }
 
-    public Map<Integer, List<Slot>> separateSlotsByDay(Slot[] slots) {
-        HashMap<Integer, List<Slot>> slotsByDay = new HashMap<>();
+    public Map<Integer, List<Slot>> separateSlotsByDay(List<Slot> slots) {
+        TreeMap<Integer, List<Slot>> slotsByDay = new TreeMap<>();
         
         for (Slot slot : slots) {
             if(!slotsByDay.containsKey(slot.getSchedule().getDay())) {
@@ -134,7 +135,7 @@ public abstract class IModelController {
         return (Map<Integer, List<Slot>>) slotsByDay.clone();
     }
     
-    public Map<Integer, List<Slot>> separateSlotsByTimeInterval(Slot[] slots) {
+    public Map<Integer, List<Slot>> separateSlotsByTimeInterval(List<Slot> slots) {
         TreeMap<Integer, List<Slot>> slotsByTimeInterval = new TreeMap<>();
         
         for (Slot slot : slots) {
@@ -150,7 +151,7 @@ public abstract class IModelController {
         return (Map<Integer, List<Slot>>) slotsByTimeInterval.clone();
     }
     
-    public Map<Integer, List<ClassSchedule>> separateClassSchedulesByTimeInterval(ClassSchedule[] classSchedules) {
+    public Map<Integer, List<ClassSchedule>> separateClassSchedulesByTimeInterval(List<ClassSchedule> classSchedules) {
         TreeMap<Integer, List<ClassSchedule>> classScheduleByTimeInterval = new TreeMap<>();
         
         for (ClassSchedule classSchedule : classSchedules) {
@@ -165,9 +166,24 @@ public abstract class IModelController {
         return (Map<Integer, List<ClassSchedule>>) classScheduleByTimeInterval.clone();
     }
     
-    public Map<Integer, List<Slot>> separateSlotsByRoom(Slot[] slots) {
-        HashMap<Integer, List<Slot>> slotsByRoom = new HashMap<>();
+    public HashMap<Integer, List<ClassSchedule>> separateClassSchedulesByClass(List<ClassSchedule> classSchedules) {
+        HashMap<Integer, List<ClassSchedule>> classScheduleByClass = new HashMap<>();
         
+        for (ClassSchedule classSchedule : classSchedules) {
+            if(!classScheduleByClass.containsKey(classSchedule.getSchoolClass().getID())) {
+                List<ClassSchedule> list = new ArrayList<>();
+                list.add(classSchedule);
+                classScheduleByClass.put(classSchedule.getSchoolClass().getID(), list);
+            }
+            else
+                classScheduleByClass.get(classSchedule.getSchoolClass().getID()).add(classSchedule);
+        }
+        return (HashMap<Integer, List<ClassSchedule>>) classScheduleByClass.clone();
+    }
+    
+    public HashMap<Integer, List<Slot>> separateSlotsByRoom(List<Slot> slots) {
+        HashMap<Integer, List<Slot>> slotsByRoom = new HashMap<>();
+
         for (Slot slot : slots) {
             if(!slotsByRoom.containsKey(slot.getRoom())) {
                 List<Slot> list = new ArrayList<>();
@@ -177,14 +193,14 @@ public abstract class IModelController {
             else
                 slotsByRoom.get(slot.getRoom()).add(slot);
         }
-        return (Map<Integer, List<Slot>>) slotsByRoom.clone();
+        return (HashMap<Integer, List<Slot>>) slotsByRoom.clone();
     }
     
     //Method needs review
     public Schedule getNextSchedule(Schedule schedule) {
         for(Schedule sc : schedules.values())
             if(sc.equals(new Schedule(0, schedule.getDay(), schedule.getTimeInterval() + 1)))
-                return sc;
+                return (Schedule) sc.clone();
         
         return null;
     }
@@ -197,7 +213,7 @@ public abstract class IModelController {
         
         for(ClassSchedule cs : this.classSchedules.values()) {
             if(cs.equals(nextClassSchedule))
-                return cs;
+                return (ClassSchedule) cs.clone();
         }
         
         return null;

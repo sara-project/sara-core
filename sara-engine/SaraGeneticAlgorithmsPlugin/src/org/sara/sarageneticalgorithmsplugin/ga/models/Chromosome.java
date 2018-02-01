@@ -2,46 +2,51 @@ package org.sara.sarageneticalgorithmsplugin.ga.models;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.TreeMap;
 import org.sara.interfaces.ICore;
 import org.sara.interfaces.IModelController;
 import org.sara.interfaces.algorithms.ga.chromosome.IChromosome;
 import org.sara.interfaces.algorithms.ga.genes.IGene;
 import org.sara.interfaces.model.ClassSchedule;
-import org.sara.interfaces.model.Schedule;
 import org.sara.interfaces.model.Slot;
 
 
 public class Chromosome implements IChromosome{
     
     public Chromosome(int type, Object cell, Object information) {
-        Slot[] slots = null;
+        List<Slot> slots = new ArrayList<>();
         IModelController modelControl = ICore.getInstance().getModelController();
         
         if(cell instanceof List)
-            slots = ((List<Slot>) cell).toArray(new Slot[0]);
+            slots = ((List<Slot>) cell);
         else
             System.err.printf("Genetic Load is invalid!");
         
-        Object[] slotsByTimeInterval = modelControl.separateSlotsByTimeInterval(slots).values().toArray();
+        HashMap<Integer, List<Slot>> slotsByRoom = modelControl.separateSlotsByRoom(slots);
         this.type = type;
-        
-        //Os braços dos cromossomos sempre estaram ordenados (crescente) pelo ID do Intervalo de Tempo
+
         this.arms = new ArrayList<>();
         
-        for(int i = 0; i < slotsByTimeInterval.length; i++) {
-            List<Slot> slotsList = (List) slotsByTimeInterval[i];
+        List<Integer> keys = new ArrayList(slotsByRoom.keySet());
+        Collections.shuffle(keys);
+        for(Integer key: keys) {
+            List<Slot> slotsList = slotsByRoom.get(key);
             List<Gene> genes = new ArrayList<>();
-            
-            Collections.shuffle(slotsList);
+            // Ordena os slots por Intervalo de Tempo ASC
+            slotsList.sort(new Comparator<Slot>() {
+                public int compare(Slot s1, Slot s2) {
+                    return s1.getSchedule().getTimeInterval() - s2.getSchedule().getTimeInterval(); 
+                }
+            });
             
             for(Slot slot : slotsList)
                 genes.add(new Gene(slot));
             
-            Collections.shuffle(genes);
             this.arms.add(genes);
         }
         
@@ -51,76 +56,82 @@ public class Chromosome implements IChromosome{
     
     public void fill() {
         IModelController modelControl = ICore.getInstance().getModelController();
-        TreeMap<Integer, List<ClassSchedule>> pullHash =  (TreeMap<Integer, List<ClassSchedule>>) modelControl.separateClassSchedulesByTimeInterval(this.pullInformation.toArray(new ClassSchedule[0]));
-        //Preenche a primeira fileira do braço e pula a segunda, uma vez que as aulas do IFBA geralmente são agrupadas
-        for(int i = 0;  i < this.arms.size(); i = i+2) {
-            //estes genes são slots agrupados por um dia e agrupados por intervalo de tempo;
-            for(Gene gene : this.arms.get(i)) {
-                Slot slot = (Slot) gene.getGeneticInformation();
-                //
+        TreeMap<Integer, List<ClassSchedule>> pullHash =  (TreeMap) modelControl.separateClassSchedulesByTimeInterval(this.pullInformation);
+
+        for(List<Gene> genes : this.arms) {
+            //Slot Sala 1, IT1, IT2, IT3...
+            for(int i = 0; i < genes.size(); i++) {
+                Slot slot = (Slot) genes.get(i).getGeneticInformation();
+
                 if(!slot.isEmpty())
                     continue;
                 
                 List<ClassSchedule> pull = pullHash.get(slot.getSchedule().getTimeInterval());
-                pullHash.remove(slot.getSchedule().getTimeInterval());
                 
                 //para de tentar preencher os genes pois não há mais opções disponíveis
-                if(pull == null || pull.size() <= 0)
+                if(pull == null || pull.isEmpty())
                     break;
-                
+
+                Collections.shuffle(pull);
                 ClassSchedule randomClassSchedule = pull.get(new Random().nextInt(pull.size()));
-                boolean wasFilled = slot.fill(randomClassSchedule.getSchoolClass());
-                //se foi preenchido significa que aquela aula já está sendo usada, logo devo remover no pull de possiveis aulas
-                if(wasFilled) {
-                    pull.remove(randomClassSchedule);
+                
+                boolean hasChange;
+                int times = 0;
+                int maxTimes = ThreadLocalRandom.current().nextInt(1, pull.size() * 2);
+                do {
+                    hasChange = false;
+                    while(slot.isValid(randomClassSchedule.getSchoolClass())) {
+                        hasChange = true;
+
+                        slot.fill(randomClassSchedule.getSchoolClass());
+                        pull.remove(randomClassSchedule);
+                        pullHash.put(slot.getSchedule().getTimeInterval(), pull);
+                        
+                        if(++i >= genes.size())
+                            break;
+                        
+                        //obtém o próximo slot da mesma sala e dia (avança o horário)
+                        slot = (Slot) genes.get(i).getGeneticInformation();
+                        //obtém a próxima Aula da mesma turma, baseada no Schedule do Slot
+                        randomClassSchedule = randomClassSchedule.getSchoolClass().getClassSchedule(slot.getSchedule());
+                        pull = pullHash.get(slot.getSchedule().getTimeInterval());
+                        
+                        if(randomClassSchedule == null || pull == null || pull.isEmpty())
+                            break;
+                        
+                        Collections.shuffle(pull);
+                    }
+                    //Caso tenha preenchido um slot, mas o próximo não preencheu, gera uma nova aula randomica para tentar ser alocada
+                    if(pull == null || pull.isEmpty())
+                        break;
+                    randomClassSchedule = pull.get(new Random().nextInt(pull.size()));
                     
-                    //atualiza o pull
-                    pullHash.put(slot.getSchedule().getTimeInterval(), pull);
-                    
-                    this.fillNext(slot, modelControl.getNextSchedule(slot.getSchedule()), modelControl.getNextClassSchedule(randomClassSchedule), pullHash);
-                    //como o ifba geralmente são duas aulas seguidas
-                    //pegamos o próximo slot da mesma sala (avançando apenas o intervalo de tempo)
-                    //depois pegamos a proxima aula da mesma turma (avançando apenas o intervalo de tempo)
-                }
-                else { //atualiza o pull
-                    pullHash.put(slot.getSchedule().getTimeInterval(), pull);
-                }
+                    //tentativas
+                    if(times++ >= maxTimes)
+                        break;
+                } while(!hasChange || (hasChange && slot.isEmpty()));
             }
         }
         this.pullInformation.clear();
-    }
-    
-    private void fillNext(Slot slot, Schedule nextSchedule, ClassSchedule nextClassSchedule, Map<Integer, List<ClassSchedule>> pullHash) {
-         for(List<Gene> genes : this.arms) {
-            for(Gene gene : genes) {
-                Slot next = (Slot) gene.getGeneticInformation();
-                if(next.getRoom() == slot.getRoom() && next.getSchedule() == nextSchedule) {
-                    if(nextClassSchedule == null || nextClassSchedule.getSchoolClass() == null)
-                        return;
-                    next.fill(nextClassSchedule.getSchoolClass());
-                   
-                   List<ClassSchedule> pull = pullHash.get(next.getSchedule().getTimeInterval());
-                   pullHash.remove(next.getSchedule().getTimeInterval());
-                   pull.remove(nextClassSchedule);
-                   pullHash.put(next.getSchedule().getTimeInterval(), pull);
-                   return;
-                } else if(next.getSchedule() != nextSchedule)
-                    break;
-            }
-        }
     }
 
     public int getType() {
         return type;
     }
 
-    private final List<List<Gene>> arms;
-    private final List<ClassSchedule> pullInformation;
-    private final int type;
+    private Chromosome() {}
+    private List<List<Gene>> arms;
+    private List<ClassSchedule> pullInformation;
+    private int type;
     
     @Override
     public Object clone(){
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Chromosome chr = new Chromosome();
+        chr.type = this.type;
+        chr.arms = new ArrayList<>(this.arms);
+        chr.pullInformation = new ArrayList<>(this.pullInformation);
+        
+        return chr;
     }
     
     @Override

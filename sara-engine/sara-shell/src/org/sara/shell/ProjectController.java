@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.sara.interfaces.IModelController;
 
 public class ProjectController extends IProjectController {
     
@@ -41,7 +40,6 @@ public class ProjectController extends IProjectController {
             } catch (IllegalAccessException ex) {
                 Logger.getLogger(ProjectController.class.getName()).log(Level.SEVERE, null, ex);
             }
-
         }
 
         return plugins;
