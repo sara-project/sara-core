@@ -9,10 +9,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ProjectController extends IProjectController {
-    
+
     @Override
-    public void addNameActivePlugin(String name) {
-        nameActivePlugins.add(name);
+    public void addNameActivePlugin( String name ) {
+        nameActivePlugins.add( name );
     }
 
     @Override
@@ -21,31 +21,28 @@ public class ProjectController extends IProjectController {
     }
 
     @Override
-    public List<IPlugin> pluginsByType(Object type) {
+    public List<IPlugin> pluginsByType( Object type ) {
         List<String> pluginsNames = this.allActivePlugin();
         List<IPlugin> plugins = new ArrayList<>();
 
         for (int i = 0; i < pluginsNames.size(); i++) {
-            IPlugin temp = null;
+            IPlugin temp;
             try {
-                temp = (IPlugin) Class.forName(pluginsNames.get(i), true, dataJars).newInstance();
+                temp = (IPlugin) Class.forName( pluginsNames.get( i ), true, dataJars ).newInstance();
 
-                if (type.getClass().isInstance(temp)) {
-                    plugins.add(temp);
+                if (type.getClass().isInstance( temp )) {
+                    plugins.add( temp );
                 }
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(ProjectController.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (InstantiationException ex) {
-                Logger.getLogger(ProjectController.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IllegalAccessException ex) {
-                Logger.getLogger(ProjectController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
+                Logger.getLogger( ProjectController.class.getName() ).log( Level.SEVERE, null, ex );
             }
         }
 
         return plugins;
     }
 
-    public void setDataJars(URLClassLoader dataJars) {
+    @Override
+    public void setDataJars( URLClassLoader dataJars ) {
         this.dataJars = dataJars;
     }
 

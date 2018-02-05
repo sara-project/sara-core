@@ -4,7 +4,7 @@
         "max_generation": 1000,
         "mutation_probability": 0.1,
         "crossover_probability": 0.1,
-        "select_probability": 0.1,
+        "select_probability": 0.5,
         "elitism_probability": 0.1
     },
     "schedules": [

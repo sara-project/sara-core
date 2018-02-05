@@ -21,15 +21,15 @@ public abstract class IProjectController implements IObservable {
     public abstract List<IPlugin> pluginsByType(Object type);
 
     public abstract void setDataJars(URLClassLoader dataJars);
-    
+
     public IGAEngine getGAEngine() {
-        if(currentGAEngine == null) {
-           System.out.println("No genetic algorithm engine was added");
-           System.exit(1);
+        if (currentGAEngine == null) {
+            System.out.println("No genetic algorithm engine was added");
+            System.exit(1);
         }
         return currentGAEngine;
     }
-    
+
     public void setGAEngine(IGAEngine engine) {
         this.currentGAEngine = engine;
     }

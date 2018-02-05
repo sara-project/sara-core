@@ -1,7 +1,9 @@
 package org.sara.interfaces.algorithms.ga;
 
+import java.util.List;
+import org.sara.interfaces.model.Slot;
 
 public interface IGAEngine {
-    
-    public void startGA();
+
+    public List<Slot> startGA();
 }

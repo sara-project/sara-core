@@ -9,7 +9,7 @@ public abstract class ICore {
     public abstract IUiController getUiController();
 
     public abstract IProjectController getProjectController();
-    
+
     public abstract IModelController getModelController();
 
     protected ICore() {

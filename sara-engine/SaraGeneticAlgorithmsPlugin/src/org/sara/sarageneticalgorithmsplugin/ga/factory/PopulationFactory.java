@@ -1,0 +1,86 @@
+package org.sara.sarageneticalgorithmsplugin.ga.factory;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.sara.interfaces.ICore;
+import org.sara.interfaces.ga.factory.IPopulationFactory;
+import org.sara.interfaces.algorithms.ga.model.ISpecimen;
+import org.sara.interfaces.algorithms.ga.model.IPopulation;
+import org.sara.sarageneticalgorithmsplugin.ga.model.Population;
+
+public class PopulationFactory implements IPopulationFactory {
+
+    public static PopulationFactory getInstance() {
+        if (instance == null) {
+            instance = new PopulationFactory();
+        }
+
+        return instance;
+    }
+
+    @Override
+    public IPopulation makePopulation() {
+        int popNumber = ICore.getInstance().getModelController().getGaConfiguration().getPopulationNumber();
+        IPopulation pop = new Population(popNumber);
+        specimens = Collections.synchronizedList(new ArrayList<>());
+
+        if (runInParallel) {
+            try {
+                List<Thread> threads = new ArrayList<>();
+
+                int threadNumbers = ICore.getInstance().getProjectController().AVAILABLE_PROCESSORS;
+                int specimenPerThread = popNumber / threadNumbers;
+
+                for (int i = 0; i < threadNumbers; i++) {
+                    threads.add(new Thread(() -> {
+                        specimens.addAll(SpecimenFactory.makeSpecimen(specimenPerThread));
+                    }));
+                }
+
+                for (Thread t : threads) {
+                    t.start();
+                }
+
+                for (Thread t : threads) {
+                    t.join();
+                }
+
+            } catch (InterruptedException ex) {
+                Logger.getLogger(PopulationFactory.class.getName()).log(Level.SEVERE, null, ex);
+            }
+// Limpa possíveis Specimens nulos gerados por mal sicronia das Threads;
+//            List<ISpecimen> beRemoved = new ArrayList<>();
+//            for(ISpecimen specimen : specimens)
+//                if(specimen == null)
+//                    beRemoved.add(specimen);
+//
+//            specimens.removeAll(beRemoved);
+            pop.addSpecimens(specimens);
+            specimens = null;
+        }
+
+        while (!pop.isFull()) {
+            pop.addSpecimens(SpecimenFactory.makeSpecimen(1));
+        }
+
+        return pop;
+    }
+
+    public static void enableParallelExec() {
+        runInParallel = true;
+    }
+
+    public static void disableParallelExec() {
+        runInParallel = false;
+    }
+
+    private PopulationFactory() {
+        enableParallelExec();
+    }
+    private static boolean runInParallel;
+    private static PopulationFactory instance;
+    private static List<ISpecimen> specimens;
+}

@@ -10,9 +10,6 @@
 <project name="sara-shell" default="default" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant">
     <description>Builds, tests, and runs the project sara-shell.</description>
     <import file="nbproject/build-impl.xml"/>
-    <target name="-pre-compile">
-        <get src="http://central.maven.org/maven2/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar" dest="./libs"/>
-    </target>
     <!--
 
     There exist several targets which are by default empty and which can be 

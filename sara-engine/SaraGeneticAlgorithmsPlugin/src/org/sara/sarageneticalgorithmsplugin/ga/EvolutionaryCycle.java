@@ -1,39 +1,59 @@
 package org.sara.sarageneticalgorithmsplugin.ga;
 
+import java.util.ArrayList;
+import java.util.List;
+import org.sara.sarageneticalgorithmsplugin.ga.factory.PopulationFactory;
 import org.sara.interfaces.ICore;
-import org.sara.interfaces.abstractfactories.IPopulationFactory;
+import org.sara.interfaces.ga.factory.IPopulationFactory;
 import org.sara.interfaces.algorithms.ga.IGAEngine;
-import org.sara.interfaces.algorithms.ga.crossover.ICrossover;
-import org.sara.interfaces.algorithms.ga.fitness.IFitness;
-import org.sara.interfaces.algorithms.ga.galightswitch.IGALightSwitch;
-import org.sara.interfaces.algorithms.ga.mutation.IMutation;
-import org.sara.interfaces.algorithms.ga.population.IPopulation;
-import org.sara.interfaces.algorithms.ga.selection.ISelection;
+import org.sara.interfaces.algorithms.ga.model.IChromosome;
+import org.sara.interfaces.algorithms.ga.model.IGene;
+import org.sara.interfaces.algorithms.ga.model.ISpecimen;
+import org.sara.interfaces.algorithms.ga.operator.ICrossover;
+import org.sara.interfaces.algorithms.ga.operator.IFitness;
+import org.sara.interfaces.algorithms.ga.operator.IGALightSwitch;
+import org.sara.interfaces.algorithms.ga.operator.IMutation;
+import org.sara.interfaces.algorithms.ga.model.IPopulation;
+import org.sara.interfaces.algorithms.ga.operator.ISelection;
 import org.sara.interfaces.model.GAConfiguration;
-import org.sara.sarageneticalgorithmsplugin.crossover.TwoPointCrossover;
-import org.sara.sarageneticalgorithmsplugin.fitness.IFBACAFitness;
-import org.sara.sarageneticalgorithmsplugin.ga.models.Generation;
-import org.sara.sarageneticalgorithmsplugin.mutation.SwapGene;
-import org.sara.sarageneticalgorithmsplugin.operators.galightswitch.BestSelection;
-import org.sara.sarageneticalgorithmsplugin.operators.galightswitch.GALightSwitch;
+import org.sara.interfaces.model.Slot;
+import org.sara.sarageneticalgorithmsplugin.operator.crossover.RandomCrossover;
+import org.sara.sarageneticalgorithmsplugin.operator.crossover.TwoPointCrossover;
+import org.sara.sarageneticalgorithmsplugin.operator.crossover.UniformCrossover;
+import org.sara.sarageneticalgorithmsplugin.operator.fitness.IFBACAFitness;
+import org.sara.sarageneticalgorithmsplugin.ga.model.Generation;
+import org.sara.sarageneticalgorithmsplugin.operator.mutation.SwapMutation;
+import org.sara.sarageneticalgorithmsplugin.operators.selection.BestSelection;
+import org.sara.sarageneticalgorithmsplugin.operator.galightswitch.GALightSwitch;
+import org.sara.sarageneticalgorithmsplugin.operator.mutation.RandomMutation;
+import org.sara.sarageneticalgorithmsplugin.operators.selection.RandomSelection;
+import org.sara.sarageneticalgorithmsplugin.operators.selection.RankingSelection;
 
-public class EvolutionaryCycle implements IGAEngine{
-    
+public class EvolutionaryCycle implements IGAEngine {
+
     public EvolutionaryCycle() {
-       System.out.println("Engine EvolutionaryCycle was created.");
-    }
-    
-    public void startCycle() { 
-        IPopulation population;
+        System.out.println("Engine EvolutionaryCycle was created.");
+
+        ISelection[] selections = {new BestSelection(), new RankingSelection()};
+        ICrossover[] crossovers = {new TwoPointCrossover(), new UniformCrossover()};
+        IMutation[] mutations = {new SwapMutation()};
+
         this.gaConfiguration = ICore.getInstance().getModelController().getGaConfiguration();
-        
-        //Assigns the genetic operators that will be used
         this.gaConfiguration.setGaLightSwitch(new GALightSwitch(gaConfiguration.getMaxGeneration()));
-        this.gaConfiguration.setSelection(new BestSelection()); //needs review
-        this.gaConfiguration.setCrossover(new TwoPointCrossover()); //needs review
-        this.gaConfiguration.setMutation(new SwapGene()); //needs review
-        this.gaConfiguration.setFitness(new IFBACAFitness()); //needs review
-        System.out.println("WARRNIG: Operators need to be reviewed... (SaraGeneticAlgorithmsPlugin)");
+
+        this.gaConfiguration.setSelection(new RandomSelection(selections));
+        this.gaConfiguration.setCrossover(new RandomCrossover(crossovers));
+        this.gaConfiguration.setMutation(new RandomMutation(mutations));
+        this.gaConfiguration.setFitness(new IFBACAFitness());
+    }
+
+    @Override
+    public List<Slot> startGA() {
+        return this.startCycle();
+    }
+
+    private List<Slot> startCycle() {
+        IPopulation population;
 
         //Get the current operators
         IFitness fitness = this.gaConfiguration.getFitness();
@@ -42,23 +62,40 @@ public class EvolutionaryCycle implements IGAEngine{
         IMutation mutation = this.gaConfiguration.getMutation();
         IGALightSwitch terminate = this.gaConfiguration.getGaLightSwitch();
         IPopulationFactory populationFactory = PopulationFactory.getInstance();
-        
-        System.out.println("The evolutionary cyle was started.");
-        int genNumber = 1;
-        population = populationFactory.makePopulation();
-        do {
-            fitness.evaluate(population);
-            //Código abaixo simula a geração dos descendentes
-            population = populationFactory.makePopulation();
-        
-        } while (!terminate.stop(new Generation(genNumber++, population)));
-        System.out.println();
-    }
-    
-    private GAConfiguration gaConfiguration;
 
-    @Override
-    public void startGA() {
-        this.startCycle();
+        int genNumber = 1;
+
+        population = populationFactory.makePopulation();
+        ISpecimen bestSpecimen = (ISpecimen) population.getRandomSpecimen().clone();
+        for (IChromosome c : bestSpecimen.getChromossomes()) {
+            c.setFitness(c.getFitness() + 10);
+        }
+
+        do {
+            //Calcula o fitness de cada indivíduo
+            fitness.evaluate(population); //<==== FAZER
+
+            if (Float.max(population.getBestSpecimen().getFitness(), bestSpecimen.getFitness()) == population.getBestSpecimen().getFitness()) {
+                bestSpecimen = (ISpecimen) population.getBestSpecimen().clone();
+            }
+
+            //Seleciona os genitores
+            IPopulation parents = selection.select(population, this.gaConfiguration.getSelectProbability());
+
+            //Cruza os genitores e gera os descendentes
+            IPopulation offSpring = crossover.makeOffspring(parents);
+
+            //Gera a mutação em cima dos genitores
+            mutation.mutate(offSpring, this.gaConfiguration.getMutationProbability());
+
+            //Atualiza a geração
+            population = offSpring;
+        } while (!terminate.stop(new Generation(genNumber++, population)));
+
+        List<Slot> slots = new ArrayList<>();
+        bestSpecimen.getAllGenes().forEach((gene) -> slots.add((Slot) gene));
+        return slots;
     }
+
+    private final GAConfiguration gaConfiguration;
 }
