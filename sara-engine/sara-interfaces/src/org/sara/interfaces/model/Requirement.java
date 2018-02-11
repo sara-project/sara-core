@@ -6,7 +6,16 @@ public class Requirement implements Cloneable {
         this.id = id;
         this.capacity = capacity;
     }
-
+    
+    public String getID() {
+        return this.id;
+    }
+    
+    @Override
+    public Object clone() {
+        return new Requirement(this.id, this.capacity);
+    }
+    
     private final String id;
     private final int capacity;
 }

@@ -4,5 +4,5 @@ public interface IGeneration {
 
     public int getNumber();
 
-    public IPopulation getPopulation();
+    public IPopulation getPopulation(boolean clone);
 }

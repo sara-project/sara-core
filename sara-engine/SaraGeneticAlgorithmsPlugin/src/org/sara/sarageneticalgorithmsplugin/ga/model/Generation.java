@@ -16,8 +16,8 @@ public class Generation implements IGeneration {
     }
 
     @Override
-    public IPopulation getPopulation() {
-        return population;
+    public IPopulation getPopulation(boolean clone) {
+        return clone? (IPopulation) this.population.clone() : this.population;
     }
 
     private final int generation;

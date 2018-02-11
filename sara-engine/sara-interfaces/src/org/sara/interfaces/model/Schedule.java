@@ -10,9 +10,8 @@ public class Schedule implements Cloneable {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Schedule)) {
+        if (!(o instanceof Schedule))
             return false;
-        }
 
         Schedule other = (Schedule) o;
 

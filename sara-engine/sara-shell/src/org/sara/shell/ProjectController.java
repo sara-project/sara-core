@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.sara.interfaces.IObserver;
 
 public class ProjectController extends IProjectController {
 
@@ -44,6 +45,11 @@ public class ProjectController extends IProjectController {
     @Override
     public void setDataJars( URLClassLoader dataJars ) {
         this.dataJars = dataJars;
+    }
+    
+    @Override
+    public void notifyObeserver( IObserver obj ) {
+        throw new UnsupportedOperationException( "Not supported yet." ); //To change body of generated methods, choose Tools | Templates.
     }
 
     private URLClassLoader dataJars;

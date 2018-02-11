@@ -14,9 +14,8 @@ import org.sara.sarageneticalgorithmsplugin.ga.model.Population;
 public class PopulationFactory implements IPopulationFactory {
 
     public static PopulationFactory getInstance() {
-        if (instance == null) {
+        if (instance == null)
             instance = new PopulationFactory();
-        }
 
         return instance;
     }
@@ -40,9 +39,9 @@ public class PopulationFactory implements IPopulationFactory {
                     }));
                 }
 
-                for (Thread t : threads) {
+                threads.forEach((t) -> {
                     t.start();
-                }
+                });
 
                 for (Thread t : threads) {
                     t.join();
@@ -58,14 +57,13 @@ public class PopulationFactory implements IPopulationFactory {
 //                    beRemoved.add(specimen);
 //
 //            specimens.removeAll(beRemoved);
-            pop.addSpecimens(specimens);
+            pop.addSpecimens(specimens, false);
             specimens = null;
         }
 
-        while (!pop.isFull()) {
-            pop.addSpecimens(SpecimenFactory.makeSpecimen(1));
-        }
-
+        while (!pop.isFull())
+            pop.addSpecimens(SpecimenFactory.makeSpecimen(1), false);
+        
         return pop;
     }
 

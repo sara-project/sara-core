@@ -4,7 +4,7 @@ public class Slot implements Cloneable {
 
     public Slot(int id, Schedule schedule, Room room) {
         this.id = id;
-        this.schedule = schedule;
+        this.schedule = (Schedule) schedule.clone();
         this.room = room;
     }
 
@@ -22,7 +22,7 @@ public class Slot implements Cloneable {
 
     public boolean fill(SchoolClass sClass) {
         if (this.isValid(sClass)) {
-            this.sClass = sClass;
+            this.sClass = (SchoolClass) sClass.clone();
             this.sClass.allocate(this.getSchedule());
             return true;
         }
@@ -46,7 +46,7 @@ public class Slot implements Cloneable {
     }
 
     public SchoolClass getSchoolClass() {
-        return this.sClass;
+        return this.sClass != null? (SchoolClass) this.sClass.clone() : null;
     }
 
     public int getRoom() {
@@ -60,7 +60,7 @@ public class Slot implements Cloneable {
     @Override
     public Object clone() {
         Slot clone = new Slot(id, (Schedule) schedule.clone(), (Room) room.clone());
-        clone.sClass = (SchoolClass) this.sClass.clone();
+        clone.sClass = this.sClass != null? (SchoolClass) this.sClass.clone() : null;
         return clone;
     }
 

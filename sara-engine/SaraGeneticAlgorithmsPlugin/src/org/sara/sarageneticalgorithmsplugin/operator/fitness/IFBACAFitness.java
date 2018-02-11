@@ -32,7 +32,7 @@ public class IFBACAFitness implements IFitness {
 
             threads.add(new Thread(() -> {
                 for (int j = start; j < end; j++) {
-                    IFBACAFitness.this.evaluate(population.getAllSpecimens().get(j));
+                    this.evaluate(population.getAllSpecimens(false).get(j));
                 }
             }));
         }
@@ -55,7 +55,7 @@ public class IFBACAFitness implements IFitness {
     }
 
     private void evaluate(ISpecimen specimen) {
-        for (IChromosome c : specimen.getChromossomes()) {
+        for (IChromosome c : specimen.getChromossomes(false)) {
             c.setFitness(this.calculateFitness(c));
         }
     }

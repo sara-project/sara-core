@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.simple.parser.ParseException;
+import org.sara.interfaces.ICore;
 import org.sara.interfaces.model.Slot;
 
 public class Main {
@@ -49,19 +50,12 @@ public class Main {
             System.err.println( "Failed to execute the scripts ..." );
             System.err.println( ex.getMessage() );
         }
-
-        //Workaround to ensure that previous script has completed
-        try {
-            Thread.sleep( 500 );
-        } catch (InterruptedException ex) {
-            System.out.println( "Erro: " + ex.getMessage() );
-        }
-
+        
         System.out.println( "\n----------------------------------------- " );
         System.out.println( "Initializing the Core\n" );
         Core.initialize();
-        Core.initPlugins();
 
+     
         System.out.println( "\n----------------------------------------- " );
         System.out.println( "Models Information\n" );
 
@@ -102,6 +96,12 @@ public class Main {
 
         System.out.println( "\n - Genetic Algorithm Configuration" );
         System.out.println( Core.getInstance().getModelController().getGaConfiguration() + "\n" );
+        
+        
+        System.out.println( "\n----------------------------------------- " );
+        System.out.println( "Initializing Plugins \n" );
+        Core.initPlugins();
+
 
         System.out.println( "\n----------------------------------------- " );
         System.out.println( "Initialize System\n" );
@@ -113,6 +113,9 @@ public class Main {
         endDate = new Date();
         System.out.println( "Start Date: " + startDate );
         System.out.println( "End Date: " + endDate );
+        
+        System.out.println();
+        ICore.getInstance().getUiController().printMemoryInfo();
     }
 
     private static boolean validateArgs( String[] args ) {

@@ -1,34 +1,26 @@
 package org.sara.interfaces.algorithms.ga.operator;
 
+import java.util.Collections;
 import org.sara.interfaces.ICore;
 import org.sara.interfaces.algorithms.ga.model.ISpecimen;
 import org.sara.interfaces.algorithms.ga.model.IPopulation;
 
 public abstract class ICrossover implements Cloneable {
 
-    public final IPopulation makeOffspring(IPopulation parents) {
+    public final void makeOffspring(IPopulation parents) {
         int popSize = ICore.getInstance().getModelController().getGaConfiguration().getPopulationNumber();
-        IPopulation offspring = (IPopulation) parents.clone();
-        offspring.clearSpecimens();
-        double elitismProbability = ICore.getInstance().getModelController().getGaConfiguration().getElitismProbability();
 
-        parents.sortByFitness();
+        Collections.shuffle(parents.getAllSpecimens(false));
 
-        //Garante o Elitismo (Uma parte dos melhores indivíduos dos genitores
-        for (int i = 0; i < (parents.size() * elitismProbability); i++) {
-            offspring.addSpecimen(parents.getSpecimen(i));
-        }
-
-        while (offspring.size() < popSize) {
-            ISpecimen parentA = (ISpecimen) parents.getRandomSpecimen().clone();
-            ISpecimen parentB = (ISpecimen) parents.getRandomSpecimen().clone();
+        while (parents.size() < popSize) {
+            ISpecimen parentA = parents.getRandomSpecimen(true);
+            ISpecimen parentB = parents.getRandomSpecimen(true);
 
             this.crossover(parentA, parentB);
 
-            offspring.addSpecimen(parentA);
-            offspring.addSpecimen(parentB);
+            parents.addSpecimen(parentA, false);
+            parents.addSpecimen(parentB, false);
         }
-        return offspring;
     }
 
     public abstract void crossover(ISpecimen parentA, ISpecimen parentB);

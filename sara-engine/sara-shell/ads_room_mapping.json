@@ -1,11 +1,11 @@
 {
     "ga_config": {
-        "population_number": 5000,
-        "max_generation": 1000,
+        "population_number": 2000,
+        "max_generation": 500,
         "mutation_probability": 0.1,
         "crossover_probability": 0.1,
         "select_probability": 0.5,
-        "elitism_probability": 0.1
+        "elitism_probability": 0.02
     },
     "schedules": [
         {

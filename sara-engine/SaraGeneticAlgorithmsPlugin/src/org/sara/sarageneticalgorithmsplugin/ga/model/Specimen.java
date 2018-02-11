@@ -48,9 +48,8 @@ public class Specimen implements ISpecimen {
     public float getFitness() {
         float fitness = 0;
 
-        for (IChromosome c : this.getChromossomes()) {
+        for (IChromosome c : this.getChromossomes(false))
             fitness += c.getFitness();
-        }
 
         return fitness;
     }
@@ -58,37 +57,55 @@ public class Specimen implements ISpecimen {
     @Override
     public Object clone() {
         Specimen clone = new Specimen();
-        clone.chromossomes = this.chromossomes.clone();
-        clone.pullClassSchedule = (HashMap<Integer, List<ClassSchedule>>) this.pullClassSchedule.clone();
+        clone.chromossomes = this.getChromossomes(true);
+        
+        HashMap<Integer, List<ClassSchedule>> clonePullClassSchedule = new HashMap<>();
+        this.pullClassSchedule.keySet().forEach(keySet -> {
+            List<ClassSchedule> listClone = new ArrayList<>();
+            this.pullClassSchedule.get(keySet).forEach(l -> listClone.add(0, l));
+            clonePullClassSchedule.put(keySet, listClone);
+        });
+        
+        clone.pullClassSchedule = clonePullClassSchedule;
         return clone;
     }
 
     @Override
-    public IChromosome getRandomChromosome() {
+    public IChromosome getRandomChromosome(boolean clone) {
         int limit = this.chromossomes.length;
-        return this.chromossomes[(new Random()).nextInt(limit)];
+        IChromosome chr = this.chromossomes[(new Random()).nextInt(limit)];
+        return clone? (IChromosome) chr.clone() : chr;
     }
 
     @Override
-    public IChromosome[] getChromossomes() {
-        return (IChromosome[]) this.chromossomes.clone();
+    public IChromosome[] getChromossomes(boolean clone) {
+        if(!clone)
+            return this.chromossomes;
+        
+        int size = this.chromossomes.length;
+        IChromosome[] cloneList = new IChromosome[size];
+        for(int i = 0; i < size; i++)
+            cloneList[i] = (IChromosome) this.chromossomes[i].clone();
+            
+        return cloneList;
     }
 
     @Override
-    public IChromosome getChromossome(int index) {
-        return (IChromosome) this.chromossomes[index].clone();
+    public IChromosome getChromossome(int index, boolean clone) {
+        IChromosome chr = this.chromossomes[index];
+        return clone? (IChromosome) chr.clone() : chr;
     }
 
     @Override
     public void setChromosome(IChromosome chromosome, int index) {
-        this.chromossomes[index] = chromosome;
+        this.chromossomes[index] = (IChromosome) chromosome.clone();
     }
 
     @Override
-    public List<IGene> getAllGenes() {
+    public List<IGene> getAllGenes(boolean clone) {
         List<IGene> genes = new ArrayList<>();
         for (IChromosome chromosome : this.chromossomes) {
-            genes.addAll(chromosome.getGenes());
+            genes.addAll(chromosome.getGenes(clone));
         }
 
         return genes;
@@ -100,8 +117,7 @@ public class Specimen implements ISpecimen {
         }
     }
 
-    private Specimen() {
-    }
+    private Specimen() {}
     private IChromosome[] chromossomes;
     private HashMap<Integer, List<ClassSchedule>> pullClassSchedule;
 }

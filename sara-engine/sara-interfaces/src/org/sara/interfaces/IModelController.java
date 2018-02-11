@@ -26,198 +26,78 @@ public abstract class IModelController {
     }
 
     public Map<String, Requirement> getRequirements() {
-        return (Map<String, Requirement>) this.requirements.clone();
+        Map<String, Requirement> clone = new HashMap<>();
+        this.requirements.values().forEach((r) -> clone.put(r.getID(), (Requirement) r.clone()));
+
+        return clone;
     }
 
-    public void setRequirements(HashMap<String, Requirement> requirements) {
-        this.requirements = requirements;
+    public void setRequirements(Map<String, Requirement> requirements) {
+        Map<String, Requirement> clone = new HashMap<>();
+        requirements.values().forEach((r) -> clone.put(r.getID(), (Requirement) r.clone()));
+        this.requirements = clone;
     }
 
     public Map<String, Room> getRooms() {
-        return (Map<String, Room>) rooms.clone();
+        Map<String, Room> clone = new HashMap<>();
+        this.rooms.values().forEach((r) -> clone.put(String.valueOf(r.getID()), (Room) r.clone()));
+        return clone;
     }
 
     public void setRooms(HashMap<String, Room> rooms) {
+        Map<String, Room> clone = new HashMap<>();
+        rooms.values().forEach((r) -> clone.put(String.valueOf(r.getID()), (Room) r.clone()));
         this.rooms = rooms;
     }
 
     public Map<String, Schedule> getSchedules() {
-        return (Map<String, Schedule>) this.schedules.clone();
+        Map<String, Schedule> clone = new HashMap<>();
+        this.schedules.values().forEach((s) -> clone.put(String.valueOf(s.getID()), (Schedule) s.clone()));
+        return clone;
     }
 
     public void setSchedules(HashMap<String, Schedule> schedules) {
-        this.schedules = schedules;
+        Map<String, Schedule> clone = new HashMap<>();
+        schedules.values().forEach((s) -> clone.put(String.valueOf(s.getID()), (Schedule) s.clone()));
+        this.schedules = clone;
     }
 
-    public HashMap<String, SchoolClass> getSchoolClass() {
-        return (HashMap<String, SchoolClass>) this.schoolClass.clone();
+    public Map<String, SchoolClass> getSchoolClass() {
+        Map<String, SchoolClass> clone = new HashMap<>();
+        this.schoolClass.values().forEach((s) -> clone.put(String.valueOf(s.getID()), (SchoolClass) s.clone()));
+        return clone;
     }
 
     public void setSchoolClass(HashMap<String, SchoolClass> schoolClass) {
-        this.schoolClass = schoolClass;
-    }
-
-    public void setClassSchedule(HashMap<String, ClassSchedule> classSchedules) {
-        this.classSchedules = classSchedules;
+        Map<String, SchoolClass> clone = new HashMap<>();
+        schoolClass.values().forEach((s) -> clone.put(String.valueOf(s.getID()), (SchoolClass) s.clone()));
+        this.schoolClass = clone;
     }
 
     public Map<String, ClassSchedule> getClassSchedule() {
-        return (HashMap<String, ClassSchedule>) this.classSchedules.clone();
+        Map<String, ClassSchedule> clone = new HashMap<>();
+        this.classSchedules.values().forEach((cs) -> clone.put(String.valueOf(cs.getID()), (ClassSchedule) cs.clone()));
+        return clone;
+    }
+    
+    public void setClassSchedule(HashMap<String, ClassSchedule> classSchedules) {
+        Map<String, ClassSchedule> clone = new HashMap<>();
+        classSchedules.values().forEach((cs) -> clone.put(String.valueOf(cs.getID()), (ClassSchedule) cs.clone()));
+        this.classSchedules = clone;
     }
 
     public Map<String, Slot> getSlots() {
-        return (Map<String, Slot>) this.slots.clone();
+        Map<String, Slot> clone = new HashMap<>();
+        this.slots.values().forEach((s) -> clone.put(String.valueOf(s.getID()), (Slot) s.clone()));
+        return clone;
     }
 
     public void setSlots(HashMap<String, Slot> slots) {
-        this.slots = slots;
+        Map<String, Slot> clone = new HashMap<>();
+        slots.values().forEach((s) -> clone.put(String.valueOf(s.getID()), (Slot) s.clone()));
+        this.slots = clone;
     }
-
-    public Map<Integer, List<ClassSchedule>> separateClassScheduleByDay(List<ClassSchedule> classSchedules) {
-        HashMap<Integer, List<ClassSchedule>> classSchedulesByDay = new HashMap<>();
-
-        for (ClassSchedule classSchedule : classSchedules) {
-            if (!classSchedulesByDay.containsKey(classSchedule.getSchedule().getDay())) {
-                List<ClassSchedule> list = new ArrayList<>();
-                list.add(classSchedule);
-                classSchedulesByDay.put(classSchedule.getSchedule().getDay(), list);
-            } else {
-                classSchedulesByDay.get(classSchedule.getSchedule().getDay()).add(classSchedule);
-            }
-        }
-        return (Map<Integer, List<ClassSchedule>>) classSchedulesByDay.clone();
-    }
-
-    public Map<Integer, List<ClassSchedule>> ClassScheduleBySchedule(List<ClassSchedule> classSchedules) {
-        HashMap<Integer, List<ClassSchedule>> classSchedulesBySchedule = new HashMap<>();
-
-        for (ClassSchedule classSchedule : classSchedules) {
-            if (!classSchedulesBySchedule.containsKey(classSchedule.getSchedule().getID())) {
-                List<ClassSchedule> list = new ArrayList<>();
-                list.add(classSchedule);
-                classSchedulesBySchedule.put(classSchedule.getSchedule().getID(), list);
-            } else {
-                classSchedulesBySchedule.get(classSchedule.getSchedule().getID()).add(classSchedule);
-            }
-        }
-        return (Map<Integer, List<ClassSchedule>>) classSchedulesBySchedule.clone();
-    }
-
-    public Map<Integer, List<Schedule>> separateSchedulesByDay(List<Schedule> schedules) {
-        HashMap<Integer, List<Schedule>> schedulesByDay = new HashMap<>();
-
-        for (Schedule schedule : schedules) {
-            if (!schedulesByDay.containsKey(schedule.getDay())) {
-                List<Schedule> list = new ArrayList<>();
-                list.add(schedule);
-                schedulesByDay.put(schedule.getDay(), list);
-            } else {
-                schedulesByDay.get(schedule.getDay()).add(schedule);
-            }
-        }
-        return (Map<Integer, List<Schedule>>) schedulesByDay.clone();
-    }
-
-    public Map<Integer, List<Slot>> separateSlotsByDay(List<Slot> slots) {
-        TreeMap<Integer, List<Slot>> slotsByDay = new TreeMap<>();
-
-        for (Slot slot : slots) {
-            if (!slotsByDay.containsKey(slot.getSchedule().getDay())) {
-                List<Slot> list = new ArrayList<>();
-                list.add(slot);
-                slotsByDay.put(slot.getSchedule().getDay(), list);
-            } else {
-                slotsByDay.get(slot.getSchedule().getDay()).add(slot);
-            }
-        }
-        return (Map<Integer, List<Slot>>) slotsByDay.clone();
-    }
-
-    public Map<Integer, List<Slot>> separateSlotsByTimeInterval(List<Slot> slots) {
-        TreeMap<Integer, List<Slot>> slotsByTimeInterval = new TreeMap<>();
-
-        for (Slot slot : slots) {
-            if (!slotsByTimeInterval.containsKey(slot.getSchedule().getTimeInterval())) {
-                List<Slot> list = new ArrayList<>();
-                list.add(slot);
-                slotsByTimeInterval.put(slot.getSchedule().getTimeInterval(), list);
-            } else {
-                slotsByTimeInterval.get(slot.getSchedule().getTimeInterval()).add(slot);
-            }
-        }
-
-        return (Map<Integer, List<Slot>>) slotsByTimeInterval.clone();
-    }
-
-    public Map<Integer, List<ClassSchedule>> separateClassSchedulesByTimeInterval(List<ClassSchedule> classSchedules) {
-        TreeMap<Integer, List<ClassSchedule>> classScheduleByTimeInterval = new TreeMap<>();
-
-        for (ClassSchedule classSchedule : classSchedules) {
-            if (!classScheduleByTimeInterval.containsKey(classSchedule.getSchedule().getTimeInterval())) {
-                List<ClassSchedule> list = new ArrayList<>();
-                list.add(classSchedule);
-                classScheduleByTimeInterval.put(classSchedule.getSchedule().getTimeInterval(), list);
-            } else {
-                classScheduleByTimeInterval.get(classSchedule.getSchedule().getTimeInterval()).add(classSchedule);
-            }
-        }
-        return (Map<Integer, List<ClassSchedule>>) classScheduleByTimeInterval.clone();
-    }
-
-    public HashMap<Integer, List<ClassSchedule>> separateClassSchedulesByClass(List<ClassSchedule> classSchedules) {
-        HashMap<Integer, List<ClassSchedule>> classScheduleByClass = new HashMap<>();
-
-        for (ClassSchedule classSchedule : classSchedules) {
-            if (!classScheduleByClass.containsKey(classSchedule.getSchoolClass().getID())) {
-                List<ClassSchedule> list = new ArrayList<>();
-                list.add(classSchedule);
-                classScheduleByClass.put(classSchedule.getSchoolClass().getID(), list);
-            } else {
-                classScheduleByClass.get(classSchedule.getSchoolClass().getID()).add(classSchedule);
-            }
-        }
-        return (HashMap<Integer, List<ClassSchedule>>) classScheduleByClass.clone();
-    }
-
-    public HashMap<Integer, List<Slot>> separateSlotsByRoom(List<Slot> slots) {
-        HashMap<Integer, List<Slot>> slotsByRoom = new HashMap<>();
-
-        for (Slot slot : slots) {
-            if (!slotsByRoom.containsKey(slot.getRoom())) {
-                List<Slot> list = new ArrayList<>();
-                list.add(slot);
-                slotsByRoom.put(slot.getRoom(), list);
-            } else {
-                slotsByRoom.get(slot.getRoom()).add(slot);
-            }
-        }
-        return (HashMap<Integer, List<Slot>>) slotsByRoom.clone();
-    }
-
-    public Schedule getNextSchedule(Schedule schedule) {
-        for (Schedule sc : schedules.values()) {
-            if (sc.equals(new Schedule(0, schedule.getDay(), schedule.getTimeInterval() + 1))) {
-                return (Schedule) sc.clone();
-            }
-        }
-
-        return null;
-    }
-
-    public ClassSchedule getNextClassSchedule(ClassSchedule classSchedule) {
-        Schedule next = this.getNextSchedule(classSchedule.getSchedule());
-        ClassSchedule nextClassSchedule = (ClassSchedule) classSchedule.clone();
-        nextClassSchedule.changeSchedule(next);
-
-        for (ClassSchedule cs : this.classSchedules.values()) {
-            if (cs.equals(nextClassSchedule)) {
-                return (ClassSchedule) cs.clone();
-            }
-        }
-
-        return null;
-    }
-
+    
     public GAConfiguration getGaConfiguration() {
         return this.gaConfiguration;
     }
@@ -226,11 +106,154 @@ public abstract class IModelController {
         this.gaConfiguration = gaConfiguration;
     }
 
+    public Map<Integer, List<ClassSchedule>> separateClassScheduleByDay(final List<ClassSchedule> classSchedules) {
+        Map<Integer, List<ClassSchedule>> classSchedulesByDay = new HashMap<>();
+
+        classSchedules.forEach((classSchedule) -> {
+            if (!classSchedulesByDay.containsKey(classSchedule.getSchedule().getDay())) {
+                List<ClassSchedule> list = new ArrayList<>();
+                list.add((ClassSchedule) classSchedule.clone());
+                classSchedulesByDay.put(classSchedule.getSchedule().getDay(), list);
+            } else {
+                classSchedulesByDay.get(classSchedule.getSchedule().getDay()).add((ClassSchedule) classSchedule.clone());
+            }
+        });
+        return classSchedulesByDay;
+    }
+
+    public Map<Integer, List<ClassSchedule>> ClassScheduleBySchedule(final List<ClassSchedule> classSchedules) {
+        Map<Integer, List<ClassSchedule>> classSchedulesBySchedule = new HashMap<>();
+
+        classSchedules.forEach((classSchedule) -> {
+            if (!classSchedulesBySchedule.containsKey(classSchedule.getSchedule().getID())) {
+                List<ClassSchedule> list = new ArrayList<>();
+                list.add((ClassSchedule) classSchedule.clone());
+                classSchedulesBySchedule.put(classSchedule.getSchedule().getID(), list);
+            } else {
+                classSchedulesBySchedule.get(classSchedule.getSchedule().getID()).add((ClassSchedule) classSchedule.clone());
+            }
+        });
+        return classSchedulesBySchedule;
+    }
+
+    public Map<Integer, List<Schedule>> separateSchedulesByDay(final List<Schedule> schedules) {
+        Map<Integer, List<Schedule>> schedulesByDay = new HashMap<>();
+
+        schedules.forEach((schedule) -> {
+            if (!schedulesByDay.containsKey(schedule.getDay())) {
+                List<Schedule> list = new ArrayList<>();
+                list.add((Schedule) schedule);
+                schedulesByDay.put(schedule.getDay(), list);
+            } else {
+                schedulesByDay.get(schedule.getDay()).add((Schedule) schedule);
+            }
+        });
+        return schedulesByDay;
+    }
+
+    public Map<Integer, List<Slot>> separateSlotsByDay(final List<Slot> slots) {
+        Map<Integer, List<Slot>> slotsByDay = new TreeMap<>();
+
+        slots.forEach((slot) -> {
+            if (!slotsByDay.containsKey(slot.getSchedule().getDay())) {
+                List<Slot> list = new ArrayList<>();
+                list.add((Slot) slot.clone());
+                slotsByDay.put(slot.getSchedule().getDay(), list);
+            } else {
+                slotsByDay.get(slot.getSchedule().getDay()).add((Slot) slot.clone());
+            }
+        });
+        return slotsByDay;
+    }
+
+    public Map<Integer, List<Slot>> separateSlotsByTimeInterval(final List<Slot> slots) {
+        Map<Integer, List<Slot>> slotsByTimeInterval = new TreeMap<>();
+
+        slots.forEach((slot) -> {
+            if (!slotsByTimeInterval.containsKey(slot.getSchedule().getTimeInterval())) {
+                List<Slot> list = new ArrayList<>();
+                list.add((Slot) slot.clone());
+                slotsByTimeInterval.put(slot.getSchedule().getTimeInterval(), list);
+            } else {
+                slotsByTimeInterval.get(slot.getSchedule().getTimeInterval()).add((Slot) slot.clone());
+            }
+        });
+
+        return slotsByTimeInterval;
+    }
+
+    public Map<Integer, List<ClassSchedule>> separateClassSchedulesByTimeInterval(final List<ClassSchedule> classSchedules) {
+        Map<Integer, List<ClassSchedule>> classScheduleByTimeInterval = new TreeMap<>();
+
+        classSchedules.forEach((classSchedule) -> {
+            if (!classScheduleByTimeInterval.containsKey(classSchedule.getSchedule().getTimeInterval())) {
+                List<ClassSchedule> list = new ArrayList<>();
+                list.add((ClassSchedule) classSchedule.clone());
+                classScheduleByTimeInterval.put(classSchedule.getSchedule().getTimeInterval(), list);
+            } else {
+                classScheduleByTimeInterval.get(classSchedule.getSchedule().getTimeInterval()).add((ClassSchedule) classSchedule.clone());
+            }
+        });
+        return classScheduleByTimeInterval;
+    }
+
+    public Map<Integer, List<ClassSchedule>> separateClassSchedulesByClass(final List<ClassSchedule> classSchedules) {
+        Map<Integer, List<ClassSchedule>> classScheduleByClass = new HashMap<>();
+
+        classSchedules.forEach((classSchedule) -> {
+            if (!classScheduleByClass.containsKey(classSchedule.getSchoolClass().getID())) {
+                List<ClassSchedule> list = new ArrayList<>();
+                list.add((ClassSchedule) classSchedule.clone());
+                classScheduleByClass.put(classSchedule.getSchoolClass().getID(), list);
+            } else {
+                classScheduleByClass.get(classSchedule.getSchoolClass().getID()).add((ClassSchedule) classSchedule.clone());
+            }
+        });
+        return classScheduleByClass;
+    }
+
+    public Map<Integer, List<Slot>> separateSlotsByRoom(final List<Slot> slots) {
+        Map<Integer, List<Slot>> slotsByRoom = new HashMap<>();
+
+        slots.forEach((slot) -> {
+            if (!slotsByRoom.containsKey(slot.getRoom())) {
+                List<Slot> list = new ArrayList<>();
+                list.add((Slot) slot.clone());
+                slotsByRoom.put(slot.getRoom(), list);
+            } else {
+                slotsByRoom.get(slot.getRoom()).add((Slot) slot.clone());
+            }
+        });
+        return slotsByRoom;
+    }
+
+    public Schedule getNextSchedule(final Schedule schedule) {
+        for (Schedule sc : this.schedules.values()) {
+            if (sc.equals(new Schedule(0, schedule.getDay(), schedule.getTimeInterval() + 1)))
+                return (Schedule) sc.clone();
+        }
+
+        return null;
+    }
+
+    public ClassSchedule getNextClassSchedule(final ClassSchedule classSchedule) {
+        Schedule next = this.getNextSchedule(classSchedule.getSchedule());
+        ClassSchedule nextClassSchedule = (ClassSchedule) classSchedule.clone();
+        nextClassSchedule.changeSchedule(next);
+
+        for (ClassSchedule cs : this.classSchedules.values()) {
+            if (cs.equals(nextClassSchedule))
+                return (ClassSchedule) cs.clone();
+        }
+
+        return null;
+    }
+
     protected GAConfiguration gaConfiguration;
-    protected HashMap<String, Requirement> requirements;
-    protected HashMap<String, Room> rooms;
-    protected HashMap<String, Schedule> schedules;
-    protected HashMap<String, SchoolClass> schoolClass;
-    protected HashMap<String, ClassSchedule> classSchedules;
-    protected HashMap<String, Slot> slots;
+    protected Map<String, Requirement> requirements;
+    protected Map<String, Room> rooms;
+    protected Map<String, Schedule> schedules;
+    protected Map<String, SchoolClass> schoolClass;
+    protected Map<String, ClassSchedule> classSchedules;
+    protected Map<String, Slot> slots;
 }

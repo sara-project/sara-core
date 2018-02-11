@@ -8,12 +8,18 @@ public class RandomCrossover extends ICrossover {
 
     public RandomCrossover(ICrossover[] crossoverModes) {
         this.randomCrossoverModes = crossoverModes;
+        this.currentMode = crossoverModes[(new Random().nextInt(this.randomCrossoverModes.length))];
+    }
+    
+    public void changeMode() {
+        this.currentMode = this.randomCrossoverModes[(new Random().nextInt(this.randomCrossoverModes.length))];
     }
 
     @Override
     public void crossover(ISpecimen parentA, ISpecimen parentB) {
-        this.randomCrossoverModes[(new Random().nextInt(this.randomCrossoverModes.length))].crossover(parentA, parentB);
+        this.currentMode.crossover(parentA, parentB);
     }
-
+    
+    private ICrossover currentMode;
     private final ICrossover[] randomCrossoverModes;
 }

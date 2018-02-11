@@ -5,16 +5,10 @@ import java.util.List;
 public interface ISpecimen extends Cloneable {
 
     public float getFitness();
-
-    public IChromosome getRandomChromosome();
-
-    public IChromosome[] getChromossomes();
-
-    public IChromosome getChromossome(int index);
-
+    public IChromosome getRandomChromosome(boolean clone);
+    public IChromosome[] getChromossomes(boolean clone);
+    public IChromosome getChromossome(int index, boolean clone);
     public Object clone();
-
     public void setChromosome(IChromosome chromosome, int index);
-
-    public List<IGene> getAllGenes();
+    public List<IGene> getAllGenes(boolean clone);
 }

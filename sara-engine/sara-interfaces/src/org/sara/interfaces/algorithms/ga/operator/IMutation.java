@@ -10,12 +10,12 @@ public abstract class IMutation {
         int mutationsNumber = (int) (population.size() * rate);
 
         for (int i = 0; i < mutationsNumber; i++) {
-            this.mutate(population.getRandomSpecimen());
+            this.mutate(population.getRandomSpecimen(false));
         }
     }
 
     protected final void mutate(ISpecimen specimen) {
-        this.mutate(specimen.getRandomChromosome());
+        this.mutate(specimen.getRandomChromosome(false));
     }
 
     public abstract void mutate(IChromosome chromosome);

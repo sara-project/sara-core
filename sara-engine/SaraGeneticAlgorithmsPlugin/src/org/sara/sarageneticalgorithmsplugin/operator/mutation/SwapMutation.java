@@ -14,25 +14,24 @@ public class SwapMutation extends IMutation {
         int positionA = new Random().nextInt(chromosome.groupSize());
         int positionB = new Random().nextInt(chromosome.groupSize());
 
-        if (positionA == positionB && positionB == (chromosome.groupSize() - 1)) {
+        if (positionA == positionB && positionB == (chromosome.groupSize() - 1))
             positionB--;
-        } else if (positionA == positionB) {
+        else if (positionA == positionB)
             positionB++;
-        }
 
-        List<IGene> armA = chromosome.getGenesByType(positionA);
-        List<IGene> armB = chromosome.getGenesByType(positionB);
+        List<IGene> armA = chromosome.getGenesByType(positionA, false);
+        List<IGene> armB = chromosome.getGenesByType(positionB, false);
 
         List<Object> contentA = new ArrayList<>();
         List<Object> contentB = new ArrayList<>();
 
         armA.forEach((g) -> {
-            contentA.add(g.getAlleleContent());
+            contentA.add(g.getAlleleContent(false));
             g.setAlleleContent(null);
         });
 
         armB.forEach((g) -> {
-            contentB.add(g.getAlleleContent());
+            contentB.add(g.getAlleleContent(false));
             g.setAlleleContent(null);
         });
 

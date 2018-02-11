@@ -21,9 +21,26 @@ public class GAConfiguration implements Cloneable {
             this.mutationProbability = 0.1;
             this.crossoverProbability = 0.1;
             this.selectProbability = 0.1;
-            this.elitismProbability = 0.1;
+            this.elitismProbability = 0.01;
             GAConfiguration.hasInitialized = true;
         }
+    }
+    
+    @Override
+    public Object clone() {
+        return new GAConfiguration(
+                this.populationNumber,
+                this.maxGeneration,
+                this.mutationProbability,
+                this.crossoverProbability,
+                this.selectProbability,
+                this.elitismProbability,
+                this.fitness,
+                this.mutation,
+                this.crossover,
+                this.selection,
+                this.gaLightSwitch
+        );
     }
 
     // <editor-fold defaultstate="collapsed" desc="Getters e Setters"> 
@@ -167,6 +184,25 @@ public class GAConfiguration implements Cloneable {
         string += " - Elitism Probability: " + this.elitismProbability;
 
         return string;
+    }
+    
+        private GAConfiguration(int populationNumber, int maxGeneration, double mutationProbability,
+                            double crossoverProbability, double selectProbability, double elitismProbability,
+                            IFitness fitness, IMutation mutation, ICrossover crossover, ISelection selection, 
+                            IGALightSwitch gaLightSwitch) {
+    
+        this.populationNumber = populationNumber;
+        this.maxGeneration = maxGeneration;
+        this.mutationProbability = mutationProbability;
+        this.crossoverProbability = crossoverProbability;
+        this.selectProbability = selectProbability;
+        this.elitismProbability = elitismProbability;
+          
+        this.fitness = fitness;
+        this.mutation = mutation;
+        this.crossover = crossover;
+        this.selection = selection;
+        this.gaLightSwitch = gaLightSwitch;
     }
 
     //GA Operators

@@ -11,8 +11,8 @@ public class RandomSelection implements ISelection {
     }
 
     @Override
-    public IPopulation select(IPopulation population, double rate) {
-        return this.randomSelctionModes[(new Random().nextInt(this.randomSelctionModes.length))].select(population, rate);
+    public void select(IPopulation population, double rate) {
+        this.randomSelctionModes[(new Random().nextInt(this.randomSelctionModes.length))].select(population, rate);
     }
 
     private final ISelection[] randomSelctionModes;

@@ -7,7 +7,6 @@ import org.sara.interfaces.ICore;
 import org.sara.interfaces.ga.factory.IPopulationFactory;
 import org.sara.interfaces.algorithms.ga.IGAEngine;
 import org.sara.interfaces.algorithms.ga.model.IChromosome;
-import org.sara.interfaces.algorithms.ga.model.IGene;
 import org.sara.interfaces.algorithms.ga.model.ISpecimen;
 import org.sara.interfaces.algorithms.ga.operator.ICrossover;
 import org.sara.interfaces.algorithms.ga.operator.IFitness;
@@ -22,6 +21,7 @@ import org.sara.sarageneticalgorithmsplugin.operator.crossover.TwoPointCrossover
 import org.sara.sarageneticalgorithmsplugin.operator.crossover.UniformCrossover;
 import org.sara.sarageneticalgorithmsplugin.operator.fitness.IFBACAFitness;
 import org.sara.sarageneticalgorithmsplugin.ga.model.Generation;
+import org.sara.sarageneticalgorithmsplugin.operator.crossover.GreatestCrossover;
 import org.sara.sarageneticalgorithmsplugin.operator.mutation.SwapMutation;
 import org.sara.sarageneticalgorithmsplugin.operators.selection.BestSelection;
 import org.sara.sarageneticalgorithmsplugin.operator.galightswitch.GALightSwitch;
@@ -35,7 +35,7 @@ public class EvolutionaryCycle implements IGAEngine {
         System.out.println("Engine EvolutionaryCycle was created.");
 
         ISelection[] selections = {new BestSelection(), new RankingSelection()};
-        ICrossover[] crossovers = {new TwoPointCrossover(), new UniformCrossover()};
+        ICrossover[] crossovers = {new TwoPointCrossover(), new UniformCrossover(), new GreatestCrossover()};
         IMutation[] mutations = {new SwapMutation()};
 
         this.gaConfiguration = ICore.getInstance().getModelController().getGaConfiguration();
@@ -66,34 +66,44 @@ public class EvolutionaryCycle implements IGAEngine {
         int genNumber = 1;
 
         population = populationFactory.makePopulation();
-        ISpecimen bestSpecimen = (ISpecimen) population.getRandomSpecimen().clone();
-        for (IChromosome c : bestSpecimen.getChromossomes()) {
+        ISpecimen bestSpecimen = (ISpecimen) population.getRandomSpecimen(true);
+        //testes
+        for (IChromosome c : bestSpecimen.getChromossomes(false))
             c.setFitness(c.getFitness() + 10);
-        }
 
         do {
             //Calcula o fitness de cada indivíduo
             fitness.evaluate(population); //<==== FAZER
+            
+            
+            List<ISpecimen> elite = new ArrayList<>();
+            //Garante o Elitismo (Uma parte dos melhores indivíduos dos genitores
+            elite.addAll(population.getBetterSpecimens((int) (population.size() * this.gaConfiguration.getElitismProbability()), true));
+            
+            if(elite.size() > 0)
+                if (Float.compare(elite.get(0).getFitness(), bestSpecimen.getFitness()) > 0)
+                    bestSpecimen = elite.get(0);
+            
+            //Seleciona os genitores (parents)
+            selection.select(population, this.gaConfiguration.getSelectProbability());
 
-            if (Float.max(population.getBestSpecimen().getFitness(), bestSpecimen.getFitness()) == population.getBestSpecimen().getFitness()) {
-                bestSpecimen = (ISpecimen) population.getBestSpecimen().clone();
-            }
-
-            //Seleciona os genitores
-            IPopulation parents = selection.select(population, this.gaConfiguration.getSelectProbability());
-
-            //Cruza os genitores e gera os descendentes
-            IPopulation offSpring = crossover.makeOffspring(parents);
+            //Cruza os genitores e gera os descendentes (offSpring)
+            ((RandomCrossover) crossover).changeMode();
+            crossover.makeOffspring(population);
 
             //Gera a mutação em cima dos genitores
-            mutation.mutate(offSpring, this.gaConfiguration.getMutationProbability());
-
-            //Atualiza a geração
-            population = offSpring;
+            mutation.mutate(population, this.gaConfiguration.getMutationProbability());
+            
+            
+            //Atualiza População
+            population.sortByFitness();
+            population.removeLastSpecimen(elite.size());
+            population.addSpecimens(elite, true);
+            elite.clear();
         } while (!terminate.stop(new Generation(genNumber++, population)));
 
         List<Slot> slots = new ArrayList<>();
-        bestSpecimen.getAllGenes().forEach((gene) -> slots.add((Slot) gene));
+        bestSpecimen.getAllGenes(false).forEach((gene) -> slots.add((Slot) gene.getAllele(false)));
         return slots;
     }
 

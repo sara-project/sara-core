@@ -9,19 +9,17 @@ public class UniformCrossover extends ICrossover {
 
     @Override
     public void crossover(ISpecimen parentA, ISpecimen parentB) {
-        int qntChromossomesParentA = parentA.getChromossomes().length;
-        int[] mask = new int[qntChromossomesParentA];
+        int qntChromossomesParentA = parentA.getChromossomes(false).length;
 
-        for (int i = 0; i < mask.length; i++) {
-            mask[i] = new Random().nextInt(2);
+        for (int i = 0; i < qntChromossomesParentA; i++) {
 
-            if (mask[i] == 0) {
-                IChromosome aux = parentA.getChromossome(i);
-                parentA.setChromosome(parentB.getChromossome(i), i);
+            if (new Random().nextInt(2) == 0) {
+                IChromosome aux = parentA.getChromossome(i, false);
+                parentA.setChromosome(parentB.getChromossome(i, false), i);
                 parentB.setChromosome(aux, i);
             } else {
-                IChromosome aux = parentB.getChromossome(i);
-                parentB.setChromosome(parentA.getChromossome(i), i);
+                IChromosome aux = parentB.getChromossome(i, false);
+                parentB.setChromosome(parentA.getChromossome(i, false), i);
                 parentA.setChromosome(aux, i);
             }
         }

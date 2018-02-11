@@ -3,22 +3,19 @@ package org.sara.interfaces.model;
 public class ClassSchedule implements Cloneable {
 
     public ClassSchedule(SchoolClass sClass, Schedule schedule) {
-        idCount++;
+        this(++idCount, sClass, schedule);
+    }
 
-        this.id = idCount;
+    private ClassSchedule(int id, SchoolClass sClass, Schedule schedule) {
+        this.id = id;
+        
         this.sClass = sClass;
         this.schedule = schedule;
         this.isAllocated = false;
     }
 
-    private ClassSchedule(int id, SchoolClass sClass, Schedule schedule) {
-        this(sClass, schedule);
-        this.id = id;
-        idCount--;
-    }
-
     public void changeSchedule(Schedule sc) {
-        this.schedule = sc;
+        this.schedule = (Schedule) sc.clone();
     }
 
     public int getID() {
@@ -47,14 +44,13 @@ public class ClassSchedule implements Cloneable {
 
     @Override
     public Object clone() {
-        return new ClassSchedule(this.id, this.sClass, this.schedule);
+        return new ClassSchedule(this.id, (SchoolClass) this.sClass.clone(), (Schedule) this.schedule.clone());
     }
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof ClassSchedule)) {
+        if (!(o instanceof ClassSchedule))
             return false;
-        }
 
         ClassSchedule other = (ClassSchedule) o;
 
@@ -69,5 +65,5 @@ public class ClassSchedule implements Cloneable {
     private final SchoolClass sClass;
     private Schedule schedule;
     private static int idCount = 0;
-    private int id;
+    private final int id;
 }

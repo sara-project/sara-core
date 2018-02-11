@@ -32,7 +32,7 @@ public class SchoolClass implements Cloneable {
     }
 
     public void addSchedule(Schedule schedule) {
-        this.schedules.add(schedule);
+        this.schedules.add((Schedule) schedule.clone());
     }
 
     public boolean hasSameSchedule(Schedule schedule) {
@@ -54,11 +54,9 @@ public class SchoolClass implements Cloneable {
     public List<Schedule> getSchedulesByDay(int day) {
         List<Schedule> schedulesByDay = this.getAllSchedules();
 
-        for (Schedule schedule : schedulesByDay) {
-            if (schedule.getDay() != day) {
-                schedulesByDay.remove(schedule);
-            }
-        }
+        schedulesByDay.stream().filter((schedule) -> (schedule.getDay() != day)).forEachOrdered((schedule) -> {
+            schedulesByDay.remove(schedule);
+        });
 
         return schedulesByDay;
     }
@@ -77,6 +75,7 @@ public class SchoolClass implements Cloneable {
         return null;
     }
 
+    @Override
     public boolean equals(Object o) {
         if (!(o instanceof SchoolClass)) {
             return false;
@@ -145,17 +144,13 @@ public class SchoolClass implements Cloneable {
 
         private List<Schedule> getAllSchedules() {
             List<Schedule> tmp = new ArrayList<>();
-            for (ClassSchedule t : this.classTimeTables.values()) {
-                tmp.add(t.getSchedule());
-            }
+            this.classTimeTables.values().forEach((t) -> tmp.add(t.getSchedule()));
 
             return tmp;
         }
 
         private void fillTimeTables(List<Schedule> schedules) {
-            for (Schedule s : schedules) {
-                this.classTimeTables.put(s.getID(), new ClassSchedule(relationatedClass, s));
-            }
+            schedules.forEach((s) -> this.classTimeTables.put(s.getID(), new ClassSchedule(relationatedClass, s)));
         }
 
         private final SchoolClass relationatedClass;
