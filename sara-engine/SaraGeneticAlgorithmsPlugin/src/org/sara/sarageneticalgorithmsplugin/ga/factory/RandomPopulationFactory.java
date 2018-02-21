@@ -11,11 +11,11 @@ import org.sara.interfaces.algorithms.ga.model.ISpecimen;
 import org.sara.interfaces.algorithms.ga.model.IPopulation;
 import org.sara.sarageneticalgorithmsplugin.ga.model.Population;
 
-public class PopulationFactory implements IPopulationFactory {
+public class RandomPopulationFactory implements IPopulationFactory {
 
-    public static PopulationFactory getInstance() {
+    public static RandomPopulationFactory getInstance() {
         if (instance == null)
-            instance = new PopulationFactory();
+            instance = new RandomPopulationFactory();
 
         return instance;
     }
@@ -48,7 +48,7 @@ public class PopulationFactory implements IPopulationFactory {
                 }
 
             } catch (InterruptedException ex) {
-                Logger.getLogger(PopulationFactory.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(RandomPopulationFactory.class.getName()).log(Level.SEVERE, null, ex);
             }
 // Limpa possíveis Specimens nulos gerados por mal sicronia das Threads;
 //            List<ISpecimen> beRemoved = new ArrayList<>();
@@ -75,10 +75,10 @@ public class PopulationFactory implements IPopulationFactory {
         runInParallel = false;
     }
 
-    private PopulationFactory() {
+    private RandomPopulationFactory() {
         enableParallelExec();
     }
     private static boolean runInParallel;
-    private static PopulationFactory instance;
+    private static RandomPopulationFactory instance;
     private static List<ISpecimen> specimens;
 }

@@ -1,7 +1,7 @@
 {
     "ga_config": {
-        "population_number": 2000,
-        "max_generation": 500,
+        "population_number": 200,
+        "max_generation": 5,
         "mutation_probability": 0.1,
         "crossover_probability": 0.1,
         "select_probability": 0.5,

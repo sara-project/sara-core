@@ -2,7 +2,7 @@ package org.sara.sarageneticalgorithmsplugin.ga;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.sara.sarageneticalgorithmsplugin.ga.factory.PopulationFactory;
+import org.sara.sarageneticalgorithmsplugin.ga.factory.RandomPopulationFactory;
 import org.sara.interfaces.ICore;
 import org.sara.interfaces.ga.factory.IPopulationFactory;
 import org.sara.interfaces.algorithms.ga.IGAEngine;
@@ -23,18 +23,18 @@ import org.sara.sarageneticalgorithmsplugin.operator.fitness.IFBACAFitness;
 import org.sara.sarageneticalgorithmsplugin.ga.model.Generation;
 import org.sara.sarageneticalgorithmsplugin.operator.crossover.GreatestCrossover;
 import org.sara.sarageneticalgorithmsplugin.operator.mutation.SwapMutation;
-import org.sara.sarageneticalgorithmsplugin.operators.selection.BestSelection;
+import org.sara.sarageneticalgorithmsplugin.operators.selection.RankingSelection;
 import org.sara.sarageneticalgorithmsplugin.operator.galightswitch.GALightSwitch;
 import org.sara.sarageneticalgorithmsplugin.operator.mutation.RandomMutation;
 import org.sara.sarageneticalgorithmsplugin.operators.selection.RandomSelection;
-import org.sara.sarageneticalgorithmsplugin.operators.selection.RankingSelection;
+import org.sara.sarageneticalgorithmsplugin.operators.selection.TournamentSelection;
 
 public class EvolutionaryCycle implements IGAEngine {
 
     public EvolutionaryCycle() {
         System.out.println("Engine EvolutionaryCycle was created.");
 
-        ISelection[] selections = {new BestSelection(), new RankingSelection()};
+        ISelection[] selections = {new RankingSelection(), new TournamentSelection()};
         ICrossover[] crossovers = {new TwoPointCrossover(), new UniformCrossover(), new GreatestCrossover()};
         IMutation[] mutations = {new SwapMutation()};
 
@@ -61,7 +61,7 @@ public class EvolutionaryCycle implements IGAEngine {
         ICrossover crossover = this.gaConfiguration.getCrossover();
         IMutation mutation = this.gaConfiguration.getMutation();
         IGALightSwitch terminate = this.gaConfiguration.getGaLightSwitch();
-        IPopulationFactory populationFactory = PopulationFactory.getInstance();
+        IPopulationFactory populationFactory = RandomPopulationFactory.getInstance();
 
         int genNumber = 1;
 
@@ -82,7 +82,7 @@ public class EvolutionaryCycle implements IGAEngine {
             
             if(elite.size() > 0)
                 if (Float.compare(elite.get(0).getFitness(), bestSpecimen.getFitness()) > 0)
-                    bestSpecimen = elite.get(0);
+                    bestSpecimen = (ISpecimen) elite.get(0).clone();
             
             //Seleciona os genitores (parents)
             selection.select(population, this.gaConfiguration.getSelectProbability());

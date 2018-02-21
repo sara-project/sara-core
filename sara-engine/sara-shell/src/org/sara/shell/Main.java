@@ -107,7 +107,16 @@ public class Main {
         System.out.println( "Initialize System\n" );
 
         System.out.println( "The evolutionary cyle was started." );
-        List<Slot> solucion = Core.getInstance().getProjectController().getGAEngine().startGA();
+        {
+            List<Slot> solution = Core.getInstance().getProjectController().getGAEngine().startGA();
+            try {
+                new JSONWriter().writeSolution( "teeeeste1", solution);
+            } catch (ParseException ex) {
+                Logger.getLogger( Main.class.getName() ).log( Level.SEVERE, null, ex );
+            } catch (Exception ex) {
+                Logger.getLogger( Main.class.getName() ).log( Level.SEVERE, null, ex );
+            }
+        }
         System.out.println();
 
         endDate = new Date();
@@ -120,8 +129,14 @@ public class Main {
 
     private static boolean validateArgs( String[] args ) {
         String msg = "";
+        String syntax = "Please type: sara-core \"filename\" [-d or debug] to execute rigth.";
         if (args.length == 0) {
-            msg = "No parameters found. Please type: sara-core \"filename\" to execute rigth.";
+            msg = "No parameters found. "+ syntax;
+        }
+        
+        if(args.length == 2) {
+            if(!args[1].toLowerCase().equals( "-d") ||  !args[1].toLowerCase().equals( "-debug"))
+               msg = "Wrong parameters. "+ syntax;
         }
 
         if (!msg.isEmpty()) {
