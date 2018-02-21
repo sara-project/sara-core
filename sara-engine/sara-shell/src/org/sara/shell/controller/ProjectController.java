@@ -1,4 +1,4 @@
-package org.sara.shell;
+package org.sara.shell.controller;
 
 import org.sara.interfaces.IPlugin;
 import org.sara.interfaces.IProjectController;
@@ -51,6 +51,12 @@ public class ProjectController extends IProjectController {
     public void notifyObeserver( IObserver obj ) {
         throw new UnsupportedOperationException( "Not supported yet." ); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    @Override
+    public boolean isDebugInfoAGActive() {
+        return DEBUG_INFO_AG;
+    }
 
     private URLClassLoader dataJars;
+    public static boolean DEBUG_INFO_AG;
 }

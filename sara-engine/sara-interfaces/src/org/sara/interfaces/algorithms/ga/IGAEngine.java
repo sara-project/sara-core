@@ -1,8 +1,7 @@
 package org.sara.interfaces.algorithms.ga;
 
-import java.util.List;
-import org.sara.interfaces.model.Slot;
+import org.sara.interfaces.algorithms.ga.operator.IGALightSwitch;
 
 public interface IGAEngine {
-    public List<Slot> startGA();
+    public IGALightSwitch startGA();
 }

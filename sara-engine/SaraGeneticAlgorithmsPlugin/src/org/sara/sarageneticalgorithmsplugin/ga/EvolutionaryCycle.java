@@ -48,11 +48,11 @@ public class EvolutionaryCycle implements IGAEngine {
     }
 
     @Override
-    public List<Slot> startGA() {
+    public IGALightSwitch startGA() {
         return this.startCycle();
     }
 
-    private List<Slot> startCycle() {
+    private IGALightSwitch startCycle() {
         IPopulation population;
 
         //Get the current operators
@@ -66,10 +66,6 @@ public class EvolutionaryCycle implements IGAEngine {
         int genNumber = 1;
 
         population = populationFactory.makePopulation();
-        ISpecimen bestSpecimen = (ISpecimen) population.getRandomSpecimen(true);
-        //testes
-        for (IChromosome c : bestSpecimen.getChromossomes(false))
-            c.setFitness(c.getFitness() + 10);
 
         do {
             //Calcula o fitness de cada indivíduo
@@ -79,10 +75,6 @@ public class EvolutionaryCycle implements IGAEngine {
             List<ISpecimen> elite = new ArrayList<>();
             //Garante o Elitismo (Uma parte dos melhores indivíduos dos genitores
             elite.addAll(population.getBetterSpecimens((int) (population.size() * this.gaConfiguration.getElitismProbability()), true));
-            
-            if(elite.size() > 0)
-                if (Float.compare(elite.get(0).getFitness(), bestSpecimen.getFitness()) > 0)
-                    bestSpecimen = (ISpecimen) elite.get(0).clone();
             
             //Seleciona os genitores (parents)
             selection.select(population, this.gaConfiguration.getSelectProbability());
@@ -102,9 +94,7 @@ public class EvolutionaryCycle implements IGAEngine {
             elite.clear();
         } while (!terminate.stop(new Generation(genNumber++, population)));
 
-        List<Slot> slots = new ArrayList<>();
-        bestSpecimen.getAllGenes(false).forEach((gene) -> slots.add((Slot) gene.getAllele(false)));
-        return slots;
+        return terminate;
     }
 
     private final GAConfiguration gaConfiguration;

@@ -1,6 +1,7 @@
-package org.sara.shell;
+package org.sara.shell.controller;
 
 import org.sara.interfaces.IUiController;
+import org.sara.shell.Utils;
 
 public class UiController implements IUiController {
 

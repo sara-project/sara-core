@@ -1,4 +1,4 @@
-package org.sara.shell;
+package org.sara.shell.jsonhandler;
 
 import java.io.FileNotFoundException;
 import org.sara.interfaces.model.Room;

@@ -1,5 +1,8 @@
 package org.sara.shell;
 
+import org.sara.shell.controller.ModelController;
+import org.sara.shell.controller.ProjectController;
+import org.sara.shell.controller.UiController;
 import org.sara.interfaces.ICore;
 import org.sara.interfaces.IPlugin;
 import org.sara.interfaces.IProjectController;

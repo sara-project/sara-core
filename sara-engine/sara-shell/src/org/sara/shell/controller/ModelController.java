@@ -1,4 +1,4 @@
-package org.sara.shell;
+package org.sara.shell.controller;
 
 import org.sara.interfaces.IModelController;
 

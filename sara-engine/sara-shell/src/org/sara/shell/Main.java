@@ -1,13 +1,15 @@
 package org.sara.shell;
 
+import org.sara.shell.controller.ProjectController;
+import org.sara.shell.jsonhandler.JSONReader;
+import org.sara.shell.jsonhandler.JSONWriter;
 import java.io.IOException;
 import java.util.Date;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.simple.parser.ParseException;
 import org.sara.interfaces.ICore;
-import org.sara.interfaces.model.Slot;
+import org.sara.interfaces.algorithms.ga.operator.IGALightSwitch;
 
 public class Main {
 
@@ -108,9 +110,10 @@ public class Main {
 
         System.out.println( "The evolutionary cyle was started." );
         {
-            List<Slot> solution = Core.getInstance().getProjectController().getGAEngine().startGA();
+            IGALightSwitch result = Core.getInstance().getProjectController().getGAEngine().startGA();
+            
             try {
-                new JSONWriter().writeSolution( "teeeeste1", solution);
+                new JSONWriter().writeSolution( "saida.json", result.getBestSolution(), result.getFitnessTimeLine().toArray(new Float[0]));
             } catch (ParseException ex) {
                 Logger.getLogger( Main.class.getName() ).log( Level.SEVERE, null, ex );
             } catch (Exception ex) {
@@ -135,8 +138,12 @@ public class Main {
         }
         
         if(args.length == 2) {
-            if(!args[1].toLowerCase().equals( "-d") ||  !args[1].toLowerCase().equals( "-debug"))
+            if(!args[1].toLowerCase().equals( "-d") &&  !args[1].toLowerCase().equals( "-debug")) {
                msg = "Wrong parameters. "+ syntax;
+               ProjectController.DEBUG_INFO_AG = false; 
+            }
+            else
+                ProjectController.DEBUG_INFO_AG = true; 
         }
 
         if (!msg.isEmpty()) {

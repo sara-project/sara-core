@@ -110,6 +110,11 @@ public class Specimen implements ISpecimen {
 
         return genes;
     }
+    
+    @Override
+    public boolean isBetterThan(ISpecimen other) {
+        return Float.compare(this.getFitness(), other.getFitness()) > 0;
+    }
 
     private void fill() {
         for (IChromosome chromossome : this.chromossomes) {
