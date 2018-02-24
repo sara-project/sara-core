@@ -81,7 +81,7 @@ public class EvolutionaryCycle implements IGAEngine {
         do {
             startDate = new Date();
             //Calcula o fitness de cada indivíduo
-                fitness.evaluate(population); //<==== FAZER
+                fitness.evaluate(population);
             //End
             endDate = new Date();
             averageTimeOfFitness = endDate.getTime() - startDate.getTime();

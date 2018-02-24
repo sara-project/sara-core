@@ -20,6 +20,10 @@ public class SchoolClass implements Cloneable {
     public int getID() {
         return this.id;
     }
+    
+    public int howBig(int size) {
+        return size - this.size;
+    }
 
     public ClassSchedule getClassSchedule(Schedule schedule) {
         for (ClassSchedule cs : this.schedules.classTimeTables.values()) {

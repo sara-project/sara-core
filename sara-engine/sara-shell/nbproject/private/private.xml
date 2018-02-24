@@ -5,6 +5,7 @@
         <group name="Teste"/>
         <group name="EditorFramework"/>
         <group name="tcc">
+            <file>file:/home/icarojerry/projects/tcc/sara-project/sara-core/sara-engine/sara-shell/src/org/sara/shell/jsonhandler/JSONWriter.java</file>
             <file>file:/home/icarojerry/projects/tcc/sara-project/sara-core/sara-engine/sara-shell/src/org/sara/shell/Main.java</file>
         </group>
     </open-files>

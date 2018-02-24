@@ -1,4 +1,4 @@
-package org.sara.interfaces.algorithms.ga.fitness.criterias;
+package org.sara.interfaces.algorithms.ga.operator.fitness.criteria;
 
 import org.sara.interfaces.algorithms.ga.model.IChromosome;
 

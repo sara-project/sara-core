@@ -36,7 +36,7 @@ public class JSONWriter {
                 JSONObject slotObj = new JSONObject();
                 slotObj.put("day", slot.getSchedule().getDay());
                 slotObj.put("time_interval", slot.getSchedule().getTimeInterval());
-                slotObj.put("room", slot.getRoom());            
+                slotObj.put("room", slot.getRoomID());            
                 slotObj.put("s_class", slot.getSchoolClass().getID());
                 slotArray.add( slotObj);
             }
@@ -110,7 +110,6 @@ public class JSONWriter {
             writeFile.write(rootArray.toJSONString());
         }
     }
-    
     
     private InfoSolution info;
     private String requestType;

@@ -216,12 +216,12 @@ public abstract class IModelController {
         Map<Integer, List<Slot>> slotsByRoom = new HashMap<>();
 
         slots.forEach((slot) -> {
-            if (!slotsByRoom.containsKey(slot.getRoom())) {
+            if (!slotsByRoom.containsKey(slot.getRoomID())) {
                 List<Slot> list = new ArrayList<>();
                 list.add((Slot) slot.clone());
-                slotsByRoom.put(slot.getRoom(), list);
+                slotsByRoom.put(slot.getRoomID(), list);
             } else {
-                slotsByRoom.get(slot.getRoom()).add((Slot) slot.clone());
+                slotsByRoom.get(slot.getRoomID()).add((Slot) slot.clone());
             }
         });
         return slotsByRoom;

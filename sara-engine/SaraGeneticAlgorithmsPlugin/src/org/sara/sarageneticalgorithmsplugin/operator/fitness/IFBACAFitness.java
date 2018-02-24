@@ -1,5 +1,6 @@
 package org.sara.sarageneticalgorithmsplugin.operator.fitness;
 
+import org.sara.sarageneticalgorithmsplugin.operator.fitness.criteria.CriteriaManager;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -10,12 +11,27 @@ import org.sara.interfaces.algorithms.ga.model.IChromosome;
 import org.sara.interfaces.algorithms.ga.model.ISpecimen;
 import org.sara.interfaces.algorithms.ga.operator.IFitness;
 import org.sara.interfaces.algorithms.ga.model.IPopulation;
+import org.sara.sarageneticalgorithmsplugin.operator.fitness.criteria.AccessibilityCriteria;
+import org.sara.sarageneticalgorithmsplugin.operator.fitness.criteria.BestUseSpaceCriteria;
+import org.sara.sarageneticalgorithmsplugin.operator.fitness.criteria.ClassRequerimentCriteria;
+import org.sara.sarageneticalgorithmsplugin.operator.fitness.criteria.ClassRoomExchangeCriteria;
+import org.sara.sarageneticalgorithmsplugin.operator.fitness.criteria.DuplicateAllocationCriteria;
+import org.sara.sarageneticalgorithmsplugin.operator.fitness.criteria.UnallocatedClassCriteria;
 
 public class IFBACAFitness implements IFitness {
 
     public IFBACAFitness() {
-        this.filter = new CriteriaManager();
-        System.out.println("OS FILTROS PRECISAM SER ADICIONADOS!");
+        this.criteriaManager = new CriteriaManager();
+        //Constraints filters
+        //this.criteriaManager.addCriteria(new DuplicateAllocationCriteria()); //C2
+
+        //Quality filters
+        //this.criteriaManager.addCriteria(new UnallocatedClassCriteria()); //Q1
+        //this.criteriaManager.addCriteria(new AccessibilityCriteria()); //Q2
+        this.criteriaManager.addCriteria(new BestUseSpaceCriteria());//Q3 (and C3 too)
+        //this.criteriaManager.addCriteria(new ClassRoomExchangeCriteria()); //Q4 e Q5
+        //this.criteriaManager.addCriteria(new ClassRequerimentCriteria()); //Q6 e Q7
+        System.out.println("OS FILTROS PRECISAM SER IMPLEMENTADOS!");
     }
 
     @Override
@@ -57,7 +73,7 @@ public class IFBACAFitness implements IFitness {
     }
 
     protected float calculateFitness(IChromosome chromosome) {
-        return (float) (new Random().nextFloat() + 1.0);  //filter.processFilter(chromosome);
+        return criteriaManager.processFilter(chromosome);
     }
 
     private void evaluate(ISpecimen specimen) {
@@ -66,5 +82,5 @@ public class IFBACAFitness implements IFitness {
         }
     }
 
-    private final CriteriaManager filter;
+    private final CriteriaManager criteriaManager;
 }

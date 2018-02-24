@@ -2,7 +2,7 @@
     "request_type": "class_assignment",
     "ga_config": {
         "population_number": 50,
-        "max_generation": 10,
+        "max_generation": 20,
         "mutation_probability": 0.1,
         "crossover_probability": 0.1,
         "select_probability": 0.1,
@@ -171,176 +171,211 @@
         {
             "id": 29,
             "specifications": [],
+            "area": 2,
             "capacity": 40
         },
         {
             "id": 26,
             "specifications": [],
+            "area": 2,
             "capacity": 45
         },
         {
             "id": 25,
             "specifications": [],
+            "area": 2,
             "capacity": 45
         },
         {
             "id": 27,
             "specifications": [],
+            "area": 2,
             "capacity": 40
         },
         {
             "id": 17,
             "specifications": [],
+            "area": 3,
             "capacity": 35
         },
         {
             "id": 18,
             "specifications": [],
+            "area": 3,
             "capacity": 35
         },
         {
             "id": 19,
             "specifications": [],
+            "area": 3,
             "capacity": 40
         },
         {
             "id": 20,
             "specifications": [],
+            "area": 3,
             "capacity": 40
         },
         {
             "id": 21,
             "specifications": [],
+            "area": 3,
             "capacity": 35
         },
         {
             "id": 22,
             "specifications": [],
+            "area": 3,
             "capacity": 35
         },
         {
             "id": 23,
             "specifications": [],
+            "area": 3,
             "capacity": 40
         },
         {
             "id": 24,
             "specifications": [],
+            "area": 5,
             "capacity": 45
         },
         {
             "id": 30,
             "specifications": [],
+            "area": 5,
             "capacity": 40
         },
         {
             "id": 34,
             "specifications": [],
+            "area": 8,
             "capacity": 20
         },
         {
             "id": 33,
             "specifications": [],
+            "area": 8,
             "capacity": 20
         },
         {
             "id": 10,
             "specifications": [],
+            "area": 9,
             "capacity": 45
         },
         {
             "id": 11,
             "specifications": [],
+            "area": 9,
             "capacity": 45
         },
         {
             "id": 12,
             "specifications": [],
+            "area": 9,
             "capacity": 50
         },
         {
             "id": 13,
             "specifications": [],
+            "area": 9,
             "capacity": 50
         },
         {
             "id": 14,
             "specifications": [],
+            "area": 9,
             "capacity": 40
         },
         {
             "id": 15,
             "specifications": [],
+            "area": 9,
             "capacity": 40
         },
         {
             "id": 16,
             "specifications": [],
+            "area": 9,
             "capacity": 30
         },
         {
             "id": 31,
             "specifications": [],
+            "area": 10,
             "capacity": 40
         },
         {
             "id": 156,
             "specifications": [],
+            "area": 10,
             "capacity": 40
         },
         {
             "id": 35,
             "specifications": [],
+            "area": 10,
             "capacity": 30
         },
         {
             "id": 5,
             "specifications": [],
+            "area": 10,
             "capacity": 30
         },
         {
             "id": 6,
             "specifications": [],
+            "area": 10,
             "capacity": 50
         },
         {
             "id": 32,
             "specifications": [],
+            "area": 10,
             "capacity": 40
         },
         {
             "id": 7,
             "specifications": [],
+            "area": 10,
             "capacity": 40
         },
         {
             "id": 8,
             "specifications": [],
+            "area": 10,
             "capacity": 40
         },
         {
             "id": 9,
             "specifications": [],
+            "area": 10,
             "capacity": 60
         },
         {
             "id": 1,
             "specifications": [],
+            "area": 14,
             "capacity": 20
         },
         {
             "id": 2,
             "specifications": [],
+            "area": 14,
             "capacity": 40
         },
         {
             "id": 3,
             "specifications": [],
+            "area": 14,
             "capacity": 40
         },
         {
             "id": 4,
             "specifications": [],
+            "area": 14,
             "capacity": 40
         }
     ],

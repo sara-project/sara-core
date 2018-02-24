@@ -165,10 +165,11 @@ public class JSONReader {
                 JSONObject room = (JSONObject) it.next();
                 Object id = room.get( "id" );
                 Object capacity = room.get( "capacity" );
+                Object area = room.get( "area" );
                 Object specifications = room.get( "specifications" );
 
-                if (id == null || capacity == null || specifications == null) {
-                    throw new Exception( "Json File is invalid. There is a missing key (id, capacity or specifications) to Room model." );
+                if (id == null || capacity == null || specifications == null || area == null) {
+                    throw new Exception( "Json File is invalid. There is a missing key (id, capacity, area,s or specifications) to Room model." );
                 }
 
                 if (roomsHash.containsKey( id.toString() )) {
@@ -176,7 +177,8 @@ public class JSONReader {
                 }
 
                 roomsHash.put( id.toString(), new Room( Integer.parseInt( id.toString() ),
-                        Integer.parseInt( capacity.toString() ) ) );
+                        Integer.parseInt( capacity.toString() ),
+                        Integer.parseInt( area.toString() )) );
             }
         }
     }
