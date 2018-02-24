@@ -25,36 +25,45 @@ public class JSONReader {
         this.gaConfig = new GAConfiguration();
 
         JSONObject jsonObject = (JSONObject) ( ( new JSONParser() ).parse( new FileReader( jsonFile ) ) );
+        
+        Object request_type = jsonObject.get( "request_type" );
+        if(request_type == null)
+            throw new Exception( "Json File is invalid. There is not ." );
+        
+        this.requestType = request_type.toString();
 
         this.parametersHandler( (JSONObject) jsonObject.get( "ga_config" ) );
         this.schedulesHandler( (JSONArray) jsonObject.get( "schedules" ) );
         this.roomsHandler( (JSONArray) jsonObject.get( "rooms" ) );
-        this.slotsHandler( (JSONArray) jsonObject.get( "slots" ) );
         this.classesHandler( (JSONArray) jsonObject.get( "classes" ) );
+        this.slotsHandler( (JSONArray) jsonObject.get( "slots" ) );
     }
 
+    public String getRequestType() {
+        return this.requestType;
+    }
     public GAConfiguration getGAConfiguration() {
-        return gaConfig;
+        return this.gaConfig;
     }
 
     public HashMap<String, Schedule> getSchedulesHash() {
-        return schedulesHash;
+        return this.schedulesHash;
     }
 
     public HashMap<String, Slot> getSlotsHash() {
-        return slotsHash;
+        return this.slotsHash;
     }
 
     public HashMap<String, SchoolClass> getClassesHash() {
-        return classesHash;
+        return this.classesHash;
     }
 
     public HashMap<String, ClassSchedule> getClassSchedulesHash() {
-        return classScheduleHashHash;
+        return this.classScheduleHashHash;
     }
 
     public HashMap<String, Room> getRoomsHash() {
-        return roomsHash;
+        return this.roomsHash;
     }
 
     private void parametersHandler( JSONObject configuration ) {
@@ -184,6 +193,7 @@ public class JSONReader {
                 Object capacity = slot.get( "capacity" );
                 Object room = slot.get( "room" );
                 Object schedule = slot.get( "schedule" );
+                Object s_class = slot.get( "s_class" );
 
                 if (id == null || capacity == null || room == null || schedule == null) {
                     throw new Exception( "Json File is invalid. There is a missing key (id, capacity, room, or schedule) to Slot model." );
@@ -204,8 +214,16 @@ public class JSONReader {
                     if (roomObj == null) {
                         throw new Exception( "Json File is invalid. There is any Room with id = " + room + "." );
                     }
-
-                    slotsHash.put( id.toString(), new Slot( Integer.parseInt( id.toString() ), scheduleObj, roomObj ) );
+                    
+                    Slot slotObj = new Slot( Integer.parseInt( id.toString() ), scheduleObj, roomObj );
+                    if(s_class != null) {
+                        SchoolClass schoolClass = classesHash.get( s_class.toString() );
+                        if (scheduleObj == null) {
+                            throw new Exception( "Json File is invalid. There is any SchoolClass with id = " + schoolClass + "." );
+                        }
+                        slotObj.fill( schoolClass );
+                    }
+                    slotsHash.put( id.toString(), slotObj);
                 } catch (NumberFormatException ex) {
                     throw new Exception( "Json File is invalid. Some value is wrong. " + ex.getMessage() );
                 }
@@ -264,4 +282,5 @@ public class JSONReader {
     private final HashMap<String, Room> roomsHash;
     private final HashMap<String, ClassSchedule> classScheduleHashHash;
     private final GAConfiguration gaConfig;
+    private final String requestType;
 }

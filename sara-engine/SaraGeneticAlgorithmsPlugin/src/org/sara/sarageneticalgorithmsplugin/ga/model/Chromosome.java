@@ -42,12 +42,17 @@ public class Chromosome implements IChromosome {
 
             return genes;
         }).forEachOrdered((genes) -> this.arms.add(genes));
-
-        this.pullInformation = (List<ClassSchedule>) information;
-        Collections.shuffle(this.pullInformation);
+        
+        if(information != null) {
+            this.pullInformation = (List<ClassSchedule>) information;
+            Collections.shuffle(this.pullInformation);
+        }
     }
 
     public void fill() {
+        if(this.pullInformation == null)
+            return;
+
         IModelController modelControl = ICore.getInstance().getModelController();
         TreeMap<Integer, List<ClassSchedule>> pullHash = (TreeMap) modelControl.separateClassSchedulesByTimeInterval(this.pullInformation);
 
@@ -124,8 +129,11 @@ public class Chromosome implements IChromosome {
             list.forEach((gene) -> cloneList.add((IGene) gene.clone()));
             chr.arms.add(cloneList);
         });
-
-        this.pullInformation.forEach(p -> chr.pullInformation.add((ClassSchedule) p.clone()));
+        
+        if(this.pullInformation != null)
+            this.pullInformation.forEach(p -> chr.pullInformation.add((ClassSchedule) p.clone()));
+        else
+            chr.pullInformation = null;
 
         return chr;
     }

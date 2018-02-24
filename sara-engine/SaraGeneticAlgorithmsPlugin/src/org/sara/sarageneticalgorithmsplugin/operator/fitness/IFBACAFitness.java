@@ -22,9 +22,15 @@ public class IFBACAFitness implements IFitness {
     public void evaluate(IPopulation population) {
         int popNumber = ICore.getInstance().getModelController().getGaConfiguration().getPopulationNumber();
         List<Thread> threads = new ArrayList<>();
-
+        
         final int threadNumbers = ICore.getInstance().getProjectController().AVAILABLE_PROCESSORS;
         final int specimenPerThread = popNumber / threadNumbers;
+        
+        //Quando o número da população é menor do que o número de Threads, não é necessário utiliza-las
+        if(popNumber < ICore.getInstance().getProjectController().AVAILABLE_PROCESSORS) {
+            this.evaluate(population.getFirstSpecimen(false));
+            return;
+        }
 
         for (int i = 0; i < threadNumbers; i++) {
             int start = i * specimenPerThread;

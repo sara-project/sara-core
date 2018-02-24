@@ -248,7 +248,15 @@ public abstract class IModelController {
 
         return null;
     }
-
+    
+    public String getRequestType() {
+        return this.requestType;
+    }
+    public void setRequestType(String requestType) {
+        this.requestType = requestType;
+    }
+    
+    protected String requestType;
     protected GAConfiguration gaConfiguration;
     protected Map<String, Requirement> requirements;
     protected Map<String, Room> rooms;

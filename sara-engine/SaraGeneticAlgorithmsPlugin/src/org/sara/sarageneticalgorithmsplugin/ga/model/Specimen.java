@@ -16,31 +16,43 @@ import org.sara.interfaces.model.Slot;
 import org.sara.interfaces.algorithms.ga.model.ISpecimen;
 
 public class Specimen implements ISpecimen {
-
+    
     public Specimen(Object geneticLoad) {
+        this(geneticLoad, true);
+    }
+
+    public Specimen(Object geneticLoad, boolean isToFill) {
         List<Slot> slots = new ArrayList<>();
         IModelController modelControl = ICore.getInstance().getModelController();
 
-        if (geneticLoad instanceof Collection) {
-            slots = new ArrayList<>((Collection) geneticLoad);
-        } else {
+        if (!(geneticLoad instanceof Collection)) {
             System.err.printf("Genetic Load is invalid!");
+            System.exit(3);
         }
+        
+        slots = new ArrayList<>((Collection) geneticLoad);
 
         //Os slots estaram sempre ordenados pelo ID do Dia, facilitando a operação de Crossover
         TreeMap<Integer, List<Slot>> slotsByDay = (TreeMap<Integer, List<Slot>>) modelControl.separateSlotsByDay(slots);
         this.chromossomes = new Chromosome[slotsByDay.size()];
-
+        
         this.pullClassSchedule = (HashMap<Integer, List<ClassSchedule>>) modelControl.separateClassScheduleByDay(new ArrayList<>(modelControl.getClassSchedule().values()));
 
         int i = 0;
         for (Integer day : slotsByDay.keySet()) {
-            Collections.shuffle(slotsByDay.get(day));
-            Collections.shuffle(this.pullClassSchedule.get(day));
-
-            this.chromossomes[i++] = new Chromosome(day, slotsByDay.get(day), this.pullClassSchedule.get(day));
+            if(isToFill) {
+                Collections.shuffle(slotsByDay.get(day));
+                Collections.shuffle(this.pullClassSchedule.get(day));
+                this.chromossomes[i++] = new Chromosome(day, slotsByDay.get(day), this.pullClassSchedule.get(day));
+            }
+            else {
+                this.chromossomes[i++] = new Chromosome(day, slotsByDay.get(day), null);
+            }
         }
-        this.fill();
+        
+        if(isToFill)
+            this.fill();
+        
         this.pullClassSchedule.clear();
     }
 

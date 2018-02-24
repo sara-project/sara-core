@@ -1,11 +1,12 @@
 {
+    "request_type": "class_assignment",
     "ga_config": {
-        "population_number": 10,
-        "max_generation": 50,
+        "population_number": 50,
+        "max_generation": 10,
         "mutation_probability": 0.1,
         "crossover_probability": 0.1,
-        "select_probability": 0.5,
-        "elitism_probability": 0.02
+        "select_probability": 0.1,
+        "elitism_probability": 0.1
     },
     "schedules": [
         {

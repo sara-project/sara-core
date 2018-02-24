@@ -1,12 +1,5 @@
 {
-    "ga_config": {
-        "population_number": 10,
-        "max_generation": 50,
-        "mutation_probability": 0.1,
-        "crossover_probability": 0.1,
-        "select_probability": 0.5,
-        "elitism_probability": 0.02
-    },
+    "request_type": "eval_solution",
     "schedules": [
         {
             "id": 13,
@@ -534,7 +527,8 @@
             "id": 13,
             "capacity": 20,
             "room": 1,
-            "schedule": 13
+            "schedule": 13,
+            "s_class": 17
         },
         {
             "id": 111,
@@ -552,7 +546,8 @@
             "id": 307,
             "capacity": 40,
             "room": 4,
-            "schedule": 13
+            "schedule": 13,
+            "s_class": 26
         },
         {
             "id": 2660,
@@ -744,7 +739,8 @@
             "id": 14,
             "capacity": 20,
             "room": 1,
-            "schedule": 14
+            "schedule": 14,
+            "s_class": 17
         },
         {
             "id": 112,
@@ -762,7 +758,8 @@
             "id": 308,
             "capacity": 40,
             "room": 4,
-            "schedule": 14
+            "schedule": 14,
+            "s_class": 26
         },
         {
             "id": 2661,
@@ -810,7 +807,8 @@
             "id": 1877,
             "capacity": 40,
             "room": 20,
-            "schedule": 15
+            "schedule": 15,
+            "s_class": 38
         },
         {
             "id": 1975,
@@ -846,7 +844,8 @@
             "id": 3151,
             "capacity": 20,
             "room": 34,
-            "schedule": 15
+            "schedule": 15,
+            "s_class": 2
         },
         {
             "id": 3053,
@@ -870,7 +869,8 @@
             "id": 1093,
             "capacity": 50,
             "room": 12,
-            "schedule": 15
+            "schedule": 15,
+            "s_class": 35
         },
         {
             "id": 1191,
@@ -882,7 +882,8 @@
             "id": 1289,
             "capacity": 40,
             "room": 14,
-            "schedule": 15
+            "schedule": 15,
+            "s_class": 28
         },
         {
             "id": 1387,
@@ -954,7 +955,8 @@
             "id": 15,
             "capacity": 20,
             "room": 1,
-            "schedule": 15
+            "schedule": 15,
+            "s_class": 18
         },
         {
             "id": 113,
@@ -966,13 +968,15 @@
             "id": 211,
             "capacity": 40,
             "room": 3,
-            "schedule": 15
+            "schedule": 15,
+            "s_class": 8
         },
         {
             "id": 309,
             "capacity": 40,
             "room": 4,
-            "schedule": 15
+            "schedule": 15,
+            "s_class": 11
         },
         {
             "id": 2662,
@@ -1020,7 +1024,8 @@
             "id": 1878,
             "capacity": 40,
             "room": 20,
-            "schedule": 16
+            "schedule": 16,
+            "s_class": 38
         },
         {
             "id": 1976,
@@ -1056,7 +1061,8 @@
             "id": 3152,
             "capacity": 20,
             "room": 34,
-            "schedule": 16
+            "schedule": 16,
+            "s_class": 2
         },
         {
             "id": 3054,
@@ -1080,7 +1086,8 @@
             "id": 1094,
             "capacity": 50,
             "room": 12,
-            "schedule": 16
+            "schedule": 16,
+            "s_class": 35
         },
         {
             "id": 1192,
@@ -1092,7 +1099,8 @@
             "id": 1290,
             "capacity": 40,
             "room": 14,
-            "schedule": 16
+            "schedule": 16,
+            "s_class": 28
         },
         {
             "id": 1388,
@@ -1164,7 +1172,8 @@
             "id": 16,
             "capacity": 20,
             "room": 1,
-            "schedule": 16
+            "schedule": 16,
+            "s_class": 18
         },
         {
             "id": 114,
@@ -1176,13 +1185,15 @@
             "id": 212,
             "capacity": 40,
             "room": 3,
-            "schedule": 16
+            "schedule": 16,
+            "s_class": 8
         },
         {
             "id": 310,
             "capacity": 40,
             "room": 4,
-            "schedule": 16
+            "schedule": 16,
+            "s_class": 11
         },
         {
             "id": 2663,
@@ -1200,7 +1211,8 @@
             "id": 2369,
             "capacity": 45,
             "room": 25,
-            "schedule": 17
+            "schedule": 17,
+            "s_class": 9
         },
         {
             "id": 2565,
@@ -1260,7 +1272,8 @@
             "id": 2761,
             "capacity": 40,
             "room": 30,
-            "schedule": 17
+            "schedule": 17,
+            "s_class": 6
         },
         {
             "id": 3153,
@@ -1302,13 +1315,15 @@
             "id": 1291,
             "capacity": 40,
             "room": 14,
-            "schedule": 17
+            "schedule": 17,
+            "s_class": 12
         },
         {
             "id": 1389,
             "capacity": 40,
             "room": 15,
-            "schedule": 17
+            "schedule": 17,
+            "s_class": 32
         },
         {
             "id": 1487,
@@ -1374,7 +1389,8 @@
             "id": 17,
             "capacity": 20,
             "room": 1,
-            "schedule": 17
+            "schedule": 17,
+            "s_class": 15
         },
         {
             "id": 115,
@@ -1386,7 +1402,8 @@
             "id": 213,
             "capacity": 40,
             "room": 3,
-            "schedule": 17
+            "schedule": 17,
+            "s_class": 16
         },
         {
             "id": 311,
@@ -1410,7 +1427,8 @@
             "id": 2370,
             "capacity": 45,
             "room": 25,
-            "schedule": 18
+            "schedule": 18,
+            "s_class": 9
         },
         {
             "id": 2566,
@@ -1470,7 +1488,8 @@
             "id": 2762,
             "capacity": 40,
             "room": 30,
-            "schedule": 18
+            "schedule": 18,
+            "s_class": 6
         },
         {
             "id": 3154,
@@ -1512,13 +1531,15 @@
             "id": 1292,
             "capacity": 40,
             "room": 14,
-            "schedule": 18
+            "schedule": 18,
+            "s_class": 12
         },
         {
             "id": 1390,
             "capacity": 40,
             "room": 15,
-            "schedule": 18
+            "schedule": 18,
+            "s_class": 32
         },
         {
             "id": 1488,
@@ -1584,7 +1605,8 @@
             "id": 18,
             "capacity": 20,
             "room": 1,
-            "schedule": 18
+            "schedule": 18,
+            "s_class": 15
         },
         {
             "id": 116,
@@ -1596,7 +1618,8 @@
             "id": 214,
             "capacity": 40,
             "room": 3,
-            "schedule": 18
+            "schedule": 18,
+            "s_class": 16
         },
         {
             "id": 312,
@@ -1692,7 +1715,8 @@
             "id": 3069,
             "capacity": 20,
             "room": 33,
-            "schedule": 31
+            "schedule": 31,
+            "s_class": 22
         },
         {
             "id": 913,
@@ -1728,7 +1752,8 @@
             "id": 1403,
             "capacity": 40,
             "room": 15,
-            "schedule": 31
+            "schedule": 31,
+            "s_class": 1
         },
         {
             "id": 1501,
@@ -1800,7 +1825,8 @@
             "id": 129,
             "capacity": 40,
             "room": 2,
-            "schedule": 31
+            "schedule": 31,
+            "s_class": 31
         },
         {
             "id": 227,
@@ -1902,7 +1928,8 @@
             "id": 3070,
             "capacity": 20,
             "room": 33,
-            "schedule": 32
+            "schedule": 32,
+            "s_class": 22
         },
         {
             "id": 914,
@@ -1938,7 +1965,8 @@
             "id": 1404,
             "capacity": 40,
             "room": 15,
-            "schedule": 32
+            "schedule": 32,
+            "s_class": 1
         },
         {
             "id": 1502,
@@ -2010,7 +2038,8 @@
             "id": 130,
             "capacity": 40,
             "room": 2,
-            "schedule": 32
+            "schedule": 32,
+            "s_class": 31
         },
         {
             "id": 228,
@@ -2034,7 +2063,8 @@
             "id": 2483,
             "capacity": 45,
             "room": 26,
-            "schedule": 33
+            "schedule": 33,
+            "s_class": 28
         },
         {
             "id": 2385,
@@ -2088,7 +2118,8 @@
             "id": 2189,
             "capacity": 40,
             "room": 23,
-            "schedule": 33
+            "schedule": 33,
+            "s_class": 7
         },
         {
             "id": 2287,
@@ -2112,7 +2143,8 @@
             "id": 3071,
             "capacity": 20,
             "room": 33,
-            "schedule": 33
+            "schedule": 33,
+            "s_class": 2
         },
         {
             "id": 915,
@@ -2190,7 +2222,8 @@
             "id": 2973,
             "capacity": 40,
             "room": 32,
-            "schedule": 33
+            "schedule": 33,
+            "s_class": 38
         },
         {
             "id": 621,
@@ -2214,25 +2247,29 @@
             "id": 33,
             "capacity": 20,
             "room": 1,
-            "schedule": 33
+            "schedule": 33,
+            "s_class": 17
         },
         {
             "id": 131,
             "capacity": 40,
             "room": 2,
-            "schedule": 33
+            "schedule": 33,
+            "s_class": 25
         },
         {
             "id": 229,
             "capacity": 40,
             "room": 3,
-            "schedule": 33
+            "schedule": 33,
+            "s_class": 27
         },
         {
             "id": 327,
             "capacity": 40,
             "room": 4,
-            "schedule": 33
+            "schedule": 33,
+            "s_class": 11
         },
         {
             "id": 2680,
@@ -2244,7 +2281,8 @@
             "id": 2484,
             "capacity": 45,
             "room": 26,
-            "schedule": 34
+            "schedule": 34,
+            "s_class": 28
         },
         {
             "id": 2386,
@@ -2298,7 +2336,8 @@
             "id": 2190,
             "capacity": 40,
             "room": 23,
-            "schedule": 34
+            "schedule": 34,
+            "s_class": 7
         },
         {
             "id": 2288,
@@ -2322,7 +2361,8 @@
             "id": 3072,
             "capacity": 20,
             "room": 33,
-            "schedule": 34
+            "schedule": 34,
+            "s_class": 2
         },
         {
             "id": 916,
@@ -2400,7 +2440,8 @@
             "id": 2974,
             "capacity": 40,
             "room": 32,
-            "schedule": 34
+            "schedule": 34,
+            "s_class": 38
         },
         {
             "id": 622,
@@ -2424,25 +2465,29 @@
             "id": 34,
             "capacity": 20,
             "room": 1,
-            "schedule": 34
+            "schedule": 34,
+            "s_class": 17
         },
         {
             "id": 132,
             "capacity": 40,
             "room": 2,
-            "schedule": 34
+            "schedule": 34,
+            "s_class": 25
         },
         {
             "id": 230,
             "capacity": 40,
             "room": 3,
-            "schedule": 34
+            "schedule": 34,
+            "s_class": 27
         },
         {
             "id": 328,
             "capacity": 40,
             "room": 4,
-            "schedule": 34
+            "schedule": 34,
+            "s_class": 11
         },
         {
             "id": 2681,
@@ -2466,13 +2511,15 @@
             "id": 2583,
             "capacity": 40,
             "room": 27,
-            "schedule": 35
+            "schedule": 35,
+            "s_class": 5
         },
         {
             "id": 1603,
             "capacity": 35,
             "room": 17,
-            "schedule": 35
+            "schedule": 35,
+            "s_class": 4
         },
         {
             "id": 1701,
@@ -2556,7 +2603,8 @@
             "id": 1211,
             "capacity": 50,
             "room": 13,
-            "schedule": 35
+            "schedule": 35,
+            "s_class": 24
         },
         {
             "id": 1309,
@@ -2634,7 +2682,8 @@
             "id": 35,
             "capacity": 20,
             "room": 1,
-            "schedule": 35
+            "schedule": 35,
+            "s_class": 15
         },
         {
             "id": 133,
@@ -2646,13 +2695,15 @@
             "id": 231,
             "capacity": 40,
             "room": 3,
-            "schedule": 35
+            "schedule": 35,
+            "s_class": 8
         },
         {
             "id": 329,
             "capacity": 40,
             "room": 4,
-            "schedule": 35
+            "schedule": 35,
+            "s_class": 12
         },
         {
             "id": 2682,
@@ -2676,13 +2727,15 @@
             "id": 2584,
             "capacity": 40,
             "room": 27,
-            "schedule": 36
+            "schedule": 36,
+            "s_class": 5
         },
         {
             "id": 1604,
             "capacity": 35,
             "room": 17,
-            "schedule": 36
+            "schedule": 36,
+            "s_class": 4
         },
         {
             "id": 1702,
@@ -2766,7 +2819,8 @@
             "id": 1212,
             "capacity": 50,
             "room": 13,
-            "schedule": 36
+            "schedule": 36,
+            "s_class": 24
         },
         {
             "id": 1310,
@@ -2844,7 +2898,8 @@
             "id": 36,
             "capacity": 20,
             "room": 1,
-            "schedule": 36
+            "schedule": 36,
+            "s_class": 15
         },
         {
             "id": 134,
@@ -2856,13 +2911,15 @@
             "id": 232,
             "capacity": 40,
             "room": 3,
-            "schedule": 36
+            "schedule": 36,
+            "s_class": 8
         },
         {
             "id": 330,
             "capacity": 40,
             "room": 4,
-            "schedule": 36
+            "schedule": 36,
+            "s_class": 12
         },
         {
             "id": 2695,
@@ -2880,7 +2937,8 @@
             "id": 2401,
             "capacity": 45,
             "room": 25,
-            "schedule": 49
+            "schedule": 49,
+            "s_class": 34
         },
         {
             "id": 2597,
@@ -2982,7 +3040,8 @@
             "id": 1323,
             "capacity": 40,
             "room": 14,
-            "schedule": 49
+            "schedule": 49,
+            "s_class": 10
         },
         {
             "id": 1421,
@@ -3066,13 +3125,15 @@
             "id": 245,
             "capacity": 40,
             "room": 3,
-            "schedule": 49
+            "schedule": 49,
+            "s_class": 13
         },
         {
             "id": 343,
             "capacity": 40,
             "room": 4,
-            "schedule": 49
+            "schedule": 49,
+            "s_class": 27
         },
         {
             "id": 2696,
@@ -3090,7 +3151,8 @@
             "id": 2402,
             "capacity": 45,
             "room": 25,
-            "schedule": 50
+            "schedule": 50,
+            "s_class": 34
         },
         {
             "id": 2598,
@@ -3192,7 +3254,8 @@
             "id": 1324,
             "capacity": 40,
             "room": 14,
-            "schedule": 50
+            "schedule": 50,
+            "s_class": 10
         },
         {
             "id": 1422,
@@ -3276,13 +3339,15 @@
             "id": 246,
             "capacity": 40,
             "room": 3,
-            "schedule": 50
+            "schedule": 50,
+            "s_class": 13
         },
         {
             "id": 344,
             "capacity": 40,
             "room": 4,
-            "schedule": 50
+            "schedule": 50,
+            "s_class": 27
         },
         {
             "id": 2697,
@@ -3336,7 +3401,8 @@
             "id": 2011,
             "capacity": 35,
             "room": 21,
-            "schedule": 51
+            "schedule": 51,
+            "s_class": 4
         },
         {
             "id": 2109,
@@ -3432,7 +3498,8 @@
             "id": 3285,
             "capacity": 30,
             "room": 35,
-            "schedule": 51
+            "schedule": 51,
+            "s_class": 35
         },
         {
             "id": 443,
@@ -3474,25 +3541,29 @@
             "id": 51,
             "capacity": 20,
             "room": 1,
-            "schedule": 51
+            "schedule": 51,
+            "s_class": 11
         },
         {
             "id": 149,
             "capacity": 40,
             "room": 2,
-            "schedule": 51
+            "schedule": 51,
+            "s_class": 29
         },
         {
             "id": 247,
             "capacity": 40,
             "room": 3,
-            "schedule": 51
+            "schedule": 51,
+            "s_class": 8
         },
         {
             "id": 345,
             "capacity": 40,
             "room": 4,
-            "schedule": 51
+            "schedule": 51,
+            "s_class": 19
         },
         {
             "id": 2698,
@@ -3546,7 +3617,8 @@
             "id": 2012,
             "capacity": 35,
             "room": 21,
-            "schedule": 52
+            "schedule": 52,
+            "s_class": 4
         },
         {
             "id": 2110,
@@ -3642,7 +3714,8 @@
             "id": 3286,
             "capacity": 30,
             "room": 35,
-            "schedule": 52
+            "schedule": 52,
+            "s_class": 35
         },
         {
             "id": 444,
@@ -3684,25 +3757,29 @@
             "id": 52,
             "capacity": 20,
             "room": 1,
-            "schedule": 52
+            "schedule": 52,
+            "s_class": 11
         },
         {
             "id": 150,
             "capacity": 40,
             "room": 2,
-            "schedule": 52
+            "schedule": 52,
+            "s_class": 29
         },
         {
             "id": 248,
             "capacity": 40,
             "room": 3,
-            "schedule": 52
+            "schedule": 52,
+            "s_class": 8
         },
         {
             "id": 346,
             "capacity": 40,
             "room": 4,
-            "schedule": 52
+            "schedule": 52,
+            "s_class": 19
         },
         {
             "id": 2699,
@@ -3822,13 +3899,15 @@
             "id": 1327,
             "capacity": 40,
             "room": 14,
-            "schedule": 53
+            "schedule": 53,
+            "s_class": 12
         },
         {
             "id": 1425,
             "capacity": 40,
             "room": 15,
-            "schedule": 53
+            "schedule": 53,
+            "s_class": 25
         },
         {
             "id": 1523,
@@ -3846,7 +3925,8 @@
             "id": 3385,
             "capacity": 40,
             "room": 156,
-            "schedule": 53
+            "schedule": 53,
+            "s_class": 20
         },
         {
             "id": 3287,
@@ -3864,7 +3944,8 @@
             "id": 543,
             "capacity": 50,
             "room": 6,
-            "schedule": 53
+            "schedule": 53,
+            "s_class": 1
         },
         {
             "id": 2993,
@@ -3894,25 +3975,29 @@
             "id": 53,
             "capacity": 20,
             "room": 1,
-            "schedule": 53
+            "schedule": 53,
+            "s_class": 15
         },
         {
             "id": 151,
             "capacity": 40,
             "room": 2,
-            "schedule": 53
+            "schedule": 53,
+            "s_class": 6
         },
         {
             "id": 249,
             "capacity": 40,
             "room": 3,
-            "schedule": 53
+            "schedule": 53,
+            "s_class": 21
         },
         {
             "id": 347,
             "capacity": 40,
             "room": 4,
-            "schedule": 53
+            "schedule": 53,
+            "s_class": 26
         },
         {
             "id": 2700,
@@ -4032,13 +4117,15 @@
             "id": 1328,
             "capacity": 40,
             "room": 14,
-            "schedule": 54
+            "schedule": 54,
+            "s_class": 12
         },
         {
             "id": 1426,
             "capacity": 40,
             "room": 15,
-            "schedule": 54
+            "schedule": 54,
+            "s_class": 25
         },
         {
             "id": 1524,
@@ -4056,7 +4143,8 @@
             "id": 3386,
             "capacity": 40,
             "room": 156,
-            "schedule": 54
+            "schedule": 54,
+            "s_class": 20
         },
         {
             "id": 3288,
@@ -4074,7 +4162,8 @@
             "id": 544,
             "capacity": 50,
             "room": 6,
-            "schedule": 54
+            "schedule": 54,
+            "s_class": 1
         },
         {
             "id": 2994,
@@ -4104,25 +4193,29 @@
             "id": 54,
             "capacity": 20,
             "room": 1,
-            "schedule": 54
+            "schedule": 54,
+            "s_class": 15
         },
         {
             "id": 152,
             "capacity": 40,
             "room": 2,
-            "schedule": 54
+            "schedule": 54,
+            "s_class": 6
         },
         {
             "id": 250,
             "capacity": 40,
             "room": 3,
-            "schedule": 54
+            "schedule": 54,
+            "s_class": 21
         },
         {
             "id": 348,
             "capacity": 40,
             "room": 4,
-            "schedule": 54
+            "schedule": 54,
+            "s_class": 26
         },
         {
             "id": 2713,
@@ -4248,7 +4341,8 @@
             "id": 1439,
             "capacity": 40,
             "room": 15,
-            "schedule": 67
+            "schedule": 67,
+            "s_class": 32
         },
         {
             "id": 1537,
@@ -4272,7 +4366,8 @@
             "id": 3301,
             "capacity": 30,
             "room": 35,
-            "schedule": 67
+            "schedule": 67,
+            "s_class": 30
         },
         {
             "id": 459,
@@ -4308,7 +4403,8 @@
             "id": 851,
             "capacity": 60,
             "room": 9,
-            "schedule": 67
+            "schedule": 67,
+            "s_class": 37
         },
         {
             "id": 67,
@@ -4458,7 +4554,8 @@
             "id": 1440,
             "capacity": 40,
             "room": 15,
-            "schedule": 68
+            "schedule": 68,
+            "s_class": 32
         },
         {
             "id": 1538,
@@ -4482,7 +4579,8 @@
             "id": 3302,
             "capacity": 30,
             "room": 35,
-            "schedule": 68
+            "schedule": 68,
+            "s_class": 30
         },
         {
             "id": 460,
@@ -4518,7 +4616,8 @@
             "id": 852,
             "capacity": 60,
             "room": 9,
-            "schedule": 68
+            "schedule": 68,
+            "s_class": 37
         },
         {
             "id": 68,
@@ -4548,7 +4647,8 @@
             "id": 2715,
             "capacity": 40,
             "room": 29,
-            "schedule": 69
+            "schedule": 69,
+            "s_class": 33
         },
         {
             "id": 2519,
@@ -4560,7 +4660,8 @@
             "id": 2421,
             "capacity": 45,
             "room": 25,
-            "schedule": 69
+            "schedule": 69,
+            "s_class": 5
         },
         {
             "id": 2617,
@@ -4674,7 +4775,8 @@
             "id": 1539,
             "capacity": 30,
             "room": 16,
-            "schedule": 69
+            "schedule": 69,
+            "s_class": 34
         },
         {
             "id": 2911,
@@ -4734,31 +4836,36 @@
             "id": 69,
             "capacity": 20,
             "room": 1,
-            "schedule": 69
+            "schedule": 69,
+            "s_class": 16
         },
         {
             "id": 167,
             "capacity": 40,
             "room": 2,
-            "schedule": 69
+            "schedule": 69,
+            "s_class": 10
         },
         {
             "id": 265,
             "capacity": 40,
             "room": 3,
-            "schedule": 69
+            "schedule": 69,
+            "s_class": 7
         },
         {
             "id": 363,
             "capacity": 40,
             "room": 4,
-            "schedule": 69
+            "schedule": 69,
+            "s_class": 19
         },
         {
             "id": 2716,
             "capacity": 40,
             "room": 29,
-            "schedule": 70
+            "schedule": 70,
+            "s_class": 33
         },
         {
             "id": 2520,
@@ -4770,7 +4877,8 @@
             "id": 2422,
             "capacity": 45,
             "room": 25,
-            "schedule": 70
+            "schedule": 70,
+            "s_class": 5
         },
         {
             "id": 2618,
@@ -4884,7 +4992,8 @@
             "id": 1540,
             "capacity": 30,
             "room": 16,
-            "schedule": 70
+            "schedule": 70,
+            "s_class": 34
         },
         {
             "id": 2912,
@@ -4944,25 +5053,29 @@
             "id": 70,
             "capacity": 20,
             "room": 1,
-            "schedule": 70
+            "schedule": 70,
+            "s_class": 16
         },
         {
             "id": 168,
             "capacity": 40,
             "room": 2,
-            "schedule": 70
+            "schedule": 70,
+            "s_class": 10
         },
         {
             "id": 266,
             "capacity": 40,
             "room": 3,
-            "schedule": 70
+            "schedule": 70,
+            "s_class": 7
         },
         {
             "id": 364,
             "capacity": 40,
             "room": 4,
-            "schedule": 70
+            "schedule": 70,
+            "s_class": 19
         },
         {
             "id": 2717,
@@ -4998,13 +5111,15 @@
             "id": 1737,
             "capacity": 35,
             "room": 18,
-            "schedule": 71
+            "schedule": 71,
+            "s_class": 23
         },
         {
             "id": 1835,
             "capacity": 40,
             "room": 19,
-            "schedule": 71
+            "schedule": 71,
+            "s_class": 9
         },
         {
             "id": 1933,
@@ -5082,7 +5197,8 @@
             "id": 1345,
             "capacity": 40,
             "room": 14,
-            "schedule": 71
+            "schedule": 71,
+            "s_class": 14
         },
         {
             "id": 1443,
@@ -5100,7 +5216,8 @@
             "id": 2913,
             "capacity": 40,
             "room": 31,
-            "schedule": 71
+            "schedule": 71,
+            "s_class": 13
         },
         {
             "id": 3403,
@@ -5166,13 +5283,15 @@
             "id": 267,
             "capacity": 40,
             "room": 3,
-            "schedule": 71
+            "schedule": 71,
+            "s_class": 24
         },
         {
             "id": 365,
             "capacity": 40,
             "room": 4,
-            "schedule": 71
+            "schedule": 71,
+            "s_class": 6
         },
         {
             "id": 2718,
@@ -5208,13 +5327,15 @@
             "id": 1738,
             "capacity": 35,
             "room": 18,
-            "schedule": 72
+            "schedule": 72,
+            "s_class": 23
         },
         {
             "id": 1836,
             "capacity": 40,
             "room": 19,
-            "schedule": 72
+            "schedule": 72,
+            "s_class": 9
         },
         {
             "id": 1934,
@@ -5292,7 +5413,8 @@
             "id": 1346,
             "capacity": 40,
             "room": 14,
-            "schedule": 72
+            "schedule": 72,
+            "s_class": 14
         },
         {
             "id": 1444,
@@ -5310,7 +5432,8 @@
             "id": 2914,
             "capacity": 40,
             "room": 31,
-            "schedule": 72
+            "schedule": 72,
+            "s_class": 13
         },
         {
             "id": 3404,
@@ -5376,13 +5499,15 @@
             "id": 268,
             "capacity": 40,
             "room": 3,
-            "schedule": 72
+            "schedule": 72,
+            "s_class": 24
         },
         {
             "id": 366,
             "capacity": 40,
             "room": 4,
-            "schedule": 72
+            "schedule": 72,
+            "s_class": 6
         },
         {
             "id": 2733,
@@ -5490,7 +5615,8 @@
             "id": 1165,
             "capacity": 50,
             "room": 12,
-            "schedule": 87
+            "schedule": 87,
+            "s_class": 35
         },
         {
             "id": 1263,
@@ -5562,7 +5688,8 @@
             "id": 773,
             "capacity": 40,
             "room": 8,
-            "schedule": 87
+            "schedule": 87,
+            "s_class": 14
         },
         {
             "id": 871,
@@ -5586,13 +5713,15 @@
             "id": 283,
             "capacity": 40,
             "room": 3,
-            "schedule": 87
+            "schedule": 87,
+            "s_class": 13
         },
         {
             "id": 381,
             "capacity": 40,
             "room": 4,
-            "schedule": 87
+            "schedule": 87,
+            "s_class": 29
         },
         {
             "id": 2734,
@@ -5700,7 +5829,8 @@
             "id": 1166,
             "capacity": 50,
             "room": 12,
-            "schedule": 88
+            "schedule": 88,
+            "s_class": 35
         },
         {
             "id": 1264,
@@ -5772,7 +5902,8 @@
             "id": 774,
             "capacity": 40,
             "room": 8,
-            "schedule": 88
+            "schedule": 88,
+            "s_class": 14
         },
         {
             "id": 872,
@@ -5796,13 +5927,15 @@
             "id": 284,
             "capacity": 40,
             "room": 3,
-            "schedule": 88
+            "schedule": 88,
+            "s_class": 13
         },
         {
             "id": 382,
             "capacity": 40,
             "room": 4,
-            "schedule": 88
+            "schedule": 88,
+            "s_class": 29
         },
         {
             "id": 2735,
@@ -5832,7 +5965,8 @@
             "id": 1657,
             "capacity": 35,
             "room": 17,
-            "schedule": 89
+            "schedule": 89,
+            "s_class": 10
         },
         {
             "id": 1755,
@@ -5880,7 +6014,8 @@
             "id": 2833,
             "capacity": 40,
             "room": 30,
-            "schedule": 89
+            "schedule": 89,
+            "s_class": 18
         },
         {
             "id": 3225,
@@ -5922,7 +6057,8 @@
             "id": 1363,
             "capacity": 40,
             "room": 14,
-            "schedule": 89
+            "schedule": 89,
+            "s_class": 9
         },
         {
             "id": 1461,
@@ -5934,7 +6070,8 @@
             "id": 1559,
             "capacity": 30,
             "room": 16,
-            "schedule": 89
+            "schedule": 89,
+            "s_class": 33
         },
         {
             "id": 2931,
@@ -5982,7 +6119,8 @@
             "id": 775,
             "capacity": 40,
             "room": 8,
-            "schedule": 89
+            "schedule": 89,
+            "s_class": 37
         },
         {
             "id": 873,
@@ -5994,19 +6132,22 @@
             "id": 89,
             "capacity": 20,
             "room": 1,
-            "schedule": 89
+            "schedule": 89,
+            "s_class": 31
         },
         {
             "id": 187,
             "capacity": 40,
             "room": 2,
-            "schedule": 89
+            "schedule": 89,
+            "s_class": 7
         },
         {
             "id": 285,
             "capacity": 40,
             "room": 3,
-            "schedule": 89
+            "schedule": 89,
+            "s_class": 21
         },
         {
             "id": 383,
@@ -6042,7 +6183,8 @@
             "id": 1658,
             "capacity": 35,
             "room": 17,
-            "schedule": 90
+            "schedule": 90,
+            "s_class": 10
         },
         {
             "id": 1756,
@@ -6090,7 +6232,8 @@
             "id": 2834,
             "capacity": 40,
             "room": 30,
-            "schedule": 90
+            "schedule": 90,
+            "s_class": 18
         },
         {
             "id": 3226,
@@ -6132,7 +6275,8 @@
             "id": 1364,
             "capacity": 40,
             "room": 14,
-            "schedule": 90
+            "schedule": 90,
+            "s_class": 9
         },
         {
             "id": 1462,
@@ -6144,7 +6288,8 @@
             "id": 1560,
             "capacity": 30,
             "room": 16,
-            "schedule": 90
+            "schedule": 90,
+            "s_class": 33
         },
         {
             "id": 2932,
@@ -6192,7 +6337,8 @@
             "id": 776,
             "capacity": 40,
             "room": 8,
-            "schedule": 90
+            "schedule": 90,
+            "s_class": 37
         },
         {
             "id": 874,
@@ -6204,19 +6350,22 @@
             "id": 90,
             "capacity": 20,
             "room": 1,
-            "schedule": 90
+            "schedule": 90,
+            "s_class": 31
         },
         {
             "id": 188,
             "capacity": 40,
             "room": 2,
-            "schedule": 90
+            "schedule": 90,
+            "s_class": 7
         },
         {
             "id": 286,
             "capacity": 40,
             "room": 3,
-            "schedule": 90
+            "schedule": 90,
+            "s_class": 21
         },
         {
             "id": 384,

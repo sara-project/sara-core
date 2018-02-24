@@ -1,7 +1,9 @@
 package org.sara.interfaces.algorithms.ga;
 
-import org.sara.interfaces.algorithms.ga.operator.IGALightSwitch;
+import java.util.Collection;
+import org.sara.interfaces.model.InfoSolution;
 
 public interface IGAEngine {
-    public IGALightSwitch startGA();
+    public InfoSolution startCycle();
+    public InfoSolution evalSolution(Collection specimens);
 }
