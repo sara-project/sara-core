@@ -1,11 +1,19 @@
 package org.sara.interfaces.model;
 
-public class Room implements Cloneable {
+import java.util.ArrayList;
+import java.util.List;
 
-    public Room(int id, int capacity, int area) {
+public class Room implements Cloneable {
+    
+    public Room(int id, int capacity, int area, List<Requirement> requirements) {
         this.id = id;
         this.capacity = capacity;
         this.area = area;
+        this.specifications = requirements;
+    }
+
+    public Room(int id, int capacity, int area) {
+        this(id, capacity, area, new ArrayList<>());
     }
 
     public boolean thisFits(SchoolClass schoolClass) {
@@ -32,8 +40,17 @@ public class Room implements Cloneable {
     public Object clone() {
         return new Room(id, capacity, area);
     }
+    
+    public boolean containsRequirements(Requirement requirement) {
+        return this.specifications.contains(requirement);
+    }
+    
+    public boolean hasAccessibilityRequirement() {
+        return this.specifications.stream().anyMatch((s) -> (s.getType() == 2));
+    }
 
     private final int id;
     private final int area;
     private final int capacity;
+    private final List<Requirement> specifications;
 }

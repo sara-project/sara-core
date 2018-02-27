@@ -15,10 +15,19 @@ public class SchoolClass implements Cloneable {
         this.id = id;
         this.size = size;
         this.schedules = new SchedulesMap(this);
+        this.requirements = new ArrayList<>();
     }
 
     public int getID() {
         return this.id;
+    }
+    
+    public void addRequirements(List<Requirement> requirementss) {
+        this.requirements.addAll(requirements);
+    }
+    
+    public boolean hasAccessibilityRequirement() {
+        return this.requirements.stream().anyMatch((r) -> (r.getType() == 2));
     }
     
     public int howBig(int size) {
@@ -38,7 +47,12 @@ public class SchoolClass implements Cloneable {
     public void addSchedule(Schedule schedule) {
         this.schedules.add((Schedule) schedule.clone());
     }
-
+    
+    public boolean isAllocted(Schedule schedule) {
+        ClassSchedule cs = this.schedules.classTimeTables.get(schedule.getID());
+        
+        return cs != null && cs.isAllocated();
+    }
     public boolean hasSameSchedule(Schedule schedule) {
         return this.schedules.classTimeTables.containsKey(schedule.getID());
     }
@@ -106,6 +120,7 @@ public class SchoolClass implements Cloneable {
     private final int id;
     private final int size;
     private final SchedulesMap schedules;
+    private final List<Requirement> requirements;
 
     private class SchedulesMap {
 
@@ -130,11 +145,9 @@ public class SchoolClass implements Cloneable {
 
         private List<ClassSchedule> getAllocated(boolean allocated) {
             List<ClassSchedule> tmp = new ArrayList<>();
-            for (ClassSchedule t : this.classTimeTables.values()) {
-                if (t.isAllocated() == allocated) {
-                    tmp.add(t);
-                }
-            }
+            this.classTimeTables.values().stream().filter((t) -> (t.isAllocated() == allocated)).forEachOrdered((t) -> {
+                tmp.add(t);
+            });
 
             return tmp;
         }

@@ -27,6 +27,10 @@ public class BestUseSpaceCriteria implements ICriteria {
             }
         }
         
+        //Only for test
+        if(totalOverload > 0)
+            return (totalExactAmount * 10) + (totalUnusedPlaces * -1) + (-100 * totalOverload);
+        
         return (totalExactAmount * 10) + (totalUnusedPlaces * -1) + (-100 * totalOverload);
     }
 }

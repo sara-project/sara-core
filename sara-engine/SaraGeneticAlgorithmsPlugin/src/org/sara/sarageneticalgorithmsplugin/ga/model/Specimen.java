@@ -22,7 +22,6 @@ public class Specimen implements ISpecimen {
     }
 
     public Specimen(Object geneticLoad, boolean isToFill) {
-        List<Slot> slots = new ArrayList<>();
         IModelController modelControl = ICore.getInstance().getModelController();
 
         if (!(geneticLoad instanceof Collection)) {
@@ -30,7 +29,7 @@ public class Specimen implements ISpecimen {
             System.exit(3);
         }
         
-        slots = new ArrayList<>((Collection) geneticLoad);
+        List<Slot> slots = new ArrayList<>((Collection) geneticLoad);
 
         //Os slots estaram sempre ordenados pelo ID do Dia, facilitando a operação de Crossover
         TreeMap<Integer, List<Slot>> slotsByDay = (TreeMap<Integer, List<Slot>>) modelControl.separateSlotsByDay(slots);

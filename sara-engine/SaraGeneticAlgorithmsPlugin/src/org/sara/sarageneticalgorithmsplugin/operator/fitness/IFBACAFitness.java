@@ -3,7 +3,6 @@ package org.sara.sarageneticalgorithmsplugin.operator.fitness;
 import org.sara.sarageneticalgorithmsplugin.operator.fitness.criteria.CriteriaManager;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.sara.interfaces.ICore;
@@ -23,11 +22,11 @@ public class IFBACAFitness implements IFitness {
     public IFBACAFitness() {
         this.criteriaManager = new CriteriaManager();
         //Constraints filters
-        //this.criteriaManager.addCriteria(new DuplicateAllocationCriteria()); //C2
+        this.criteriaManager.addCriteria(new DuplicateAllocationCriteria()); //C2
 
         //Quality filters
-        //this.criteriaManager.addCriteria(new UnallocatedClassCriteria()); //Q1
-        //this.criteriaManager.addCriteria(new AccessibilityCriteria()); //Q2
+        this.criteriaManager.addCriteria(new UnallocatedClassCriteria()); //Q1
+        this.criteriaManager.addCriteria(new AccessibilityCriteria()); //Q2
         this.criteriaManager.addCriteria(new BestUseSpaceCriteria());//Q3 (and C3 too)
         //this.criteriaManager.addCriteria(new ClassRoomExchangeCriteria()); //Q4 e Q5
         //this.criteriaManager.addCriteria(new ClassRequerimentCriteria()); //Q6 e Q7
@@ -43,9 +42,9 @@ public class IFBACAFitness implements IFitness {
         final int specimenPerThread = popNumber / threadNumbers;
         
         //Quando o número da população é menor do que o número de Threads, não é necessário utiliza-las
-        if(popNumber < ICore.getInstance().getProjectController().AVAILABLE_PROCESSORS) {
-            this.evaluate(population.getFirstSpecimen(false));
-            return;
+        if(popNumber == popNumber || popNumber < ICore.getInstance().getProjectController().AVAILABLE_PROCESSORS) {
+            population.getAllSpecimens(false).forEach(specimen -> this.evaluate(specimen));
+            return;//ta com condição errada para forçar entrada
         }
 
         for (int i = 0; i < threadNumbers; i++) {

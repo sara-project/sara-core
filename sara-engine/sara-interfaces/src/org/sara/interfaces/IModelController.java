@@ -27,14 +27,14 @@ public abstract class IModelController {
 
     public Map<String, Requirement> getRequirements() {
         Map<String, Requirement> clone = new HashMap<>();
-        this.requirements.values().forEach((r) -> clone.put(r.getID(), (Requirement) r.clone()));
+        this.requirements.values().forEach((r) -> clone.put(String.valueOf(r.getID()), (Requirement) r.clone()));
 
         return clone;
     }
 
     public void setRequirements(Map<String, Requirement> requirements) {
         Map<String, Requirement> clone = new HashMap<>();
-        requirements.values().forEach((r) -> clone.put(r.getID(), (Requirement) r.clone()));
+        requirements.values().forEach((r) -> clone.put(String.valueOf(r.getID()), (Requirement) r.clone()));
         this.requirements = clone;
     }
 
@@ -76,13 +76,22 @@ public abstract class IModelController {
 
     public Map<String, ClassSchedule> getClassSchedule() {
         Map<String, ClassSchedule> clone = new HashMap<>();
-        this.classSchedules.values().forEach((cs) -> clone.put(String.valueOf(cs.getID()), (ClassSchedule) cs.clone()));
+        this.classSchedules.values().forEach(cs -> clone.put(String.valueOf(cs.getID()), (ClassSchedule) cs.clone()));
         return clone;
     }
     
+    public Map<String, ClassSchedule> getClassScheduleByDay(int day) {
+        Map<String, ClassSchedule> clone = new HashMap<>();
+        this.classSchedules.values().forEach(cs -> {
+            if(cs.getSchedule().getDay() == day)
+                clone.put(String.valueOf(cs.getID()), (ClassSchedule) cs.clone());
+        });
+        return clone;
+    }
+
     public void setClassSchedule(HashMap<String, ClassSchedule> classSchedules) {
         Map<String, ClassSchedule> clone = new HashMap<>();
-        classSchedules.values().forEach((cs) -> clone.put(String.valueOf(cs.getID()), (ClassSchedule) cs.clone()));
+        classSchedules.values().forEach(cs -> clone.put(String.valueOf(cs.getID()), (ClassSchedule) cs.clone()));
         this.classSchedules = clone;
     }
 
@@ -120,8 +129,24 @@ public abstract class IModelController {
         });
         return classSchedulesByDay;
     }
+    
+    public Map<Integer, List<ClassSchedule>> separateClassScheduleByClass(final List<ClassSchedule> classSchedules) {
+       Map<Integer, List<ClassSchedule>> classSchedulesByClass = new HashMap<>();
+       
+       classSchedules.forEach((cs) -> {
+           if (!classSchedulesByClass.containsKey(cs.getSchoolClass().getID())) {
+               List<ClassSchedule> list = new ArrayList<>();
+               list.add((ClassSchedule) cs.clone());
+               classSchedulesByClass.put(cs.getSchoolClass().getID(), list);
+           } else {
+               classSchedulesByClass.get(cs.getSchoolClass().getID()).add((ClassSchedule) cs.clone());
+           }
+        });
+       
+        return classSchedulesByClass;
+    }
 
-    public Map<Integer, List<ClassSchedule>> ClassScheduleBySchedule(final List<ClassSchedule> classSchedules) {
+    public Map<Integer, List<ClassSchedule>> separateClassScheduleBySchedule(final List<ClassSchedule> classSchedules) {
         Map<Integer, List<ClassSchedule>> classSchedulesBySchedule = new HashMap<>();
 
         classSchedules.forEach((classSchedule) -> {
@@ -216,12 +241,12 @@ public abstract class IModelController {
         Map<Integer, List<Slot>> slotsByRoom = new HashMap<>();
 
         slots.forEach((slot) -> {
-            if (!slotsByRoom.containsKey(slot.getRoomID())) {
+            if (!slotsByRoom.containsKey(slot.getRoom().getID())) {
                 List<Slot> list = new ArrayList<>();
                 list.add((Slot) slot.clone());
-                slotsByRoom.put(slot.getRoomID(), list);
+                slotsByRoom.put(slot.getRoom().getID(), list);
             } else {
-                slotsByRoom.get(slot.getRoomID()).add((Slot) slot.clone());
+                slotsByRoom.get(slot.getRoom().getID()).add((Slot) slot.clone());
             }
         });
         return slotsByRoom;

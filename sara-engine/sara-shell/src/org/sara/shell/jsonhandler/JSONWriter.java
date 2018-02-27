@@ -36,7 +36,7 @@ public class JSONWriter {
                 JSONObject slotObj = new JSONObject();
                 slotObj.put("day", slot.getSchedule().getDay());
                 slotObj.put("time_interval", slot.getSchedule().getTimeInterval());
-                slotObj.put("room", slot.getRoomID());            
+                slotObj.put("room", slot.getRoom().getID());            
                 slotObj.put("s_class", slot.getSchoolClass().getID());
                 slotArray.add( slotObj);
             }

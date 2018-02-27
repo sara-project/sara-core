@@ -19,8 +19,8 @@ public class SwapMutation extends IMutation {
         else if (positionA == positionB)
             positionB++;
 
-        List<IGene> armA = chromosome.getGenesByType(positionA, false);
-        List<IGene> armB = chromosome.getGenesByType(positionB, false);
+        List<IGene> armA = chromosome.getGenesByArm(positionA, false);
+        List<IGene> armB = chromosome.getGenesByArm(positionB, false);
 
         List<Object> contentA = new ArrayList<>();
         List<Object> contentB = new ArrayList<>();

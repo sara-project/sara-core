@@ -33,8 +33,8 @@ public class CriteriaManager implements ICriteriaManager {
     public float processFilter(IChromosome chromosome) {
         this.fitness = 0;
         
-        this.criterias.values().forEach(c -> {
-            this.fitness += c.execute(chromosome);
+        this.criterias.keySet().forEach(c -> {
+            this.fitness += ((this.criterias.size() - c) / 2)  * this.criterias.get(c).execute(chromosome);
         });
 
         return fitness;

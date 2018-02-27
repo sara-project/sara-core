@@ -22,6 +22,7 @@ public class Slot implements Cloneable {
 
     public boolean fill(SchoolClass sClass) {
         if (this.isValid(sClass)) {
+            sClass.allocate(this.getSchedule());
             this.sClass = (SchoolClass) sClass.clone();
             this.sClass.allocate(this.getSchedule());
             return true;
@@ -48,9 +49,9 @@ public class Slot implements Cloneable {
     public SchoolClass getSchoolClass() {
         return this.sClass != null? (SchoolClass) this.sClass.clone() : null;
     }
-
-    public int getRoomID() {
-        return this.room.getID();
+    
+    public Room getRoom() {
+        return this.room;
     }
     
     public int useOfRoom(SchoolClass schoolClass) {

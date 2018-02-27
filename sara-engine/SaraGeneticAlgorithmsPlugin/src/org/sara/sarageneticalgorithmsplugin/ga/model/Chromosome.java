@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.TreeMap;
+import java.util.stream.IntStream;
 import org.sara.interfaces.ICore;
 import org.sara.interfaces.IModelController;
 import org.sara.interfaces.algorithms.ga.model.IChromosome;
@@ -30,10 +31,7 @@ public class Chromosome implements IChromosome {
 
         this.arms = new ArrayList<>();
 
-        List<Integer> keys = new ArrayList(slotsByRoom.keySet());
-        Collections.shuffle(keys);
-
-        keys.stream().map((key) -> slotsByRoom.get(key)).map((slotsList) -> {
+        slotsByRoom.values().stream().map(slot -> slot).map((slotsList) -> {
             List<IGene> genes = new ArrayList<>();
 
             // Ordena os slots por Intervalo de Tempo ASC
@@ -48,72 +46,157 @@ public class Chromosome implements IChromosome {
             Collections.shuffle(this.pullInformation);
         }
     }
-
+    
     public void fill() {
         if(this.pullInformation == null)
             return;
-
+        
         IModelController modelControl = ICore.getInstance().getModelController();
-        TreeMap<Integer, List<ClassSchedule>> pullHash = (TreeMap) modelControl.separateClassSchedulesByTimeInterval(this.pullInformation);
+        Map<Integer, List<ClassSchedule>> cScheduleByClass = modelControl.separateClassScheduleByClass(this.pullInformation);
+        List<Integer> csKeys = new ArrayList<>(cScheduleByClass.keySet());
+        Collections.shuffle(csKeys);
+        
+        //Todos esses genes são do mesmo dia. Cada braço é uma sala e cada posição do braço é um IT (APAGAR Comentário/Test)
+        List<Integer> roomIndexes = new ArrayList<>();
+        IntStream.rangeClosed(0, this.arms.size() - 1).forEach(ic -> roomIndexes.add(ic));
+        Collections.shuffle(roomIndexes);
+        
+        for(Integer key : csKeys) {
+            List<ClassSchedule> classSchedules  = cScheduleByClass.get(key);
+            classSchedules.sort((ClassSchedule a, ClassSchedule b) -> a.getSchedule().getTimeInterval() - b.getSchedule().getTimeInterval());
+            
+            //Embaralha a lista de salas baseado numa probabilidade de 50%
+            //if(ThreadLocalRandom.current().nextInt(0, 2) == 1)
+            //    Collections.shuffle(roomIndexes);
 
-        for (List<IGene> genes : this.arms) {
-            //Slot Sala 1, IT1, IT2, IT3...
-            for (int i = 0; i < genes.size(); i++) {
-                Slot slot = (Slot) genes.get(i).getAllele(true);
+            for (int i = 0; i < classSchedules.size(); i++) {
+            
+                for(Integer index : roomIndexes) {
+                    if(classSchedules.get(i).isAllocated())
+                        break;
+                    
+                    for (int j = 0; j < this.arms.get(index).size(); j++) {
+                        Slot slot = (Slot) this.arms.get(index).get(j).getAllele(false);
 
-                if (!slot.isEmpty())
-                    continue;
+                        if(!slot.isEmpty()) {
+                            j++;
+                            continue;
+                        }
 
-                List<ClassSchedule> pull = pullHash.get(slot.getSchedule().getTimeInterval());
+                        if(classSchedules.get(i).isAllocated()) {
+                            j++;
+                            continue;
+                        }
 
-                //para de tentar preencher os genes pois não há mais opções disponíveis
-                if (pull == null || pull.isEmpty())
-                    break;
+                        if(!classSchedules.get(i).getSchedule().equals(slot.getSchedule())) {
+                            j++;
+                            continue;
+                        }
 
-                Collections.shuffle(pull);
-                ClassSchedule randomClassSchedule = pull.get(new Random().nextInt(pull.size()));
+                        while(i < classSchedules.size() &&
+                              j < this.arms.get(index).size() &&
+                              slot.isValid(classSchedules.get(i).getSchoolClass()))
+                        {
 
-                boolean hasChange;
-                int times = 0;
-                int maxTimes = ThreadLocalRandom.current().nextInt(1, pull.size() * 2);
-                do {
-                    hasChange = false;
-                    while (slot.isValid(randomClassSchedule.getSchoolClass())) {
-                        hasChange = true;
+                            slot.fill(classSchedules.get(i).getSchoolClass());
+                            classSchedules.get(i).allocate();
 
-                        genes.get(i).setAlleleContent((randomClassSchedule.getSchoolClass()));
-                        pull.remove(randomClassSchedule);
-                        pullHash.put(slot.getSchedule().getTimeInterval(), pull);
+                            i++; //Avança o IT da Aula da Tuma
+                            j++; //Avança o IT da Sala do Slot
 
-                        if (++i >= genes.size())
+                            if(i >= classSchedules.size() || j >= this.arms.get(index).size())
+                                break;
+
+                            slot = (Slot) this.arms.get(index).get(j).getAllele(false);
+                        }
+                        
+                        if(i >= classSchedules.size() || j >= this.arms.get(index).size())
                             break;
-
-                        //obtém o próximo slot da mesma sala e dia (avança o horário)
-                        slot = (Slot) genes.get(i).getAllele(true);
-                        //obtém a próxima Aula da mesma turma, baseada no Schedule do Slot
-                        randomClassSchedule = randomClassSchedule.getSchoolClass().getClassSchedule(slot.getSchedule());
-                        pull = pullHash.get(slot.getSchedule().getTimeInterval());
-
-                        if (randomClassSchedule == null || pull == null || pull.isEmpty())
-                            break;
-
-                        Collections.shuffle(pull);
                     }
-                    //Caso tenha preenchido um slot, mas o próximo não preencheu, gera uma nova aula randomica para tentar ser alocada
-                    if (pull == null || pull.isEmpty())
+                    
+                    if(i >= classSchedules.size())
                         break;
-
-                    randomClassSchedule = pull.get(new Random().nextInt(pull.size()));
-
-                    //tentativas
-                    if (times++ >= maxTimes)
-                        break;
-                } while ((!hasChange || (hasChange && slot.isEmpty())) && i < genes.size());
+                }
             }
         }
-        this.pullInformation.clear();
+        
+        //Only for test
+//        for(List<ClassSchedule> cs : cScheduleByClass.values()) {
+//            for(ClassSchedule c : cs)
+//                if(!c.isAllocated())
+//                    this.fill() ;
+//        }
+        
+        this.pullInformation = null;
     }
 
+//Old method (only for test)
+//    public void fill2() {
+//        if(this.pullInformation == null)
+//            return;
+//
+//        IModelController modelControl = ICore.getInstance().getModelController();
+//        TreeMap<Integer, List<ClassSchedule>> pullHash = (TreeMap) modelControl.separateClassSchedulesByTimeInterval(this.pullInformation);
+//
+//        for (List<IGene> genes : this.arms) {
+//            //Slot Sala 1, IT1, IT2, IT3...
+//            for (int i = 0; i < genes.size(); i++) {
+//                Slot slot = (Slot) genes.get(i).getAllele(true);
+//
+//                if (!slot.isEmpty())
+//                    continue;
+//
+//                List<ClassSchedule> pull = pullHash.get(slot.getSchedule().getTimeInterval());
+//
+//                //para de tentar preencher os genes pois não há mais opções disponíveis
+//                if (pull == null || pull.isEmpty())
+//                    break;
+//
+//                Collections.shuffle(pull);
+//                ClassSchedule randomClassSchedule = pull.get(new Random().nextInt(pull.size()));
+//
+//                boolean hasChange;
+//                int times = 0;
+//                int maxTimes = ThreadLocalRandom.current().nextInt(1, pull.size() * 2);
+//                do {
+//                    hasChange = false;
+//                    while (slot.isValid(randomClassSchedule.getSchoolClass())) {
+//                        hasChange = true;
+//
+//                        genes.get(i).setAlleleContent((randomClassSchedule.getSchoolClass()));
+//                        pull.remove(randomClassSchedule);
+//                        pullHash.put(slot.getSchedule().getTimeInterval(), pull);
+//
+//                        if (++i >= genes.size())
+//                            break;
+//
+//                        //obtém o próximo slot da mesma sala e dia (avança o horário)
+//                        slot = (Slot) genes.get(i).getAllele(true);
+//                        //obtém a próxima Aula da mesma turma, baseada no Schedule do Slot
+//                        randomClassSchedule = randomClassSchedule.getSchoolClass().getClassSchedule(slot.getSchedule());
+//                        pull = pullHash.get(slot.getSchedule().getTimeInterval());
+//
+//                        if (randomClassSchedule == null || pull == null || pull.isEmpty())
+//                            break;
+//
+//                        Collections.shuffle(pull);
+//                    }
+//                    //Caso tenha preenchido um slot, mas o próximo não preencheu, gera uma nova aula randomica para tentar ser alocada
+//                    if (pull == null || pull.isEmpty())
+//                        break;
+//
+//                    randomClassSchedule = pull.get(new Random().nextInt(pull.size()));
+//
+//                    //tentativas
+//                    if (times++ >= maxTimes)
+//                        break;
+//                } while ((!hasChange || (hasChange && slot.isEmpty())) && i < genes.size());
+//            }
+//        }
+//        this.pullInformation.clear();
+//    }
+//    
+    @Override
     public int getType() {
         return type;
     }
@@ -180,7 +263,7 @@ public class Chromosome implements IChromosome {
     }
 
     @Override
-    public List<IGene> getGenesByType(int type, boolean clone) {
+    public List<IGene> getGenesByArm(int type, boolean clone) {
         if(clone) {
             List<IGene> cloneList = new ArrayList();
             this.arms.get(type).forEach(g -> cloneList.add((IGene) g.clone()));
@@ -192,8 +275,8 @@ public class Chromosome implements IChromosome {
     }
 
     @Override
-    public List<IGene> getGenesRandomByType(boolean clone) {
-        return this.getGenesByType(new Random().nextInt(this.arms.size()), clone);
+    public List<IGene> getGenesRandomByArm(boolean clone) {
+        return this.getGenesByArm(new Random().nextInt(this.arms.size()), clone);
     }
 
     @Override
