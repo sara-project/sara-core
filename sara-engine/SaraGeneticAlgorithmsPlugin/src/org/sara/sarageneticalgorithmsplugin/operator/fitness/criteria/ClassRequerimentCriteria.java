@@ -3,10 +3,19 @@ package org.sara.sarageneticalgorithmsplugin.operator.fitness.criteria;
 import org.sara.interfaces.algorithms.ga.model.IChromosome;
 import org.sara.interfaces.algorithms.ga.operator.fitness.criteria.ICriteria;
 
-public class ClassRequerimentCriteria implements ICriteria {
+public class ClassRequerimentCriteria extends ICriteria {
+
+    public ClassRequerimentCriteria() {
+        super(false);
+    }
+
+        
+    public ClassRequerimentCriteria(boolean required) {
+        super(required);
+    }
 
     @Override
     public float execute(IChromosome chromosome) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return 0;
     }
 }

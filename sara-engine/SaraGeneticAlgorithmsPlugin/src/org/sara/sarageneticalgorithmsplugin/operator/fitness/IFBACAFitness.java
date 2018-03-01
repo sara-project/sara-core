@@ -12,8 +12,6 @@ import org.sara.interfaces.algorithms.ga.operator.IFitness;
 import org.sara.interfaces.algorithms.ga.model.IPopulation;
 import org.sara.sarageneticalgorithmsplugin.operator.fitness.criteria.AccessibilityCriteria;
 import org.sara.sarageneticalgorithmsplugin.operator.fitness.criteria.BestUseSpaceCriteria;
-import org.sara.sarageneticalgorithmsplugin.operator.fitness.criteria.ClassRequerimentCriteria;
-import org.sara.sarageneticalgorithmsplugin.operator.fitness.criteria.ClassRoomExchangeCriteria;
 import org.sara.sarageneticalgorithmsplugin.operator.fitness.criteria.DuplicateAllocationCriteria;
 import org.sara.sarageneticalgorithmsplugin.operator.fitness.criteria.UnallocatedClassCriteria;
 
@@ -22,7 +20,7 @@ public class IFBACAFitness implements IFitness {
     public IFBACAFitness() {
         this.criteriaManager = new CriteriaManager();
         //Constraints filters
-        this.criteriaManager.addCriteria(new DuplicateAllocationCriteria()); //C2
+        this.criteriaManager.addCriteria(new DuplicateAllocationCriteria(true)); //C2
 
         //Quality filters
         this.criteriaManager.addCriteria(new UnallocatedClassCriteria()); //Q1
@@ -42,9 +40,9 @@ public class IFBACAFitness implements IFitness {
         final int specimenPerThread = popNumber / threadNumbers;
         
         //Quando o número da população é menor do que o número de Threads, não é necessário utiliza-las
-        if(popNumber == popNumber || popNumber < ICore.getInstance().getProjectController().AVAILABLE_PROCESSORS) {
+        if(popNumber < ICore.getInstance().getProjectController().AVAILABLE_PROCESSORS) {
             population.getAllSpecimens(false).forEach(specimen -> this.evaluate(specimen));
-            return;//ta com condição errada para forçar entrada
+            return;
         }
 
         for (int i = 0; i < threadNumbers; i++) {

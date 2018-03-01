@@ -5,7 +5,10 @@ import org.sara.interfaces.algorithms.ga.model.IChromosome;
 import org.sara.interfaces.algorithms.ga.operator.fitness.criteria.ICriteria;
 import org.sara.interfaces.model.Slot;
 
-public class UnallocatedClassCriteria implements ICriteria{
+public class UnallocatedClassCriteria extends ICriteria{
+    public UnallocatedClassCriteria() {
+        super(false);
+    }
 
     @Override
     public float execute(IChromosome chromosome) {
@@ -15,9 +18,6 @@ public class UnallocatedClassCriteria implements ICriteria{
        
         totalAllocatedClass = chromosome.getGenes(false).stream().map((gene) -> (Slot) gene.getAllele(false)).filter((slot) -> (!slot.isEmpty())).map((_item) -> 1).reduce(totalAllocatedClass, Integer::sum);
         
-        //only for test
-        if(totalClassSchedule - totalAllocatedClass == 0)
-            return 100;
-        return (totalClassSchedule - totalAllocatedClass);
+        return 10 * (totalAllocatedClass / totalClassSchedule);
     }
 }

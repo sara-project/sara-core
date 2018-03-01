@@ -88,12 +88,12 @@ public class EvolutionaryCycle implements IGAEngine {
             if(genNumber > 1)
                 averageTimeOfFitness /= 2;
             
-            
-            List<ISpecimen> elite = new ArrayList<>();
-            //Garante o Elitismo (Uma parte dos melhores indivíduos dos genitores
-            elite.addAll(population.getBetterSpecimens((int) (population.size() * this.gaConfiguration.getElitismProbability()), true));
-            
             startDate = new Date();
+            //Garante o Elitismo (Uma parte dos melhores indivíduos dos genitores
+                List<ISpecimen> elite = new ArrayList<>();
+                elite.addAll(population.getBetterSpecimens((int) (population.size() * this.gaConfiguration.getElitismProbability()), true));
+            //end
+            
             //Seleciona os genitores (parents)
                 selection.select(population, this.gaConfiguration.getSelectProbability());
             //End

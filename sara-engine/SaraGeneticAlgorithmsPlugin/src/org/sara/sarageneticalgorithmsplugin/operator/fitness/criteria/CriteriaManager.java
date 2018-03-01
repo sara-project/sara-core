@@ -22,7 +22,7 @@ public class CriteriaManager implements ICriteriaManager {
 
     @Override
     public void addCriteria(ICriteria criteria) {
-        this.criterias.put(criterias.size() + 1 ,criteria);
+        this.criterias.put(criterias.size() + 1 , criteria);
     }
 
     @Override
@@ -33,9 +33,15 @@ public class CriteriaManager implements ICriteriaManager {
     public float processFilter(IChromosome chromosome) {
         this.fitness = 0;
         
-        this.criterias.keySet().forEach(c -> {
-            this.fitness += ((this.criterias.size() - c) / 2)  * this.criterias.get(c).execute(chromosome);
-        });
+        for(ICriteria c : this.criterias.values()) {
+            float grade = this.criterias.size() * (10 * c.execute(chromosome));
+            if(c.isRequired() && grade == 0) {
+                this.fitness = 0;
+                break;
+            }
+            else
+                this.fitness += grade;
+        }
 
         return fitness;
     }

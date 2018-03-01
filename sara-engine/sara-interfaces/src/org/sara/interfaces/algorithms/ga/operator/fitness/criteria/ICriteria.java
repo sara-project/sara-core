@@ -2,7 +2,17 @@ package org.sara.interfaces.algorithms.ga.operator.fitness.criteria;
 
 import org.sara.interfaces.algorithms.ga.model.IChromosome;
 
-public interface ICriteria {
+public abstract class ICriteria {
 
-    public float execute(IChromosome chromosome);
+    abstract public float execute(IChromosome chromosome);
+    
+    public final boolean isRequired() {
+        return this.required;
+    }
+    
+    public ICriteria(boolean required) {
+        this.required = required;
+    }
+    
+    protected final boolean required;
 }

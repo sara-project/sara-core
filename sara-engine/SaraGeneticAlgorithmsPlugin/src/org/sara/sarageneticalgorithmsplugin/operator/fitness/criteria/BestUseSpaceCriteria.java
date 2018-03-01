@@ -5,17 +5,29 @@ import org.sara.interfaces.algorithms.ga.model.IGene;
 import org.sara.interfaces.algorithms.ga.operator.fitness.criteria.ICriteria;
 import org.sara.interfaces.model.Slot;
 
-public class BestUseSpaceCriteria implements ICriteria {
+public class BestUseSpaceCriteria extends ICriteria {
+    
+    public BestUseSpaceCriteria() {
+        super(false);
+    }
+
+    public BestUseSpaceCriteria(boolean required) {
+        super(required);
+    }
 
     @Override
     public float execute(IChromosome chromosome) {
         int totalExactAmount = 0; //Quantidade de Turmas que possuem o mesmo tamanho da Sala
         int totalUnusedPlaces = 0; //Quantidade de "Lugares" que não foram utilizados pelas salas
+        int totalUsedPlaces = 0;
         int totalOverload = 0; //Qunatidade de Turmas que são maiores do que a Sala
+        int totalEmpty = 0;
+        int total = chromosome.getGenes(false).size();
         
         for(IGene gene : chromosome.getGenes(false)) {
             Slot slot = (Slot) gene.getAllele(false);
             if(!slot.isEmpty()) {
+                totalUsedPlaces += slot.getRoom().getCapacity();
                 int result = slot.useOfRoom(slot.getSchoolClass());
                 
                 if(result == 0)
@@ -26,11 +38,9 @@ public class BestUseSpaceCriteria implements ICriteria {
                     totalOverload++;
             }
         }
-        
-        //Only for test
-        if(totalOverload > 0)
-            return (totalExactAmount * 10) + (totalUnusedPlaces * -1) + (-100 * totalOverload);
-        
-        return (totalExactAmount * 10) + (totalUnusedPlaces * -1) + (-100 * totalOverload);
+       
+        int totalUsed = total - totalEmpty;
+
+        return totalOverload == 0? (4 * (totalExactAmount / totalUsed)) + (6 * totalUnusedPlaces / totalUsedPlaces) : 0;
     }
 }
