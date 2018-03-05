@@ -40,10 +40,9 @@ public class Main {
 
         try {
             System.out.print( "- Starting copy ... " );
-            if (osName.toUpperCase().contains( "LINUX" ) || osName.toUpperCase().contains( "MAC" )) {
-                Runtime.getRuntime().exec( "sh scripts/get_libs.sh" );
+            if (osName.toUpperCase().contains( "LINUX" ) || osName.toUpperCase().contains( "MAC" ))
                 Runtime.getRuntime().exec( "sh scripts/refresh_plugins.sh" );
-            } else {
+            else {
                 throw new Exception( "The script for windows is not implemented." );
             }
 
