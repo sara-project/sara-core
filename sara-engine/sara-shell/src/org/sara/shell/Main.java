@@ -32,25 +32,6 @@ public class Main {
         System.out.println();
         System.out.println( "- Operational System: " + osName );
         System.out.println( "- Available Processors: " + availableProcessors );
-
-        System.out.println();
-        System.out.println( "----------------------------------------- " );
-        System.out.println( "Manager Libraries and Plugins" );
-        System.out.println();
-
-        try {
-            System.out.print( "- Starting copy ... " );
-            if (osName.toUpperCase().contains( "LINUX" ) || osName.toUpperCase().contains( "MAC" ))
-                Runtime.getRuntime().exec( "sh scripts/refresh_plugins.sh" );
-            else {
-                throw new Exception( "The script for windows is not implemented." );
-            }
-
-            System.out.println( "  ... copy was completed successful." );
-        } catch (Exception ex) {
-            System.err.println( "Failed to execute the scripts ..." );
-            System.err.println( ex.getMessage() );
-        }
         
         System.out.println( "\n----------------------------------------- " );
         System.out.println( "Initializing the Core\n" );
