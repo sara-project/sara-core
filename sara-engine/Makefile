@@ -9,6 +9,7 @@ compiler = javac
 interfaces_classpath = :./$(interfaces_path)/$(interfaces_path).jar
 json_lib = json-simple-1.1.1.jar
 json_lib_url = "http://central.maven.org/maven2/com/googlecode/json-simple/json-simple/1.1.1/$(json_lib)"
+main_class = org.sara.shell.Main
 
 clear-all: 
 	for folder in $$(ls -d */); do rm -rf $$folder/$(build_path); done
@@ -24,9 +25,8 @@ shell:
 	rm ./$(shell_path)/plugins/*.jar || true
 	$(mkdir) ./$(shell_path)/libs
 	wget $(json_lib_url) -P ./$(shell_path)/libs
-	$(compiler) -classpath .$(shell_path)/$(interfaces_classpath):./$(shell_path)/libs/$(json_lib) -d $(shell_path)/$(build_path) $$(find $(shell_path)/$(src_path) -name *.java)
-	$(jar) ./$(shell_path)/$(shell_path).jar $(shell_path)/$(src_path)/* -C $(shell_path)/$(build_path)/ .
-
+	$(compiler) -classpath .$(shell_path)/$(interfaces_classpath):./$(shell_path)/libs/$(json_lib) -d $(shell_path)/$(build_path)/ $$(find $(shell_path)/$(src_path) -name *.java)
+	$(jar) ./$(shell_path)/$(shell_path).jar $(main_class) -C $(shell_path)/$(build_path)/ .
 
 plugins:
 	for plugin in $$(ls ./ |grep -i plugin); do \
