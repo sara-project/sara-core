@@ -119,7 +119,7 @@ public class Main {
         System.out.println();
         ICore.getInstance().getUiController().printMemoryInfo();
         try {
-            new JSONWriter().writeResult( "saida.json", result, requestType);
+            new JSONWriter().writeResult(jsonFile.split(".")[0] +"_result.json", result, requestType);
         } catch (ParseException ex) {
            Logger.getLogger( Main.class.getName() ).log( Level.SEVERE, null, ex );
         } catch (Exception ex) {
