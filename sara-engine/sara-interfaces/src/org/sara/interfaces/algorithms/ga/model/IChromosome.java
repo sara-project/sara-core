@@ -8,7 +8,8 @@ public interface IChromosome extends Cloneable {
     public float getFitness();
     public void resetFitness();
     public int size();
-     public int getType();
+    public int getType();
+    public ISpecimen getParent();
     public IGene getGene(int index, boolean clone);
     public List<IGene> getGenes(boolean clone);
     public int groupSize();

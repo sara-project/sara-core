@@ -10,12 +10,15 @@ import org.sara.interfaces.ICore;
 import org.sara.interfaces.IModelController;
 import org.sara.interfaces.algorithms.ga.model.IChromosome;
 import org.sara.interfaces.algorithms.ga.model.IGene;
+import org.sara.interfaces.algorithms.ga.model.ISpecimen;
 import org.sara.interfaces.model.ClassSchedule;
 import org.sara.interfaces.model.Slot;
 
 public class Chromosome implements IChromosome {
 
-    public Chromosome(int type, Object cell, Object information) {
+    public Chromosome(int type, Object cell, Object information, ISpecimen parent) {
+        this.parent = parent;
+
         List<Slot> slots = new ArrayList<>();
         IModelController modelControl = ICore.getInstance().getModelController();
 
@@ -130,12 +133,12 @@ public class Chromosome implements IChromosome {
     
     @Override
     public int getType() {
-        return type;
+        return this.type;
     }
 
     @Override
     public Object clone() {
-        Chromosome chr = new Chromosome();
+        Chromosome chr = new Chromosome(this.parent);
         chr.type = this.type;
         chr.fitness = this.fitness;
         
@@ -216,13 +219,20 @@ public class Chromosome implements IChromosome {
         return this.arms.size();
     }
 
-    private Chromosome() {
+    private Chromosome(ISpecimen parent) {
         this.arms = new ArrayList<>();
         this.pullInformation = new ArrayList<>();
+        this.parent = parent;
+    }
+   
+    @Override
+    public ISpecimen getParent() {
+        return this.parent;
     }
     
     private List<List<IGene>> arms;
     private List<ClassSchedule> pullInformation;
     private int type;
     private float fitness;
+    private final ISpecimen parent;
 }
