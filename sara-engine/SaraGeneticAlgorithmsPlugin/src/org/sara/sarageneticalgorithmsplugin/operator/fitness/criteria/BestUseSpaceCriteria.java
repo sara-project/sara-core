@@ -41,6 +41,6 @@ public class BestUseSpaceCriteria extends ICriteria {
        
         int totalUsed = total - totalEmpty;
 
-        return totalOverload == 0? (4 * (totalExactAmount / totalUsed)) + (6 * totalUnusedPlaces / totalUsedPlaces) : 0;
+        return totalOverload == 0? (8 * (totalExactAmount / totalUsed)) + (16 * totalUnusedPlaces / totalUsedPlaces) : 0;
     }
 }

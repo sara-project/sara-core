@@ -5,12 +5,17 @@ import org.sara.interfaces.algorithms.ga.operator.fitness.criteria.ICriteria;
 
 public class ClassRoomExchangeCriteria extends ICriteria {
     
-    public ClassRoomExchangeCriteria() {
+     public ClassRoomExchangeCriteria() {
         super(false);
+    }
+
+    public ClassRoomExchangeCriteria(boolean required) {
+        super(required);
     }
 
     @Override
     public float execute(IChromosome chromosome) {
-        return 0;
+      
+      return 0;
     }
 }
