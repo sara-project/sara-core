@@ -42,10 +42,10 @@ public class Specimen implements ISpecimen {
             if(isToFill) {
                 Collections.shuffle(slotsByDay.get(day));
                 Collections.shuffle(this.pullClassSchedule.get(day));
-                this.chromossomes[i++] = new Chromosome(day, slotsByDay.get(day), this.pullClassSchedule.get(day));
+                this.chromossomes[i++] = new Chromosome(day, slotsByDay.get(day), this.pullClassSchedule.get(day), this);
             }
             else {
-                this.chromossomes[i++] = new Chromosome(day, slotsByDay.get(day), null);
+                this.chromossomes[i++] = new Chromosome(day, slotsByDay.get(day), null, this);
             }
         }
         
