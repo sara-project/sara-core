@@ -5,8 +5,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
-import java.util.TreeMap;
 import java.util.stream.IntStream;
 import org.sara.interfaces.ICore;
 import org.sara.interfaces.IModelController;
@@ -129,73 +127,7 @@ public class Chromosome implements IChromosome {
         
         this.pullInformation = null;
     }
-
-//Old method (only for test)
-//    public void fill2() {
-//        if(this.pullInformation == null)
-//            return;
-//
-//        IModelController modelControl = ICore.getInstance().getModelController();
-//        TreeMap<Integer, List<ClassSchedule>> pullHash = (TreeMap) modelControl.separateClassSchedulesByTimeInterval(this.pullInformation);
-//
-//        for (List<IGene> genes : this.arms) {
-//            //Slot Sala 1, IT1, IT2, IT3...
-//            for (int i = 0; i < genes.size(); i++) {
-//                Slot slot = (Slot) genes.get(i).getAllele(true);
-//
-//                if (!slot.isEmpty())
-//                    continue;
-//
-//                List<ClassSchedule> pull = pullHash.get(slot.getSchedule().getTimeInterval());
-//
-//                //para de tentar preencher os genes pois não há mais opções disponíveis
-//                if (pull == null || pull.isEmpty())
-//                    break;
-//
-//                Collections.shuffle(pull);
-//                ClassSchedule randomClassSchedule = pull.get(new Random().nextInt(pull.size()));
-//
-//                boolean hasChange;
-//                int times = 0;
-//                int maxTimes = ThreadLocalRandom.current().nextInt(1, pull.size() * 2);
-//                do {
-//                    hasChange = false;
-//                    while (slot.isValid(randomClassSchedule.getSchoolClass())) {
-//                        hasChange = true;
-//
-//                        genes.get(i).setAlleleContent((randomClassSchedule.getSchoolClass()));
-//                        pull.remove(randomClassSchedule);
-//                        pullHash.put(slot.getSchedule().getTimeInterval(), pull);
-//
-//                        if (++i >= genes.size())
-//                            break;
-//
-//                        //obtém o próximo slot da mesma sala e dia (avança o horário)
-//                        slot = (Slot) genes.get(i).getAllele(true);
-//                        //obtém a próxima Aula da mesma turma, baseada no Schedule do Slot
-//                        randomClassSchedule = randomClassSchedule.getSchoolClass().getClassSchedule(slot.getSchedule());
-//                        pull = pullHash.get(slot.getSchedule().getTimeInterval());
-//
-//                        if (randomClassSchedule == null || pull == null || pull.isEmpty())
-//                            break;
-//
-//                        Collections.shuffle(pull);
-//                    }
-//                    //Caso tenha preenchido um slot, mas o próximo não preencheu, gera uma nova aula randomica para tentar ser alocada
-//                    if (pull == null || pull.isEmpty())
-//                        break;
-//
-//                    randomClassSchedule = pull.get(new Random().nextInt(pull.size()));
-//
-//                    //tentativas
-//                    if (times++ >= maxTimes)
-//                        break;
-//                } while ((!hasChange || (hasChange && slot.isEmpty())) && i < genes.size());
-//            }
-//        }
-//        this.pullInformation.clear();
-//    }
-//    
+    
     @Override
     public int getType() {
         return type;

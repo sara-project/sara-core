@@ -12,7 +12,7 @@ public class CriteriaManager implements ICriteriaManager {
     public CriteriaManager(List<ICriteria> criterias) {
         this.criterias = new HashMap<>();
         criterias.forEach((c) -> {
-            this.criterias.put(this.criterias.size() + 1, c);
+            this.criterias.put(this.criterias.size(), c);
         });
     }
     
@@ -33,9 +33,9 @@ public class CriteriaManager implements ICriteriaManager {
     public float processFilter(IChromosome chromosome) {
         this.fitness = 0;
         
-        for(ICriteria c : this.criterias.values()) {
-            float grade = this.criterias.size() * (10 * c.execute(chromosome));
-            if(c.isRequired() && grade == 0) {
+        for(Integer c : this.criterias.keySet()) {
+            float grade = this.criterias.size() - c * (10 * this.criterias.get(c).execute(chromosome));
+            if(this.criterias.get(c).isRequired() && grade == 0) {
                 this.fitness = 0;
                 break;
             }

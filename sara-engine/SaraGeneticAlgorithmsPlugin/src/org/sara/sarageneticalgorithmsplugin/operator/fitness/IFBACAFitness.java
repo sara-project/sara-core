@@ -28,7 +28,6 @@ public class IFBACAFitness implements IFitness {
         this.criteriaManager.addCriteria(new BestUseSpaceCriteria());//Q3 (and C3 too)
         //this.criteriaManager.addCriteria(new ClassRoomExchangeCriteria()); //Q4 e Q5
         //this.criteriaManager.addCriteria(new ClassRequerimentCriteria()); //Q6 e Q7
-        System.out.println("OS FILTROS PRECISAM SER IMPLEMENTADOS!");
     }
 
     @Override
