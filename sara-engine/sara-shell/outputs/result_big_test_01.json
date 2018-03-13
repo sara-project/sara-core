@@ -1,0 +1,984 @@
+[
+  {
+    "slots": [
+      {
+        "s_class": 11,
+        "day": 1,
+        "time_interval": 16,
+        "room": 3
+      },
+      {
+        "s_class": 11,
+        "day": 1,
+        "time_interval": 17,
+        "room": 3
+      },
+      {
+        "s_class": 15,
+        "day": 1,
+        "time_interval": 18,
+        "room": 3
+      },
+      {
+        "s_class": 15,
+        "day": 1,
+        "time_interval": 19,
+        "room": 3
+      },
+      {
+        "s_class": 17,
+        "day": 1,
+        "time_interval": 14,
+        "room": 9
+      },
+      {
+        "s_class": 17,
+        "day": 1,
+        "time_interval": 15,
+        "room": 9
+      },
+      {
+        "s_class": 38,
+        "day": 1,
+        "time_interval": 16,
+        "room": 9
+      },
+      {
+        "s_class": 38,
+        "day": 1,
+        "time_interval": 17,
+        "room": 9
+      },
+      {
+        "s_class": 6,
+        "day": 1,
+        "time_interval": 18,
+        "room": 9
+      },
+      {
+        "s_class": 6,
+        "day": 1,
+        "time_interval": 19,
+        "room": 9
+      },
+      {
+        "s_class": 2,
+        "day": 1,
+        "time_interval": 16,
+        "room": 11
+      },
+      {
+        "s_class": 2,
+        "day": 1,
+        "time_interval": 17,
+        "room": 11
+      },
+      {
+        "s_class": 16,
+        "day": 1,
+        "time_interval": 18,
+        "room": 11
+      },
+      {
+        "s_class": 16,
+        "day": 1,
+        "time_interval": 19,
+        "room": 11
+      },
+      {
+        "s_class": 35,
+        "day": 1,
+        "time_interval": 16,
+        "room": 13
+      },
+      {
+        "s_class": 35,
+        "day": 1,
+        "time_interval": 17,
+        "room": 13
+      },
+      {
+        "s_class": 32,
+        "day": 1,
+        "time_interval": 18,
+        "room": 13
+      },
+      {
+        "s_class": 32,
+        "day": 1,
+        "time_interval": 19,
+        "room": 13
+      },
+      {
+        "s_class": 8,
+        "day": 1,
+        "time_interval": 16,
+        "room": 29
+      },
+      {
+        "s_class": 8,
+        "day": 1,
+        "time_interval": 17,
+        "room": 29
+      },
+      {
+        "s_class": 9,
+        "day": 1,
+        "time_interval": 18,
+        "room": 29
+      },
+      {
+        "s_class": 9,
+        "day": 1,
+        "time_interval": 19,
+        "room": 29
+      },
+      {
+        "s_class": 28,
+        "day": 1,
+        "time_interval": 16,
+        "room": 32
+      },
+      {
+        "s_class": 28,
+        "day": 1,
+        "time_interval": 17,
+        "room": 32
+      },
+      {
+        "s_class": 12,
+        "day": 1,
+        "time_interval": 18,
+        "room": 32
+      },
+      {
+        "s_class": 12,
+        "day": 1,
+        "time_interval": 19,
+        "room": 32
+      },
+      {
+        "s_class": 26,
+        "day": 1,
+        "time_interval": 14,
+        "room": 35
+      },
+      {
+        "s_class": 26,
+        "day": 1,
+        "time_interval": 15,
+        "room": 35
+      },
+      {
+        "s_class": 18,
+        "day": 1,
+        "time_interval": 16,
+        "room": 35
+      },
+      {
+        "s_class": 18,
+        "day": 1,
+        "time_interval": 17,
+        "room": 35
+      },
+      {
+        "s_class": 7,
+        "day": 2,
+        "time_interval": 16,
+        "room": 2
+      },
+      {
+        "s_class": 7,
+        "day": 2,
+        "time_interval": 17,
+        "room": 2
+      },
+      {
+        "s_class": 28,
+        "day": 2,
+        "time_interval": 16,
+        "room": 4
+      },
+      {
+        "s_class": 28,
+        "day": 2,
+        "time_interval": 17,
+        "room": 4
+      },
+      {
+        "s_class": 24,
+        "day": 2,
+        "time_interval": 18,
+        "room": 6
+      },
+      {
+        "s_class": 24,
+        "day": 2,
+        "time_interval": 19,
+        "room": 6
+      },
+      {
+        "s_class": 17,
+        "day": 2,
+        "time_interval": 16,
+        "room": 9
+      },
+      {
+        "s_class": 17,
+        "day": 2,
+        "time_interval": 17,
+        "room": 9
+      },
+      {
+        "s_class": 4,
+        "day": 2,
+        "time_interval": 18,
+        "room": 9
+      },
+      {
+        "s_class": 4,
+        "day": 2,
+        "time_interval": 19,
+        "room": 9
+      },
+      {
+        "s_class": 38,
+        "day": 2,
+        "time_interval": 16,
+        "room": 10
+      },
+      {
+        "s_class": 38,
+        "day": 2,
+        "time_interval": 17,
+        "room": 10
+      },
+      {
+        "s_class": 8,
+        "day": 2,
+        "time_interval": 18,
+        "room": 10
+      },
+      {
+        "s_class": 8,
+        "day": 2,
+        "time_interval": 19,
+        "room": 10
+      },
+      {
+        "s_class": 1,
+        "day": 2,
+        "time_interval": 14,
+        "room": 13
+      },
+      {
+        "s_class": 1,
+        "day": 2,
+        "time_interval": 15,
+        "room": 13
+      },
+      {
+        "s_class": 11,
+        "day": 2,
+        "time_interval": 16,
+        "room": 13
+      },
+      {
+        "s_class": 11,
+        "day": 2,
+        "time_interval": 17,
+        "room": 13
+      },
+      {
+        "s_class": 12,
+        "day": 2,
+        "time_interval": 18,
+        "room": 13
+      },
+      {
+        "s_class": 12,
+        "day": 2,
+        "time_interval": 19,
+        "room": 13
+      },
+      {
+        "s_class": 31,
+        "day": 2,
+        "time_interval": 14,
+        "room": 16
+      },
+      {
+        "s_class": 31,
+        "day": 2,
+        "time_interval": 15,
+        "room": 16
+      },
+      {
+        "s_class": 25,
+        "day": 2,
+        "time_interval": 16,
+        "room": 16
+      },
+      {
+        "s_class": 25,
+        "day": 2,
+        "time_interval": 17,
+        "room": 16
+      },
+      {
+        "s_class": 27,
+        "day": 2,
+        "time_interval": 16,
+        "room": 17
+      },
+      {
+        "s_class": 27,
+        "day": 2,
+        "time_interval": 17,
+        "room": 17
+      },
+      {
+        "s_class": 22,
+        "day": 2,
+        "time_interval": 14,
+        "room": 24
+      },
+      {
+        "s_class": 22,
+        "day": 2,
+        "time_interval": 15,
+        "room": 24
+      },
+      {
+        "s_class": 2,
+        "day": 2,
+        "time_interval": 16,
+        "room": 24
+      },
+      {
+        "s_class": 2,
+        "day": 2,
+        "time_interval": 17,
+        "room": 24
+      },
+      {
+        "s_class": 15,
+        "day": 2,
+        "time_interval": 18,
+        "room": 24
+      },
+      {
+        "s_class": 15,
+        "day": 2,
+        "time_interval": 19,
+        "room": 24
+      },
+      {
+        "s_class": 34,
+        "day": 3,
+        "time_interval": 14,
+        "room": 3
+      },
+      {
+        "s_class": 34,
+        "day": 3,
+        "time_interval": 15,
+        "room": 3
+      },
+      {
+        "s_class": 8,
+        "day": 3,
+        "time_interval": 16,
+        "room": 3
+      },
+      {
+        "s_class": 8,
+        "day": 3,
+        "time_interval": 17,
+        "room": 3
+      },
+      {
+        "s_class": 12,
+        "day": 3,
+        "time_interval": 18,
+        "room": 3
+      },
+      {
+        "s_class": 12,
+        "day": 3,
+        "time_interval": 19,
+        "room": 3
+      },
+      {
+        "s_class": 26,
+        "day": 3,
+        "time_interval": 18,
+        "room": 7
+      },
+      {
+        "s_class": 26,
+        "day": 3,
+        "time_interval": 19,
+        "room": 7
+      },
+      {
+        "s_class": 4,
+        "day": 3,
+        "time_interval": 16,
+        "room": 9
+      },
+      {
+        "s_class": 4,
+        "day": 3,
+        "time_interval": 17,
+        "room": 9
+      },
+      {
+        "s_class": 1,
+        "day": 3,
+        "time_interval": 18,
+        "room": 9
+      },
+      {
+        "s_class": 1,
+        "day": 3,
+        "time_interval": 19,
+        "room": 9
+      },
+      {
+        "s_class": 13,
+        "day": 3,
+        "time_interval": 14,
+        "room": 11
+      },
+      {
+        "s_class": 13,
+        "day": 3,
+        "time_interval": 15,
+        "room": 11
+      },
+      {
+        "s_class": 19,
+        "day": 3,
+        "time_interval": 16,
+        "room": 11
+      },
+      {
+        "s_class": 19,
+        "day": 3,
+        "time_interval": 17,
+        "room": 11
+      },
+      {
+        "s_class": 21,
+        "day": 3,
+        "time_interval": 18,
+        "room": 11
+      },
+      {
+        "s_class": 21,
+        "day": 3,
+        "time_interval": 19,
+        "room": 11
+      },
+      {
+        "s_class": 35,
+        "day": 3,
+        "time_interval": 16,
+        "room": 12
+      },
+      {
+        "s_class": 35,
+        "day": 3,
+        "time_interval": 17,
+        "room": 12
+      },
+      {
+        "s_class": 10,
+        "day": 3,
+        "time_interval": 14,
+        "room": 15
+      },
+      {
+        "s_class": 10,
+        "day": 3,
+        "time_interval": 15,
+        "room": 15
+      },
+      {
+        "s_class": 29,
+        "day": 3,
+        "time_interval": 16,
+        "room": 15
+      },
+      {
+        "s_class": 29,
+        "day": 3,
+        "time_interval": 17,
+        "room": 15
+      },
+      {
+        "s_class": 20,
+        "day": 3,
+        "time_interval": 18,
+        "room": 15
+      },
+      {
+        "s_class": 20,
+        "day": 3,
+        "time_interval": 19,
+        "room": 15
+      },
+      {
+        "s_class": 25,
+        "day": 3,
+        "time_interval": 18,
+        "room": 17
+      },
+      {
+        "s_class": 25,
+        "day": 3,
+        "time_interval": 19,
+        "room": 17
+      },
+      {
+        "s_class": 27,
+        "day": 3,
+        "time_interval": 14,
+        "room": 29
+      },
+      {
+        "s_class": 27,
+        "day": 3,
+        "time_interval": 15,
+        "room": 29
+      },
+      {
+        "s_class": 11,
+        "day": 3,
+        "time_interval": 16,
+        "room": 29
+      },
+      {
+        "s_class": 11,
+        "day": 3,
+        "time_interval": 17,
+        "room": 29
+      },
+      {
+        "s_class": 6,
+        "day": 3,
+        "time_interval": 18,
+        "room": 29
+      },
+      {
+        "s_class": 6,
+        "day": 3,
+        "time_interval": 19,
+        "room": 29
+      },
+      {
+        "s_class": 15,
+        "day": 3,
+        "time_interval": 18,
+        "room": 30
+      },
+      {
+        "s_class": 15,
+        "day": 3,
+        "time_interval": 19,
+        "room": 30
+      },
+      {
+        "s_class": 10,
+        "day": 4,
+        "time_interval": 16,
+        "room": 3
+      },
+      {
+        "s_class": 10,
+        "day": 4,
+        "time_interval": 17,
+        "room": 3
+      },
+      {
+        "s_class": 9,
+        "day": 4,
+        "time_interval": 18,
+        "room": 3
+      },
+      {
+        "s_class": 9,
+        "day": 4,
+        "time_interval": 19,
+        "room": 3
+      },
+      {
+        "s_class": 32,
+        "day": 4,
+        "time_interval": 14,
+        "room": 9
+      },
+      {
+        "s_class": 32,
+        "day": 4,
+        "time_interval": 15,
+        "room": 9
+      },
+      {
+        "s_class": 16,
+        "day": 4,
+        "time_interval": 16,
+        "room": 9
+      },
+      {
+        "s_class": 16,
+        "day": 4,
+        "time_interval": 17,
+        "room": 9
+      },
+      {
+        "s_class": 6,
+        "day": 4,
+        "time_interval": 18,
+        "room": 9
+      },
+      {
+        "s_class": 6,
+        "day": 4,
+        "time_interval": 19,
+        "room": 9
+      },
+      {
+        "s_class": 37,
+        "day": 4,
+        "time_interval": 14,
+        "room": 13
+      },
+      {
+        "s_class": 37,
+        "day": 4,
+        "time_interval": 15,
+        "room": 13
+      },
+      {
+        "s_class": 7,
+        "day": 4,
+        "time_interval": 16,
+        "room": 13
+      },
+      {
+        "s_class": 7,
+        "day": 4,
+        "time_interval": 17,
+        "room": 13
+      },
+      {
+        "s_class": 24,
+        "day": 4,
+        "time_interval": 18,
+        "room": 13
+      },
+      {
+        "s_class": 24,
+        "day": 4,
+        "time_interval": 19,
+        "room": 13
+      },
+      {
+        "s_class": 33,
+        "day": 4,
+        "time_interval": 16,
+        "room": 14
+      },
+      {
+        "s_class": 33,
+        "day": 4,
+        "time_interval": 17,
+        "room": 14
+      },
+      {
+        "s_class": 14,
+        "day": 4,
+        "time_interval": 18,
+        "room": 14
+      },
+      {
+        "s_class": 14,
+        "day": 4,
+        "time_interval": 19,
+        "room": 14
+      },
+      {
+        "s_class": 34,
+        "day": 4,
+        "time_interval": 16,
+        "room": 20
+      },
+      {
+        "s_class": 34,
+        "day": 4,
+        "time_interval": 17,
+        "room": 20
+      },
+      {
+        "s_class": 13,
+        "day": 4,
+        "time_interval": 18,
+        "room": 20
+      },
+      {
+        "s_class": 13,
+        "day": 4,
+        "time_interval": 19,
+        "room": 20
+      },
+      {
+        "s_class": 30,
+        "day": 4,
+        "time_interval": 14,
+        "room": 156
+      },
+      {
+        "s_class": 30,
+        "day": 4,
+        "time_interval": 15,
+        "room": 156
+      },
+      {
+        "s_class": 19,
+        "day": 4,
+        "time_interval": 16,
+        "room": 156
+      },
+      {
+        "s_class": 19,
+        "day": 4,
+        "time_interval": 17,
+        "room": 156
+      },
+      {
+        "s_class": 23,
+        "day": 4,
+        "time_interval": 18,
+        "room": 156
+      },
+      {
+        "s_class": 23,
+        "day": 4,
+        "time_interval": 19,
+        "room": 156
+      },
+      {
+        "s_class": 13,
+        "day": 5,
+        "time_interval": 16,
+        "room": 3
+      },
+      {
+        "s_class": 13,
+        "day": 5,
+        "time_interval": 17,
+        "room": 3
+      },
+      {
+        "s_class": 10,
+        "day": 5,
+        "time_interval": 18,
+        "room": 3
+      },
+      {
+        "s_class": 10,
+        "day": 5,
+        "time_interval": 19,
+        "room": 3
+      },
+      {
+        "s_class": 35,
+        "day": 5,
+        "time_interval": 16,
+        "room": 6
+      },
+      {
+        "s_class": 35,
+        "day": 5,
+        "time_interval": 17,
+        "room": 6
+      },
+      {
+        "s_class": 37,
+        "day": 5,
+        "time_interval": 18,
+        "room": 6
+      },
+      {
+        "s_class": 37,
+        "day": 5,
+        "time_interval": 19,
+        "room": 6
+      },
+      {
+        "s_class": 7,
+        "day": 5,
+        "time_interval": 18,
+        "room": 11
+      },
+      {
+        "s_class": 7,
+        "day": 5,
+        "time_interval": 19,
+        "room": 11
+      },
+      {
+        "s_class": 9,
+        "day": 5,
+        "time_interval": 18,
+        "room": 13
+      },
+      {
+        "s_class": 9,
+        "day": 5,
+        "time_interval": 19,
+        "room": 13
+      },
+      {
+        "s_class": 33,
+        "day": 5,
+        "time_interval": 18,
+        "room": 16
+      },
+      {
+        "s_class": 33,
+        "day": 5,
+        "time_interval": 19,
+        "room": 16
+      },
+      {
+        "s_class": 18,
+        "day": 5,
+        "time_interval": 18,
+        "room": 21
+      },
+      {
+        "s_class": 18,
+        "day": 5,
+        "time_interval": 19,
+        "room": 21
+      },
+      {
+        "s_class": 29,
+        "day": 5,
+        "time_interval": 16,
+        "room": 25
+      },
+      {
+        "s_class": 29,
+        "day": 5,
+        "time_interval": 17,
+        "room": 25
+      },
+      {
+        "s_class": 21,
+        "day": 5,
+        "time_interval": 18,
+        "room": 25
+      },
+      {
+        "s_class": 21,
+        "day": 5,
+        "time_interval": 19,
+        "room": 25
+      },
+      {
+        "s_class": 14,
+        "day": 5,
+        "time_interval": 16,
+        "room": 26
+      },
+      {
+        "s_class": 14,
+        "day": 5,
+        "time_interval": 17,
+        "room": 26
+      },
+      {
+        "s_class": 31,
+        "day": 5,
+        "time_interval": 18,
+        "room": 26
+      },
+      {
+        "s_class": 31,
+        "day": 5,
+        "time_interval": 19,
+        "room": 26
+      }
+    ],
+    "info": [
+      {
+        "best_solution_fitness": 64.50283,
+        "total_memory_used": "717,00 MB",
+        "average_time_fitness": 23,
+        "request_type": "class_assignment",
+        "average_time_crossover": 1,
+        "time_generate_initial_population": 209,
+        "average_time_mutation": 4,
+        "fitness_time_line": [
+          64.50283,
+          63.97334,
+          63.457405,
+          63.026104,
+          62.548977,
+          63.102715,
+          62.20851,
+          61.77751,
+          60.869495,
+          60.26321,
+          60.76455,
+          59.784855,
+          59.592762,
+          59.05928,
+          58.75699,
+          58.447712,
+          57.569126,
+          57.45073,
+          57.164528,
+          55.93368,
+          55.585243,
+          56.316654,
+          55.228016,
+          54.49173,
+          54.6476,
+          54.047813,
+          54.291676,
+          54.066486,
+          53.902065,
+          53.303345,
+          53.12269,
+          52.454235,
+          52.42589,
+          51.647064,
+          51.50478,
+          51.31552,
+          51.0075,
+          50.724903,
+          49.886307,
+          49.84443,
+          49.882362,
+          49.496437,
+          48.836372,
+          48.836372,
+          48.624016,
+          48.624016,
+          48.3117,
+          48.065617,
+          48.027676,
+          47.825912
+        ],
+        "average_time_selection": 0,
+        "execution_time": 6397,
+        "average_time_refresh_population": 0
+      }
+    ]
+  }
+]

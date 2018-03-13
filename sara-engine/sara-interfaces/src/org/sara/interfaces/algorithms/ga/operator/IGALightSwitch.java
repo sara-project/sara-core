@@ -8,4 +8,5 @@ public interface IGALightSwitch {
     public boolean stop(IGeneration generation);
     public List<Object> getBestSolution();
     public List<Float> getFitnessTimeLine();
+    public Float getBestFitness();
 }

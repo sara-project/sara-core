@@ -20,4 +20,5 @@ public interface IPopulation extends Cloneable {
     public void addSpecimen(ISpecimen specimen,  boolean clone);
     public boolean isFull();
     public void clearSpecimens();
+    public void sizeAdjustment();
 }

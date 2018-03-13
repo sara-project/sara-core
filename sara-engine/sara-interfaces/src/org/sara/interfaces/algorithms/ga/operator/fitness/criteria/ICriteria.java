@@ -5,6 +5,7 @@ import org.sara.interfaces.algorithms.ga.model.IChromosome;
 public abstract class ICriteria {
 
     abstract public float execute(IChromosome chromosome);
+    public void  clear() {}
     
     public final boolean isRequired() {
         return this.required;
@@ -14,5 +15,6 @@ public abstract class ICriteria {
         this.required = required;
     }
     
-    protected final boolean required;
+    
+    protected boolean required;
 }

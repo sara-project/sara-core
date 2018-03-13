@@ -7,7 +7,11 @@ import org.sara.interfaces.model.Slot;
 
 public class UnallocatedClassCriteria extends ICriteria{
     public UnallocatedClassCriteria() {
-        super(false);
+        this(false);
+    }
+    
+    public UnallocatedClassCriteria(boolean required) {
+        super(required);
     }
 
     @Override
@@ -18,6 +22,6 @@ public class UnallocatedClassCriteria extends ICriteria{
        
         totalAllocatedClass = chromosome.getGenes(false).stream().map((gene) -> (Slot) gene.getAllele(false)).filter((slot) -> (!slot.isEmpty())).map((_item) -> 1).reduce(totalAllocatedClass, Integer::sum);
         
-        return 10 * (totalAllocatedClass / totalClassSchedule);
+        return (float) totalAllocatedClass / (float) totalClassSchedule;
     }
 }

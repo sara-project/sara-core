@@ -2,17 +2,17 @@ package org.sara.sarageneticalgorithmsplugin.operator.mutation;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 import org.sara.interfaces.algorithms.ga.model.IGene;
 import org.sara.interfaces.algorithms.ga.model.IChromosome;
 import org.sara.interfaces.algorithms.ga.operator.IMutation;
 
-public class SwapMutation extends IMutation {
+public class SwapRoomMutation extends IMutation {
 
     @Override
     public void mutate(IChromosome chromosome) {
-        int positionA = new Random().nextInt(chromosome.groupSize());
-        int positionB = new Random().nextInt(chromosome.groupSize());
+        int positionA = ThreadLocalRandom.current().nextInt(0, chromosome.groupSize());
+        int positionB = ThreadLocalRandom.current().nextInt(0, chromosome.groupSize());
 
         if (positionA == positionB && positionB == (chromosome.groupSize() - 1))
             positionB--;
@@ -34,13 +34,22 @@ public class SwapMutation extends IMutation {
             contentB.add(g.getAlleleContent(false));
             g.setAlleleContent(null);
         });
+        
+        int side = 1;
 
-        for (int i = 0; i < contentA.size(); i++) {
-            armB.get(i).setAlleleContent(contentA.get(i));
-        }
-
-        for (int i = 0; i < contentB.size(); i++) {
-            armA.get(i).setAlleleContent(contentB.get(i));
+        for(int i = 0; i < contentA.size(); i++) {
+            if(side <= 2) {
+                armA.get(i).setAlleleContent(contentB.get(i));
+                armB.get(i).setAlleleContent(contentA.get(i));
+                side++;
+            }
+            else {
+                armA.get(i).setAlleleContent(contentA.get(i));
+                armB.get(i).setAlleleContent(contentB.get(i));
+                side++;
+            }
+            if(side > 4)
+                side = 1;
         }
     }
 }

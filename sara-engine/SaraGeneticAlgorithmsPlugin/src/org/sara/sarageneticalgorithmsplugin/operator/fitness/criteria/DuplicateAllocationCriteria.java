@@ -11,7 +11,7 @@ import org.sara.interfaces.model.Slot;
 public class DuplicateAllocationCriteria extends ICriteria {
     
     public DuplicateAllocationCriteria() {
-        super(false);
+        this(false);
     }
     
      public DuplicateAllocationCriteria(boolean required) {
@@ -37,9 +37,9 @@ public class DuplicateAllocationCriteria extends ICriteria {
                 if(slot.getSchoolClass().equals(cs.getSchoolClass()) && slot.getSchedule().equals(cs.getSchedule()))
                     time++;
                 if(time > 1)
-                    return 0;
+                    return 0f;
             }
         }
-        return 10;
+        return 1f;
     }
 }

@@ -1,6 +1,7 @@
 package org.sara.interfaces.model;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 public class InfoSolution {
@@ -146,7 +147,15 @@ public class InfoSolution {
             return -1;
         return this.endTime.getTime() - this.startTime.getTime();
     }
-    
+
+    public HashMap<String, Float> getFitnessByCriterias() {
+        return fitnessByCriterias;
+    }
+
+    public void setFitnessByCriterias(HashMap<String, Float> fitnessByCriterias) {
+        this.fitnessByCriterias = fitnessByCriterias;
+    }
+
     public InfoSolution() {
         this.timeOfGenerateInitialPopulation = -1;
         this.averageTimeOfFitness = -1;
@@ -160,6 +169,8 @@ public class InfoSolution {
         this.totalEmptySlots = -1;
         this.totalOfAllocatedScheduleClasses = -1;
         this.totalOfUnallocatedScheduleClasses = -1;
+        
+        this.fitnessByCriterias = new HashMap<>();
     }
 
     private int totalSlots;
@@ -179,4 +190,5 @@ public class InfoSolution {
     private List<Object> bestSolution;
     private float fitnessOfTheBestSolution;
     private String totalMemoryUsed;
+    private HashMap<String, Float> fitnessByCriterias;
 }

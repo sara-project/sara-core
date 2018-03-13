@@ -1,5 +1,6 @@
 package org.sara.shell;
 
+import java.io.File;
 import org.sara.shell.controller.ProjectController;
 import org.sara.shell.jsonhandler.JSONReader;
 import org.sara.shell.jsonhandler.JSONWriter;
@@ -18,14 +19,19 @@ public class Main {
         if (!Main.validateArgs( args )) {
             System.exit( 1 );
         }
-
-        int availableProcessors = Runtime.getRuntime().availableProcessors();
-
-        String osName = System.getProperty( "os.name" );
-        String jsonFile = args[0];
+        
         Date startDate, endDate;
         startDate = new Date();
-
+        
+        File jsonFile = new File(args[0]);
+        if(!jsonFile.exists()) {
+            System.err.println("The file "+ args[0]+ " does not exist.");
+            System.exit( 1 );
+        }
+        
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+        String osName = System.getProperty( "os.name" );
+            
         System.out.println();
         System.out.println( "----------------------------------------- " );
         System.out.println( "System Information" );
@@ -46,7 +52,7 @@ public class Main {
         //This block will load the models
         {
             try {
-                JSONReader handler = new JSONReader( jsonFile );
+                JSONReader handler = new JSONReader( jsonFile.getName() );
                 Core.getInstance().getModelController().setRequestType(handler.getRequestType() );
                 Core.getInstance().getModelController().setSchedules( handler.getSchedulesHash() );
                 Core.getInstance().getModelController().setSlots( handler.getSlotsHash() );
@@ -119,7 +125,9 @@ public class Main {
         System.out.println();
         ICore.getInstance().getUiController().printMemoryInfo();
         try {
-            new JSONWriter().writeResult("result_"+jsonFile, result, requestType);
+            File resultFile = new File("./outputs/result_"+ jsonFile.getName());
+            resultFile.createNewFile();
+            new JSONWriter().writeResult(resultFile, result, requestType);
         } catch (ParseException ex) {
            Logger.getLogger( Main.class.getName() ).log( Level.SEVERE, null, ex );
         } catch (Exception ex) {

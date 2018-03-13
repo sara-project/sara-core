@@ -8,6 +8,7 @@
         <group name="EditorFramework"/>
         <group name="tcc">
             <file>file:/home/icarojerry/projects/tcc/sara-project/sara-core/sara-engine/sara-interfaces/src/org/sara/interfaces/model/Slot.java</file>
+            <file>file:/home/icarojerry/projects/tcc/sara-project/sara-core/sara-engine/sara-interfaces/src/org/sara/interfaces/algorithms/ga/operator/IMutation.java</file>
         </group>
     </open-files>
 </project-private>
