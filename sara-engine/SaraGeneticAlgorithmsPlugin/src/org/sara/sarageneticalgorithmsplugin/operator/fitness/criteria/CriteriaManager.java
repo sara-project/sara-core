@@ -1,5 +1,6 @@
 package org.sara.sarageneticalgorithmsplugin.operator.fitness.criteria;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,7 +13,7 @@ public class CriteriaManager implements ICriteriaManager {
     public CriteriaManager(List<ICriteria> criterias) {
         this.criterias = new HashMap<>();
         criterias.forEach((c) -> {
-            this.criterias.put(this.criterias.size(), c);
+            this.addCriteria(c);
         });
     }
     
@@ -22,30 +23,40 @@ public class CriteriaManager implements ICriteriaManager {
 
     @Override
     public void addCriteria(ICriteria criteria) {
-        this.criterias.put(criterias.size() + 1 , criteria);
+        this.criterias.put(criterias.size(), criteria);
     }
 
     @Override
     public void removeCriteria(int index) {
         this.criterias.remove(index);
+        //updates the weights of the criteria
+        Collection aux =  this.criterias.values();
+        this.criterias.clear();
+        aux.forEach((c) -> {
+            this.addCriteria((ICriteria) c);
+        });
     }
-
+    
     public float processFilter(IChromosome chromosome) {
-        this.fitness = 0;
-        
+        float fitness = 0f;
+
         for(Integer c : this.criterias.keySet()) {
-            float grade = this.criterias.size() - c * (1 * this.criterias.get(c).execute(chromosome));
+            float grade = (this.criterias.size() - c) * this.criterias.get(c).execute(chromosome);
             if(this.criterias.get(c).isRequired() && grade == 0) {
-                this.fitness = 0;
+                fitness = 0f;
                 break;
             }
             else
-                this.fitness += grade;
+                fitness += grade;
         }
 
         return fitness;
     }
     
-    private float fitness;
+    @Override
+    public void clearAll() {
+        this.criterias.values().forEach(c -> c.clear());
+    }
+
     private final Map<Integer, ICriteria> criterias;
 }

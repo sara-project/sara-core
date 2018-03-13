@@ -25,10 +25,11 @@ import org.sara.sarageneticalgorithmsplugin.operator.crossover.UniformCrossover;
 import org.sara.sarageneticalgorithmsplugin.operator.fitness.IFBACAFitness;
 import org.sara.sarageneticalgorithmsplugin.ga.model.Generation;
 import org.sara.sarageneticalgorithmsplugin.operator.crossover.GreatestCrossover;
-import org.sara.sarageneticalgorithmsplugin.operator.mutation.SwapMutation;
+import org.sara.sarageneticalgorithmsplugin.operator.mutation.SwapRoomMutation;
 import org.sara.sarageneticalgorithmsplugin.operators.selection.RankingSelection;
 import org.sara.sarageneticalgorithmsplugin.operator.galightswitch.GALightSwitch;
 import org.sara.sarageneticalgorithmsplugin.operator.mutation.RandomMutation;
+import org.sara.sarageneticalgorithmsplugin.operator.mutation.SwapHalfRoomMutation;
 import org.sara.sarageneticalgorithmsplugin.operators.selection.RandomSelection;
 import org.sara.sarageneticalgorithmsplugin.operators.selection.TournamentSelection;
 
@@ -39,7 +40,14 @@ public class EvolutionaryCycle implements IGAEngine {
 
         ISelection[] selections = {new RankingSelection(), new TournamentSelection()};
         ICrossover[] crossovers = {new TwoPointCrossover(), new UniformCrossover(), new GreatestCrossover()};
-        IMutation[] mutations = {new SwapMutation()};
+        IMutation[] mutations = {new SwapRoomMutation(), new SwapHalfRoomMutation()};
+        
+        System.out.println("\n------------------");
+        System.out.println("Genetic Operators");
+        System.out.println("\t- Selections: " + selections.length + " ["+RankingSelection.class.getSimpleName()+", "+ TournamentSelection.class.getSimpleName()+"]");
+        System.out.println("\t- Crossovers: " + selections.length + " ["+TwoPointCrossover.class.getSimpleName()+", "+GreatestCrossover.class.getSimpleName()+", "+ UniformCrossover.class.getSimpleName()+"]");
+        System.out.println("\t- Mutations: " + selections.length + " ["+SwapRoomMutation.class.getSimpleName()+", "+ SwapHalfRoomMutation.class.getSimpleName()+"]");
+        System.out.println();
 
         this.gaConfiguration = ICore.getInstance().getModelController().getGaConfiguration();
         this.gaConfiguration.setGaLightSwitch(new GALightSwitch(gaConfiguration.getMaxGeneration()));
@@ -47,7 +55,7 @@ public class EvolutionaryCycle implements IGAEngine {
         this.gaConfiguration.setSelection(new RandomSelection(selections));
         this.gaConfiguration.setCrossover(new RandomCrossover(crossovers));
         this.gaConfiguration.setMutation(new RandomMutation(mutations));
-        this.gaConfiguration.setFitness(new IFBACAFitness());
+        this.gaConfiguration.setFitness(new IFBACAFitness(true));
     }
 
     @Override
@@ -61,6 +69,7 @@ public class EvolutionaryCycle implements IGAEngine {
         IMutation mutation = this.gaConfiguration.getMutation();
         IGALightSwitch terminate = this.gaConfiguration.getGaLightSwitch();
         IPopulationFactory populationFactory = RandomPopulationFactory.getInstance();
+        List<ISpecimen> elite = new ArrayList<>();
 
         int genNumber = 1;
         long timeOfGenerateInitialPopulation;
@@ -79,26 +88,38 @@ public class EvolutionaryCycle implements IGAEngine {
         timeOfGenerateInitialPopulation = endDate.getTime() - startDate.getTime();
         
         do {
-            startDate = new Date();
-            //Calcula o fitness de cada indivíduo
-                fitness.evaluate(population);
+            if(genNumber == 1) {
+                startDate = new Date();
+                //Calcula o fitness de cada indivíduo
+                    fitness.evaluate(population);
+                //End
+                endDate = new Date();
+                averageTimeOfFitness =+ endDate.getTime() - startDate.getTime();
+                if(genNumber > 1)
+                    averageTimeOfFitness /= 2;
+            }
+            
+             startDate = new Date();
+            //Atualiza População
+                population.sortByFitness();
+                population.addSpecimens(elite, true);
+                population.sizeAdjustment();
             //End
             endDate = new Date();
-            averageTimeOfFitness = endDate.getTime() - startDate.getTime();
+            averageTimeOfRefreshPopulation =+ endDate.getTime() - startDate.getTime();
             if(genNumber > 1)
-                averageTimeOfFitness /= 2;
-            
+                averageTimeOfRefreshPopulation /= 2;
+
+            //Seleciona os genitores (parents)
             startDate = new Date();
             //Garante o Elitismo (Uma parte dos melhores indivíduos dos genitores
-                List<ISpecimen> elite = new ArrayList<>();
+                elite.clear();
                 elite.addAll(population.getBetterSpecimens((int) (population.size() * this.gaConfiguration.getElitismProbability()), true));
             //end
-            
-            //Seleciona os genitores (parents)
                 selection.select(population, this.gaConfiguration.getSelectProbability());
             //End
             endDate = new Date();
-            averageTimeOfSelection = endDate.getTime() - startDate.getTime();
+            averageTimeOfSelection =+ endDate.getTime() - startDate.getTime();
             if(genNumber > 1)
                 averageTimeOfSelection /= 2;
             
@@ -108,30 +129,28 @@ public class EvolutionaryCycle implements IGAEngine {
                 crossover.makeOffspring(population);
             //End 
             endDate = new Date();
-            averageTimeOfCrossover = endDate.getTime() - startDate.getTime();
+            averageTimeOfCrossover =+ endDate.getTime() - startDate.getTime();
             if(genNumber > 1)
                 averageTimeOfCrossover /= 2;
             
-            startDate = new Date();
+            
             //Gera a mutação em cima dos genitores
+            startDate = new Date();
                 mutation.mutate(population, this.gaConfiguration.getMutationProbability());
             //End
             endDate = new Date();
-            averageTimeOfMutation = endDate.getTime() - startDate.getTime();
+            averageTimeOfMutation =+ endDate.getTime() - startDate.getTime();
             if(genNumber > 1)
                 averageTimeOfMutation /= 2;
             
             startDate = new Date();
-            //Atualiza População
-                population.sortByFitness();
-                population.removeLastSpecimen(elite.size());
-                population.addSpecimens(elite, true);
-                elite.clear();
+            //Calcula o fitness de cada indivíduo
+                fitness.evaluate(population);
             //End
             endDate = new Date();
-            averageTimeOfRefreshPopulation = endDate.getTime() - startDate.getTime();
+            averageTimeOfFitness =+ endDate.getTime() - startDate.getTime();
             if(genNumber > 1)
-                averageTimeOfRefreshPopulation /= 2;
+                averageTimeOfFitness /= 2;
         } while (!terminate.stop(new Generation(genNumber++, population)));
         
         
@@ -145,7 +164,8 @@ public class EvolutionaryCycle implements IGAEngine {
         info.setAverageTimeOfSelection(averageTimeOfSelection);
         info.setAverageTimeOfMutation(averageTimeOfMutation);
         info.setAverageTimeOfRefreshPopulation(averageTimeOfRefreshPopulation);
-                
+        info.setFitnessOfTheBestSolution(terminate.getBestFitness());
+
         return info;
     }
 
@@ -156,13 +176,13 @@ public class EvolutionaryCycle implements IGAEngine {
             System.err.printf("Genetic Load is invalid!");
             System.exit(1);
         }
-        
+
         List specimen = new ArrayList<>((Collection) chromossomes);
         IFitness fitness = this.gaConfiguration.getFitness();
         long timeOfGenerateInitialPopulation;
         long averageTimeOfFitness;
         Date startDate, endDate;
-        InfoSolution info;
+        InfoSolution info = new InfoSolution();
         
         startDate = new Date();
         //Gera a população inicial
@@ -182,8 +202,7 @@ public class EvolutionaryCycle implements IGAEngine {
         
         List<Object> slots = new ArrayList<>();
         population.getBestSpecimen(false).getAllGenes(false).forEach((gene) -> slots.add((Slot) gene.getAllele(false)));
-        
-        info = new InfoSolution();
+
         info.setAverageTimeOfFitness(averageTimeOfFitness);
         info.setTimeOfGenerateInitialPopulation(timeOfGenerateInitialPopulation);
         info.setBestSolution(slots);

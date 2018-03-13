@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 import org.sara.interfaces.algorithms.ga.model.ISpecimen;
 import org.sara.interfaces.algorithms.ga.model.IPopulation;
+import org.sara.sarageneticalgorithmsplugin.ga.factory.SpecimenFactory;
 
 public class Population implements IPopulation, Cloneable {
 
@@ -55,10 +56,10 @@ public class Population implements IPopulation, Cloneable {
 
     @Override
     public void addSpecimen(ISpecimen specimen, boolean clone) {
-        if (!this.isFull()) {
+        //if (!this.isFull()) {
             this.specimens.add(clone? (ISpecimen) specimen.clone() : specimen);
             this.isSorted = false;
-        }
+        //}
     }
 
     @Override
@@ -130,6 +131,18 @@ public class Population implements IPopulation, Cloneable {
     public void removeSpecimen(List<ISpecimen> specimens) {
         this.specimens.removeAll(specimens);
         this.isSorted = false;
+    }
+    
+    @Override
+    public void sizeAdjustment() {
+        if(this.specimens.size() < this.limit) {
+            this.specimens.addAll(SpecimenFactory.makeSpecimen(this.limit-this.specimens.size()));
+        }
+        
+        this.sortByFitness();
+        while(this.specimens.size() > this.limit) {
+            this.specimens.remove(this.specimens.size() - 1);
+        }
     }
 
     @Override

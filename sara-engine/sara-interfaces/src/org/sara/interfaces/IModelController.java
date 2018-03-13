@@ -190,6 +190,24 @@ public abstract class IModelController {
         });
         return slotsByDay;
     }
+    
+    public Map<Integer, List<Slot>> separateSlotsBySchoolClass(final List<Slot> slots) {
+        Map<Integer, List<Slot>> slotsBySchoolClass = new TreeMap<>();
+
+        slots.forEach((slot) -> {
+            if(!slot.isEmpty()) {
+                if (!slotsBySchoolClass.containsKey(slot.getSchoolClass().getID())) {
+                    List<Slot> list = new ArrayList<>();
+                    list.add((Slot) slot.clone());
+                    slotsBySchoolClass.put(slot.getSchoolClass().getID(), list);
+                } else {
+                    slotsBySchoolClass.get(slot.getSchoolClass().getID()).add((Slot) slot.clone());
+                }
+            }
+        });
+
+        return slotsBySchoolClass;
+    }
 
     public Map<Integer, List<Slot>> separateSlotsByTimeInterval(final List<Slot> slots) {
         Map<Integer, List<Slot>> slotsByTimeInterval = new TreeMap<>();

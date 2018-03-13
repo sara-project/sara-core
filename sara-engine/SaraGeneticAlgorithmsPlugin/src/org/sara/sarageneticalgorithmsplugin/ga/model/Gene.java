@@ -19,7 +19,7 @@ public class Gene implements IGene {
 
     @Override
     public Object getAlleleContent(boolean clone) {
-        return information == null ? null : (clone? information.getSchoolClass().clone() : information.getSchoolClass());
+        return information == null ? null : (clone? !this.hasContent()? null: information.getSchoolClass().clone() : information.getSchoolClass());
     }
 
     @Override

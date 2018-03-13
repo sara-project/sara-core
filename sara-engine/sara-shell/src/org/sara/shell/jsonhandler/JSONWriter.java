@@ -1,5 +1,6 @@
 package org.sara.shell.jsonhandler;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import org.json.simple.*;
@@ -10,7 +11,7 @@ import org.sara.interfaces.model.Slot;
 
 public class JSONWriter {
     
-    public void writeResult( String jsonFile, InfoSolution info, String requestType) throws IOException, ParseException, Exception {
+    public void writeResult( File jsonFile, InfoSolution info, String requestType) throws IOException, ParseException, Exception {
         this.info = info;
         this.requestType = requestType;
         switch (requestType) {
@@ -26,7 +27,7 @@ public class JSONWriter {
         }
     }
     
-    public void writeSolution( String jsonFile, InfoSolution info) throws IOException, ParseException, Exception {
+    public void writeSolution( File jsonFile, InfoSolution info) throws IOException, ParseException, Exception {
         JSONArray slotArray = new JSONArray();
         
         info.getBestSolution().forEach( s -> {
@@ -45,7 +46,7 @@ public class JSONWriter {
        this.dumpFile(jsonFile, "slots", slotArray);
     }
     
-    public void writeSolutionEvaluate( String jsonFile, InfoSolution info) throws IOException, ParseException, Exception {
+    public void writeSolutionEvaluate( File jsonFile, InfoSolution info) throws IOException, ParseException, Exception {
         this.dumpFile(jsonFile, "best_fitness", info.getFitnessOfTheBestSolution());
     }
     
@@ -84,12 +85,14 @@ public class JSONWriter {
             fitnessArray.addAll( info.getFitnessTimeLine() );
             infoObj.put("fitness_time_line", fitnessArray);
         }
+        
+        infoObj.put("best_solution_fitness", info.getFitnessOfTheBestSolution());
          
         infoArray.add(infoObj);
         rootObject.put("info", infoArray);
     }
     
-    private void dumpFile(String filename, String key, Object contentObject) throws IOException, ParseException, Exception {
+    private void dumpFile(File outputFile, String key, Object contentObject) throws IOException, ParseException, Exception {
         JSONArray rootArray = new JSONArray();
         JSONObject rootObject = new JSONObject();
         
@@ -106,7 +109,7 @@ public class JSONWriter {
         
         rootArray.add(rootObject);
         
-        try (FileWriter writeFile = new FileWriter(filename)) {
+        try (FileWriter writeFile = new FileWriter(outputFile)) {
             writeFile.write(rootArray.toJSONString());
         }
     }

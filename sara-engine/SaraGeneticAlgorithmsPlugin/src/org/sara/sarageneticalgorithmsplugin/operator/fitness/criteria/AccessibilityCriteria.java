@@ -9,7 +9,7 @@ import org.sara.interfaces.model.Slot;
 public class AccessibilityCriteria extends ICriteria {
     
     public AccessibilityCriteria() {
-        super(false);
+        this(false);
     }
 
     public AccessibilityCriteria(boolean required) {
@@ -20,23 +20,25 @@ public class AccessibilityCriteria extends ICriteria {
     public float execute(IChromosome chromosome) {
         int totalMeetsRequirement = 0;
         int totalDoesntMeetsRequirement = 0;
-        int totalEmpty = 0;
-        int total = chromosome.getGenes(false).size();
+        int totalUsed = 0;
         
         for(IGene gene : chromosome.getGenes(false)) {
             Slot slot = (Slot) gene.getAllele(false);
             if(!slot.isEmpty()) {
+                totalUsed++;
                 if(slot.getSchoolClass().hasAccessibilityRequirement() && slot.getRoom().hasAccessibilityRequirement())
                     totalMeetsRequirement++;
                 else if(slot.getSchoolClass().hasAccessibilityRequirement() && !slot.getRoom().hasAccessibilityRequirement())
                     totalDoesntMeetsRequirement++;
             } 
-            else
-                totalEmpty++;
         }
         
-        int totalUsed = total - totalEmpty;
+        if(totalUsed == 0)
+            return 0f;
         
-        return totalUsed == 0? 0 : (6 * (totalMeetsRequirement / totalUsed)) + (4 * totalDoesntMeetsRequirement / totalUsed);
+       if(totalMeetsRequirement == 0 && totalDoesntMeetsRequirement == 0)
+           return 1f;
+       else
+           return Float.sum((float)(0.4 * ((float) totalMeetsRequirement / (float)totalUsed)), (float)(0.6 * ((float)totalDoesntMeetsRequirement / (float)totalUsed)));
     }
 }

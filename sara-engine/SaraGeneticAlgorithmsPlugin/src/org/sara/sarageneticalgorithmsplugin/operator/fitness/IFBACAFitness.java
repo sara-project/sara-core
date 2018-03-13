@@ -16,9 +16,10 @@ import org.sara.sarageneticalgorithmsplugin.operator.fitness.criteria.ClassRoomE
 import org.sara.sarageneticalgorithmsplugin.operator.fitness.criteria.DuplicateAllocationCriteria;
 import org.sara.sarageneticalgorithmsplugin.operator.fitness.criteria.UnallocatedClassCriteria;
 
-public class IFBACAFitness implements IFitness {
+public final class IFBACAFitness implements IFitness {
 
-    public IFBACAFitness() {
+    public IFBACAFitness(boolean multithreaded) {
+        this.setMultithreaded(multithreaded);
         this.criteriaManager = new CriteriaManager();
         //Constraints filters
         this.criteriaManager.addCriteria(new DuplicateAllocationCriteria(true)); //C2
@@ -40,8 +41,9 @@ public class IFBACAFitness implements IFitness {
         final int specimenPerThread = popNumber / threadNumbers;
         
         //Quando o número da população é menor do que o número de Threads, não é necessário utiliza-las
-        if(popNumber < ICore.getInstance().getProjectController().AVAILABLE_PROCESSORS) {
+        if(!this.isMultithreaded() || popNumber < ICore.getInstance().getProjectController().AVAILABLE_PROCESSORS) {
             population.getAllSpecimens(false).forEach(specimen -> this.evaluate(specimen));
+            this.criteriaManager.clearAll();
             return;
         }
 
@@ -67,6 +69,16 @@ public class IFBACAFitness implements IFitness {
         } catch (InterruptedException ex) {
             Logger.getLogger(IFBACAFitness.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        this.criteriaManager.clearAll();
+    }
+    
+    public boolean isMultithreaded() {
+        return multithreaded;
+    }
+
+    public void setMultithreaded(boolean multithreaded) {
+        this.multithreaded = multithreaded;
     }
 
     protected float calculateFitness(IChromosome chromosome) {
@@ -80,4 +92,5 @@ public class IFBACAFitness implements IFitness {
     }
 
     private final CriteriaManager criteriaManager;
+    private boolean multithreaded;
 }

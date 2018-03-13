@@ -40,7 +40,17 @@ public class GALightSwitch implements IGALightSwitch {
     
     @Override
     public List<Float> getFitnessTimeLine() {
-        return new ArrayList<>(this.fitnessTimeLine.values());
+        
+        List<Float> timeLine = new ArrayList<>();
+     
+        for(int i = 1; i <= this.fitnessTimeLine.keySet().size(); i++)
+            timeLine.add(this.fitnessTimeLine.get(i));
+        return timeLine;
+    }
+    
+    @Override
+    public Float getBestFitness() {
+        return this.bestSpecimenEver.getFitness();
     }
     
     private ISpecimen bestSpecimenEver;

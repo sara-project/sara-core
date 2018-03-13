@@ -8,7 +8,7 @@ import org.sara.interfaces.model.Slot;
 public class BestUseSpaceCriteria extends ICriteria {
     
     public BestUseSpaceCriteria() {
-        super(false);
+        this(false);
     }
 
     public BestUseSpaceCriteria(boolean required) {
@@ -21,12 +21,12 @@ public class BestUseSpaceCriteria extends ICriteria {
         int totalUnusedPlaces = 0; //Quantidade de "Lugares" que não foram utilizados pelas salas
         int totalUsedPlaces = 0;
         int totalOverload = 0; //Qunatidade de Turmas que são maiores do que a Sala
-        int totalEmpty = 0;
-        int total = chromosome.getGenes(false).size();
+        int totalUsed = 0;
         
         for(IGene gene : chromosome.getGenes(false)) {
             Slot slot = (Slot) gene.getAllele(false);
             if(!slot.isEmpty()) {
+                totalUsed++;
                 totalUsedPlaces += slot.getRoom().getCapacity();
                 int result = slot.useOfRoom(slot.getSchoolClass());
                 
@@ -39,8 +39,11 @@ public class BestUseSpaceCriteria extends ICriteria {
             }
         }
        
-        int totalUsed = total - totalEmpty;
+        if(totalOverload > 0) {
+            this.required = totalOverload > 0;
+            return 0;
+        }
 
-        return totalOverload == 0? (8 * (totalExactAmount / totalUsed)) + (16 * totalUnusedPlaces / totalUsedPlaces) : 0;
+        return Float.sum((float)(0.4 * ((float)totalExactAmount / (float)totalUsed)), (float)(0.8 * ((float)totalUnusedPlaces / (float)totalUsedPlaces)));
     }
 }
