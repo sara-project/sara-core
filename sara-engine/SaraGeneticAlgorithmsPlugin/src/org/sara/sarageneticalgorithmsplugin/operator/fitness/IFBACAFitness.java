@@ -3,8 +3,6 @@ package org.sara.sarageneticalgorithmsplugin.operator.fitness;
 import org.sara.sarageneticalgorithmsplugin.operator.fitness.criteria.CriteriaManager;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.sara.interfaces.ICore;
 import org.sara.interfaces.algorithms.ga.model.IChromosome;
 import org.sara.interfaces.algorithms.ga.model.ISpecimen;
@@ -67,7 +65,9 @@ public final class IFBACAFitness implements IFitness {
                 t.join();
             }
         } catch (InterruptedException ex) {
-            Logger.getLogger(IFBACAFitness.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Some unexpected error on evalute process... The evaluate will be restarted...");
+            this.evaluate(population);
+            return;
         }
         
         this.criteriaManager.clearAll();

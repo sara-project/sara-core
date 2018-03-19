@@ -23,7 +23,8 @@ public class GALightSwitch implements IGALightSwitch {
         if(ICore.getInstance().getProjectController().isDebugInfoAGActive())
             this.fitnessTimeLine.put(generation.getNumber(), bestSpecimen.getFitness());
         
-        if(this.bestSpecimenEver == null || bestSpecimen.isBetterThan(bestSpecimenEver)) {
+        if(bestSpecimen != null && bestSpecimen.getFitness() != Float.NaN &&
+          (this.bestSpecimenEver == null || bestSpecimen.isBetterThan(bestSpecimenEver))) {
             this.bestSpecimenEver = (ISpecimen) bestSpecimen.clone();
         }
         

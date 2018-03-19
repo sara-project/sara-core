@@ -87,41 +87,35 @@ public class EvolutionaryCycle implements IGAEngine {
         endDate = new Date();
         timeOfGenerateInitialPopulation = endDate.getTime() - startDate.getTime();
         
+        startDate = new Date();
+        //Calcula o fitness de cada indivíduo
+            fitness.evaluate(population);
+        //End
+        endDate = new Date();
+        averageTimeOfFitness = (endDate.getTime() - startDate.getTime());
+        
         do {
-            if(genNumber == 1) {
-                startDate = new Date();
-                //Calcula o fitness de cada indivíduo
-                    fitness.evaluate(population);
-                //End
-                endDate = new Date();
-                averageTimeOfFitness =+ endDate.getTime() - startDate.getTime();
-                if(genNumber > 1)
-                    averageTimeOfFitness /= 2;
-            }
-            
-             startDate = new Date();
+            startDate = new Date();
             //Atualiza População
                 population.sortByFitness();
                 population.addSpecimens(elite, true);
                 population.sizeAdjustment();
             //End
             endDate = new Date();
-            averageTimeOfRefreshPopulation =+ endDate.getTime() - startDate.getTime();
-            if(genNumber > 1)
-                averageTimeOfRefreshPopulation /= 2;
+            averageTimeOfRefreshPopulation =+ (endDate.getTime() - startDate.getTime());
 
             //Seleciona os genitores (parents)
             startDate = new Date();
             //Garante o Elitismo (Uma parte dos melhores indivíduos dos genitores
-                elite.clear();
-                elite.addAll(population.getBetterSpecimens((int) (population.size() * this.gaConfiguration.getElitismProbability()), true));
+                if(this.gaConfiguration.getElitismProbability() > 0) {
+                    elite.clear();
+                    elite.addAll(population.getBestSpecimens((int) (population.size() * this.gaConfiguration.getElitismProbability()), true));
+                }
             //end
                 selection.select(population, this.gaConfiguration.getSelectProbability());
             //End
             endDate = new Date();
-            averageTimeOfSelection =+ endDate.getTime() - startDate.getTime();
-            if(genNumber > 1)
-                averageTimeOfSelection /= 2;
+            averageTimeOfSelection =+ (endDate.getTime() - startDate.getTime());
             
             startDate = new Date();
             //Cruza os genitores e gera os descendentes (offSpring)
@@ -129,41 +123,38 @@ public class EvolutionaryCycle implements IGAEngine {
                 crossover.makeOffspring(population);
             //End 
             endDate = new Date();
-            averageTimeOfCrossover =+ endDate.getTime() - startDate.getTime();
-            if(genNumber > 1)
-                averageTimeOfCrossover /= 2;
-            
+            averageTimeOfCrossover =+ (endDate.getTime() - startDate.getTime());
             
             //Gera a mutação em cima dos genitores
             startDate = new Date();
                 mutation.mutate(population, this.gaConfiguration.getMutationProbability());
             //End
             endDate = new Date();
-            averageTimeOfMutation =+ endDate.getTime() - startDate.getTime();
-            if(genNumber > 1)
-                averageTimeOfMutation /= 2;
+            averageTimeOfMutation =+ (endDate.getTime() - startDate.getTime());
             
             startDate = new Date();
             //Calcula o fitness de cada indivíduo
                 fitness.evaluate(population);
             //End
             endDate = new Date();
-            averageTimeOfFitness =+ endDate.getTime() - startDate.getTime();
-            if(genNumber > 1)
-                averageTimeOfFitness /= 2;
+            averageTimeOfFitness =+ (endDate.getTime() - startDate.getTime());
+            
+            //ON TESTING
+            //System.gc();
         } while (!terminate.stop(new Generation(genNumber++, population)));
         
-        
+        int maxGenNumber = this.gaConfiguration.getPopulationNumber();
+
         //gravando os meta dados da execução
         InfoSolution info = new InfoSolution();
         info.setBestSolution(terminate.getBestSolution());
         info.setFitnessTimeLine(terminate.getFitnessTimeLine());
-        info.setAverageTimeOfFitness(averageTimeOfFitness);
-        info.setTimeOfGenerateInitialPopulation(timeOfGenerateInitialPopulation);
-        info.setAverageTimeOfCrossover(averageTimeOfCrossover);
-        info.setAverageTimeOfSelection(averageTimeOfSelection);
-        info.setAverageTimeOfMutation(averageTimeOfMutation);
-        info.setAverageTimeOfRefreshPopulation(averageTimeOfRefreshPopulation);
+        info.setAverageTimeOfFitness(averageTimeOfFitness / maxGenNumber);
+        info.setTimeOfGenerateInitialPopulation(timeOfGenerateInitialPopulation / maxGenNumber);
+        info.setAverageTimeOfCrossover(averageTimeOfCrossover / maxGenNumber);
+        info.setAverageTimeOfSelection(averageTimeOfSelection / maxGenNumber);
+        info.setAverageTimeOfMutation(averageTimeOfMutation / maxGenNumber);
+        info.setAverageTimeOfRefreshPopulation(averageTimeOfRefreshPopulation / maxGenNumber);
         info.setFitnessOfTheBestSolution(terminate.getBestFitness());
 
         return info;

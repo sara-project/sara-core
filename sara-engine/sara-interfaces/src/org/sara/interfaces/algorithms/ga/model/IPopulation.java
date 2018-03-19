@@ -14,7 +14,7 @@ public interface IPopulation extends Cloneable {
     public ISpecimen getRandomSpecimen(boolean clone);
     public List<ISpecimen> getAllSpecimens(boolean clone);
     public ISpecimen getBestSpecimen(boolean clone);
-    public List<ISpecimen> getBetterSpecimens(int quantity, boolean clone);
+    public List<ISpecimen> getBestSpecimens(int quantity, boolean clone);
     public void removeSpecimen(ISpecimen specimen);
     public void addSpecimens(List<ISpecimen> specimens, boolean clone);
     public void addSpecimen(ISpecimen specimen,  boolean clone);

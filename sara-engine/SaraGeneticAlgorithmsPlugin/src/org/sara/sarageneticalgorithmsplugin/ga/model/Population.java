@@ -3,6 +3,7 @@ package org.sara.sarageneticalgorithmsplugin.ga.model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import org.sara.interfaces.algorithms.ga.model.IChromosome;
 import org.sara.interfaces.algorithms.ga.model.ISpecimen;
 import org.sara.interfaces.algorithms.ga.model.IPopulation;
 import org.sara.sarageneticalgorithmsplugin.ga.factory.SpecimenFactory;
@@ -75,7 +76,7 @@ public class Population implements IPopulation, Cloneable {
     @Override
     public void sortByFitness() {
         if(!this.isSorted) {
-            this.specimens.sort((ISpecimen s1, ISpecimen s2) -> Float.compare(s1.getFitness(), s2.getFitness()));
+            this.specimens.sort((ISpecimen s1, ISpecimen s2) -> Float.compare(s2.getFitness(), s1.getFitness()));
             this.isSorted = true;
         }
     }
@@ -95,14 +96,30 @@ public class Population implements IPopulation, Cloneable {
     }
     
     @Override
-    public List<ISpecimen> getBetterSpecimens(int quantity, boolean clone) {
-        List<ISpecimen> better = new ArrayList<>();
+    public List<ISpecimen> getBestSpecimens(int quantity, boolean clone) {
+        List<ISpecimen> best = new ArrayList<>();
         this.sortByFitness();
         
         for(int i = 0; i < quantity; i++)
-            better.add(this.getSpecimen(i, clone));
+            best.add(this.getSpecimen(i, clone));
         
-        return better;
+        if(this.createdSpecimen == null && best.size() > 0 )
+            this.createdSpecimen = new Specimen(best.get(0).getChromossomes(false).length);
+        
+        boolean hasChange = false;
+        for(ISpecimen sp : best) {
+            for(int i = 0; i < this.createdSpecimen.getChromossomes(false).length; i++) {
+                if(this.createdSpecimen.getChromossome(i, false) == null  || Float.compare(this.createdSpecimen.getChromossome(i, false).getFitness(), sp.getChromossome(i, false).getFitness()) < 0) {
+                    this.createdSpecimen.setChromosome(sp.getChromossome(i, false), i);
+                    hasChange = true;
+                }
+            }
+        }
+        
+        if(hasChange)
+            best.add(this.createdSpecimen);
+        
+        return best;
     }
     
     @Override
@@ -154,4 +171,5 @@ public class Population implements IPopulation, Cloneable {
     private final List<ISpecimen> specimens;
     private final int limit;
     private boolean isSorted;
+    private ISpecimen createdSpecimen;
 }
