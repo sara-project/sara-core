@@ -16,7 +16,7 @@ import org.sara.interfaces.model.Slot;
 import org.sara.interfaces.algorithms.ga.model.ISpecimen;
 
 public class Specimen implements ISpecimen {
-    
+
     public Specimen(Object geneticLoad) {
         this(geneticLoad, true);
     }
@@ -54,6 +54,11 @@ public class Specimen implements ISpecimen {
         
         this.pullClassSchedule.clear();
     }
+    
+    public Specimen(int chromossomeNumber) {
+        this.chromossomes = new Chromosome[chromossomeNumber];
+        this.pullClassSchedule = new HashMap<>();
+    }
 
     @Override
     public float getFitness() {
@@ -64,7 +69,7 @@ public class Specimen implements ISpecimen {
 
         return fitness;
     }
-
+    
     @Override
     public Object clone() {
         Specimen clone = new Specimen();
@@ -73,10 +78,9 @@ public class Specimen implements ISpecimen {
         HashMap<Integer, List<ClassSchedule>> clonePullClassSchedule = new HashMap<>();
         this.pullClassSchedule.keySet().forEach(keySet -> {
             List<ClassSchedule> listClone = new ArrayList<>();
-            this.pullClassSchedule.get(keySet).forEach(l -> listClone.add(0, l));
+            this.pullClassSchedule.get(keySet).forEach(l -> listClone.add((ClassSchedule) l.clone()));
             clonePullClassSchedule.put(keySet, listClone);
         });
-        
         clone.pullClassSchedule = clonePullClassSchedule;
         return clone;
     }

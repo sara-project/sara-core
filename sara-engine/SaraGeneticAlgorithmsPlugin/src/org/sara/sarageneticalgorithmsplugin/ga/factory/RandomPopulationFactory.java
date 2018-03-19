@@ -3,8 +3,6 @@ package org.sara.sarageneticalgorithmsplugin.ga.factory;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.sara.interfaces.ICore;
 import org.sara.interfaces.ga.factory.IPopulationFactory;
 import org.sara.interfaces.algorithms.ga.model.ISpecimen;
@@ -48,7 +46,10 @@ public class RandomPopulationFactory implements IPopulationFactory {
                 }
 
             } catch (InterruptedException ex) {
-                Logger.getLogger(RandomPopulationFactory.class.getName()).log(Level.SEVERE, null, ex);
+                RandomPopulationFactory.disableParallelExec();
+                System.out.println("An unexpected error was detected. The process of make a population will be restarted");
+               
+                return this.makePopulation();
             }
 // Limpa possíveis Specimens nulos gerados por mal sicronia das Threads;
 //            List<ISpecimen> beRemoved = new ArrayList<>();

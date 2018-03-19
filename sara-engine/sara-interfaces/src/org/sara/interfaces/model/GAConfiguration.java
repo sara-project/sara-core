@@ -176,10 +176,10 @@ public class GAConfiguration implements Cloneable {
         }
 
         string += "Parameters: \n";
-        string += " - Population Number: " + this.populationNumber + "\n";
+        string += " - Population Size: " + this.populationNumber + "\n";
         string += " - Max Generation: " + this.maxGeneration + "\n";
         string += " - Mutation Probability: " + this.mutationProbability + "\n";
-        string += " - Mutation Probability: " + this.crossoverProbability + "\n";
+        string += " - Crossover Probability: " + this.crossoverProbability + "\n";
         string += " - Select Probability: " + this.selectProbability + "\n";
         string += " - Elitism Probability: " + this.elitismProbability;
 
