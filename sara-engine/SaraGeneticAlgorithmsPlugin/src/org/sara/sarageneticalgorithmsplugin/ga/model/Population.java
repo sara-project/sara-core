@@ -104,13 +104,13 @@ public class Population implements IPopulation, Cloneable {
             best.add(this.getSpecimen(i, clone));
         
         if(this.createdSpecimen == null && best.size() > 0 )
-            this.createdSpecimen = new Specimen(best.get(0).getChromossomes(false).length);
+            this.createdSpecimen = new Specimen(best.get(0).getChromossomes(true).length);
         
         boolean hasChange = false;
         for(ISpecimen sp : best) {
             for(int i = 0; i < this.createdSpecimen.getChromossomes(false).length; i++) {
                 if(this.createdSpecimen.getChromossome(i, false) == null  || Float.compare(this.createdSpecimen.getChromossome(i, false).getFitness(), sp.getChromossome(i, false).getFitness()) < 0) {
-                    this.createdSpecimen.setChromosome(sp.getChromossome(i, false), i);
+                    this.createdSpecimen.setChromosome(sp.getChromossome(i, true), i);
                     hasChange = true;
                 }
             }
@@ -152,14 +152,12 @@ public class Population implements IPopulation, Cloneable {
     
     @Override
     public void sizeAdjustment() {
-        if(this.specimens.size() < this.limit) {
+        if(this.specimens.size() < this.limit)
             this.specimens.addAll(SpecimenFactory.makeSpecimen(this.limit-this.specimens.size()));
-        }
         
         this.sortByFitness();
-        while(this.specimens.size() > this.limit) {
+        while(this.specimens.size() > this.limit)
             this.specimens.remove(this.specimens.size() - 1);
-        }
     }
 
     @Override
