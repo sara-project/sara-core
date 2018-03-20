@@ -1,5 +1,10 @@
 package org.sara.sarageneticalgorithmsplugin.operator.galightswitch;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -29,7 +34,7 @@ public class GALightSwitch implements IGALightSwitch {
         }
         
         ICore.getInstance().getUiController().printProgressBar(generation.getNumber(), this.maxGenerationNumber);
-        return generation.getNumber() == maxGenerationNumber;
+        return generation.getNumber() == maxGenerationNumber || !this.keepRunning();
     }
     
     @Override
@@ -52,6 +57,53 @@ public class GALightSwitch implements IGALightSwitch {
     @Override
     public Float getBestFitness() {
         return this.bestSpecimenEver.getFitness();
+    }
+
+    private boolean keepRunning() {
+        try {
+            File jsonFile = ICore.getInstance().getModelController().getFileName();
+            File auxFile = new File("./outputs/aux_"+ jsonFile.getName());
+            
+            if(!auxFile.exists()) {
+                auxFile.createNewFile();
+                
+                try (FileWriter writeFile = new FileWriter(auxFile)) {
+                    writeFile.write("1");
+                }
+            }
+            
+            String content;
+            BufferedReader bfr = new BufferedReader(new FileReader(auxFile));
+            content = bfr .readLine();
+            
+            switch (content) {
+                //Continue
+                case "1":
+                    return true;
+                //Stop
+                case "0":
+                    return false;
+                //Pause (waiting)
+                default: {
+                try {
+                    int time = 1000;
+                    try {
+                        time = Integer.parseInt(content);
+                        
+                    } finally{
+                        Thread.sleep(time);
+                    }
+                } catch (InterruptedException ex) {
+                   return this.keepRunning();
+                }
+                    return this.keepRunning();
+                }
+            }
+            
+        } catch (IOException ex) {
+            System.err.println(this.getClass().getSimpleName()+": error occurred while creating control file.");
+            return false;
+        }
     }
     
     private ISpecimen bestSpecimenEver;

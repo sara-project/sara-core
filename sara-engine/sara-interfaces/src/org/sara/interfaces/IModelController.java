@@ -1,5 +1,6 @@
 package org.sara.interfaces;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -295,11 +296,21 @@ public abstract class IModelController {
     public String getRequestType() {
         return this.requestType;
     }
+    
     public void setRequestType(String requestType) {
         this.requestType = requestType;
     }
     
+    public File getFileName() {
+        return this.jsonFile;
+    }
+
+    public void setFileName(File jsonFile) {
+        this.jsonFile = jsonFile;
+    }
+    
     protected String requestType;
+    protected File jsonFile;
     protected GAConfiguration gaConfiguration;
     protected Map<String, Requirement> requirements;
     protected Map<String, Room> rooms;

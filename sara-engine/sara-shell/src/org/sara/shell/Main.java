@@ -86,6 +86,8 @@ public class Main {
         System.out.println( "\n - Genetic Algorithm Configuration" );
         System.out.println( Core.getInstance().getModelController().getGaConfiguration() + "\n" );
         
+        Core.getInstance().getModelController().setFileName( jsonFile );
+        
         
         System.out.println( "\n----------------------------------------- " );
         System.out.println( "Initializing Plugins \n" );

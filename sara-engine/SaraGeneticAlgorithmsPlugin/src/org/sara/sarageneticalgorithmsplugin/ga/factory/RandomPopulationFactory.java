@@ -33,7 +33,13 @@ public class RandomPopulationFactory implements IPopulationFactory {
 
                 for (int i = 0; i < threadNumbers; i++) {
                     threads.add(new Thread(() -> {
-                        specimens.addAll(SpecimenFactory.makeSpecimen(specimenPerThread));
+                        try {
+                            specimens.addAll(SpecimenFactory.makeSpecimen(specimenPerThread));
+                        } catch (OutOfMemoryError ex) {
+                            RandomPopulationFactory.disableParallelExec();
+                            System.out.println("An unexpected error was detected. The process of make a population will be restarted");
+                            System.gc();
+                        }
                     }));
                 }
 
@@ -51,19 +57,25 @@ public class RandomPopulationFactory implements IPopulationFactory {
                
                 return this.makePopulation();
             }
-// Limpa possíveis Specimens nulos gerados por mal sicronia das Threads;
-//            List<ISpecimen> beRemoved = new ArrayList<>();
-//            for(ISpecimen specimen : specimens)
-//                if(specimen == null)
-//                    beRemoved.add(specimen);
-//
-//            specimens.removeAll(beRemoved);
+
+            // Limpa possíveis Specimens nulos gerados por mal sicronia das Threads;
+            List<ISpecimen> beRemoved = new ArrayList<>();
+            specimens.stream().filter((specimen) -> (specimen == null)).forEachOrdered((specimen) -> {
+                beRemoved.add(specimen);
+            });
+
+            specimens.removeAll(beRemoved);
             pop.addSpecimens(specimens, false);
             specimens = null;
         }
-
-        while (!pop.isFull())
-            pop.addSpecimens(SpecimenFactory.makeSpecimen(1), false);
+        try {
+            while (!pop.isFull())
+                pop.addSpecimens(SpecimenFactory.makeSpecimen(1), false);
+        } catch (OutOfMemoryError ex) {
+            RandomPopulationFactory.disableParallelExec();
+            System.out.println("An unexpected error was detected. The process of make a population will be restarted");
+            System.gc();
+        }
         
         return pop;
     }
