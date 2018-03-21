@@ -63,8 +63,8 @@ public class RandomPopulationFactory implements IPopulationFactory {
             specimens.stream().filter((specimen) -> (specimen == null)).forEachOrdered((specimen) -> {
                 beRemoved.add(specimen);
             });
-
             specimens.removeAll(beRemoved);
+            
             pop.addSpecimens(specimens, false);
             specimens = null;
         }

@@ -25,6 +25,7 @@ public class GALightSwitch implements IGALightSwitch {
     @Override
     public boolean stop(IGeneration generation) {
         ISpecimen bestSpecimen = generation.getPopulation(false).getBestSpecimen(false);
+        
         if(ICore.getInstance().getProjectController().isDebugInfoAGActive())
             this.fitnessTimeLine.put(generation.getNumber(), bestSpecimen.getFitness());
         

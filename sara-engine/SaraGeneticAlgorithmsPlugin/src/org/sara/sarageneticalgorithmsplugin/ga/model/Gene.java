@@ -14,22 +14,26 @@ public class Gene implements IGene {
     }
 
     public boolean hasContent() {
-        return information == null ? false : information.isEmpty();
+        return information == null ? false : !information.isEmpty();
     }
 
     @Override
     public Object getAlleleContent(boolean clone) {
-        return information == null ? null : (clone? !this.hasContent()? null: information.getSchoolClass().clone() : information.getSchoolClass());
+        return clone? (this.hasContent()? information.getSchoolClass().clone(): null) : information.getSchoolClass();
     }
 
     @Override
-    public void setAlleleContent(Object value) {
+    public boolean setAlleleContent(Object value) {
         if (this.information != null) {
-            if (value == null)
+            if (value == null) {
                 this.information.toEmpty();
+                return true;
+            }
             else 
-                this.information.fill((SchoolClass) ((SchoolClass) value).clone());
+                return this.information.fill((SchoolClass) ((SchoolClass) value).clone());
         }
+        
+        return false;
     }
 
     @Override
@@ -39,7 +43,7 @@ public class Gene implements IGene {
 
     @Override
     public Object clone() {
-        return new Gene(this.information);
+        return new Gene(this.information.clone());
     }
 
     private final Slot information;

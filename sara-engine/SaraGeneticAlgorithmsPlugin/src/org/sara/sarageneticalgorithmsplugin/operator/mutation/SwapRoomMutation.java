@@ -10,46 +10,73 @@ import org.sara.interfaces.algorithms.ga.operator.IMutation;
 public class SwapRoomMutation extends IMutation {
 
     @Override
-    public void mutate(IChromosome chromosome) {
-        int positionA = ThreadLocalRandom.current().nextInt(0, chromosome.groupSize());
-        int positionB = ThreadLocalRandom.current().nextInt(0, chromosome.groupSize());
-
-        if (positionA == positionB && positionB == (chromosome.groupSize() - 1))
-            positionB--;
-        else if (positionA == positionB)
-            positionB++;
-
-        List<IGene> armA = chromosome.getGenesByArm(positionA, false);
-        List<IGene> armB = chromosome.getGenesByArm(positionB, false);
-
+    public IChromosome mutateChromosome(IChromosome chromosome) {
+        boolean hasNoChange = true;
         List<Object> contentA = new ArrayList<>();
         List<Object> contentB = new ArrayList<>();
+        List<IGene> armA;
+        List<IGene> armB;
+        List<Integer> tabuList = new ArrayList<>();
+        int positionA;
+        int positionB;
+            
+        do {
+            //Se já testou todas posições, retorna
+            if(tabuList.size() >= chromosome.groupSize())
+                return chromosome;
+            
+            do {
+                positionA = ThreadLocalRandom.current().nextInt(chromosome.groupSize());
+            }while(tabuList.contains(positionA));
+            tabuList.add(positionA);
+            
+            if(tabuList.size() >= chromosome.groupSize())
+                return chromosome;
+            do {
+                positionB = ThreadLocalRandom.current().nextInt(chromosome.groupSize());
+            }while(tabuList.contains(positionB));
+            tabuList.add(positionB);
+            
+            armA = chromosome.getGenesByArm(positionA, false);
+            armB = chromosome.getGenesByArm(positionB, false);
 
-        armA.forEach((g) -> {
-            contentA.add(g.getAlleleContent(false));
-            g.setAlleleContent(null);
-        });
+            contentA = new ArrayList<>();
+            contentB = new ArrayList<>();
 
-        armB.forEach((g) -> {
-            contentB.add(g.getAlleleContent(false));
-            g.setAlleleContent(null);
-        });
+            for(int i = 0; i < armA.size(); i++) {
+                Object alleleContentA = armA.get(i).getAlleleContent(true);
+                Object alleleContentB = armB.get(i).getAlleleContent(true);
+                
+                contentA.add(alleleContentA);
+                contentB.add(alleleContentB);
+                
+                if(alleleContentA != null || alleleContentB != null)
+                    hasNoChange = false;
+            }
+           
+        } while(hasNoChange);
         
         int side = 1;
 
         for(int i = 0; i < contentA.size(); i++) {
             if(side <= 2) {
-                armA.get(i).setAlleleContent(contentB.get(i));
-                armB.get(i).setAlleleContent(contentA.get(i));
                 side++;
+                if(!armA.get(i).setAlleleContent(contentB.get(i)) || !armB.get(i).setAlleleContent(contentA.get(i))) {
+                    armA.get(i).setAlleleContent(contentA.get(i));
+                    armB.get(i).setAlleleContent(contentB.get(i));
+                }
             }
             else {
+                side++;
                 armA.get(i).setAlleleContent(contentA.get(i));
                 armB.get(i).setAlleleContent(contentB.get(i));
-                side++;
             }
             if(side > 4)
                 side = 1;
         }
+        
+        chromosome.setGenesByArm(positionA, armA);
+        chromosome.setGenesByArm(positionB, armB);
+        return chromosome;
     }
 }

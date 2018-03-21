@@ -3,7 +3,6 @@ package org.sara.sarageneticalgorithmsplugin.ga.model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import org.sara.interfaces.algorithms.ga.model.IChromosome;
 import org.sara.interfaces.algorithms.ga.model.ISpecimen;
 import org.sara.interfaces.algorithms.ga.model.IPopulation;
 import org.sara.sarageneticalgorithmsplugin.ga.factory.SpecimenFactory;
@@ -57,10 +56,8 @@ public class Population implements IPopulation, Cloneable {
 
     @Override
     public void addSpecimen(ISpecimen specimen, boolean clone) {
-        //if (!this.isFull()) {
-            this.specimens.add(clone? (ISpecimen) specimen.clone() : specimen);
-            this.isSorted = false;
-        //}
+        this.specimens.add(clone? (ISpecimen) specimen.clone() : specimen);
+        this.isSorted = false;
     }
 
     @Override
@@ -117,7 +114,7 @@ public class Population implements IPopulation, Cloneable {
         }
         
         if(hasChange)
-            best.add(this.createdSpecimen);
+            best.add((ISpecimen)this.createdSpecimen.clone());
         
         return best;
     }

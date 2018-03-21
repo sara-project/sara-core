@@ -39,7 +39,7 @@ public class Slot implements Cloneable {
     }
 
     public boolean isValid(SchoolClass sClass) {
-        return this.hasSameSchedule(sClass) && this.room.thisFits(sClass) && this.isEmpty();
+        return this.hasSameSchedule(sClass) && this.room.thisFits(sClass);
     }
 
     public boolean isValid() {
