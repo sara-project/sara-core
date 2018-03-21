@@ -20,19 +20,10 @@ public class UiController implements IUiController {
         progressBar = "[" + progressBar + "] " + ( (int) ( percent * 100 ) ) + "%";
         progressBar += " - (" + currentValue + "/" + maxValue + ")";
         System.out.print( progressBar + "\r" );
-        
-        amountMemory += (Runtime.getRuntime().maxMemory() - Runtime.getRuntime().freeMemory());
-        count++;
     }
     
     @Override
     public void printMemoryInfo() {
-        System.out.println( "Total Used Memory: " + Utils.maxUnit(Runtime.getRuntime().totalMemory()));
-        //System.out.println( "Average Used Memory: " + maxUnit(amountMemory / count));
+        System.out.println( "Used Memory: " + Utils.maxUnit(Runtime.getRuntime().totalMemory()));
     }
-    
-    
-    
-    private long amountMemory = 0;
-    private long count = 1;
 }

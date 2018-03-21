@@ -17,4 +17,5 @@ public interface IChromosome extends Cloneable {
     public List<IGene> getGenesRandomByArm(boolean clone);
     public void setGene(IGene gene, int index);
     public Object clone();
+    public void setGenesByArm(int type, List<IGene> genes);
 }

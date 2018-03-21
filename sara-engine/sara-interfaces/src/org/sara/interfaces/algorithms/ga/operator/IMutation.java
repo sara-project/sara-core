@@ -13,24 +13,22 @@ public abstract class IMutation {
         List<ISpecimen> mutatedList = new ArrayList<>();
         for (int i = 0; i < population.size(); i++) {
             ISpecimen mutated = population.getSpecimen(i, true);
-            if(this.mutate(mutated, rate))
+            
+            boolean hasMutated = false;
+            int mutationProbability = (int) (100 * rate);
+            for (IChromosome chromossome : mutated.getChromossomes(false)) {
+                if(mutationProbability >= ThreadLocalRandom.current().nextInt(1, 100)) {
+                    chromossome = this.mutateChromosome(mutated.getRandomChromosome(false));
+                    chromossome.resetFitness();
+                    hasMutated = true;
+                }
+            }
+
+            if(hasMutated)
                 mutatedList.add(mutated);
         }
         population.addSpecimens(mutatedList, false);
     }
 
-    protected final boolean mutate(ISpecimen specimen, double rate) {
-        boolean hasMutated = false;
-        int mutationProbability = (int) (100 * rate);
-        for (IChromosome chromossome : specimen.getChromossomes(false)) {
-            if(mutationProbability >= ThreadLocalRandom.current().nextInt(1, 100)) {
-                this.mutate(specimen.getRandomChromosome(false));
-                hasMutated = true;
-            }
-        }
-        
-        return hasMutated;
-    }
-
-    public abstract void mutate(IChromosome chromosome);
+    public abstract IChromosome mutateChromosome(IChromosome chromosome);
 }

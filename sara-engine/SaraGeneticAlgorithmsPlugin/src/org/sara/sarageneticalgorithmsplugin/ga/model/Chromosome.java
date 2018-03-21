@@ -121,13 +121,6 @@ public class Chromosome implements IChromosome {
             }
         }
         
-        //Only for test
-//        for(List<ClassSchedule> cs : cScheduleByClass.values()) {
-//            for(ClassSchedule c : cs)
-//                if(!c.isAllocated())
-//                    this.fill() ;
-//        }
-        
         this.pullInformation = null;
     }
     
@@ -158,12 +151,12 @@ public class Chromosome implements IChromosome {
 
     @Override
     public void setFitness(float value) {
-        this.fitness = value;
+        this.fitness = value == Float.NaN? 0 : value;
     }
 
     @Override
     public float getFitness() {
-        return this.fitness;
+        return this.fitness == Float.NaN? 0 : this.fitness;
     }
 
     @Override
@@ -235,4 +228,13 @@ public class Chromosome implements IChromosome {
     private int type;
     private float fitness;
     private final ISpecimen parent;
+
+    @Override
+    public void setGenesByArm(int type, List<IGene> genes) {
+        List<IGene> cloneList = new ArrayList();
+        genes.forEach(g -> cloneList.add((IGene) g.clone()));
+        this.arms.get(type).clear();
+        this.arms.get(type).addAll(cloneList);
+       
+    }
 }

@@ -18,6 +18,7 @@ public class RandomCrossover extends ICrossover {
     @Override
     public void crossover(ISpecimen parentA, ISpecimen parentB) {
         this.currentMode.crossover(parentA, parentB);
+        this.changeMode();
     }
     
     private ICrossover currentMode;

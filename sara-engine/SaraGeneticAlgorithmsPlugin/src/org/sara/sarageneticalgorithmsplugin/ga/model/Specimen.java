@@ -65,7 +65,7 @@ public class Specimen implements ISpecimen {
         float fitness = 0;
 
         for (IChromosome c : this.getChromossomes(false))
-            fitness += c.getFitness();
+            fitness += c == null? 0: c.getFitness();
 
         return fitness;
     }

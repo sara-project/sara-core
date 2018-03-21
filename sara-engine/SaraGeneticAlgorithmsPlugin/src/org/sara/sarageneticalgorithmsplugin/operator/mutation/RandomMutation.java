@@ -11,9 +11,9 @@ public class RandomMutation extends IMutation {
     }
 
     @Override
-    public void mutate(IChromosome chromosome) {
-        this.mutationModes[new Random().nextInt(this.mutationModes.length)].mutate(chromosome);
+    public IChromosome mutateChromosome(IChromosome chromosome) {
+        return  this.mutationModes[new Random().nextInt(this.mutationModes.length)].mutateChromosome(chromosome);
     }
-
+    
     private final IMutation[] mutationModes;
 }
