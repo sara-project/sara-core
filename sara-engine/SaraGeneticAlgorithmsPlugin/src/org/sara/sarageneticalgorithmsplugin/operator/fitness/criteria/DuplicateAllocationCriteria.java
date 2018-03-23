@@ -20,11 +20,11 @@ public class DuplicateAllocationCriteria extends ICriteria {
      
     @Override
     public float execute(IChromosome chromosome) {
-        //Obtém todas as aulas do mesmo dia do cromossomo
+        //Gets all Same Day Classes on the Chromosome
         List<ClassSchedule> cSchedules = new ArrayList<>(ICore.getInstance().getModelController()
                                  .getClassScheduleByDay(chromosome.getType()).values());
         
-        //Obtém todos os slots
+        //Gets all available slots
         List<Slot> slotsFilled = new ArrayList<>();
         chromosome.getGenes(false).stream().map((gene) 
                 -> (Slot) gene.getAllele(false)).filter((slot)

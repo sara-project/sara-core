@@ -69,6 +69,10 @@ public class Slot implements Cloneable {
         return clone;
     }
 
+    public ClassSchedule getClassSchedule() {
+        return (this.getSchoolClass() == null || this.getSchedule() == null)? null : this.getSchoolClass().getSchoolClassSchedule(this.getSchedule(), false);
+    }
+
     private final int id;
     private final Room room;
     private final Schedule schedule;

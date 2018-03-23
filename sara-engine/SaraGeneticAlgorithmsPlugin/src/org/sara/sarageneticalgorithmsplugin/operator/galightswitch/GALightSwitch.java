@@ -6,14 +6,15 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import org.sara.interfaces.ICore;
+import org.sara.interfaces.algorithms.ga.model.IChromosome;
 import org.sara.interfaces.algorithms.ga.model.IGeneration;
 import org.sara.interfaces.algorithms.ga.model.ISpecimen;
 import org.sara.interfaces.algorithms.ga.operator.IGALightSwitch;
-import org.sara.interfaces.model.Slot;
 
 public class GALightSwitch implements IGALightSwitch {
 
@@ -35,13 +36,13 @@ public class GALightSwitch implements IGALightSwitch {
         }
         
         ICore.getInstance().getUiController().printProgressBar(generation.getNumber(), this.maxGenerationNumber);
-        return generation.getNumber() == maxGenerationNumber || !this.keepRunning();
+        return generation.getNumber() == maxGenerationNumber || !this.keepRunning(generation.getNumber());
     }
     
     @Override
-    public List<Object> getBestSolution() {
-        List<Object> slots = new ArrayList<>();
-        this.bestSpecimenEver.getAllGenes(false).forEach((gene) -> slots.add((Slot) gene.getAllele(false)));
+    public List<IChromosome> getBestSolution() {
+        List<IChromosome> slots = new ArrayList<>();
+        slots.addAll(Arrays.asList(this.bestSpecimenEver.getChromossomes(false)));
         return slots;
     }
     
@@ -60,11 +61,14 @@ public class GALightSwitch implements IGALightSwitch {
         return this.bestSpecimenEver.getFitness();
     }
 
-    private boolean keepRunning() {
+    private boolean keepRunning(int genNumber) {
         try {
             File jsonFile = ICore.getInstance().getModelController().getFileName();
             File auxFile = new File("./outputs/aux_"+ jsonFile.getName());
             
+            if(genNumber == 1  && auxFile.exists())
+                auxFile.delete();
+
             if(!auxFile.exists()) {
                 auxFile.createNewFile();
                 
@@ -86,18 +90,19 @@ public class GALightSwitch implements IGALightSwitch {
                     return false;
                 //Pause (waiting)
                 default: {
-                try {
-                    int time = 1000;
                     try {
-                        time = Integer.parseInt(content);
-                        
-                    } finally{
-                        Thread.sleep(time);
+                        int time = 1000;
+                        try {
+                            time = Integer.parseInt(content);
+
+                        } finally{
+                            Thread.sleep(time);
+                        }
+                    } catch (InterruptedException ex) {
+                       return this.keepRunning(genNumber);
                     }
-                } catch (InterruptedException ex) {
-                   return this.keepRunning();
-                }
-                    return this.keepRunning();
+
+                    return this.keepRunning(genNumber);
                 }
             }
             

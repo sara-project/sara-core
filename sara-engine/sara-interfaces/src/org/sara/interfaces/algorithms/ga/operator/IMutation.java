@@ -9,10 +9,10 @@ import org.sara.interfaces.algorithms.ga.model.ISpecimen;
 
 public abstract class IMutation {
 
-    public void mutate(IPopulation population, double rate) {
+    public void mutate(IPopulation population, double rate, boolean clone) {
         List<ISpecimen> mutatedList = new ArrayList<>();
         for (int i = 0; i < population.size(); i++) {
-            ISpecimen mutated = population.getSpecimen(i, true);
+            ISpecimen mutated = population.getSpecimen(i, clone);
             
             boolean hasMutated = false;
             int mutationProbability = (int) (100 * rate);
@@ -24,7 +24,7 @@ public abstract class IMutation {
                 }
             }
 
-            if(hasMutated)
+            if(clone && hasMutated)
                 mutatedList.add(mutated);
         }
         population.addSpecimens(mutatedList, false);

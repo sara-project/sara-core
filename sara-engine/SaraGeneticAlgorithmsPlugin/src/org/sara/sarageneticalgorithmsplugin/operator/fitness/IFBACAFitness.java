@@ -20,13 +20,13 @@ public final class IFBACAFitness implements IFitness {
         this.setMultithreaded(multithreaded);
         this.criteriaManager = new CriteriaManager();
         //Constraints filters
-        this.criteriaManager.addCriteria(new DuplicateAllocationCriteria(true)); //C2
 
         //Quality filters
         this.criteriaManager.addCriteria(new UnallocatedClassCriteria()); //Q1
-        this.criteriaManager.addCriteria(new AccessibilityCriteria()); //Q2
         this.criteriaManager.addCriteria(new BestUseSpaceCriteria());//Q3 (and C3 too)
         this.criteriaManager.addCriteria(new ClassRoomExchangeCriteria()); //Q4 e Q5
+        this.criteriaManager.addCriteria(new AccessibilityCriteria()); //Q2
+        this.criteriaManager.addCriteria(new DuplicateAllocationCriteria(true)); //C2
         //this.criteriaManager.addCriteria(new ClassRequerimentCriteria()); //Q6 e Q7
     }
 
@@ -38,7 +38,7 @@ public final class IFBACAFitness implements IFitness {
         final int threadNumbers = ICore.getInstance().getProjectController().AVAILABLE_PROCESSORS;
         final int specimenPerThread = popNumber / threadNumbers;
         
-        //Quando o número da população é menor do que o número de Threads, não é necessário utiliza-las
+        //When the population number is less than the number of Threads, it is not necessary to use them
         if(!this.isMultithreaded() || popNumber < ICore.getInstance().getProjectController().AVAILABLE_PROCESSORS) {
             population.getAllSpecimens(false).forEach(specimen -> this.evaluate(specimen));
             this.criteriaManager.clearAll();

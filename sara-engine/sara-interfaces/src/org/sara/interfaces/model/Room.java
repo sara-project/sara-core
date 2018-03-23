@@ -36,9 +36,18 @@ public class Room implements Cloneable {
         return this.capacity;
     }
     
+    public List<Requirement> getSpecifications(boolean clone) {
+        if(!clone)
+            return this.specifications;
+        
+        List<Requirement> tmp = new ArrayList<>();
+        this.specifications.forEach(r -> tmp.add((Requirement) r.clone()));
+        return tmp;
+    }
+    
     @Override
     public Object clone() {
-        return new Room(id, capacity, area);
+        return new Room(id, capacity, area, this.getSpecifications(true));
     }
     
     public boolean containsRequirements(Requirement requirement) {

@@ -26,6 +26,7 @@ public class AccessibilityCriteria extends ICriteria {
             Slot slot = (Slot) gene.getAllele(false);
             if(!slot.isEmpty()) {
                 totalUsed++;
+
                 if(slot.getSchoolClass().hasAccessibilityRequirement() && slot.getRoom().hasAccessibilityRequirement())
                     totalMeetsRequirement++;
                 else if(slot.getSchoolClass().hasAccessibilityRequirement() && !slot.getRoom().hasAccessibilityRequirement())
@@ -38,7 +39,9 @@ public class AccessibilityCriteria extends ICriteria {
         
        if(totalMeetsRequirement == 0 && totalDoesntMeetsRequirement == 0)
            return 1f;
-       else
-           return Float.sum((float)(0.4 * ((float) totalMeetsRequirement / (float)totalUsed)), (float)(0.6 * ((float)totalDoesntMeetsRequirement / (float)totalUsed)));
+       else{
+           float grade = Float.sum((float)(((float) totalMeetsRequirement / (float)totalUsed)), (float)(-1.0 * ((float)totalDoesntMeetsRequirement / (float)totalUsed)));
+           return grade < 0? 0 : grade;
+       }
     }
 }

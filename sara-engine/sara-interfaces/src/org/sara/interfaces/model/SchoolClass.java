@@ -6,6 +6,12 @@ import java.util.List;
 
 public class SchoolClass implements Cloneable {
 
+    public SchoolClass(int id, int size, List<Schedule> schedules,  List<Requirement> requirements) {
+        this(id, size);
+        this.schedules.add(schedules);
+        this.requirements.addAll(requirements);
+    }
+    
     public SchoolClass(int id, int size, List<Schedule> schedules) {
         this(id, size);
         this.schedules.add(schedules);
@@ -22,22 +28,38 @@ public class SchoolClass implements Cloneable {
         return this.id;
     }
     
-    public void addRequirements(List<Requirement> requirementss) {
+    public int getSize() {
+        return this.size;
+    }
+
+    public void addRequirements(List<Requirement> requirements) {
         this.requirements.addAll(requirements);
     }
     
+    public List<Requirement> getRequirements(boolean clone) {
+        if(!clone)
+            return this.requirements;
+
+        List<Requirement> tmp = new ArrayList<>();
+        this.requirements.forEach(r -> tmp.add((Requirement) r.clone()));
+        return tmp;
+    }
+
     public boolean hasAccessibilityRequirement() {
         return this.requirements.stream().anyMatch((r) -> (r.getType() == 2));
     }
-    
+
     public int howBig(int size) {
         return size - this.size;
     }
 
-    public ClassSchedule getClassSchedule(Schedule schedule) {
+    public ClassSchedule getSchoolClassSchedule(Schedule schedule, boolean clone) {
+        if(this.schedules == null || this.schedules.classTimeTables == null)
+            return null;
+
         for (ClassSchedule cs : this.schedules.classTimeTables.values()) {
             if (cs.getSchedule().equals(schedule)) {
-                return (ClassSchedule) cs.clone();
+                return clone? (ClassSchedule) cs.clone() : cs;
             }
         }
 
@@ -47,10 +69,10 @@ public class SchoolClass implements Cloneable {
     public void addSchedule(Schedule schedule) {
         this.schedules.add((Schedule) schedule.clone());
     }
-    
+
     public boolean isAllocted(Schedule schedule) {
         ClassSchedule cs = this.schedules.classTimeTables.get(schedule.getID());
-        
+
         return cs != null && cs.isAllocated();
     }
     public boolean hasSameSchedule(Schedule schedule) {
@@ -69,8 +91,8 @@ public class SchoolClass implements Cloneable {
         return this.schedules.getAllocated(true);
     }
 
-    public List<Schedule> getSchedulesByDay(int day) {
-        List<Schedule> schedulesByDay = this.getAllSchedules();
+    public List<Schedule> getSchedulesByDay(int day, boolean clone) {
+        List<Schedule> schedulesByDay = this.getAllSchedules(clone);
 
         schedulesByDay.stream().filter((schedule) -> (schedule.getDay() != day)).forEachOrdered((schedule) -> {
             schedulesByDay.remove(schedule);
@@ -81,16 +103,6 @@ public class SchoolClass implements Cloneable {
 
     public List<ClassSchedule> getAllSchoolClassSchedules() {
         return this.schedules.getAll();
-    }
-
-    public ClassSchedule getSchoolClassSchedule(Schedule schedule) {
-        for (ClassSchedule cs : this.schedules.getAll()) {
-            if (cs.getSchedule().equals(schedule)) {
-                return cs;
-            }
-        }
-
-        return null;
     }
 
     @Override
@@ -110,11 +122,11 @@ public class SchoolClass implements Cloneable {
 
     @Override
     public Object clone() {
-        return new SchoolClass(id, size, schedules.getAllSchedules());
+        return new SchoolClass(id, size, schedules.getAllSchedules(true), this.getRequirements(true));
     }
 
-    private List<Schedule> getAllSchedules() {
-        return this.schedules.getAllSchedules();
+    private List<Schedule> getAllSchedules(boolean clone) {
+        return this.schedules.getAllSchedules(clone);
     }
 
     private final int id;
@@ -153,15 +165,12 @@ public class SchoolClass implements Cloneable {
         }
 
         private List<ClassSchedule> getAll() {
-            List<ClassSchedule> tmp = new ArrayList<>();
-            tmp.addAll(this.classTimeTables.values());
-
-            return tmp;
+            return new ArrayList<>(this.classTimeTables.values());
         }
 
-        private List<Schedule> getAllSchedules() {
+        private List<Schedule> getAllSchedules(boolean clone) {
             List<Schedule> tmp = new ArrayList<>();
-            this.classTimeTables.values().forEach((t) -> tmp.add(t.getSchedule()));
+            this.classTimeTables.values().forEach((t) -> tmp.add(clone? (Schedule) t.getSchedule().clone() : t.getSchedule()));
 
             return tmp;
         }
