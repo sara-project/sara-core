@@ -4,7 +4,6 @@
         "population_number":100,
         "max_generation":1000,
         "mutation_probability":0.2,
-        "crossover_probability":0.25,
         "select_probability":0.5,
         "elitism_probability":0
     },

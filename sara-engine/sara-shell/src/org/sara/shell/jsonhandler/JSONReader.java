@@ -297,13 +297,11 @@ public class JSONReader {
                 JSONArray requirementsArray = (JSONArray) s_class.get( "requirements" );
                 JSONArray typeRoomsWantedArray = (JSONArray) s_class.get( "type_rooms_wanted" );
 
-                if (id == null || size == null || schedules == null || requirementsArray == null || typeRoomsWantedArray == null) {
+                if (id == null || size == null || schedules == null || requirementsArray == null || typeRoomsWantedArray == null)
                     throw new Exception( "Json File is invalid. There is a missing key (id, size, schedules, or requirements, type_rooms_wanted) to School Class model." );
-                }
 
-                if (classesHash.containsKey( id.toString() )) {
+                if (classesHash.containsKey( id.toString() ))
                     throw new Exception( "Json File is invalid. There is a School Class duplicated (id: " + id + ")." );
-                }
 
                 //Adding Specifications to Room
                 Iterator reqit = requirementsArray.iterator();
@@ -312,21 +310,19 @@ public class JSONReader {
                     String requirementID = reqit.next().toString();
 
                     Requirement reqObj = requirementHash.get( requirementID );
-                    if (requirementID == null) {
+                    if (requirementID == null)
                         throw new Exception( "Json File is invalid. There is any Requirement with id = " + requirementID + "." );
-                    }
 
                     requirements.add( reqObj );
                 }
 
                 Iterator typeRoomsIt = typeRoomsWantedArray.iterator();
                 List<Integer> typeRoomsWanted = new ArrayList<>();
-                while (reqit.hasNext()) {
+                while (typeRoomsIt.hasNext()) {
                     String typeRoomsWantedID = typeRoomsIt.next().toString();
 
-                    if (!roomsHash.values().stream().anyMatch( r -> r.getType() == Integer.parseInt( typeRoomsWantedID ))) {
+                    if (!roomsHash.values().stream().anyMatch( r -> r.getType() == Integer.parseInt( typeRoomsWantedID )))
                         throw new Exception( "Json File is invalid. There is any Room Type with id = " + typeRoomsWantedID + "." );
-                    }
 
                     typeRoomsWanted.add( Integer.parseInt(typeRoomsWantedID) );
                 }

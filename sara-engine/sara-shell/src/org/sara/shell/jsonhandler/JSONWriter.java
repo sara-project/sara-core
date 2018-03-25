@@ -108,12 +108,16 @@ public class JSONWriter {
         infoObj.put( "19_allocated_class_schedules", info.getAllocatedClassSchedules( info.getBestSolution() ) );
         ///////
 
-        infoObj.put( "20_best_solution_fitness", info.getFitnessOfTheBestSolution() );
-
+        //Class Schedules with Lab Requirement
+        infoObj.put( "20_class_schedules_with_lab_requirement", info.getClassSchedulesWithLabRequirement( info.getBestSolution() ));
+        infoObj.put( "21_class_meets_schedules_with_lab_requirement", info.getClassMeetsSchedulesWithLabRequirement( info.getBestSolution() ));
+        ////
+        
+        infoObj.put( "22_best_solution_fitness", info.getFitnessOfTheBestSolution() );
         if (info.getFitnessTimeLine() != null) {
             JSONArray fitnessArray = new JSONArray();
             fitnessArray.addAll( info.getFitnessTimeLine() );
-            infoObj.put( "21_fitness_time_line", fitnessArray );
+            infoObj.put( "23_fitness_time_line", fitnessArray );
         }
 
         infoArray.add( infoObj );

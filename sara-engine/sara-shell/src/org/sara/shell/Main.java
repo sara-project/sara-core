@@ -4,7 +4,6 @@ import java.io.File;
 import org.sara.shell.controller.ProjectController;
 import org.sara.shell.jsonhandler.JSONReader;
 import org.sara.shell.jsonhandler.JSONWriter;
-import java.io.IOException;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;

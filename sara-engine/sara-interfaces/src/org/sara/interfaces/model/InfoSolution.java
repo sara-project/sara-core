@@ -236,6 +236,22 @@ public class InfoSolution {
 
         return this.overLoadRooms;
     }
+    
+    public int getClassSchedulesWithLabRequirement(List<IChromosome> bestSolution) {
+        if (this.classSchedulesWithLabRequirement == -1) {
+            this.calculateAccessibilityRequirement(bestSolution);
+        }
+
+        return this.classSchedulesWithLabRequirement;
+    }
+
+    public int getClassMeetsSchedulesWithLabRequirement(List<IChromosome> bestSolution) {
+        if (this.classMeetsSchedulesWithLabRequirement == -1) {
+            this.calculateAccessibilityRequirement(bestSolution);
+        }
+
+        return this.classMeetsSchedulesWithLabRequirement;
+    }
 
     public InfoSolution() {
         this.timeOfGenerateInitialPopulation = -1;
@@ -260,6 +276,9 @@ public class InfoSolution {
 
         this.allocatedClassSchedules = -1;
         this.unallocatedClassSchedules = -1;
+        
+        this.classSchedulesWithLabRequirement = -1;
+        this.classMeetsSchedulesWithLabRequirement = -1;
 
         this.unusedPlaces = -1;
         this.overLoadRooms = -1;
@@ -276,12 +295,18 @@ public class InfoSolution {
         int totalUnusedPlaces = 0;
         int totalOverLoadRooms = 0;
         int _totalAccessibilityRequirement = 0;
+        int totalClassSchedulesWithLabRequirement = 0;
+        int totalClassMeetsSchedulesWithLabRequirement = 0;
+
 
         HashMap<Integer, ClassSchedule> allocatedClassSchedulesHash = new HashMap();
 
         for (IChromosome chromosome : bestSolution) {
             List<ClassSchedule> cSchedules = new ArrayList<>(ICore.getInstance().getModelController()
                     .getClassScheduleByDay(chromosome.getType()).values());
+            
+            //all the classes that are required for computer labs
+            totalClassSchedulesWithLabRequirement += (int) cSchedules.stream().filter(cs -> cs.getSchoolClass().getTypeRoomsWanted(false).contains(3)).count();
 
             totalClassSchedule += cSchedules.size();
 
@@ -295,11 +320,16 @@ public class InfoSolution {
 
                 if (!slot.isEmpty()) {
                     _totalFilledSlots++;
+                    
+                    //all the classes that are necessary for computer labs and that are in rooms that meet this requirement
+                    if(slot.getSchoolClass().getTypeRoomsWanted(false).contains(3) && slot.getRoom().getType() == 3)
+                        totalClassMeetsSchedulesWithLabRequirement++; 
+                        
+                        
                     int numberOfAllocatedcSchedules = cSchedules.stream().filter((cs) -> (slot.getSchoolClass().equals(cs.getSchoolClass()) && slot.getSchedule().equals(cs.getSchedule()))).map((_item) -> 1).reduce(_totalDuplicateAllocation, Integer::sum);
 
-                    if (numberOfAllocatedcSchedules > slot.getSchoolClass().getAllSchoolClassSchedules().size()) {
+                    if (numberOfAllocatedcSchedules > slot.getSchoolClass().getAllSchoolClassSchedules().size())
                         _totalDuplicateAllocation = numberOfAllocatedcSchedules - slot.getSchoolClass().getAllSchoolClassSchedules().size();
-                    }
 
                     ClassSchedule cs = slot.getClassSchedule();
 
@@ -327,7 +357,10 @@ public class InfoSolution {
                 }
             }
         }
-
+        
+        this.classSchedulesWithLabRequirement = totalClassSchedulesWithLabRequirement;
+        this.classMeetsSchedulesWithLabRequirement = totalClassMeetsSchedulesWithLabRequirement;
+        
         this.unusedPlaces = totalUnusedPlaces;
         this.overLoadRooms = totalOverLoadRooms;
 
@@ -345,7 +378,9 @@ public class InfoSolution {
         this.totalDoesntMeetsAccessibilityRequirement = totalDoesntMeetsRequirement;
         this.totalAccessibilityRequirement = _totalAccessibilityRequirement;
     }
-
+    
+    private int classMeetsSchedulesWithLabRequirement;
+    private int classSchedulesWithLabRequirement;
     private int totalAccessibilityRequirement;
     private int overLoadRooms;
     private int unusedPlaces;

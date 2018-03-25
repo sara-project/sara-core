@@ -1,1 +1,989 @@
-[{"slots":[{"s_class":16,"day":1,"time_interval":18,"room":3},{"s_class":16,"day":1,"time_interval":19,"room":3},{"s_class":38,"day":1,"time_interval":16,"room":8},{"s_class":38,"day":1,"time_interval":17,"room":8},{"s_class":12,"day":1,"time_interval":18,"room":8},{"s_class":12,"day":1,"time_interval":19,"room":8},{"s_class":26,"day":1,"time_interval":14,"room":9},{"s_class":26,"day":1,"time_interval":15,"room":9},{"s_class":18,"day":1,"time_interval":16,"room":9},{"s_class":18,"day":1,"time_interval":17,"room":9},{"s_class":35,"day":1,"time_interval":16,"room":13},{"s_class":35,"day":1,"time_interval":17,"room":13},{"s_class":32,"day":1,"time_interval":18,"room":13},{"s_class":32,"day":1,"time_interval":19,"room":13},{"s_class":15,"day":1,"time_interval":18,"room":15},{"s_class":15,"day":1,"time_interval":19,"room":15},{"s_class":8,"day":1,"time_interval":16,"room":20},{"s_class":8,"day":1,"time_interval":17,"room":20},{"s_class":9,"day":1,"time_interval":18,"room":20},{"s_class":9,"day":1,"time_interval":19,"room":20},{"s_class":11,"day":1,"time_interval":16,"room":23},{"s_class":11,"day":1,"time_interval":17,"room":23},{"s_class":2,"day":1,"time_interval":16,"room":27},{"s_class":2,"day":1,"time_interval":17,"room":27},{"s_class":17,"day":1,"time_interval":14,"room":31},{"s_class":17,"day":1,"time_interval":15,"room":31},{"s_class":28,"day":1,"time_interval":16,"room":31},{"s_class":28,"day":1,"time_interval":17,"room":31},{"s_class":6,"day":1,"time_interval":18,"room":31},{"s_class":6,"day":1,"time_interval":19,"room":31},{"s_class":38,"day":2,"time_interval":16,"room":4},{"s_class":38,"day":2,"time_interval":17,"room":4},{"s_class":4,"day":2,"time_interval":18,"room":6},{"s_class":4,"day":2,"time_interval":19,"room":6},{"s_class":22,"day":2,"time_interval":14,"room":7},{"s_class":22,"day":2,"time_interval":15,"room":7},{"s_class":12,"day":2,"time_interval":18,"room":7},{"s_class":12,"day":2,"time_interval":19,"room":7},{"s_class":11,"day":2,"time_interval":16,"room":8},{"s_class":11,"day":2,"time_interval":17,"room":8},{"s_class":1,"day":2,"time_interval":14,"room":9},{"s_class":1,"day":2,"time_interval":15,"room":9},{"s_class":27,"day":2,"time_interval":16,"room":9},{"s_class":27,"day":2,"time_interval":17,"room":9},{"s_class":5,"day":2,"time_interval":18,"room":9},{"s_class":5,"day":2,"time_interval":19,"room":9},{"s_class":25,"day":2,"time_interval":16,"room":13},{"s_class":25,"day":2,"time_interval":17,"room":13},{"s_class":24,"day":2,"time_interval":18,"room":13},{"s_class":24,"day":2,"time_interval":19,"room":13},{"s_class":17,"day":2,"time_interval":16,"room":14},{"s_class":17,"day":2,"time_interval":17,"room":14},{"s_class":15,"day":2,"time_interval":18,"room":19},{"s_class":15,"day":2,"time_interval":19,"room":19},{"s_class":28,"day":2,"time_interval":16,"room":23},{"s_class":28,"day":2,"time_interval":17,"room":23},{"s_class":8,"day":2,"time_interval":18,"room":27},{"s_class":8,"day":2,"time_interval":19,"room":27},{"s_class":2,"day":2,"time_interval":16,"room":29},{"s_class":2,"day":2,"time_interval":17,"room":29},{"s_class":7,"day":2,"time_interval":16,"room":32},{"s_class":7,"day":2,"time_interval":17,"room":32},{"s_class":31,"day":2,"time_interval":14,"room":35},{"s_class":31,"day":2,"time_interval":15,"room":35},{"s_class":13,"day":3,"time_interval":14,"room":2},{"s_class":13,"day":3,"time_interval":15,"room":2},{"s_class":29,"day":3,"time_interval":16,"room":2},{"s_class":29,"day":3,"time_interval":17,"room":2},{"s_class":8,"day":3,"time_interval":16,"room":3},{"s_class":8,"day":3,"time_interval":17,"room":3},{"s_class":35,"day":3,"time_interval":16,"room":6},{"s_class":35,"day":3,"time_interval":17,"room":6},{"s_class":26,"day":3,"time_interval":18,"room":6},{"s_class":26,"day":3,"time_interval":19,"room":6},{"s_class":11,"day":3,"time_interval":16,"room":8},{"s_class":11,"day":3,"time_interval":17,"room":8},{"s_class":27,"day":3,"time_interval":14,"room":9},{"s_class":27,"day":3,"time_interval":15,"room":9},{"s_class":1,"day":3,"time_interval":18,"room":9},{"s_class":1,"day":3,"time_interval":19,"room":9},{"s_class":25,"day":3,"time_interval":18,"room":12},{"s_class":25,"day":3,"time_interval":19,"room":12},{"s_class":4,"day":3,"time_interval":16,"room":13},{"s_class":4,"day":3,"time_interval":17,"room":13},{"s_class":10,"day":3,"time_interval":14,"room":15},{"s_class":10,"day":3,"time_interval":15,"room":15},{"s_class":6,"day":3,"time_interval":18,"room":15},{"s_class":6,"day":3,"time_interval":19,"room":15},{"s_class":20,"day":3,"time_interval":18,"room":19},{"s_class":20,"day":3,"time_interval":19,"room":19},{"s_class":12,"day":3,"time_interval":18,"room":20},{"s_class":12,"day":3,"time_interval":19,"room":20},{"s_class":21,"day":3,"time_interval":18,"room":156},{"s_class":21,"day":3,"time_interval":19,"room":156},{"s_class":19,"day":3,"time_interval":16,"room":29},{"s_class":19,"day":3,"time_interval":17,"room":29},{"s_class":15,"day":3,"time_interval":18,"room":32},{"s_class":15,"day":3,"time_interval":19,"room":32},{"s_class":34,"day":3,"time_interval":14,"room":35},{"s_class":34,"day":3,"time_interval":15,"room":35},{"s_class":23,"day":4,"time_interval":18,"room":2},{"s_class":23,"day":4,"time_interval":19,"room":2},{"s_class":34,"day":4,"time_interval":16,"room":5},{"s_class":34,"day":4,"time_interval":17,"room":5},{"s_class":6,"day":4,"time_interval":18,"room":7},{"s_class":6,"day":4,"time_interval":19,"room":7},{"s_class":30,"day":4,"time_interval":14,"room":9},{"s_class":30,"day":4,"time_interval":15,"room":9},{"s_class":5,"day":4,"time_interval":16,"room":9},{"s_class":5,"day":4,"time_interval":17,"room":9},{"s_class":13,"day":4,"time_interval":18,"room":9},{"s_class":13,"day":4,"time_interval":19,"room":9},{"s_class":32,"day":4,"time_interval":14,"room":12},{"s_class":32,"day":4,"time_interval":15,"room":12},{"s_class":24,"day":4,"time_interval":18,"room":12},{"s_class":24,"day":4,"time_interval":19,"room":12},{"s_class":37,"day":4,"time_interval":14,"room":13},{"s_class":37,"day":4,"time_interval":15,"room":13},{"s_class":9,"day":4,"time_interval":18,"room":14},{"s_class":9,"day":4,"time_interval":19,"room":14},{"s_class":14,"day":4,"time_interval":18,"room":15},{"s_class":14,"day":4,"time_interval":19,"room":15},{"s_class":10,"day":4,"time_interval":16,"room":23},{"s_class":10,"day":4,"time_interval":17,"room":23},{"s_class":19,"day":4,"time_interval":16,"room":27},{"s_class":19,"day":4,"time_interval":17,"room":27},{"s_class":16,"day":4,"time_interval":16,"room":30},{"s_class":16,"day":4,"time_interval":17,"room":30},{"s_class":7,"day":4,"time_interval":16,"room":32},{"s_class":7,"day":4,"time_interval":17,"room":32},{"s_class":33,"day":4,"time_interval":16,"room":35},{"s_class":33,"day":4,"time_interval":17,"room":35},{"s_class":33,"day":5,"time_interval":18,"room":5},{"s_class":33,"day":5,"time_interval":19,"room":5},{"s_class":35,"day":5,"time_interval":16,"room":6},{"s_class":35,"day":5,"time_interval":17,"room":6},{"s_class":18,"day":5,"time_interval":18,"room":6},{"s_class":18,"day":5,"time_interval":19,"room":6},{"s_class":37,"day":5,"time_interval":18,"room":9},{"s_class":37,"day":5,"time_interval":19,"room":9},{"s_class":13,"day":5,"time_interval":16,"room":23},{"s_class":13,"day":5,"time_interval":17,"room":23},{"s_class":21,"day":5,"time_interval":18,"room":23},{"s_class":21,"day":5,"time_interval":19,"room":23},{"s_class":7,"day":5,"time_interval":18,"room":27},{"s_class":7,"day":5,"time_interval":19,"room":27},{"s_class":29,"day":5,"time_interval":16,"room":30},{"s_class":29,"day":5,"time_interval":17,"room":30},{"s_class":9,"day":5,"time_interval":18,"room":30},{"s_class":9,"day":5,"time_interval":19,"room":30},{"s_class":14,"day":5,"time_interval":16,"room":31},{"s_class":14,"day":5,"time_interval":17,"room":31},{"s_class":10,"day":5,"time_interval":18,"room":32},{"s_class":10,"day":5,"time_interval":19,"room":32},{"s_class":31,"day":5,"time_interval":18,"room":35},{"s_class":31,"day":5,"time_interval":19,"room":35}],"info":[{"7_average_time_crossover":0.18,"8_average_time_mutation":0.01,"9_average_time_refresh_population":0.0,"11_meets_accessibility_requirement":18,"16_unused_places":676,"2_execution_time":313810,"6_average_time_selection":0.0,"17_overload_Rooms":0,"13_empty_slots":824,"5_average_time_fitness":1.51,"18_unallocated_class_schedules":0,"14_filled_slots":156,"21_fitness_time_line":[60.863243,60.863243,60.637894,60.735855,60.99002,60.99002,61.146656,61.172947,61.172947,61.22425,61.330276,61.330276,61.330276,61.356567,61.367287,61.436634,61.40275,61.40275,61.474007,61.500298,61.551785,61.551785,61.55832,61.576996,61.576996,61.581978,61.581978,61.618732,61.670364,61.768227,61.78949,61.78949,61.78949,61.83263,61.83263,61.95993,61.91121,61.91452,61.924366,62.04631,62.04631,62.04631,62.04631,62.057465,62.070183,62.070183,62.127995,62.127995,62.143845,62.15888,62.15888,62.15888,62.17866,62.17866,62.17866,62.17866,62.17866,62.17866,62.22144,62.22144,62.22144,62.22144,62.22809,62.229565,62.249344,62.273815,62.249344,62.273815,62.249344,62.249344,62.273815,62.249344,62.249344,62.249344,62.249344,62.249344,62.249344,62.249344,62.249344,62.249344,62.249344,62.249344,62.286354,62.286354,62.286354,62.286354,62.286354,62.286354,62.286354,62.286354,62.286354,62.286354,62.310825,62.310825,62.310825,62.310825,62.310825,62.310825,62.310825,62.310825,62.310825,62.310825,62.330795,62.317677,62.317677,62.317677,62.317677,62.310825,62.330795,62.330795,62.330795,62.330795,62.330795,62.332893,62.332893,62.354687,62.354687,62.354687,62.354687,62.354687,62.354687,62.397465,62.397465,62.397465,62.397465,62.397465,62.397465,62.397465,62.397465,62.397465,62.49533,62.49533,62.49533,62.49533,62.49533,62.49533,62.49533,62.49533,62.539776,62.539776,62.539776,62.539776,62.539776,62.539776,62.539776,62.539776,62.539776,62.539776,62.539776,62.539776,62.539776,62.539776,62.539776,62.539776,62.539776,62.539776,62.539776,62.539776,62.539776,62.539776,62.563004,62.58593,62.58593,62.58593,62.58593,62.563004,62.563004,62.563004,62.563004,62.563004,62.563004,62.563004,62.563004,62.563004,62.563213,62.563213,62.563213,62.58644,62.58644,62.58644,62.58644,62.58644,62.58644,62.58644,62.58644,62.58644,62.58644,62.58644,62.58644,62.58644,62.58644,62.58644,62.58644,62.58644,62.609367,62.609367,62.609367,62.609367,62.609367,62.609367,62.609367,62.609367,62.609367,62.609367,62.609367,62.609367,62.609367,62.609367,62.609367,62.609367,62.609367,62.609367,62.609367,62.609367,62.609367,62.609367,62.609367,62.609367,62.609367,62.609367,62.609367,62.609367,62.609367,62.609367,62.609367,62.609367,62.609367,62.609367,62.609367,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.66391,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897,62.708897],"3_total_memory_used":"709,00 MB","12_total_accessibility_requirement":18,"4_time_generate_initial_population":3,"19_allocated_class_schedules":156,"1_request_type":"class_assignment","10_doesnt_meets_accessibility_requirement":0,"20_best_solution_fitness":62.708897,"15_duplicate_allocations":0}]}]
+[
+  {
+    "slots": [
+      {
+        "s_class": 17,
+        "day": 1,
+        "time_interval": 14,
+        "room": 2
+      },
+      {
+        "s_class": 17,
+        "day": 1,
+        "time_interval": 15,
+        "room": 2
+      },
+      {
+        "s_class": 11,
+        "day": 1,
+        "time_interval": 16,
+        "room": 2
+      },
+      {
+        "s_class": 11,
+        "day": 1,
+        "time_interval": 17,
+        "room": 2
+      },
+      {
+        "s_class": 9,
+        "day": 1,
+        "time_interval": 18,
+        "room": 2
+      },
+      {
+        "s_class": 9,
+        "day": 1,
+        "time_interval": 19,
+        "room": 2
+      },
+      {
+        "s_class": 26,
+        "day": 1,
+        "time_interval": 14,
+        "room": 9
+      },
+      {
+        "s_class": 26,
+        "day": 1,
+        "time_interval": 15,
+        "room": 9
+      },
+      {
+        "s_class": 18,
+        "day": 1,
+        "time_interval": 16,
+        "room": 9
+      },
+      {
+        "s_class": 18,
+        "day": 1,
+        "time_interval": 17,
+        "room": 9
+      },
+      {
+        "s_class": 15,
+        "day": 1,
+        "time_interval": 18,
+        "room": 9
+      },
+      {
+        "s_class": 15,
+        "day": 1,
+        "time_interval": 19,
+        "room": 9
+      },
+      {
+        "s_class": 35,
+        "day": 1,
+        "time_interval": 16,
+        "room": 12
+      },
+      {
+        "s_class": 35,
+        "day": 1,
+        "time_interval": 17,
+        "room": 12
+      },
+      {
+        "s_class": 32,
+        "day": 1,
+        "time_interval": 18,
+        "room": 12
+      },
+      {
+        "s_class": 32,
+        "day": 1,
+        "time_interval": 19,
+        "room": 12
+      },
+      {
+        "s_class": 6,
+        "day": 1,
+        "time_interval": 18,
+        "room": 14
+      },
+      {
+        "s_class": 6,
+        "day": 1,
+        "time_interval": 19,
+        "room": 14
+      },
+      {
+        "s_class": 8,
+        "day": 1,
+        "time_interval": 16,
+        "room": 19
+      },
+      {
+        "s_class": 8,
+        "day": 1,
+        "time_interval": 17,
+        "room": 19
+      },
+      {
+        "s_class": 38,
+        "day": 1,
+        "time_interval": 16,
+        "room": 25
+      },
+      {
+        "s_class": 38,
+        "day": 1,
+        "time_interval": 17,
+        "room": 25
+      },
+      {
+        "s_class": 28,
+        "day": 1,
+        "time_interval": 16,
+        "room": 29
+      },
+      {
+        "s_class": 28,
+        "day": 1,
+        "time_interval": 17,
+        "room": 29
+      },
+      {
+        "s_class": 16,
+        "day": 1,
+        "time_interval": 18,
+        "room": 29
+      },
+      {
+        "s_class": 16,
+        "day": 1,
+        "time_interval": 19,
+        "room": 29
+      },
+      {
+        "s_class": 2,
+        "day": 1,
+        "time_interval": 16,
+        "room": 30
+      },
+      {
+        "s_class": 2,
+        "day": 1,
+        "time_interval": 17,
+        "room": 30
+      },
+      {
+        "s_class": 12,
+        "day": 1,
+        "time_interval": 18,
+        "room": 30
+      },
+      {
+        "s_class": 12,
+        "day": 1,
+        "time_interval": 19,
+        "room": 30
+      },
+      {
+        "s_class": 1,
+        "day": 2,
+        "time_interval": 14,
+        "room": 6
+      },
+      {
+        "s_class": 1,
+        "day": 2,
+        "time_interval": 15,
+        "room": 6
+      },
+      {
+        "s_class": 25,
+        "day": 2,
+        "time_interval": 16,
+        "room": 6
+      },
+      {
+        "s_class": 25,
+        "day": 2,
+        "time_interval": 17,
+        "room": 6
+      },
+      {
+        "s_class": 24,
+        "day": 2,
+        "time_interval": 18,
+        "room": 6
+      },
+      {
+        "s_class": 24,
+        "day": 2,
+        "time_interval": 19,
+        "room": 6
+      },
+      {
+        "s_class": 38,
+        "day": 2,
+        "time_interval": 16,
+        "room": 8
+      },
+      {
+        "s_class": 38,
+        "day": 2,
+        "time_interval": 17,
+        "room": 8
+      },
+      {
+        "s_class": 5,
+        "day": 2,
+        "time_interval": 18,
+        "room": 9
+      },
+      {
+        "s_class": 5,
+        "day": 2,
+        "time_interval": 19,
+        "room": 9
+      },
+      {
+        "s_class": 28,
+        "day": 2,
+        "time_interval": 16,
+        "room": 11
+      },
+      {
+        "s_class": 28,
+        "day": 2,
+        "time_interval": 17,
+        "room": 11
+      },
+      {
+        "s_class": 4,
+        "day": 2,
+        "time_interval": 18,
+        "room": 13
+      },
+      {
+        "s_class": 4,
+        "day": 2,
+        "time_interval": 19,
+        "room": 13
+      },
+      {
+        "s_class": 31,
+        "day": 2,
+        "time_interval": 14,
+        "room": 15
+      },
+      {
+        "s_class": 31,
+        "day": 2,
+        "time_interval": 15,
+        "room": 15
+      },
+      {
+        "s_class": 17,
+        "day": 2,
+        "time_interval": 16,
+        "room": 15
+      },
+      {
+        "s_class": 17,
+        "day": 2,
+        "time_interval": 17,
+        "room": 15
+      },
+      {
+        "s_class": 15,
+        "day": 2,
+        "time_interval": 18,
+        "room": 15
+      },
+      {
+        "s_class": 15,
+        "day": 2,
+        "time_interval": 19,
+        "room": 15
+      },
+      {
+        "s_class": 27,
+        "day": 2,
+        "time_interval": 16,
+        "room": 19
+      },
+      {
+        "s_class": 27,
+        "day": 2,
+        "time_interval": 17,
+        "room": 19
+      },
+      {
+        "s_class": 8,
+        "day": 2,
+        "time_interval": 18,
+        "room": 19
+      },
+      {
+        "s_class": 8,
+        "day": 2,
+        "time_interval": 19,
+        "room": 19
+      },
+      {
+        "s_class": 11,
+        "day": 2,
+        "time_interval": 16,
+        "room": 27
+      },
+      {
+        "s_class": 11,
+        "day": 2,
+        "time_interval": 17,
+        "room": 27
+      },
+      {
+        "s_class": 7,
+        "day": 2,
+        "time_interval": 16,
+        "room": 156
+      },
+      {
+        "s_class": 7,
+        "day": 2,
+        "time_interval": 17,
+        "room": 156
+      },
+      {
+        "s_class": 22,
+        "day": 2,
+        "time_interval": 14,
+        "room": 31
+      },
+      {
+        "s_class": 22,
+        "day": 2,
+        "time_interval": 15,
+        "room": 31
+      },
+      {
+        "s_class": 2,
+        "day": 2,
+        "time_interval": 16,
+        "room": 31
+      },
+      {
+        "s_class": 2,
+        "day": 2,
+        "time_interval": 17,
+        "room": 31
+      },
+      {
+        "s_class": 12,
+        "day": 2,
+        "time_interval": 18,
+        "room": 31
+      },
+      {
+        "s_class": 12,
+        "day": 2,
+        "time_interval": 19,
+        "room": 31
+      },
+      {
+        "s_class": 26,
+        "day": 3,
+        "time_interval": 18,
+        "room": 2
+      },
+      {
+        "s_class": 26,
+        "day": 3,
+        "time_interval": 19,
+        "room": 2
+      },
+      {
+        "s_class": 15,
+        "day": 3,
+        "time_interval": 18,
+        "room": 3
+      },
+      {
+        "s_class": 15,
+        "day": 3,
+        "time_interval": 19,
+        "room": 3
+      },
+      {
+        "s_class": 35,
+        "day": 3,
+        "time_interval": 16,
+        "room": 6
+      },
+      {
+        "s_class": 35,
+        "day": 3,
+        "time_interval": 17,
+        "room": 6
+      },
+      {
+        "s_class": 1,
+        "day": 3,
+        "time_interval": 18,
+        "room": 6
+      },
+      {
+        "s_class": 1,
+        "day": 3,
+        "time_interval": 19,
+        "room": 6
+      },
+      {
+        "s_class": 27,
+        "day": 3,
+        "time_interval": 14,
+        "room": 9
+      },
+      {
+        "s_class": 27,
+        "day": 3,
+        "time_interval": 15,
+        "room": 9
+      },
+      {
+        "s_class": 29,
+        "day": 3,
+        "time_interval": 16,
+        "room": 9
+      },
+      {
+        "s_class": 29,
+        "day": 3,
+        "time_interval": 17,
+        "room": 9
+      },
+      {
+        "s_class": 20,
+        "day": 3,
+        "time_interval": 18,
+        "room": 9
+      },
+      {
+        "s_class": 20,
+        "day": 3,
+        "time_interval": 19,
+        "room": 9
+      },
+      {
+        "s_class": 4,
+        "day": 3,
+        "time_interval": 16,
+        "room": 12
+      },
+      {
+        "s_class": 4,
+        "day": 3,
+        "time_interval": 17,
+        "room": 12
+      },
+      {
+        "s_class": 34,
+        "day": 3,
+        "time_interval": 14,
+        "room": 18
+      },
+      {
+        "s_class": 34,
+        "day": 3,
+        "time_interval": 15,
+        "room": 18
+      },
+      {
+        "s_class": 25,
+        "day": 3,
+        "time_interval": 18,
+        "room": 18
+      },
+      {
+        "s_class": 25,
+        "day": 3,
+        "time_interval": 19,
+        "room": 18
+      },
+      {
+        "s_class": 11,
+        "day": 3,
+        "time_interval": 16,
+        "room": 19
+      },
+      {
+        "s_class": 11,
+        "day": 3,
+        "time_interval": 17,
+        "room": 19
+      },
+      {
+        "s_class": 6,
+        "day": 3,
+        "time_interval": 18,
+        "room": 19
+      },
+      {
+        "s_class": 6,
+        "day": 3,
+        "time_interval": 19,
+        "room": 19
+      },
+      {
+        "s_class": 10,
+        "day": 3,
+        "time_interval": 14,
+        "room": 156
+      },
+      {
+        "s_class": 10,
+        "day": 3,
+        "time_interval": 15,
+        "room": 156
+      },
+      {
+        "s_class": 8,
+        "day": 3,
+        "time_interval": 16,
+        "room": 156
+      },
+      {
+        "s_class": 8,
+        "day": 3,
+        "time_interval": 17,
+        "room": 156
+      },
+      {
+        "s_class": 12,
+        "day": 3,
+        "time_interval": 18,
+        "room": 156
+      },
+      {
+        "s_class": 12,
+        "day": 3,
+        "time_interval": 19,
+        "room": 156
+      },
+      {
+        "s_class": 13,
+        "day": 3,
+        "time_interval": 14,
+        "room": 30
+      },
+      {
+        "s_class": 13,
+        "day": 3,
+        "time_interval": 15,
+        "room": 30
+      },
+      {
+        "s_class": 19,
+        "day": 3,
+        "time_interval": 16,
+        "room": 30
+      },
+      {
+        "s_class": 19,
+        "day": 3,
+        "time_interval": 17,
+        "room": 30
+      },
+      {
+        "s_class": 21,
+        "day": 3,
+        "time_interval": 18,
+        "room": 30
+      },
+      {
+        "s_class": 21,
+        "day": 3,
+        "time_interval": 19,
+        "room": 30
+      },
+      {
+        "s_class": 7,
+        "day": 4,
+        "time_interval": 16,
+        "room": 2
+      },
+      {
+        "s_class": 7,
+        "day": 4,
+        "time_interval": 17,
+        "room": 2
+      },
+      {
+        "s_class": 6,
+        "day": 4,
+        "time_interval": 18,
+        "room": 2
+      },
+      {
+        "s_class": 6,
+        "day": 4,
+        "time_interval": 19,
+        "room": 2
+      },
+      {
+        "s_class": 33,
+        "day": 4,
+        "time_interval": 16,
+        "room": 5
+      },
+      {
+        "s_class": 33,
+        "day": 4,
+        "time_interval": 17,
+        "room": 5
+      },
+      {
+        "s_class": 37,
+        "day": 4,
+        "time_interval": 14,
+        "room": 6
+      },
+      {
+        "s_class": 37,
+        "day": 4,
+        "time_interval": 15,
+        "room": 6
+      },
+      {
+        "s_class": 19,
+        "day": 4,
+        "time_interval": 16,
+        "room": 8
+      },
+      {
+        "s_class": 19,
+        "day": 4,
+        "time_interval": 17,
+        "room": 8
+      },
+      {
+        "s_class": 23,
+        "day": 4,
+        "time_interval": 18,
+        "room": 8
+      },
+      {
+        "s_class": 23,
+        "day": 4,
+        "time_interval": 19,
+        "room": 8
+      },
+      {
+        "s_class": 5,
+        "day": 4,
+        "time_interval": 16,
+        "room": 9
+      },
+      {
+        "s_class": 5,
+        "day": 4,
+        "time_interval": 17,
+        "room": 9
+      },
+      {
+        "s_class": 32,
+        "day": 4,
+        "time_interval": 14,
+        "room": 12
+      },
+      {
+        "s_class": 32,
+        "day": 4,
+        "time_interval": 15,
+        "room": 12
+      },
+      {
+        "s_class": 24,
+        "day": 4,
+        "time_interval": 18,
+        "room": 12
+      },
+      {
+        "s_class": 24,
+        "day": 4,
+        "time_interval": 19,
+        "room": 12
+      },
+      {
+        "s_class": 16,
+        "day": 4,
+        "time_interval": 16,
+        "room": 14
+      },
+      {
+        "s_class": 16,
+        "day": 4,
+        "time_interval": 17,
+        "room": 14
+      },
+      {
+        "s_class": 13,
+        "day": 4,
+        "time_interval": 18,
+        "room": 14
+      },
+      {
+        "s_class": 13,
+        "day": 4,
+        "time_interval": 19,
+        "room": 14
+      },
+      {
+        "s_class": 30,
+        "day": 4,
+        "time_interval": 14,
+        "room": 24
+      },
+      {
+        "s_class": 30,
+        "day": 4,
+        "time_interval": 15,
+        "room": 24
+      },
+      {
+        "s_class": 34,
+        "day": 4,
+        "time_interval": 16,
+        "room": 24
+      },
+      {
+        "s_class": 34,
+        "day": 4,
+        "time_interval": 17,
+        "room": 24
+      },
+      {
+        "s_class": 9,
+        "day": 4,
+        "time_interval": 18,
+        "room": 24
+      },
+      {
+        "s_class": 9,
+        "day": 4,
+        "time_interval": 19,
+        "room": 24
+      },
+      {
+        "s_class": 10,
+        "day": 4,
+        "time_interval": 16,
+        "room": 31
+      },
+      {
+        "s_class": 10,
+        "day": 4,
+        "time_interval": 17,
+        "room": 31
+      },
+      {
+        "s_class": 14,
+        "day": 4,
+        "time_interval": 18,
+        "room": 31
+      },
+      {
+        "s_class": 14,
+        "day": 4,
+        "time_interval": 19,
+        "room": 31
+      },
+      {
+        "s_class": 13,
+        "day": 5,
+        "time_interval": 16,
+        "room": 3
+      },
+      {
+        "s_class": 13,
+        "day": 5,
+        "time_interval": 17,
+        "room": 3
+      },
+      {
+        "s_class": 9,
+        "day": 5,
+        "time_interval": 18,
+        "room": 3
+      },
+      {
+        "s_class": 9,
+        "day": 5,
+        "time_interval": 19,
+        "room": 3
+      },
+      {
+        "s_class": 35,
+        "day": 5,
+        "time_interval": 16,
+        "room": 6
+      },
+      {
+        "s_class": 35,
+        "day": 5,
+        "time_interval": 17,
+        "room": 6
+      },
+      {
+        "s_class": 33,
+        "day": 5,
+        "time_interval": 18,
+        "room": 6
+      },
+      {
+        "s_class": 33,
+        "day": 5,
+        "time_interval": 19,
+        "room": 6
+      },
+      {
+        "s_class": 10,
+        "day": 5,
+        "time_interval": 18,
+        "room": 7
+      },
+      {
+        "s_class": 10,
+        "day": 5,
+        "time_interval": 19,
+        "room": 7
+      },
+      {
+        "s_class": 37,
+        "day": 5,
+        "time_interval": 18,
+        "room": 9
+      },
+      {
+        "s_class": 37,
+        "day": 5,
+        "time_interval": 19,
+        "room": 9
+      },
+      {
+        "s_class": 14,
+        "day": 5,
+        "time_interval": 16,
+        "room": 14
+      },
+      {
+        "s_class": 14,
+        "day": 5,
+        "time_interval": 17,
+        "room": 14
+      },
+      {
+        "s_class": 21,
+        "day": 5,
+        "time_interval": 18,
+        "room": 14
+      },
+      {
+        "s_class": 21,
+        "day": 5,
+        "time_interval": 19,
+        "room": 14
+      },
+      {
+        "s_class": 18,
+        "day": 5,
+        "time_interval": 18,
+        "room": 16
+      },
+      {
+        "s_class": 18,
+        "day": 5,
+        "time_interval": 19,
+        "room": 16
+      },
+      {
+        "s_class": 31,
+        "day": 5,
+        "time_interval": 18,
+        "room": 17
+      },
+      {
+        "s_class": 31,
+        "day": 5,
+        "time_interval": 19,
+        "room": 17
+      },
+      {
+        "s_class": 29,
+        "day": 5,
+        "time_interval": 16,
+        "room": 27
+      },
+      {
+        "s_class": 29,
+        "day": 5,
+        "time_interval": 17,
+        "room": 27
+      },
+      {
+        "s_class": 7,
+        "day": 5,
+        "time_interval": 18,
+        "room": 32
+      },
+      {
+        "s_class": 7,
+        "day": 5,
+        "time_interval": 19,
+        "room": 32
+      }
+    ],
+    "info": [
+      {
+        "7_average_time_crossover": 0.27,
+        "23_fitness_time_line": [
+          78.67543,
+          78.67543,
+          79.045845,
+          79.416855,
+          79.43142,
+          79.601295,
+          79.83143,
+          80.622025,
+          80.69528,
+          80.598526,
+          80.349236,
+          80.349236,
+          80.78685,
+          80.78685,
+          81.02373,
+          81.02373,
+          81.02373,
+          81.004654,
+          80.91844
+        ],
+        "8_average_time_mutation": 0.02,
+        "9_average_time_refresh_population": 0,
+        "11_meets_accessibility_requirement": 18,
+        "16_unused_places": 696,
+        "2_execution_time": 8861,
+        "6_average_time_selection": 0,
+        "17_overload_Rooms": 0,
+        "13_empty_slots": 824,
+        "5_average_time_fitness": 2.06,
+        "18_unallocated_class_schedules": 0,
+        "14_filled_slots": 156,
+        "3_total_memory_used": "708,50 MB",
+        "12_total_accessibility_requirement": 18,
+        "20_class_schedules_with_lab_requirement": 82,
+        "4_time_generate_initial_population": 2,
+        "22_best_solution_fitness": 81.02373,
+        "19_allocated_class_schedules": 156,
+        "21_class_meets_schedules_with_lab_requirement": 22,
+        "1_request_type": "class_assignment",
+        "10_doesnt_meets_accessibility_requirement": 0,
+        "15_duplicate_allocations": 0
+      }
+    ]
+  }
+]
