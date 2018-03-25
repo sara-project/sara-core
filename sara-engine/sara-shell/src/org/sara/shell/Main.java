@@ -19,31 +19,30 @@ public class Main {
         if (!Main.validateArgs( args )) {
             System.exit( 1 );
         }
-        
+
         Date startDate, endDate;
         startDate = new Date();
-        
-        File jsonFile = new File(args[0]);
-        if(!jsonFile.exists()) {
-            System.err.println("The file "+ args[0]+ " does not exist.");
+
+        File jsonFile = new File( args[0] );
+        if (!jsonFile.exists()) {
+            System.err.println( "The file " + args[0] + " does not exist." );
             System.exit( 1 );
         }
-        
+
         int availableProcessors = Runtime.getRuntime().availableProcessors();
         String osName = System.getProperty( "os.name" );
-            
+
         System.out.println();
         System.out.println( "----------------------------------------- " );
         System.out.println( "System Information" );
         System.out.println();
         System.out.println( "- Operational System: " + osName );
         System.out.println( "- Available Processors: " + availableProcessors );
-        
+
         System.out.println( "\n----------------------------------------- " );
         System.out.println( "Initializing the Core\n" );
         Core.initialize();
 
-     
         System.out.println( "\n----------------------------------------- " );
         System.out.println( "Models Information\n" );
 
@@ -53,7 +52,7 @@ public class Main {
         {
             try {
                 JSONReader handler = new JSONReader( jsonFile.getName() );
-                Core.getInstance().getModelController().setRequestType(handler.getRequestType() );
+                Core.getInstance().getModelController().setRequestType( handler.getRequestType() );
                 Core.getInstance().getModelController().setSchedules( handler.getSchedulesHash() );
                 Core.getInstance().getModelController().setSlots( handler.getSlotsHash() );
                 Core.getInstance().getModelController().setSchoolClass( handler.getClassesHash() );
@@ -85,53 +84,49 @@ public class Main {
 
         System.out.println( "\n - Genetic Algorithm Configuration" );
         System.out.println( Core.getInstance().getModelController().getGaConfiguration() + "\n" );
-        
+
         Core.getInstance().getModelController().setFileName( jsonFile );
-        
-        
+
         System.out.println( "\n----------------------------------------- " );
         System.out.println( "Initializing Plugins \n" );
         Core.initPlugins();
 
-
         System.out.println( "\n----------------------------------------- " );
         System.out.println( "Initialize System\n" );
         String requestType = ICore.getInstance().getModelController().getRequestType();
-            
-        InfoSolution result = new InfoSolution();   
-        if(requestType.equalsIgnoreCase( "class_assignment" )) {
+
+        InfoSolution result = new InfoSolution();
+        if (requestType.equalsIgnoreCase( "class_assignment" )) {
             System.out.println( "The evolutionary cyle was started." );
             result = Core.getInstance().getProjectController().getGAEngine().startCycle();
-        }
-
-        else if(requestType.equalsIgnoreCase( "eval_solution" )) {
+        } else if (requestType.equalsIgnoreCase( "eval_solution" )) {
             System.out.println( "The evaluate solution was started." );
             result = Core.getInstance().getProjectController().getGAEngine()
-                    .evalSolution(ICore.getInstance().getModelController().getSlots().values());
+                    .evalSolution( ICore.getInstance().getModelController().getSlots().values() );
         }
-        
+
         System.out.println();
-        System.out.println( "The request was finished." );   
+        System.out.println( "The request was finished." );
         endDate = new Date();
-       
+
         result.setStartTime( startDate );
-        result.setEndTime(endDate );
-        result.setTotalMemoryUsed(Utils.maxUnit(Runtime.getRuntime().totalMemory()));
-        
+        result.setEndTime( endDate );
+        result.setTotalMemoryUsed( Utils.maxUnit( Runtime.getRuntime().totalMemory() ) );
+
         System.out.println( "\n----------------------------------------- " );
         System.out.println( "Writing the result\n" );
-        
-        System.out.println( "The process was completed." );   
+
+        System.out.println( "The process was completed." );
         System.out.println( "Start Date: " + startDate );
         System.out.println( "End Date: " + endDate );
         System.out.println();
         ICore.getInstance().getUiController().printMemoryInfo();
         try {
-            File resultFile = new File("./outputs/result_"+ jsonFile.getName());
+            File resultFile = new File( "./outputs/result_" + jsonFile.getName() );
             resultFile.createNewFile();
-            new JSONWriter().writeResult(resultFile, result, requestType);
+            new JSONWriter().writeResult( resultFile, result, requestType );
         } catch (ParseException ex) {
-           Logger.getLogger( Main.class.getName() ).log( Level.SEVERE, null, ex );
+            Logger.getLogger( Main.class.getName() ).log( Level.SEVERE, null, ex );
         } catch (Exception ex) {
             Logger.getLogger( Main.class.getName() ).log( Level.SEVERE, null, ex );
         }
@@ -141,16 +136,16 @@ public class Main {
         String msg = "";
         String syntax = "Please type: sara-core \"filename\" [-d or debug] to execute rigth.";
         if (args.length == 0) {
-            msg = "No parameters found. "+ syntax;
+            msg = "No parameters found. " + syntax;
         }
-        
-        if(args.length == 2) {
-            if(!args[1].toLowerCase().equals( "-d") &&  !args[1].toLowerCase().equals( "-debug")) {
-               msg = "Wrong parameters. "+ syntax;
-               ProjectController.DEBUG_INFO_AG = false; 
+
+        if (args.length == 2) {
+            if (!args[1].toLowerCase().equals( "-d" ) && !args[1].toLowerCase().equals( "-debug" )) {
+                msg = "Wrong parameters. " + syntax;
+                ProjectController.DEBUG_INFO_AG = false;
+            } else {
+                ProjectController.DEBUG_INFO_AG = true;
             }
-            else
-                ProjectController.DEBUG_INFO_AG = true; 
         }
 
         if (!msg.isEmpty()) {

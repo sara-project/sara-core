@@ -99,8 +99,9 @@ public class InfoSolution {
     }
 
     public int getTotalFilledSlots(List<IChromosome> bestSolution) {
-        if(this.totalFilledSlots == -1)
+        if (this.totalFilledSlots == -1) {
             this.calculateAccessibilityRequirement(bestSolution);
+        }
 
         return totalFilledSlots;
     }
@@ -110,19 +111,21 @@ public class InfoSolution {
     }
 
     public int getTotalEmptySlots(List<IChromosome> bestSolution) {
-        if(this.totalEmptySlots == -1)
+        if (this.totalEmptySlots == -1) {
             this.calculateAccessibilityRequirement(bestSolution);
-        
+        }
+
         return totalEmptySlots;
     }
-    
+
     public void setTotalScheduleClasses(int totalScheduleClasses) {
         this.totalScheduleClasses = totalScheduleClasses;
     }
 
     public long getTotalScheduleClasses(List<IChromosome> bestSolution) {
-        if(this.totalScheduleClasses == -1)
+        if (this.totalScheduleClasses == -1) {
             this.calculateAccessibilityRequirement(bestSolution);
+        }
 
         return totalScheduleClasses;
     }
@@ -154,10 +157,11 @@ public class InfoSolution {
     public void setAverageTimeOfRefreshPopulation(double averageTimeOfRefreshPopulation) {
         this.averageTimeOfRefreshPopulation = averageTimeOfRefreshPopulation;
     }
-    
+
     public long getExecutionTime() {
-        if(this.endTime == null||  this.startTime == null )
+        if (this.endTime == null || this.startTime == null) {
             return -1;
+        }
         return this.endTime.getTime() - this.startTime.getTime();
     }
 
@@ -168,63 +172,70 @@ public class InfoSolution {
     public void setFitnessByCriterias(HashMap<String, Float> fitnessByCriterias) {
         this.fitnessByCriterias = fitnessByCriterias;
     }
- 
+
     public int getTotalMeetsAccessibilityRequirement(List<IChromosome> bestSolution) {
-        if(this.totalMeetsAccessibilityRequirement == -1)
+        if (this.totalMeetsAccessibilityRequirement == -1) {
             this.calculateAccessibilityRequirement(bestSolution);
-        
+        }
+
         return this.totalMeetsAccessibilityRequirement;
     }
-    
+
     public int getTotalAccessibilityRequirement(List<IChromosome> bestSolution) {
-        if(this.totalAccessibilityRequirement == -1)
+        if (this.totalAccessibilityRequirement == -1) {
             this.calculateAccessibilityRequirement(bestSolution);
-        
+        }
+
         return this.totalAccessibilityRequirement;
     }
-    
-    public int getTotalDoesntMeetsAccessibilityRequirement(List<IChromosome> bestSolution) {      
-        if(this.totalDoesntMeetsAccessibilityRequirement == -1)
+
+    public int getTotalDoesntMeetsAccessibilityRequirement(List<IChromosome> bestSolution) {
+        if (this.totalDoesntMeetsAccessibilityRequirement == -1) {
             this.calculateAccessibilityRequirement(bestSolution);
-        
+        }
+
         return this.totalDoesntMeetsAccessibilityRequirement;
     }
-    
+
     public int getTotalDuplicateAllocation(List<IChromosome> bestSolution) {
-        if(this.totalDuplicateAllocation == -1)
+        if (this.totalDuplicateAllocation == -1) {
             this.calculateAccessibilityRequirement(bestSolution);
-        
+        }
+
         return this.totalDuplicateAllocation;
     }
-    
+
     public int getAllocatedClassSchedules(List<IChromosome> bestSolution) {
-        if(this.allocatedClassSchedules == -1)
+        if (this.allocatedClassSchedules == -1) {
             this.calculateAccessibilityRequirement(bestSolution);
-        
+        }
+
         return this.allocatedClassSchedules;
     }
 
     public int getUnallocatedClassSchedules(List<IChromosome> bestSolution) {
-        if(this.unallocatedClassSchedules == -1)
+        if (this.unallocatedClassSchedules == -1) {
             this.calculateAccessibilityRequirement(bestSolution);
-        
+        }
+
         return this.unallocatedClassSchedules;
     }
-    
+
     public int getUnusedPlaces(List<IChromosome> bestSolution) {
-        if(this.unusedPlaces == -1)
+        if (this.unusedPlaces == -1) {
             this.calculateAccessibilityRequirement(bestSolution);
-        
+        }
+
         return this.unusedPlaces;
     }
-     
+
     public int getOverLoadRooms(List<IChromosome> bestSolution) {
-        if(this.overLoadRooms == -1)
+        if (this.overLoadRooms == -1) {
             this.calculateAccessibilityRequirement(bestSolution);
-        
+        }
+
         return this.overLoadRooms;
     }
-    
 
     public InfoSolution() {
         this.timeOfGenerateInitialPopulation = -1;
@@ -233,7 +244,7 @@ public class InfoSolution {
         this.averageTimeOfCrossover = -1;
         this.averageTimeOfMutation = -1;
         this.averageTimeOfRefreshPopulation = -1;
-        
+
         this.totalFilledSlots = -1;
         this.totalEmptySlots = -1;
         this.totalOfAllocatedScheduleClasses = -1;
@@ -246,14 +257,14 @@ public class InfoSolution {
         this.totalMeetsAccessibilityRequirement = -1;
         this.totalDoesntMeetsAccessibilityRequirement = -1;
         this.totalAccessibilityRequirement = -1;
-        
+
         this.allocatedClassSchedules = -1;
         this.unallocatedClassSchedules = -1;
-        
+
         this.unusedPlaces = -1;
         this.overLoadRooms = -1;
     }
-    
+
     private void calculateAccessibilityRequirement(List<IChromosome> bestSolution) {
         int totalMeetsRequirement = 0;
         int totalDoesntMeetsRequirement = 0;
@@ -268,69 +279,73 @@ public class InfoSolution {
 
         HashMap<Integer, ClassSchedule> allocatedClassSchedulesHash = new HashMap();
 
-        for(IChromosome chromosome : bestSolution) {
-            List<ClassSchedule> cSchedules =  new ArrayList<>(ICore.getInstance().getModelController()
-                                 .getClassScheduleByDay(chromosome.getType()).values());
-            
-            
+        for (IChromosome chromosome : bestSolution) {
+            List<ClassSchedule> cSchedules = new ArrayList<>(ICore.getInstance().getModelController()
+                    .getClassScheduleByDay(chromosome.getType()).values());
+
             totalClassSchedule += cSchedules.size();
-            
+
             totalAllocatedClass += chromosome.getGenes(false)
-                       .stream().map((gene) -> (Slot) gene.getAllele(false))
-                       .filter((slot) -> (!slot.isEmpty()))
-                       .map((_item) -> 1).reduce(totalAllocatedClass, Integer::sum);
-            
-             for(IGene gene : chromosome.getGenes(false)) {
+                    .stream().map((gene) -> (Slot) gene.getAllele(false))
+                    .filter((slot) -> (!slot.isEmpty()))
+                    .map((_item) -> 1).reduce(totalAllocatedClass, Integer::sum);
+
+            for (IGene gene : chromosome.getGenes(false)) {
                 Slot slot = (Slot) gene.getAllele(false);
 
-                if(!slot.isEmpty()) {
+                if (!slot.isEmpty()) {
                     _totalFilledSlots++;
                     int numberOfAllocatedcSchedules = cSchedules.stream().filter((cs) -> (slot.getSchoolClass().equals(cs.getSchoolClass()) && slot.getSchedule().equals(cs.getSchedule()))).map((_item) -> 1).reduce(_totalDuplicateAllocation, Integer::sum);
-                    
-                    if(numberOfAllocatedcSchedules > slot.getSchoolClass().getAllSchoolClassSchedules().size())
-                         _totalDuplicateAllocation = numberOfAllocatedcSchedules -slot.getSchoolClass().getAllSchoolClassSchedules().size();
+
+                    if (numberOfAllocatedcSchedules > slot.getSchoolClass().getAllSchoolClassSchedules().size()) {
+                        _totalDuplicateAllocation = numberOfAllocatedcSchedules - slot.getSchoolClass().getAllSchoolClassSchedules().size();
+                    }
 
                     ClassSchedule cs = slot.getClassSchedule();
 
-                    if(slot.getRoom().getCapacity() >= slot.getSchoolClass().getSize())
+                    if (slot.getRoom().getCapacity() >= slot.getSchoolClass().getSize()) {
                         totalUnusedPlaces += (slot.getRoom().getCapacity() - slot.getSchoolClass().getSize());
-                    else
+                    } else {
                         totalOverLoadRooms++;
-                    
-                    if(!allocatedClassSchedulesHash.containsKey(cs.getID()))
-                        allocatedClassSchedulesHash.put(cs.getID(), cs);
-                    
-                    if(slot.getSchoolClass().hasAccessibilityRequirement())
-                        _totalAccessibilityRequirement++;
+                    }
 
-                    if(slot.getSchoolClass().hasAccessibilityRequirement() && slot.getRoom().hasAccessibilityRequirement())
+                    if (!allocatedClassSchedulesHash.containsKey(cs.getID())) {
+                        allocatedClassSchedulesHash.put(cs.getID(), cs);
+                    }
+
+                    if (slot.getSchoolClass().hasAccessibilityRequirement()) {
+                        _totalAccessibilityRequirement++;
+                    }
+
+                    if (slot.getSchoolClass().hasAccessibilityRequirement() && slot.getRoom().hasAccessibilityRequirement()) {
                         totalMeetsRequirement++;
-                    else if(slot.getSchoolClass().hasAccessibilityRequirement() && !slot.getRoom().hasAccessibilityRequirement())
+                    } else if (slot.getSchoolClass().hasAccessibilityRequirement() && !slot.getRoom().hasAccessibilityRequirement()) {
                         totalDoesntMeetsRequirement++;
-                } else
+                    }
+                } else {
                     _totalEmptySlots++;
+                }
             }
         }
-        
-        
+
         this.unusedPlaces = totalUnusedPlaces;
         this.overLoadRooms = totalOverLoadRooms;
-        
+
         this.allocatedClassSchedules = allocatedClassSchedulesHash.size();
         this.unallocatedClassSchedules = totalClassSchedule - allocatedClassSchedules;
-        
+
         this.totalDuplicateAllocation = _totalDuplicateAllocation;
         this.totalScheduleClasses = totalClassSchedule;
         this.totalOfAllocatedScheduleClasses = totalAllocatedClass;
         this.totalOfUnallocatedScheduleClasses = totalClassSchedule - totalAllocatedClass;
-        
+
         this.totalFilledSlots = _totalFilledSlots;
         this.totalEmptySlots = _totalEmptySlots;
         this.totalMeetsAccessibilityRequirement = totalMeetsRequirement;
         this.totalDoesntMeetsAccessibilityRequirement = totalDoesntMeetsRequirement;
         this.totalAccessibilityRequirement = _totalAccessibilityRequirement;
     }
-    
+
     private int totalAccessibilityRequirement;
     private int overLoadRooms;
     private int unusedPlaces;

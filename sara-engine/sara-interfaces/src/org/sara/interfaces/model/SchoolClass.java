@@ -6,13 +6,13 @@ import java.util.List;
 
 public class SchoolClass implements Cloneable {
 
-    public SchoolClass(int id, int size, List<Schedule> schedules,  List<Requirement> requirements, List<Integer> typeRoomsWanted) {
+    public SchoolClass(int id, int size, List<Schedule> schedules, List<Requirement> requirements, List<Integer> typeRoomsWanted) {
         this(id, size);
         this.schedules.add(schedules);
         this.requirements.addAll(requirements);
         this.typeRoomsWanted.addAll(typeRoomsWanted);
     }
-    
+
     public SchoolClass(int id, int size, List<Schedule> schedules) {
         this(id, size);
         this.schedules.add(schedules);
@@ -29,18 +29,19 @@ public class SchoolClass implements Cloneable {
     public int getID() {
         return this.id;
     }
-    
+
     public int getSize() {
         return this.size;
     }
-    
+
     public void addTypeRoomsWanted(List<Integer> typeRoomsWanted) {
         this.typeRoomsWanted.addAll(typeRoomsWanted);
     }
 
     public List<Integer> getTypeRoomsWanted(boolean clone) {
-         if(!clone)
+        if (!clone) {
             return this.typeRoomsWanted;
+        }
 
         List<Integer> tmp = new ArrayList<>();
         this.typeRoomsWanted.forEach(r -> tmp.add(r + 0));
@@ -50,10 +51,11 @@ public class SchoolClass implements Cloneable {
     public void addRequirements(List<Requirement> requirements) {
         this.requirements.addAll(requirements);
     }
-    
+
     public List<Requirement> getRequirements(boolean clone) {
-        if(!clone)
+        if (!clone) {
             return this.requirements;
+        }
 
         List<Requirement> tmp = new ArrayList<>();
         this.requirements.forEach(r -> tmp.add((Requirement) r.clone()));
@@ -63,7 +65,7 @@ public class SchoolClass implements Cloneable {
     public boolean hasAccessibilityRequirement() {
         return this.requirements.stream().anyMatch((r) -> (r.getType() == 2));
     }
-    
+
     public boolean hasTypeRoomRequirement() {
         return this.requirements.stream().anyMatch((r) -> (r.getID() == 4));
     }
@@ -73,12 +75,13 @@ public class SchoolClass implements Cloneable {
     }
 
     public ClassSchedule getSchoolClassSchedule(Schedule schedule, boolean clone) {
-        if(this.schedules == null || this.schedules.classTimeTables == null)
+        if (this.schedules == null || this.schedules.classTimeTables == null) {
             return null;
+        }
 
         for (ClassSchedule cs : this.schedules.classTimeTables.values()) {
             if (cs.getSchedule().equals(schedule)) {
-                return clone? (ClassSchedule) cs.clone() : cs;
+                return clone ? (ClassSchedule) cs.clone() : cs;
             }
         }
 
@@ -94,6 +97,7 @@ public class SchoolClass implements Cloneable {
 
         return cs != null && cs.isAllocated();
     }
+
     public boolean hasSameSchedule(Schedule schedule) {
         return this.schedules.classTimeTables.containsKey(schedule.getID());
     }
@@ -190,7 +194,7 @@ public class SchoolClass implements Cloneable {
 
         private List<Schedule> getAllSchedules(boolean clone) {
             List<Schedule> tmp = new ArrayList<>();
-            this.classTimeTables.values().forEach((t) -> tmp.add(clone? (Schedule) t.getSchedule().clone() : t.getSchedule()));
+            this.classTimeTables.values().forEach((t) -> tmp.add(clone ? (Schedule) t.getSchedule().clone() : t.getSchedule()));
 
             return tmp;
         }

@@ -8,7 +8,7 @@ public class ClassSchedule implements Cloneable {
 
     private ClassSchedule(int id, SchoolClass sClass, Schedule schedule) {
         this.id = id;
-        
+
         this.sClass = sClass;
         this.schedule = schedule;
         this.isAllocated = false;
@@ -49,8 +49,9 @@ public class ClassSchedule implements Cloneable {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof ClassSchedule))
+        if (!(o instanceof ClassSchedule)) {
             return false;
+        }
 
         ClassSchedule other = (ClassSchedule) o;
 

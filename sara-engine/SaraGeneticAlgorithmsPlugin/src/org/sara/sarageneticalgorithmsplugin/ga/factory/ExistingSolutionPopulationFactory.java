@@ -11,8 +11,9 @@ import org.sara.sarageneticalgorithmsplugin.ga.model.Specimen;
 public class ExistingSolutionPopulationFactory implements IPopulationFactory {
 
     public static ExistingSolutionPopulationFactory getInstance() {
-        if (instance == null)
+        if (instance == null) {
             instance = new ExistingSolutionPopulationFactory();
+        }
 
         return instance;
     }
@@ -21,11 +22,11 @@ public class ExistingSolutionPopulationFactory implements IPopulationFactory {
     public IPopulation makePopulation() {
         return new Population(1, specimens);
     }
-    
+
     public void setSpecimenData(List<Object> chromossomes) {
-        ExistingSolutionPopulationFactory.specimens.add(new Specimen(chromossomes , false));
+        ExistingSolutionPopulationFactory.specimens.add(new Specimen(chromossomes, false));
     }
-    
+
     protected ExistingSolutionPopulationFactory() {
         ExistingSolutionPopulationFactory.specimens = new ArrayList<>();
     }

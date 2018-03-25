@@ -9,35 +9,37 @@ import org.sara.interfaces.model.ClassSchedule;
 import org.sara.interfaces.model.Slot;
 
 public class DuplicateAllocationCriteria extends ICriteria {
-    
+
     public DuplicateAllocationCriteria() {
         this(false);
     }
-    
-     public DuplicateAllocationCriteria(boolean required) {
+
+    public DuplicateAllocationCriteria(boolean required) {
         super(required);
     }
-     
+
     @Override
     public float execute(IChromosome chromosome) {
         //Gets all Same Day Classes on the Chromosome
         List<ClassSchedule> cSchedules = new ArrayList<>(ICore.getInstance().getModelController()
-                                 .getClassScheduleByDay(chromosome.getType()).values());
-        
+                .getClassScheduleByDay(chromosome.getType()).values());
+
         //Gets all available slots
         List<Slot> slotsFilled = new ArrayList<>();
-        chromosome.getGenes(false).stream().map((gene) 
+        chromosome.getGenes(false).stream().map((gene)
                 -> (Slot) gene.getAllele(false)).filter((slot)
                 -> (!slot.isEmpty())).forEachOrdered((slot)
                 -> slotsFilled.add(slot));
-        
-        for(ClassSchedule cs : cSchedules) {
+
+        for (ClassSchedule cs : cSchedules) {
             int time = 0;
-            for(Slot slot : slotsFilled) {
-                if(slot.getSchoolClass().equals(cs.getSchoolClass()) && slot.getSchedule().equals(cs.getSchedule()))
+            for (Slot slot : slotsFilled) {
+                if (slot.getSchoolClass().equals(cs.getSchoolClass()) && slot.getSchedule().equals(cs.getSchedule())) {
                     time++;
-                if(time > 1)
+                }
+                if (time > 1) {
                     return 0f;
+                }
             }
         }
         return 1f;

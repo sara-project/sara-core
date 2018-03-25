@@ -47,13 +47,13 @@ public class Slot implements Cloneable {
     }
 
     public SchoolClass getSchoolClass() {
-        return this.sClass != null? (SchoolClass) this.sClass.clone() : null;
+        return this.sClass != null ? (SchoolClass) this.sClass.clone() : null;
     }
-    
+
     public Room getRoom() {
         return this.room;
     }
-    
+
     public int useOfRoom(SchoolClass schoolClass) {
         return schoolClass.howBig(this.room.getCapacity());
     }
@@ -65,12 +65,12 @@ public class Slot implements Cloneable {
     @Override
     public Object clone() {
         Slot clone = new Slot(id, (Schedule) schedule.clone(), (Room) room.clone());
-        clone.sClass = this.sClass != null? (SchoolClass) this.sClass.clone() : null;
+        clone.sClass = this.sClass != null ? (SchoolClass) this.sClass.clone() : null;
         return clone;
     }
 
     public ClassSchedule getClassSchedule() {
-        return (this.getSchoolClass() == null || this.getSchedule() == null)? null : this.getSchoolClass().getSchoolClassSchedule(this.getSchedule(), false);
+        return (this.getSchoolClass() == null || this.getSchedule() == null) ? null : this.getSchoolClass().getSchoolClassSchedule(this.getSchedule(), false);
     }
 
     private final int id;

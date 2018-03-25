@@ -29,11 +29,12 @@ public class JSONReader {
         this.gaConfig = new GAConfiguration();
 
         JSONObject jsonObject = (JSONObject) ( ( new JSONParser() ).parse( new FileReader( jsonFile ) ) );
-        
+
         Object request_type = jsonObject.get( "request_type" );
-        if(request_type == null)
+        if (request_type == null) {
             throw new Exception( "Json File is invalid. There is not ." );
-        
+        }
+
         this.requestType = request_type.toString();
 
         this.parametersHandler( (JSONObject) jsonObject.get( "ga_config" ) );
@@ -47,6 +48,7 @@ public class JSONReader {
     public String getRequestType() {
         return this.requestType;
     }
+
     public GAConfiguration getGAConfiguration() {
         return this.gaConfig;
     }
@@ -70,7 +72,7 @@ public class JSONReader {
     public HashMap<String, Room> getRoomsHash() {
         return this.roomsHash;
     }
-    
+
     private void parametersHandler( JSONObject configuration ) {
         if (configuration != null) {
             Object populationNumber = configuration.get( "population_number" );
@@ -132,7 +134,7 @@ public class JSONReader {
 
     private void requirementsHandler( JSONArray requirements ) throws Exception {
         Iterator it;
-        
+
         if (requirements != null && !requirements.isEmpty()) {
             it = requirements.iterator();
             while (it.hasNext()) {
@@ -140,17 +142,17 @@ public class JSONReader {
                 Object id = requirement.get( "id" );
                 Object type = requirement.get( "type" );
                 Object priority = requirement.get( "priority" );
-                
+
                 if (id == null || type == null || priority == null) {
                     throw new Exception( "Json File is invalid. There is a missing key (id, type or priority) to Requirement model." );
                 }
-                
+
                 if (requirementHash.containsKey( id.toString() )) {
                     throw new Exception( "Json File is invalid. There is a Requirement duplicated (id: " + id + ")." );
                 }
-                
+
                 try {
-                    requirementHash.put( id.toString(), new Requirement(Integer.parseInt( id.toString() ),
+                    requirementHash.put( id.toString(), new Requirement( Integer.parseInt( id.toString() ),
                             Integer.parseInt( type.toString() ),
                             Integer.parseInt( priority.toString() ) ) );
                 } catch (NumberFormatException ex) {
@@ -158,7 +160,7 @@ public class JSONReader {
                 }
             }
         }
-    
+
     }
 
     private void schedulesHandler( JSONArray schedules ) throws Exception {
@@ -213,7 +215,7 @@ public class JSONReader {
                 if (roomsHash.containsKey( id.toString() )) {
                     throw new Exception( "Json File is invalid. There is a Room duplicated (id: " + id + ")." );
                 }
-                
+
                 //Adding Specifications to Room
                 Iterator reqit = specifications.iterator();
                 List<Requirement> requirements = new ArrayList<>();
@@ -221,18 +223,19 @@ public class JSONReader {
                     String requirementID = reqit.next().toString();
 
                     Requirement reqObj = requirementHash.get( requirementID );
-                    if(requirementID == null)
+                    if (requirementID == null) {
                         throw new Exception( "Json File is invalid. There is any Requirement with id = " + requirementID + "." );
-                    
+                    }
+
                     requirements.add( reqObj );
                 }
-                
+
                 try {
-                    
+
                     roomsHash.put( id.toString(), new Room( Integer.parseInt( id.toString() ),
                             Integer.parseInt( capacity.toString() ),
                             Integer.parseInt( area.toString() ),
-                            requirements,  Integer.parseInt( type.toString() )));
+                            requirements, Integer.parseInt( type.toString() ) ) );
                 } catch (NumberFormatException ex) {
                     throw new Exception( "Json File is invalid. Some value is wrong. " + ex.getMessage() );
                 }
@@ -253,7 +256,7 @@ public class JSONReader {
                 Object schedule = slot.get( "schedule" );
                 Object s_class = slot.get( "s_class" );
 
-                if (id == null ||  room == null || schedule == null) {
+                if (id == null || room == null || schedule == null) {
                     throw new Exception( "Json File is invalid. There is a missing key (id, room, or schedule) to Slot model." );
                 }
 
@@ -272,16 +275,16 @@ public class JSONReader {
                     if (roomObj == null) {
                         throw new Exception( "Json File is invalid. There is any Room with id = " + room + "." );
                     }
-                    
+
                     Slot slotObj = new Slot( Integer.parseInt( id.toString() ), scheduleObj, roomObj );
-                    if(s_class != null) {
+                    if (s_class != null) {
                         SchoolClass schoolClass = classesHash.get( s_class.toString() );
                         if (scheduleObj == null) {
                             throw new Exception( "Json File is invalid. There is any SchoolClass with id = " + schoolClass + "." );
                         }
                         slotObj.fill( schoolClass );
                     }
-                    slotsHash.put( id.toString(), slotObj);
+                    slotsHash.put( id.toString(), slotObj );
                 } catch (NumberFormatException ex) {
                     throw new Exception( "Json File is invalid. Some value is wrong. " + ex.getMessage() );
                 }
@@ -310,7 +313,7 @@ public class JSONReader {
                 if (classesHash.containsKey( id.toString() )) {
                     throw new Exception( "Json File is invalid. There is a School Class duplicated (id: " + id + ")." );
                 }
-                
+
                 //Adding Specifications to Room
                 Iterator reqit = requirementsArray.iterator();
                 List<Requirement> requirements = new ArrayList<>();
@@ -318,23 +321,24 @@ public class JSONReader {
                     String requirementID = reqit.next().toString();
 
                     Requirement reqObj = requirementHash.get( requirementID );
-                    if(requirementID == null)
+                    if (requirementID == null) {
                         throw new Exception( "Json File is invalid. There is any Requirement with id = " + requirementID + "." );
-                    
+                    }
+
                     requirements.add( reqObj );
                 }
-                
+
                 reqit = typeRoomsWantedArray.iterator();
                 List<Integer> typeRoomsWanted = new ArrayList<>();
                 while (reqit.hasNext()) {
-                    int trw = Integer.parseInt( reqit.next().toString());
-                    
-                    if(!roomsHash.values().stream().anyMatch( r ->  r.getType() == trw))
+                    int trw = Integer.parseInt( reqit.next().toString() );
+
+                    if (!roomsHash.values().stream().anyMatch( r -> r.getType() == trw )) {
                         throw new Exception( "Json File is invalid. There is any Requirement with id = " + trw + "." );
+                    }
 
                     typeRoomsWanted.add( trw );
                 }
-                
 
                 //Get School Class Schedules
                 JSONArray jschedules = (JSONArray) schedules;
@@ -361,7 +365,7 @@ public class JSONReader {
             }
         }
     }
-    
+
     private final HashMap<String, Requirement> requirementHash;
     private final HashMap<String, Schedule> schedulesHash;
     private final HashMap<String, Slot> slotsHash;

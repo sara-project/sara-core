@@ -28,33 +28,33 @@ public class Specimen implements ISpecimen {
             System.err.printf("Genetic Load is invalid!");
             System.exit(3);
         }
-        
+
         List<Slot> slots = new ArrayList<>((Collection) geneticLoad);
 
         //Os slots estaram sempre ordenados pelo ID do Dia, facilitando a operação de Crossover
         TreeMap<Integer, List<Slot>> slotsByDay = (TreeMap<Integer, List<Slot>>) modelControl.separateSlotsByDay(slots);
         this.chromossomes = new Chromosome[slotsByDay.size()];
-        
+
         this.pullClassSchedule = (HashMap<Integer, List<ClassSchedule>>) modelControl.separateClassScheduleByDay(new ArrayList<>(modelControl.getClassSchedule().values()));
 
         int i = 0;
         for (Integer day : slotsByDay.keySet()) {
-            if(isToFill) {
+            if (isToFill) {
                 Collections.shuffle(slotsByDay.get(day));
                 Collections.shuffle(this.pullClassSchedule.get(day));
                 this.chromossomes[i++] = new Chromosome(day, slotsByDay.get(day), this.pullClassSchedule.get(day), this);
-            }
-            else {
+            } else {
                 this.chromossomes[i++] = new Chromosome(day, slotsByDay.get(day), null, this);
             }
         }
-        
-        if(isToFill)
+
+        if (isToFill) {
             this.fill();
-        
+        }
+
         this.pullClassSchedule.clear();
     }
-    
+
     public Specimen(int chromossomeNumber) {
         this.chromossomes = new Chromosome[chromossomeNumber];
         this.pullClassSchedule = new HashMap<>();
@@ -64,17 +64,18 @@ public class Specimen implements ISpecimen {
     public float getFitness() {
         float fitness = 0;
 
-        for (IChromosome c : this.getChromossomes(false))
-            fitness += c == null? 0: c.getFitness();
+        for (IChromosome c : this.getChromossomes(false)) {
+            fitness += c == null ? 0 : c.getFitness();
+        }
 
         return fitness;
     }
-    
+
     @Override
     public Object clone() {
         Specimen clone = new Specimen();
         clone.chromossomes = this.getChromossomes(true);
-        
+
         HashMap<Integer, List<ClassSchedule>> clonePullClassSchedule = new HashMap<>();
         this.pullClassSchedule.keySet().forEach(keySet -> {
             List<ClassSchedule> listClone = new ArrayList<>();
@@ -89,26 +90,28 @@ public class Specimen implements ISpecimen {
     public IChromosome getRandomChromosome(boolean clone) {
         int limit = this.chromossomes.length;
         IChromosome chr = this.chromossomes[(new Random()).nextInt(limit)];
-        return clone? (IChromosome) chr.clone() : chr;
+        return clone ? (IChromosome) chr.clone() : chr;
     }
 
     @Override
     public IChromosome[] getChromossomes(boolean clone) {
-        if(!clone)
+        if (!clone) {
             return this.chromossomes;
-        
+        }
+
         int size = this.chromossomes.length;
         IChromosome[] cloneList = new IChromosome[size];
-        for(int i = 0; i < size; i++)
+        for (int i = 0; i < size; i++) {
             cloneList[i] = (IChromosome) this.chromossomes[i].clone();
-            
+        }
+
         return cloneList;
     }
 
     @Override
     public IChromosome getChromossome(int index, boolean clone) {
         IChromosome chr = this.chromossomes[index];
-        return clone? (IChromosome) chr.clone() : chr;
+        return clone ? (IChromosome) chr.clone() : chr;
     }
 
     @Override
@@ -125,7 +128,7 @@ public class Specimen implements ISpecimen {
 
         return genes;
     }
-    
+
     @Override
     public boolean isBetterThan(ISpecimen other) {
         return Float.compare(this.getFitness(), other.getFitness()) > 0;
@@ -137,7 +140,8 @@ public class Specimen implements ISpecimen {
         }
     }
 
-    private Specimen() {}
+    private Specimen() {
+    }
     private IChromosome[] chromossomes;
     private HashMap<Integer, List<ClassSchedule>> pullClassSchedule;
 }

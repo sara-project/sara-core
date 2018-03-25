@@ -12,8 +12,9 @@ import org.sara.sarageneticalgorithmsplugin.ga.model.Population;
 public class RandomPopulationFactory implements IPopulationFactory {
 
     public static RandomPopulationFactory getInstance() {
-        if (instance == null)
+        if (instance == null) {
             instance = new RandomPopulationFactory();
+        }
 
         return instance;
     }
@@ -54,7 +55,7 @@ public class RandomPopulationFactory implements IPopulationFactory {
             } catch (InterruptedException ex) {
                 RandomPopulationFactory.disableParallelExec();
                 System.out.println("An unexpected error was detected. The process of make a population will be restarted");
-               
+
                 return this.makePopulation();
             }
 
@@ -64,19 +65,20 @@ public class RandomPopulationFactory implements IPopulationFactory {
                 beRemoved.add(specimen);
             });
             specimens.removeAll(beRemoved);
-            
+
             pop.addSpecimens(specimens, false);
             specimens = null;
         }
         try {
-            while (!pop.isFull())
+            while (!pop.isFull()) {
                 pop.addSpecimens(SpecimenFactory.makeSpecimen(1), false);
+            }
         } catch (OutOfMemoryError ex) {
             RandomPopulationFactory.disableParallelExec();
             System.out.println("An unexpected error was detected. The process of make a population will be restarted");
             System.gc();
         }
-        
+
         return pop;
     }
 

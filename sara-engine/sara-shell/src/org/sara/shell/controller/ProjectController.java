@@ -46,12 +46,12 @@ public class ProjectController extends IProjectController {
     public void setDataJars( URLClassLoader dataJars ) {
         this.dataJars = dataJars;
     }
-    
+
     @Override
     public void notifyObeserver( IObserver obj ) {
         throw new UnsupportedOperationException( "Not supported yet." ); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     @Override
     public boolean isDebugInfoAGActive() {
         return DEBUG_INFO_AG;

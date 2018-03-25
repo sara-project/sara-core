@@ -13,8 +13,8 @@ public class GreatestCrossover extends ICrossover {
         for (int i = 0; i < size; i++) {
             IChromosome a = parentA.getChromossome(i, false);
             IChromosome b = parentB.getChromossome(i, false);
-            
-            if(Float.compare(a.getFitness(), b.getFitness()) < 0 ) {
+
+            if (Float.compare(a.getFitness(), b.getFitness()) < 0) {
                 parentA.setChromosome(b, i);
                 parentB.setChromosome(a, i);
             }

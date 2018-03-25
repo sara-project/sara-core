@@ -10,7 +10,7 @@ public class RandomCrossover extends ICrossover {
         this.randomCrossoverModes = crossoverModes;
         this.currentMode = crossoverModes[(new Random().nextInt(this.randomCrossoverModes.length))];
     }
-    
+
     public void changeMode() {
         this.currentMode = this.randomCrossoverModes[(new Random().nextInt(this.randomCrossoverModes.length))];
     }
@@ -20,7 +20,7 @@ public class RandomCrossover extends ICrossover {
         this.currentMode.crossover(parentA, parentB);
         this.changeMode();
     }
-    
+
     private ICrossover currentMode;
     private final ICrossover[] randomCrossoverModes;
 }

@@ -15,7 +15,7 @@ public class Population implements IPopulation, Cloneable {
 
     public Population(int limit, List<ISpecimen> specimens) {
         this.specimens = new ArrayList<>();
-        
+
         specimens.forEach((s -> this.specimens.add((ISpecimen) s.clone())));
         this.limit = limit;
         this.isSorted = false;
@@ -38,9 +38,10 @@ public class Population implements IPopulation, Cloneable {
 
     @Override
     public ISpecimen getSpecimen(int index, boolean clone) {
-        if (this.specimens.isEmpty())
+        if (this.specimens.isEmpty()) {
             return null;
-        return clone? (ISpecimen) this.specimens.get(index).clone() : this.specimens.get(index);
+        }
+        return clone ? (ISpecimen) this.specimens.get(index).clone() : this.specimens.get(index);
     }
 
     private List<ISpecimen> getAllSpecimensClone() {
@@ -51,12 +52,12 @@ public class Population implements IPopulation, Cloneable {
 
     @Override
     public List<ISpecimen> getAllSpecimens(boolean clone) {
-        return clone? this.getAllSpecimensClone() : this.specimens;
+        return clone ? this.getAllSpecimensClone() : this.specimens;
     }
 
     @Override
     public void addSpecimen(ISpecimen specimen, boolean clone) {
-        this.specimens.add(clone? (ISpecimen) specimen.clone() : specimen);
+        this.specimens.add(clone ? (ISpecimen) specimen.clone() : specimen);
         this.isSorted = false;
     }
 
@@ -72,7 +73,7 @@ public class Population implements IPopulation, Cloneable {
 
     @Override
     public void sortByFitness() {
-        if(!this.isSorted) {
+        if (!this.isSorted) {
             this.specimens.sort((ISpecimen s1, ISpecimen s2) -> Float.compare(s2.getFitness(), s1.getFitness()));
             this.isSorted = true;
         }
@@ -87,41 +88,44 @@ public class Population implements IPopulation, Cloneable {
 
     @Override
     public ISpecimen getBestSpecimen(boolean clone) {
-        IPopulation pop = clone? (IPopulation) this.clone() : this;
+        IPopulation pop = clone ? (IPopulation) this.clone() : this;
         pop.sortByFitness();
         return pop.getFirstSpecimen(clone);
     }
-    
+
     @Override
     public List<ISpecimen> getBestSpecimens(int quantity, boolean clone) {
         List<ISpecimen> best = new ArrayList<>();
         this.sortByFitness();
-        
-        for(int i = 0; i < quantity; i++)
+
+        for (int i = 0; i < quantity; i++) {
             best.add(this.getSpecimen(i, clone));
-        
-        if(this.createdSpecimen == null && best.size() > 0 )
+        }
+
+        if (this.createdSpecimen == null && best.size() > 0) {
             this.createdSpecimen = new Specimen(best.get(0).getChromossomes(true).length);
-        
+        }
+
         boolean hasChange = false;
-        for(ISpecimen sp : best) {
-            for(int i = 0; i < this.createdSpecimen.getChromossomes(false).length; i++) {
-                if(this.createdSpecimen.getChromossome(i, false) == null  || Float.compare(this.createdSpecimen.getChromossome(i, false).getFitness(), sp.getChromossome(i, false).getFitness()) < 0) {
+        for (ISpecimen sp : best) {
+            for (int i = 0; i < this.createdSpecimen.getChromossomes(false).length; i++) {
+                if (this.createdSpecimen.getChromossome(i, false) == null || Float.compare(this.createdSpecimen.getChromossome(i, false).getFitness(), sp.getChromossome(i, false).getFitness()) < 0) {
                     this.createdSpecimen.setChromosome(sp.getChromossome(i, true), i);
                     hasChange = true;
                 }
             }
         }
-        
-        if(hasChange)
-            best.add((ISpecimen)this.createdSpecimen.clone());
-        
+
+        if (hasChange) {
+            best.add((ISpecimen) this.createdSpecimen.clone());
+        }
+
         return best;
     }
-    
+
     @Override
     public void removeLastSpecimen(int quantity) {
-        while(quantity-- > 0) {
+        while (quantity-- > 0) {
             this.specimens.remove(this.size() - 1);
             this.isSorted = false;
         }
@@ -146,15 +150,17 @@ public class Population implements IPopulation, Cloneable {
         this.specimens.removeAll(specimens);
         this.isSorted = false;
     }
-    
+
     @Override
     public void sizeAdjustment() {
-        if(this.specimens.size() < this.limit)
-            this.specimens.addAll(SpecimenFactory.makeSpecimen(this.limit-this.specimens.size()));
-        
+        if (this.specimens.size() < this.limit) {
+            this.specimens.addAll(SpecimenFactory.makeSpecimen(this.limit - this.specimens.size()));
+        }
+
         this.sortByFitness();
-        while(this.specimens.size() > this.limit)
+        while (this.specimens.size() > this.limit) {
             this.specimens.remove(this.specimens.size() - 1);
+        }
     }
 
     @Override

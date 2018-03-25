@@ -14,7 +14,7 @@ public class TournamentSelection implements ISelection {
     public void select(IPopulation population, double rate) {
         int popSize = population.size();
         int countSelections = (int) (popSize * rate);
-        
+
         List<ISpecimen> offspring = new ArrayList();
         List<ISpecimen> discartedParents = new ArrayList();
         List<ISpecimen> parentPop = population.getAllSpecimens(false);
@@ -22,9 +22,10 @@ public class TournamentSelection implements ISelection {
         Collections.shuffle(parentPop);
 
         while (offspring.size() < (popSize / 2)) {
-            if(parentPop.isEmpty())
+            if (parentPop.isEmpty()) {
                 break;
-            
+            }
+
             ISpecimen s1 = parentPop.get(0);
             ISpecimen s2 = parentPop.get(parentPop.size() - 1);
 
@@ -46,7 +47,7 @@ public class TournamentSelection implements ISelection {
         while (offspring.size() < countSelections) {
             offspring.add(discartedParents.get(new Random().nextInt(discartedParents.size())));
         }
-        
+
         population.clearSpecimens();
         population.addSpecimens(offspring, false);
     }

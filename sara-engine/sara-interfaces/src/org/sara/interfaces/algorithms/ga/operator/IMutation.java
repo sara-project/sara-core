@@ -13,19 +13,20 @@ public abstract class IMutation {
         List<ISpecimen> mutatedList = new ArrayList<>();
         for (int i = 0; i < population.size(); i++) {
             ISpecimen mutated = population.getSpecimen(i, clone);
-            
+
             boolean hasMutated = false;
             int mutationProbability = (int) (100 * rate);
             for (IChromosome chromossome : mutated.getChromossomes(false)) {
-                if(mutationProbability >= ThreadLocalRandom.current().nextInt(1, 100)) {
+                if (mutationProbability >= ThreadLocalRandom.current().nextInt(1, 100)) {
                     chromossome = this.mutateChromosome(mutated.getRandomChromosome(false));
                     chromossome.resetFitness();
                     hasMutated = true;
                 }
             }
 
-            if(clone && hasMutated)
+            if (clone && hasMutated) {
                 mutatedList.add(mutated);
+            }
         }
         population.addSpecimens(mutatedList, false);
     }

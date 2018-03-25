@@ -9,14 +9,14 @@ import org.sara.interfaces.algorithms.ga.operator.fitness.criteria.ICriteria;
 import org.sara.interfaces.algorithms.ga.operator.fitness.criteria.ICriteriaManager;
 
 public class CriteriaManager implements ICriteriaManager {
-    
+
     public CriteriaManager(List<ICriteria> criterias) {
         this.criterias = new HashMap<>();
         criterias.forEach((c) -> {
             this.addCriteria(c);
         });
     }
-    
+
     public CriteriaManager() {
         this.criterias = new HashMap<>();
     }
@@ -30,29 +30,29 @@ public class CriteriaManager implements ICriteriaManager {
     public void removeCriteria(int index) {
         this.criterias.remove(index);
         //updates the weights of the criteria
-        Collection aux =  this.criterias.values();
+        Collection aux = this.criterias.values();
         this.criterias.clear();
         aux.forEach((c) -> {
             this.addCriteria((ICriteria) c);
         });
     }
-    
+
     public float processFilter(IChromosome chromosome) {
         float fitness = 0f;
 
-        for(Integer c : this.criterias.keySet()) {
-            float grade =  (this.criterias.size() - c) * this.criterias.get(c).execute(chromosome);
-            if(this.criterias.get(c).isRequired() && grade == 0) {
+        for (Integer c : this.criterias.keySet()) {
+            float grade = (this.criterias.size() - c) * this.criterias.get(c).execute(chromosome);
+            if (this.criterias.get(c).isRequired() && grade == 0) {
                 fitness = 0f;
                 break;
-            }
-            else
+            } else {
                 fitness += grade;
+            }
         }
 
         return fitness;
     }
-    
+
     @Override
     public void clearAll() {
         this.criterias.values().forEach(c -> c.clear());

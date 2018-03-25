@@ -11,7 +11,6 @@ public class ClassTypeRoomRequerimentCriteria extends ICriteria {
         super(false);
     }
 
-        
     public ClassTypeRoomRequerimentCriteria(boolean required) {
         super(required);
     }
@@ -21,32 +20,34 @@ public class ClassTypeRoomRequerimentCriteria extends ICriteria {
         int totalMeetsRequirement = 0;
         int totalDoesntMeetsRequirement = 0;
         int totalHasTypeRoomRequirement = 0;
-        
-        for(IGene gene : chromosome.getGenes(false)) {
+
+        for (IGene gene : chromosome.getGenes(false)) {
             Slot slot = (Slot) gene.getAllele(false);
-            if(!slot.isEmpty()) {
-                if(slot.getSchoolClass().hasTypeRoomRequirement()) {
+            if (!slot.isEmpty()) {
+                if (slot.getSchoolClass().hasTypeRoomRequirement()) {
                     totalHasTypeRoomRequirement++;
-                    
+
                     //increases quality when you meet this condition
-                    if(slot.getSchoolClass().getTypeRoomsWanted(false).contains(idLab) && slot.getRoom().getType() == idLab)
+                    if (slot.getSchoolClass().getTypeRoomsWanted(false).contains(idLab) && slot.getRoom().getType() == idLab) {
                         totalMeetsRequirement++;
-                    
-                    if(slot.getSchoolClass().getTypeRoomsWanted(false).contains(slot.getRoom().getType()))
+                    }
+
+                    if (slot.getSchoolClass().getTypeRoomsWanted(false).contains(slot.getRoom().getType())) {
                         totalMeetsRequirement++;
-                    else if(!slot.getSchoolClass().getTypeRoomsWanted(false).contains(slot.getRoom().getType()))
+                    } else if (!slot.getSchoolClass().getTypeRoomsWanted(false).contains(slot.getRoom().getType())) {
                         totalDoesntMeetsRequirement++;
+                    }
                 }
-            } 
+            }
         }
 
-       if(totalHasTypeRoomRequirement == 0 || totalMeetsRequirement == 0 && totalDoesntMeetsRequirement == 0)
-           return 1f;
-       else{
-           float grade = Float.sum((float)(((float) totalMeetsRequirement / (float)totalHasTypeRoomRequirement)), (float)(-0.5 * ((float)totalDoesntMeetsRequirement / (float)totalHasTypeRoomRequirement)));
-           return grade < 0? 0 : grade > 1? 1 : grade;
-       }
+        if (totalHasTypeRoomRequirement == 0 || totalMeetsRequirement == 0 && totalDoesntMeetsRequirement == 0) {
+            return 1f;
+        } else {
+            float grade = Float.sum((float) (((float) totalMeetsRequirement / (float) totalHasTypeRoomRequirement)), (float) (-0.5 * ((float) totalDoesntMeetsRequirement / (float) totalHasTypeRoomRequirement)));
+            return grade < 0 ? 0 : grade > 1 ? 1 : grade;
+        }
     }
-    
+
     private static int idLab = 3;
 }

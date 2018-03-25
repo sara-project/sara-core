@@ -41,12 +41,12 @@ public class EvolutionaryCycle implements IGAEngine {
         ISelection[] selections = {new RankingSelection(), new TournamentSelection()};
         ICrossover[] crossovers = {new TwoPointCrossover(), new UniformCrossover(), new GreatestCrossover()};
         IMutation[] mutations = {new SwapRoomMutation(), new SwapHalfRoomMutation()};
-        
+
         System.out.println("\n------------------");
         System.out.println("Genetic Operators");
-        System.out.println("\t- Selections: " + selections.length + " ["+RankingSelection.class.getSimpleName()+", "+ TournamentSelection.class.getSimpleName()+"]");
-        System.out.println("\t- Crossovers: " + selections.length + " ["+TwoPointCrossover.class.getSimpleName()+", "+GreatestCrossover.class.getSimpleName()+", "+ UniformCrossover.class.getSimpleName()+"]");
-        System.out.println("\t- Mutations: " + selections.length + " ["+SwapRoomMutation.class.getSimpleName()+", "+ SwapHalfRoomMutation.class.getSimpleName()+"]");
+        System.out.println("\t- Selections: " + selections.length + " [" + RankingSelection.class.getSimpleName() + ", " + TournamentSelection.class.getSimpleName() + "]");
+        System.out.println("\t- Crossovers: " + selections.length + " [" + TwoPointCrossover.class.getSimpleName() + ", " + GreatestCrossover.class.getSimpleName() + ", " + UniformCrossover.class.getSimpleName() + "]");
+        System.out.println("\t- Mutations: " + selections.length + " [" + SwapRoomMutation.class.getSimpleName() + ", " + SwapHalfRoomMutation.class.getSimpleName() + "]");
         System.out.println();
 
         this.gaConfiguration = ICore.getInstance().getModelController().getGaConfiguration();
@@ -79,74 +79,73 @@ public class EvolutionaryCycle implements IGAEngine {
         double averageTimeOfMutation = 0;
         double averageTimeOfRefreshPopulation = 0;
         Date startDate, endDate;
-        
+
         startDate = new Date();
         //Generates initial population
-            population = populationFactory.makePopulation();
+        population = populationFactory.makePopulation();
         //End
         endDate = new Date();
         timeOfGenerateInitialPopulation = endDate.getTime() - startDate.getTime();
-        
+
         startDate = new Date();
         //Calculates the fitness of each specimen
-            fitness.evaluate(population);
+        fitness.evaluate(population);
         //End
         endDate = new Date();
         averageTimeOfFitness = (endDate.getTime() - startDate.getTime());
-        
+
         startDate = new Date();
-            population.sortByFitness();
+        population.sortByFitness();
         endDate = new Date();
         averageTimeOfRefreshPopulation = (endDate.getTime() - startDate.getTime());
-        
+
         System.gc();
         while (!terminate.stop(new Generation(++genNumber, population))) {
             //Selects the parents
             startDate = new Date();
-                selection.select(population, this.gaConfiguration.getSelectProbability());
-                //Ensures Elitism (A part of the best specimens of the parents)
-                if(this.gaConfiguration.getElitismProbability() > 0) {
-                    elite.clear();
-                    elite.addAll(population.getBestSpecimens((int) (population.size() * this.gaConfiguration.getElitismProbability()), true));
-                    population.addSpecimens(elite, false);
-                }
+            selection.select(population, this.gaConfiguration.getSelectProbability());
+            //Ensures Elitism (A part of the best specimens of the parents)
+            if (this.gaConfiguration.getElitismProbability() > 0) {
+                elite.clear();
+                elite.addAll(population.getBestSpecimens((int) (population.size() * this.gaConfiguration.getElitismProbability()), true));
+                population.addSpecimens(elite, false);
+            }
             //End
             endDate = new Date();
-            averageTimeOfSelection =+ (endDate.getTime() - startDate.getTime());
-            
+            averageTimeOfSelection = +(endDate.getTime() - startDate.getTime());
+
             startDate = new Date();
             //Cross the parents and generates the offspring
-                crossover.makeOffspring(population);
+            crossover.makeOffspring(population);
             //End 
             endDate = new Date();
-            averageTimeOfCrossover =+ (endDate.getTime() - startDate.getTime());
-            
+            averageTimeOfCrossover = +(endDate.getTime() - startDate.getTime());
+
             //Generates parent-based mutation
             startDate = new Date();
-                mutation.mutate(population, this.gaConfiguration.getMutationProbability(), false);
+            mutation.mutate(population, this.gaConfiguration.getMutationProbability(), false);
             //End
             endDate = new Date();
-            averageTimeOfMutation =+ (endDate.getTime() - startDate.getTime());
-            
+            averageTimeOfMutation = +(endDate.getTime() - startDate.getTime());
+
             startDate = new Date();
             //Calculates the fitness of each specimen
-                fitness.evaluate(population);
+            fitness.evaluate(population);
             //End
             endDate = new Date();
-            averageTimeOfFitness =+ (endDate.getTime() - startDate.getTime());
-            
-            
+            averageTimeOfFitness = +(endDate.getTime() - startDate.getTime());
+
             startDate = new Date();
             //Updates population
-                population.sortByFitness();
-                population.sizeAdjustment();
+            population.sortByFitness();
+            population.sizeAdjustment();
             //End
             endDate = new Date();
-            averageTimeOfRefreshPopulation =+ (endDate.getTime() - startDate.getTime());
+            averageTimeOfRefreshPopulation = +(endDate.getTime() - startDate.getTime());
 
             System.gc();
         }
-        
+
         int maxGenNumber = this.gaConfiguration.getPopulationNumber();
 
         //recording the execution metadata
@@ -177,22 +176,22 @@ public class EvolutionaryCycle implements IGAEngine {
         long averageTimeOfFitness;
         Date startDate, endDate;
         InfoSolution info = new InfoSolution();
-        
+
         startDate = new Date();
         //Generates population based only on current solution
-            ExistingSolutionPopulationFactory.getInstance().setSpecimenData(specimen);
-            IPopulation population = ExistingSolutionPopulationFactory.getInstance().makePopulation();
+        ExistingSolutionPopulationFactory.getInstance().setSpecimenData(specimen);
+        IPopulation population = ExistingSolutionPopulationFactory.getInstance().makePopulation();
         //End
         endDate = new Date();
-        timeOfGenerateInitialPopulation = endDate.getTime() - startDate.getTime(); 
+        timeOfGenerateInitialPopulation = endDate.getTime() - startDate.getTime();
 
         //Calculates the fitness of the current specimen 
-            ICore.getInstance().getModelController().getGaConfiguration().setPopulationNumber(1);
-            fitness.evaluate(population);
+        ICore.getInstance().getModelController().getGaConfiguration().setPopulationNumber(1);
+        fitness.evaluate(population);
         //End
         endDate = new Date();
         averageTimeOfFitness = endDate.getTime() - startDate.getTime();
-        
+
         info.setAverageTimeOfFitness(averageTimeOfFitness);
         info.setTimeOfGenerateInitialPopulation(timeOfGenerateInitialPopulation);
         info.setBestSolution(Arrays.asList(population.getBestSpecimen(true).getChromossomes(false)));
@@ -200,6 +199,6 @@ public class EvolutionaryCycle implements IGAEngine {
 
         return info;
     }
-    
+
     private final GAConfiguration gaConfiguration;
 }

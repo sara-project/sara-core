@@ -80,12 +80,13 @@ public abstract class IModelController {
         this.classSchedules.values().forEach(cs -> clone.put(String.valueOf(cs.getID()), (ClassSchedule) cs.clone()));
         return clone;
     }
-    
+
     public Map<String, ClassSchedule> getClassScheduleByDay(int day) {
         Map<String, ClassSchedule> clone = new HashMap<>();
         this.classSchedules.values().forEach(cs -> {
-            if(cs.getSchedule().getDay() == day)
+            if (cs.getSchedule().getDay() == day) {
                 clone.put(String.valueOf(cs.getID()), (ClassSchedule) cs.clone());
+            }
         });
         return clone;
     }
@@ -107,7 +108,7 @@ public abstract class IModelController {
         slots.values().forEach((s) -> clone.put(String.valueOf(s.getID()), (Slot) s.clone()));
         this.slots = clone;
     }
-    
+
     public GAConfiguration getGaConfiguration() {
         return this.gaConfiguration;
     }
@@ -130,20 +131,20 @@ public abstract class IModelController {
         });
         return classSchedulesByDay;
     }
-    
+
     public Map<Integer, List<ClassSchedule>> separateClassScheduleByClass(final List<ClassSchedule> classSchedules) {
-       Map<Integer, List<ClassSchedule>> classSchedulesByClass = new HashMap<>();
-       
-       classSchedules.forEach((cs) -> {
-           if (!classSchedulesByClass.containsKey(cs.getSchoolClass().getID())) {
-               List<ClassSchedule> list = new ArrayList<>();
-               list.add((ClassSchedule) cs.clone());
-               classSchedulesByClass.put(cs.getSchoolClass().getID(), list);
-           } else {
-               classSchedulesByClass.get(cs.getSchoolClass().getID()).add((ClassSchedule) cs.clone());
-           }
+        Map<Integer, List<ClassSchedule>> classSchedulesByClass = new HashMap<>();
+
+        classSchedules.forEach((cs) -> {
+            if (!classSchedulesByClass.containsKey(cs.getSchoolClass().getID())) {
+                List<ClassSchedule> list = new ArrayList<>();
+                list.add((ClassSchedule) cs.clone());
+                classSchedulesByClass.put(cs.getSchoolClass().getID(), list);
+            } else {
+                classSchedulesByClass.get(cs.getSchoolClass().getID()).add((ClassSchedule) cs.clone());
+            }
         });
-       
+
         return classSchedulesByClass;
     }
 
@@ -191,12 +192,12 @@ public abstract class IModelController {
         });
         return slotsByDay;
     }
-    
+
     public Map<Integer, List<Slot>> separateSlotsBySchoolClass(final List<Slot> slots) {
         Map<Integer, List<Slot>> slotsBySchoolClass = new TreeMap<>();
 
         slots.forEach((slot) -> {
-            if(!slot.isEmpty()) {
+            if (!slot.isEmpty()) {
                 if (!slotsBySchoolClass.containsKey(slot.getSchoolClass().getID())) {
                     List<Slot> list = new ArrayList<>();
                     list.add((Slot) slot.clone());
@@ -273,8 +274,9 @@ public abstract class IModelController {
 
     public Schedule getNextSchedule(final Schedule schedule) {
         for (Schedule sc : this.schedules.values()) {
-            if (sc.equals(new Schedule(0, schedule.getDay(), schedule.getTimeInterval() + 1)))
+            if (sc.equals(new Schedule(0, schedule.getDay(), schedule.getTimeInterval() + 1))) {
                 return (Schedule) sc.clone();
+            }
         }
 
         return null;
@@ -286,21 +288,22 @@ public abstract class IModelController {
         nextClassSchedule.changeSchedule(next);
 
         for (ClassSchedule cs : this.classSchedules.values()) {
-            if (cs.equals(nextClassSchedule))
+            if (cs.equals(nextClassSchedule)) {
                 return (ClassSchedule) cs.clone();
+            }
         }
 
         return null;
     }
-    
+
     public String getRequestType() {
         return this.requestType;
     }
-    
+
     public void setRequestType(String requestType) {
         this.requestType = requestType;
     }
-    
+
     public File getFileName() {
         return this.jsonFile;
     }
@@ -308,7 +311,7 @@ public abstract class IModelController {
     public void setFileName(File jsonFile) {
         this.jsonFile = jsonFile;
     }
-    
+
     protected String requestType;
     protected File jsonFile;
     protected GAConfiguration gaConfiguration;

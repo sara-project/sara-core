@@ -20,42 +20,44 @@ public class GALightSwitch implements IGALightSwitch {
 
     public GALightSwitch(int maxGenerationNumber) {
         this.maxGenerationNumber = maxGenerationNumber;
-        this.fitnessTimeLine =  new TreeMap<>();
+        this.fitnessTimeLine = new TreeMap<>();
     }
 
     @Override
     public boolean stop(IGeneration generation) {
         ISpecimen bestSpecimen = generation.getPopulation(false).getBestSpecimen(false);
-        
-        if(ICore.getInstance().getProjectController().isDebugInfoAGActive())
+
+        if (ICore.getInstance().getProjectController().isDebugInfoAGActive()) {
             this.fitnessTimeLine.put(generation.getNumber(), bestSpecimen.getFitness());
-        
-        if(bestSpecimen != null && bestSpecimen.getFitness() != Float.NaN &&
-          (this.bestSpecimenEver == null || bestSpecimen.isBetterThan(bestSpecimenEver))) {
+        }
+
+        if (bestSpecimen != null && bestSpecimen.getFitness() != Float.NaN
+                && (this.bestSpecimenEver == null || bestSpecimen.isBetterThan(bestSpecimenEver))) {
             this.bestSpecimenEver = (ISpecimen) bestSpecimen.clone();
         }
-        
+
         ICore.getInstance().getUiController().printProgressBar(generation.getNumber(), this.maxGenerationNumber);
         return generation.getNumber() == maxGenerationNumber || !this.keepRunning(generation.getNumber());
     }
-    
+
     @Override
     public List<IChromosome> getBestSolution() {
         List<IChromosome> slots = new ArrayList<>();
         slots.addAll(Arrays.asList(this.bestSpecimenEver.getChromossomes(false)));
         return slots;
     }
-    
+
     @Override
     public List<Float> getFitnessTimeLine() {
-        
+
         List<Float> timeLine = new ArrayList<>();
-     
-        for(int i = 1; i <= this.fitnessTimeLine.keySet().size(); i++)
+
+        for (int i = 1; i <= this.fitnessTimeLine.keySet().size(); i++) {
             timeLine.add(this.fitnessTimeLine.get(i));
+        }
         return timeLine;
     }
-    
+
     @Override
     public Float getBestFitness() {
         return this.bestSpecimenEver.getFitness();
@@ -64,23 +66,24 @@ public class GALightSwitch implements IGALightSwitch {
     private boolean keepRunning(int genNumber) {
         try {
             File jsonFile = ICore.getInstance().getModelController().getFileName();
-            File auxFile = new File("./outputs/aux_"+ jsonFile.getName());
-            
-            if(genNumber == 1  && auxFile.exists())
-                auxFile.delete();
+            File auxFile = new File("./outputs/aux_" + jsonFile.getName());
 
-            if(!auxFile.exists()) {
+            if (genNumber == 1 && auxFile.exists()) {
+                auxFile.delete();
+            }
+
+            if (!auxFile.exists()) {
                 auxFile.createNewFile();
-                
+
                 try (FileWriter writeFile = new FileWriter(auxFile)) {
                     writeFile.write("1");
                 }
             }
-            
+
             String content;
             BufferedReader bfr = new BufferedReader(new FileReader(auxFile));
-            content = bfr .readLine();
-            
+            content = bfr.readLine();
+
             switch (content) {
                 //Continue
                 case "1":
@@ -95,23 +98,23 @@ public class GALightSwitch implements IGALightSwitch {
                         try {
                             time = Integer.parseInt(content);
 
-                        } finally{
+                        } finally {
                             Thread.sleep(time);
                         }
                     } catch (InterruptedException ex) {
-                       return this.keepRunning(genNumber);
+                        return this.keepRunning(genNumber);
                     }
 
                     return this.keepRunning(genNumber);
                 }
             }
-            
+
         } catch (IOException ex) {
-            System.err.println(this.getClass().getSimpleName()+": error occurred while creating control file.");
+            System.err.println(this.getClass().getSimpleName() + ": error occurred while creating control file.");
             return false;
         }
     }
-    
+
     private ISpecimen bestSpecimenEver;
     private final Map<Integer, Float> fitnessTimeLine;
     private final int maxGenerationNumber;

@@ -25,7 +25,7 @@ public class GAConfiguration implements Cloneable {
             GAConfiguration.hasInitialized = true;
         }
     }
-    
+
     @Override
     public Object clone() {
         return new GAConfiguration(
@@ -185,19 +185,19 @@ public class GAConfiguration implements Cloneable {
 
         return string;
     }
-    
-        private GAConfiguration(int populationNumber, int maxGeneration, double mutationProbability,
-                            double crossoverProbability, double selectProbability, double elitismProbability,
-                            IFitness fitness, IMutation mutation, ICrossover crossover, ISelection selection, 
-                            IGALightSwitch gaLightSwitch) {
-    
+
+    private GAConfiguration(int populationNumber, int maxGeneration, double mutationProbability,
+            double crossoverProbability, double selectProbability, double elitismProbability,
+            IFitness fitness, IMutation mutation, ICrossover crossover, ISelection selection,
+            IGALightSwitch gaLightSwitch) {
+
         this.populationNumber = populationNumber;
         this.maxGeneration = maxGeneration;
         this.mutationProbability = mutationProbability;
         this.crossoverProbability = crossoverProbability;
         this.selectProbability = selectProbability;
         this.elitismProbability = elitismProbability;
-          
+
         this.fitness = fitness;
         this.mutation = mutation;
         this.crossover = crossover;

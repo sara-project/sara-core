@@ -9,7 +9,7 @@ public class RankingSelection implements ISelection {
     public void select(IPopulation population, double rate) {
         int popSize = population.size();
         int countSelections = (int) (popSize * rate);
-        
+
         population.sortByFitness();
         population.removeLastSpecimen(population.size() - countSelections);
     }

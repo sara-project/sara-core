@@ -7,10 +7,11 @@ import org.sara.interfaces.model.Slot;
 public class Gene implements IGene {
 
     public Gene(Object geneticInformation) {
-        if (geneticInformation instanceof Slot)
+        if (geneticInformation instanceof Slot) {
             this.information = (Slot) ((Slot) geneticInformation).clone();
-        else
+        } else {
             this.information = null;
+        }
     }
 
     public boolean hasContent() {
@@ -19,7 +20,7 @@ public class Gene implements IGene {
 
     @Override
     public Object getAlleleContent(boolean clone) {
-        return clone? (this.hasContent()? information.getSchoolClass().clone(): null) : information.getSchoolClass();
+        return clone ? (this.hasContent() ? information.getSchoolClass().clone() : null) : information.getSchoolClass();
     }
 
     @Override
@@ -28,17 +29,17 @@ public class Gene implements IGene {
             if (value == null) {
                 this.information.toEmpty();
                 return true;
-            }
-            else 
+            } else {
                 return this.information.fill((SchoolClass) ((SchoolClass) value).clone());
+            }
         }
-        
+
         return false;
     }
 
     @Override
     public Object getAllele(boolean clone) {
-        return clone? this.information.clone() :this.information;
+        return clone ? this.information.clone() : this.information;
     }
 
     @Override

@@ -21,7 +21,7 @@ public abstract class IProjectController implements IObservable {
     public abstract List<IPlugin> pluginsByType(Object type);
 
     public abstract void setDataJars(URLClassLoader dataJars);
-    
+
     public abstract boolean isDebugInfoAGActive();
 
     public IGAEngine getGAEngine() {

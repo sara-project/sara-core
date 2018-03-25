@@ -21,9 +21,9 @@ public class UiController implements IUiController {
         progressBar += " - (" + currentValue + "/" + maxValue + ")";
         System.out.print( progressBar + "\r" );
     }
-    
+
     @Override
     public void printMemoryInfo() {
-        System.out.println( "Used Memory: " + Utils.maxUnit(Runtime.getRuntime().totalMemory()));
+        System.out.println( "Used Memory: " + Utils.maxUnit( Runtime.getRuntime().totalMemory() ) );
     }
 }

@@ -6,7 +6,7 @@ import org.sara.interfaces.algorithms.ga.operator.fitness.criteria.ICriteria;
 import org.sara.interfaces.model.Slot;
 
 public class BestUseSpaceCriteria extends ICriteria {
-    
+
     public BestUseSpaceCriteria() {
         this(false);
     }
@@ -22,28 +22,29 @@ public class BestUseSpaceCriteria extends ICriteria {
         int totalUsedPlaces = 0;
         int totalOverload = 0; //Qunatidade de Turmas que são maiores do que a Sala
         int totalUsed = 0;
-        
-        for(IGene gene : chromosome.getGenes(false)) {
+
+        for (IGene gene : chromosome.getGenes(false)) {
             Slot slot = (Slot) gene.getAllele(false);
-            if(!slot.isEmpty()) {
+            if (!slot.isEmpty()) {
                 totalUsed++;
                 totalUsedPlaces += slot.getRoom().getCapacity();
                 int result = slot.useOfRoom(slot.getSchoolClass());
-                
-                if(result == 0)
+
+                if (result == 0) {
                     totalExactAmount++;
-                else if(result > 0)
+                } else if (result > 0) {
                     totalUnusedPlaces += result;
-                else
+                } else {
                     totalOverload++;
+                }
             }
         }
-       
-        if(totalOverload > 0) {
+
+        if (totalOverload > 0) {
             this.required = totalOverload > 0;
             return 0;
         }
 
-        return Float.sum((float)(0.4 * ((float)totalExactAmount / (float)totalUsed)), (float)(0.8 * ((float)totalUnusedPlaces / (float)totalUsedPlaces)));
+        return Float.sum((float) (0.4 * ((float) totalExactAmount / (float) totalUsed)), (float) (0.8 * ((float) totalUnusedPlaces / (float) totalUsedPlaces)));
     }
 }
