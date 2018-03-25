@@ -5,15 +5,16 @@ import java.util.List;
 
 public class Room implements Cloneable {
     
-    public Room(int id, int capacity, int area, List<Requirement> requirements) {
+    public Room(int id, int capacity, int area, List<Requirement> requirements, int type) {
         this.id = id;
         this.capacity = capacity;
         this.area = area;
         this.specifications = requirements;
+        this.type = type;
     }
 
-    public Room(int id, int capacity, int area) {
-        this(id, capacity, area, new ArrayList<>());
+    public Room(int id, int capacity, int area, int type) {
+        this(id, capacity, area, new ArrayList<>(), type);
     }
 
     public boolean thisFits(SchoolClass schoolClass) {
@@ -31,6 +32,10 @@ public class Room implements Cloneable {
     public int getArea() {
         return this.area;
     }
+    
+    public int getType() {
+        return this.type;
+    }
 
     public int getCapacity() {
         return this.capacity;
@@ -47,7 +52,7 @@ public class Room implements Cloneable {
     
     @Override
     public Object clone() {
-        return new Room(id, capacity, area, this.getSpecifications(true));
+        return new Room(id, capacity, area, this.getSpecifications(true), type);
     }
     
     public boolean containsRequirements(Requirement requirement) {
@@ -60,6 +65,7 @@ public class Room implements Cloneable {
 
     private final int id;
     private final int area;
+    private final int type;
     private final int capacity;
     private final List<Requirement> specifications;
 }

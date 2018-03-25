@@ -41,7 +41,7 @@ public class CriteriaManager implements ICriteriaManager {
         float fitness = 0f;
 
         for(Integer c : this.criterias.keySet()) {
-            float grade = (this.criterias.size() - c) * this.criterias.get(c).execute(chromosome);
+            float grade =  (this.criterias.size() - c) * this.criterias.get(c).execute(chromosome);
             if(this.criterias.get(c).isRequired() && grade == 0) {
                 fitness = 0f;
                 break;

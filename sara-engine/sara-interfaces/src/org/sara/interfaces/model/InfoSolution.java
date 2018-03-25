@@ -42,35 +42,35 @@ public class InfoSolution {
         this.timeOfGenerateInitialPopulation = timeOfGenerateInitialPopulation;
     }
 
-    public long getAverageTimeOfFitness() {
+    public double getAverageTimeOfFitness() {
         return averageTimeOfFitness;
     }
 
-    public void setAverageTimeOfFitness(long averageTimeOfFitness) {
+    public void setAverageTimeOfFitness(double averageTimeOfFitness) {
         this.averageTimeOfFitness = averageTimeOfFitness;
     }
 
-    public long getAverageTimeOfSelection() {
+    public double getAverageTimeOfSelection() {
         return averageTimeOfSelection;
     }
 
-    public void setAverageTimeOfSelection(long averageTimeOfSelection) {
+    public void setAverageTimeOfSelection(double averageTimeOfSelection) {
         this.averageTimeOfSelection = averageTimeOfSelection;
     }
 
-    public long getAverageTimeOfCrossover() {
+    public double getAverageTimeOfCrossover() {
         return averageTimeOfCrossover;
     }
 
-    public void setAverageTimeOfCrossover(long averageTimeOfCrossover) {
+    public void setAverageTimeOfCrossover(double averageTimeOfCrossover) {
         this.averageTimeOfCrossover = averageTimeOfCrossover;
     }
 
-    public long getAverageTimeOfMutation() {
+    public double getAverageTimeOfMutation() {
         return averageTimeOfMutation;
     }
 
-    public void setAverageTimeOfMutation(long averageTimeOfMutation) {
+    public void setAverageTimeOfMutation(double averageTimeOfMutation) {
         this.averageTimeOfMutation = averageTimeOfMutation;
     }
 
@@ -147,11 +147,11 @@ public class InfoSolution {
         this.totalOfUnallocatedScheduleClasses = totalOfUnallocatedScheduleClasses;
     }
 
-    public long getAverageTimeOfRefreshPopulation() {
+    public double getAverageTimeOfRefreshPopulation() {
         return averageTimeOfRefreshPopulation;
     }
 
-    public void setAverageTimeOfRefreshPopulation(long averageTimeOfRefreshPopulation) {
+    public void setAverageTimeOfRefreshPopulation(double averageTimeOfRefreshPopulation) {
         this.averageTimeOfRefreshPopulation = averageTimeOfRefreshPopulation;
     }
     
@@ -285,10 +285,13 @@ public class InfoSolution {
 
                 if(!slot.isEmpty()) {
                     _totalFilledSlots++;
-                    _totalDuplicateAllocation = cSchedules.stream().filter((cs) -> (slot.getSchoolClass().equals(cs.getSchoolClass()) && slot.getSchedule().equals(cs.getSchedule()))).map((_item) -> 1).reduce(_totalDuplicateAllocation, Integer::sum);
+                    int numberOfAllocatedcSchedules = cSchedules.stream().filter((cs) -> (slot.getSchoolClass().equals(cs.getSchoolClass()) && slot.getSchedule().equals(cs.getSchedule()))).map((_item) -> 1).reduce(_totalDuplicateAllocation, Integer::sum);
                     
+                    if(numberOfAllocatedcSchedules > slot.getSchoolClass().getAllSchoolClassSchedules().size())
+                         _totalDuplicateAllocation = numberOfAllocatedcSchedules -slot.getSchoolClass().getAllSchoolClassSchedules().size();
+
                     ClassSchedule cs = slot.getClassSchedule();
-                    
+
                     if(slot.getRoom().getCapacity() >= slot.getSchoolClass().getSize())
                         totalUnusedPlaces += (slot.getRoom().getCapacity() - slot.getSchoolClass().getSize());
                     else
@@ -342,11 +345,11 @@ public class InfoSolution {
     private int totalOfAllocatedScheduleClasses;
     private int totalOfUnallocatedScheduleClasses;
     private long timeOfGenerateInitialPopulation;
-    private long averageTimeOfFitness;
-    private long averageTimeOfSelection;
-    private long averageTimeOfCrossover;
-    private long averageTimeOfMutation;
-    private long averageTimeOfRefreshPopulation;
+    private double averageTimeOfFitness;
+    private double averageTimeOfSelection;
+    private double averageTimeOfCrossover;
+    private double averageTimeOfMutation;
+    private double averageTimeOfRefreshPopulation;
     private Date startTime;
     private Date endTime;
     private List<Float> fitnessTimeLine;

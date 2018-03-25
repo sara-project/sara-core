@@ -202,10 +202,12 @@ public class JSONReader {
                 Object id = room.get( "id" );
                 Object capacity = room.get( "capacity" );
                 Object area = room.get( "area" );
+                Object type = room.get( "type" );
+
                 JSONArray specifications = (JSONArray) room.get( "specifications" );
 
-                if (id == null || capacity == null || specifications == null || area == null) {
-                    throw new Exception( "Json File is invalid. There is a missing key (id, capacity, area,s or specifications) to Room model." );
+                if (id == null || capacity == null || specifications == null || area == null || type == null) {
+                    throw new Exception( "Json File is invalid. There is a missing key (id, capacity, areas, type or specifications) to Room model." );
                 }
 
                 if (roomsHash.containsKey( id.toString() )) {
@@ -224,11 +226,13 @@ public class JSONReader {
                     
                     requirements.add( reqObj );
                 }
+                
                 try {
+                    
                     roomsHash.put( id.toString(), new Room( Integer.parseInt( id.toString() ),
                             Integer.parseInt( capacity.toString() ),
                             Integer.parseInt( area.toString() ),
-                            requirements));
+                            requirements,  Integer.parseInt( type.toString() )));
                 } catch (NumberFormatException ex) {
                     throw new Exception( "Json File is invalid. Some value is wrong. " + ex.getMessage() );
                 }
@@ -297,9 +301,10 @@ public class JSONReader {
                 Object size = s_class.get( "size" );
                 Object schedules = s_class.get( "schedules" );
                 JSONArray requirementsArray = (JSONArray) s_class.get( "requirements" );
+                JSONArray typeRoomsWantedArray = (JSONArray) s_class.get( "type_rooms_wanted" );
 
-                if (id == null || size == null || schedules == null || requirementsArray == null) {
-                    throw new Exception( "Json File is invalid. There is a missing key (id, size, schedules, or requirements) to School Class model." );
+                if (id == null || size == null || schedules == null || requirementsArray == null || typeRoomsWantedArray == null) {
+                    throw new Exception( "Json File is invalid. There is a missing key (id, size, schedules, or requirements, type_rooms_wanted) to School Class model." );
                 }
 
                 if (classesHash.containsKey( id.toString() )) {
@@ -318,12 +323,25 @@ public class JSONReader {
                     
                     requirements.add( reqObj );
                 }
+                
+                reqit = typeRoomsWantedArray.iterator();
+                List<Integer> typeRoomsWanted = new ArrayList<>();
+                while (reqit.hasNext()) {
+                    int trw = Integer.parseInt( reqit.next().toString());
+                    
+                    if(!roomsHash.values().stream().anyMatch( r ->  r.getType() == trw))
+                        throw new Exception( "Json File is invalid. There is any Requirement with id = " + trw + "." );
+
+                    typeRoomsWanted.add( trw );
+                }
+                
 
                 //Get School Class Schedules
                 JSONArray jschedules = (JSONArray) schedules;
                 Iterator sch = jschedules.iterator();
                 SchoolClass sClass = new SchoolClass( Integer.parseInt( id.toString() ), Integer.parseInt( size.toString() ) );
                 sClass.addRequirements( requirements );
+                sClass.addTypeRoomsWanted( typeRoomsWanted );
 
                 while (sch.hasNext()) {
                     String scheduleID = sch.next().toString();

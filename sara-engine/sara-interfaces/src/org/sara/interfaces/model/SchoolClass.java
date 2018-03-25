@@ -6,10 +6,11 @@ import java.util.List;
 
 public class SchoolClass implements Cloneable {
 
-    public SchoolClass(int id, int size, List<Schedule> schedules,  List<Requirement> requirements) {
+    public SchoolClass(int id, int size, List<Schedule> schedules,  List<Requirement> requirements, List<Integer> typeRoomsWanted) {
         this(id, size);
         this.schedules.add(schedules);
         this.requirements.addAll(requirements);
+        this.typeRoomsWanted.addAll(typeRoomsWanted);
     }
     
     public SchoolClass(int id, int size, List<Schedule> schedules) {
@@ -22,6 +23,7 @@ public class SchoolClass implements Cloneable {
         this.size = size;
         this.schedules = new SchedulesMap(this);
         this.requirements = new ArrayList<>();
+        this.typeRoomsWanted = new ArrayList<>();
     }
 
     public int getID() {
@@ -30,6 +32,19 @@ public class SchoolClass implements Cloneable {
     
     public int getSize() {
         return this.size;
+    }
+    
+    public void addTypeRoomsWanted(List<Integer> typeRoomsWanted) {
+        this.typeRoomsWanted.addAll(typeRoomsWanted);
+    }
+
+    public List<Integer> getTypeRoomsWanted(boolean clone) {
+         if(!clone)
+            return this.typeRoomsWanted;
+
+        List<Integer> tmp = new ArrayList<>();
+        this.typeRoomsWanted.forEach(r -> tmp.add(r + 0));
+        return this.typeRoomsWanted;
     }
 
     public void addRequirements(List<Requirement> requirements) {
@@ -47,6 +62,10 @@ public class SchoolClass implements Cloneable {
 
     public boolean hasAccessibilityRequirement() {
         return this.requirements.stream().anyMatch((r) -> (r.getType() == 2));
+    }
+    
+    public boolean hasTypeRoomRequirement() {
+        return this.requirements.stream().anyMatch((r) -> (r.getID() == 4));
     }
 
     public int howBig(int size) {
@@ -122,7 +141,7 @@ public class SchoolClass implements Cloneable {
 
     @Override
     public Object clone() {
-        return new SchoolClass(id, size, schedules.getAllSchedules(true), this.getRequirements(true));
+        return new SchoolClass(id, size, schedules.getAllSchedules(true), this.getRequirements(true), this.getTypeRoomsWanted(true));
     }
 
     private List<Schedule> getAllSchedules(boolean clone) {
@@ -133,6 +152,7 @@ public class SchoolClass implements Cloneable {
     private final int size;
     private final SchedulesMap schedules;
     private final List<Requirement> requirements;
+    private final List<Integer> typeRoomsWanted;
 
     private class SchedulesMap {
 

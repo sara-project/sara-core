@@ -1,6 +1,7 @@
 package org.sara.sarageneticalgorithmsplugin.ga;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -8,7 +9,6 @@ import org.sara.sarageneticalgorithmsplugin.ga.factory.RandomPopulationFactory;
 import org.sara.interfaces.ICore;
 import org.sara.interfaces.ga.factory.IPopulationFactory;
 import org.sara.interfaces.algorithms.ga.IGAEngine;
-import org.sara.interfaces.algorithms.ga.model.IChromosome;
 import org.sara.interfaces.algorithms.ga.model.ISpecimen;
 import org.sara.interfaces.algorithms.ga.operator.ICrossover;
 import org.sara.interfaces.algorithms.ga.operator.IFitness;
@@ -18,7 +18,6 @@ import org.sara.interfaces.algorithms.ga.model.IPopulation;
 import org.sara.interfaces.algorithms.ga.operator.ISelection;
 import org.sara.interfaces.model.GAConfiguration;
 import org.sara.interfaces.model.InfoSolution;
-import org.sara.interfaces.model.Slot;
 import org.sara.sarageneticalgorithmsplugin.ga.factory.ExistingSolutionPopulationFactory;
 import org.sara.sarageneticalgorithmsplugin.operator.crossover.RandomCrossover;
 import org.sara.sarageneticalgorithmsplugin.operator.crossover.TwoPointCrossover;
@@ -74,11 +73,11 @@ public class EvolutionaryCycle implements IGAEngine {
 
         int genNumber = 0;
         long timeOfGenerateInitialPopulation;
-        long averageTimeOfFitness;
-        long averageTimeOfSelection = 0;
-        long averageTimeOfCrossover = 0;
-        long averageTimeOfMutation = 0;
-        long averageTimeOfRefreshPopulation = 0;
+        double averageTimeOfFitness;
+        double averageTimeOfSelection = 0;
+        double averageTimeOfCrossover = 0;
+        double averageTimeOfMutation = 0;
+        double averageTimeOfRefreshPopulation = 0;
         Date startDate, endDate;
         
         startDate = new Date();
@@ -186,18 +185,17 @@ public class EvolutionaryCycle implements IGAEngine {
         //End
         endDate = new Date();
         timeOfGenerateInitialPopulation = endDate.getTime() - startDate.getTime(); 
-        
-        
+
         //Calculates the fitness of the current specimen 
             ICore.getInstance().getModelController().getGaConfiguration().setPopulationNumber(1);
             fitness.evaluate(population);
         //End
         endDate = new Date();
         averageTimeOfFitness = endDate.getTime() - startDate.getTime();
-
+        
         info.setAverageTimeOfFitness(averageTimeOfFitness);
         info.setTimeOfGenerateInitialPopulation(timeOfGenerateInitialPopulation);
-        info.setBestSolution(new ArrayList<>((Collection) chromossomes));
+        info.setBestSolution(Arrays.asList(population.getBestSpecimen(true).getChromossomes(false)));
         info.setFitnessOfTheBestSolution(population.getBestSpecimen(false).getFitness());
 
         return info;

@@ -10,6 +10,7 @@ import org.sara.interfaces.algorithms.ga.operator.IFitness;
 import org.sara.interfaces.algorithms.ga.model.IPopulation;
 import org.sara.sarageneticalgorithmsplugin.operator.fitness.criteria.AccessibilityCriteria;
 import org.sara.sarageneticalgorithmsplugin.operator.fitness.criteria.BestUseSpaceCriteria;
+import org.sara.sarageneticalgorithmsplugin.operator.fitness.criteria.ClassTypeRoomRequerimentCriteria;
 import org.sara.sarageneticalgorithmsplugin.operator.fitness.criteria.ClassRoomExchangeCriteria;
 import org.sara.sarageneticalgorithmsplugin.operator.fitness.criteria.DuplicateAllocationCriteria;
 import org.sara.sarageneticalgorithmsplugin.operator.fitness.criteria.UnallocatedClassCriteria;
@@ -19,15 +20,16 @@ public final class IFBACAFitness implements IFitness {
     public IFBACAFitness(boolean multithreaded) {
         this.setMultithreaded(multithreaded);
         this.criteriaManager = new CriteriaManager();
-        //Constraints filters
 
         //Quality filters
         this.criteriaManager.addCriteria(new UnallocatedClassCriteria()); //Q1
         this.criteriaManager.addCriteria(new BestUseSpaceCriteria());//Q3 (and C3 too)
+        this.criteriaManager.addCriteria(new ClassTypeRoomRequerimentCriteria()); //Q6 e Q7
         this.criteriaManager.addCriteria(new ClassRoomExchangeCriteria()); //Q4 e Q5
         this.criteriaManager.addCriteria(new AccessibilityCriteria()); //Q2
+        
+        //Constraints filters
         this.criteriaManager.addCriteria(new DuplicateAllocationCriteria(true)); //C2
-        //this.criteriaManager.addCriteria(new ClassRequerimentCriteria()); //Q6 e Q7
     }
 
     @Override

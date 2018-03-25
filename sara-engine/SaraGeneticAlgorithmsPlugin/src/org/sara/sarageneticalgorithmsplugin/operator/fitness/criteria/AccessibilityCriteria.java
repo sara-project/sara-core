@@ -20,27 +20,28 @@ public class AccessibilityCriteria extends ICriteria {
     public float execute(IChromosome chromosome) {
         int totalMeetsRequirement = 0;
         int totalDoesntMeetsRequirement = 0;
-        int totalUsed = 0;
+        int totalHasAccessibilityRequirement = 0;
         
         for(IGene gene : chromosome.getGenes(false)) {
             Slot slot = (Slot) gene.getAllele(false);
             if(!slot.isEmpty()) {
-                totalUsed++;
+                
+                if(slot.getSchoolClass().hasAccessibilityRequirement()) {
+                    totalHasAccessibilityRequirement++;
 
-                if(slot.getSchoolClass().hasAccessibilityRequirement() && slot.getRoom().hasAccessibilityRequirement())
-                    totalMeetsRequirement++;
-                else if(slot.getSchoolClass().hasAccessibilityRequirement() && !slot.getRoom().hasAccessibilityRequirement())
-                    totalDoesntMeetsRequirement++;
+                    if(slot.getRoom().hasAccessibilityRequirement())
+                        totalMeetsRequirement++;
+                    else if(!slot.getRoom().hasAccessibilityRequirement())
+                        totalDoesntMeetsRequirement++;
+                }
             } 
         }
         
-        if(totalUsed == 0)
-            return 0f;
-        
-       if(totalMeetsRequirement == 0 && totalDoesntMeetsRequirement == 0)
+         if(totalHasAccessibilityRequirement == 0 || totalMeetsRequirement == 0 && totalDoesntMeetsRequirement == 0)
            return 1f;
+         
        else{
-           float grade = Float.sum((float)(((float) totalMeetsRequirement / (float)totalUsed)), (float)(-1.0 * ((float)totalDoesntMeetsRequirement / (float)totalUsed)));
+           float grade = Float.sum((float)(((float) totalMeetsRequirement / (float)totalHasAccessibilityRequirement)), (float)(-0.5 * ((float)totalDoesntMeetsRequirement / (float)totalHasAccessibilityRequirement)));
            return grade < 0? 0 : grade;
        }
     }
