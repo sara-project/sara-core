@@ -1,12 +1,12 @@
 {
     "request_type":"class_assignment",
     "ga_config":{
-        "population_number":100,
-        "max_generation":1000,
-        "mutation_probability":0.2,
-        "crossover_probability":0.25,
+        "population_number":500,
+        "max_generation":500,
+        "mutation_probability":0.05,
+        "crossover_probability":0.5,
         "select_probability":0.5,
-        "elitism_probability":0
+        "elitism_probability":0.1
     },
     "requirements":[
         {
@@ -174,142 +174,6 @@
     ],
     "rooms":[
         {
-            "id":29,
-            "specifications":[],
-            "area":2,
-            "type":1,
-            "capacity":40
-        },
-        {
-            "id":26,
-            "specifications":[],
-            "area":2,
-            "type":1,
-            "capacity":45
-        },
-        {
-            "id":25,
-            "specifications":[],
-            "area":2,
-            "type":1,
-            "capacity":45
-        },
-        {
-            "id":27,
-            "specifications":[],
-            "area":2,
-            "type":1,
-            "capacity":40
-        },
-        {
-            "id":17,
-            "specifications":[
-                3
-            ],
-            "area":3,
-            "type":1,
-            "capacity":35
-        },
-        {
-            "id":18,
-            "specifications":[
-                3
-            ],
-            "area":3,
-            "type":1,
-            "capacity":35
-        },
-        {
-            "id":19,
-            "specifications":[
-                3
-            ],
-            "area":3,
-            "type":1,
-            "capacity":40
-        },
-        {
-            "id":20,
-            "specifications":[
-                3
-            ],
-            "area":3,
-            "type":1,
-            "capacity":40
-        },
-        {
-            "id":21,
-            "specifications":[
-                3
-            ],
-            "area":3,
-            "type":1,
-            "capacity":35
-        },
-        {
-            "id":22,
-            "specifications":[
-                3
-            ],
-            "area":3,
-            "type":1,
-            "capacity":35
-        },
-        {
-            "id":23,
-            "specifications":[
-                3
-            ],
-            "area":3,
-            "type":1,
-            "capacity":40
-        },
-        {
-            "id":24,
-            "specifications":[
-                2
-            ],
-            "area":5,
-            "type":1,
-            "capacity":45
-        },
-        {
-            "id":30,
-            "specifications":[
-                2
-            ],
-            "area":5,
-            "type":1,
-            "capacity":40
-        },
-        {
-            "id":34,
-            "specifications":[
-                2
-            ],
-            "area":8,
-            "type":1,
-            "capacity":20
-        },
-        {
-            "id":33,
-            "specifications":[
-                2
-            ],
-            "area":8,
-            "type":1,
-            "capacity":20
-        },
-        {
-            "id":10,
-            "specifications":[
-                2
-            ],
-            "area":9,
-            "type":2,
-            "capacity":45
-        },
-        {
             "id":11,
             "specifications":[
                 3
@@ -391,13 +255,6 @@
             "capacity":30
         },
         {
-            "id":5,
-            "specifications":[],
-            "area":10,
-            "type":1,
-            "capacity":30
-        },
-        {
             "id":6,
             "specifications":[
                 3
@@ -473,86 +330,6 @@
     ],
     "slots":[
         {
-            "id":2659,
-            "room":29,
-            "schedule":13
-        },
-        {
-            "id":2463,
-            "room":26,
-            "schedule":13
-        },
-        {
-            "id":2365,
-            "room":25,
-            "schedule":13
-        },
-        {
-            "id":2561,
-            "room":27,
-            "schedule":13
-        },
-        {
-            "id":1581,
-            "room":17,
-            "schedule":13
-        },
-        {
-            "id":1679,
-            "room":18,
-            "schedule":13
-        },
-        {
-            "id":1777,
-            "room":19,
-            "schedule":13
-        },
-        {
-            "id":1875,
-            "room":20,
-            "schedule":13
-        },
-        {
-            "id":1973,
-            "room":21,
-            "schedule":13
-        },
-        {
-            "id":2071,
-            "room":22,
-            "schedule":13
-        },
-        {
-            "id":2169,
-            "room":23,
-            "schedule":13
-        },
-        {
-            "id":2267,
-            "room":24,
-            "schedule":13
-        },
-        {
-            "id":2757,
-            "room":30,
-            "schedule":13
-        },
-        {
-            "id":3149,
-            "room":34,
-            "schedule":13
-        },
-        {
-            "id":3051,
-            "room":33,
-            "schedule":13
-        },
-        {
-            "id":895,
-            "room":10,
-            "schedule":13
-        },
-        {
             "id":993,
             "room":11,
             "schedule":13
@@ -595,11 +372,6 @@
         {
             "id":3247,
             "room":35,
-            "schedule":13
-        },
-        {
-            "id":405,
-            "room":5,
             "schedule":13
         },
         {
@@ -648,86 +420,6 @@
             "schedule":13
         },
         {
-            "id":2660,
-            "room":29,
-            "schedule":14
-        },
-        {
-            "id":2464,
-            "room":26,
-            "schedule":14
-        },
-        {
-            "id":2366,
-            "room":25,
-            "schedule":14
-        },
-        {
-            "id":2562,
-            "room":27,
-            "schedule":14
-        },
-        {
-            "id":1582,
-            "room":17,
-            "schedule":14
-        },
-        {
-            "id":1680,
-            "room":18,
-            "schedule":14
-        },
-        {
-            "id":1778,
-            "room":19,
-            "schedule":14
-        },
-        {
-            "id":1876,
-            "room":20,
-            "schedule":14
-        },
-        {
-            "id":1974,
-            "room":21,
-            "schedule":14
-        },
-        {
-            "id":2072,
-            "room":22,
-            "schedule":14
-        },
-        {
-            "id":2170,
-            "room":23,
-            "schedule":14
-        },
-        {
-            "id":2268,
-            "room":24,
-            "schedule":14
-        },
-        {
-            "id":2758,
-            "room":30,
-            "schedule":14
-        },
-        {
-            "id":3150,
-            "room":34,
-            "schedule":14
-        },
-        {
-            "id":3052,
-            "room":33,
-            "schedule":14
-        },
-        {
-            "id":896,
-            "room":10,
-            "schedule":14
-        },
-        {
             "id":994,
             "room":11,
             "schedule":14
@@ -770,11 +462,6 @@
         {
             "id":3248,
             "room":35,
-            "schedule":14
-        },
-        {
-            "id":406,
-            "room":5,
             "schedule":14
         },
         {
@@ -823,86 +510,6 @@
             "schedule":14
         },
         {
-            "id":2661,
-            "room":29,
-            "schedule":15
-        },
-        {
-            "id":2465,
-            "room":26,
-            "schedule":15
-        },
-        {
-            "id":2367,
-            "room":25,
-            "schedule":15
-        },
-        {
-            "id":2563,
-            "room":27,
-            "schedule":15
-        },
-        {
-            "id":1583,
-            "room":17,
-            "schedule":15
-        },
-        {
-            "id":1681,
-            "room":18,
-            "schedule":15
-        },
-        {
-            "id":1779,
-            "room":19,
-            "schedule":15
-        },
-        {
-            "id":1877,
-            "room":20,
-            "schedule":15
-        },
-        {
-            "id":1975,
-            "room":21,
-            "schedule":15
-        },
-        {
-            "id":2073,
-            "room":22,
-            "schedule":15
-        },
-        {
-            "id":2171,
-            "room":23,
-            "schedule":15
-        },
-        {
-            "id":2269,
-            "room":24,
-            "schedule":15
-        },
-        {
-            "id":2759,
-            "room":30,
-            "schedule":15
-        },
-        {
-            "id":3151,
-            "room":34,
-            "schedule":15
-        },
-        {
-            "id":3053,
-            "room":33,
-            "schedule":15
-        },
-        {
-            "id":897,
-            "room":10,
-            "schedule":15
-        },
-        {
             "id":995,
             "room":11,
             "schedule":15
@@ -945,11 +552,6 @@
         {
             "id":3249,
             "room":35,
-            "schedule":15
-        },
-        {
-            "id":407,
-            "room":5,
             "schedule":15
         },
         {
@@ -998,86 +600,6 @@
             "schedule":15
         },
         {
-            "id":2662,
-            "room":29,
-            "schedule":16
-        },
-        {
-            "id":2466,
-            "room":26,
-            "schedule":16
-        },
-        {
-            "id":2368,
-            "room":25,
-            "schedule":16
-        },
-        {
-            "id":2564,
-            "room":27,
-            "schedule":16
-        },
-        {
-            "id":1584,
-            "room":17,
-            "schedule":16
-        },
-        {
-            "id":1682,
-            "room":18,
-            "schedule":16
-        },
-        {
-            "id":1780,
-            "room":19,
-            "schedule":16
-        },
-        {
-            "id":1878,
-            "room":20,
-            "schedule":16
-        },
-        {
-            "id":1976,
-            "room":21,
-            "schedule":16
-        },
-        {
-            "id":2074,
-            "room":22,
-            "schedule":16
-        },
-        {
-            "id":2172,
-            "room":23,
-            "schedule":16
-        },
-        {
-            "id":2270,
-            "room":24,
-            "schedule":16
-        },
-        {
-            "id":2760,
-            "room":30,
-            "schedule":16
-        },
-        {
-            "id":3152,
-            "room":34,
-            "schedule":16
-        },
-        {
-            "id":3054,
-            "room":33,
-            "schedule":16
-        },
-        {
-            "id":898,
-            "room":10,
-            "schedule":16
-        },
-        {
             "id":996,
             "room":11,
             "schedule":16
@@ -1120,11 +642,6 @@
         {
             "id":3250,
             "room":35,
-            "schedule":16
-        },
-        {
-            "id":408,
-            "room":5,
             "schedule":16
         },
         {
@@ -1173,86 +690,6 @@
             "schedule":16
         },
         {
-            "id":2663,
-            "room":29,
-            "schedule":17
-        },
-        {
-            "id":2467,
-            "room":26,
-            "schedule":17
-        },
-        {
-            "id":2369,
-            "room":25,
-            "schedule":17
-        },
-        {
-            "id":2565,
-            "room":27,
-            "schedule":17
-        },
-        {
-            "id":1585,
-            "room":17,
-            "schedule":17
-        },
-        {
-            "id":1683,
-            "room":18,
-            "schedule":17
-        },
-        {
-            "id":1781,
-            "room":19,
-            "schedule":17
-        },
-        {
-            "id":1879,
-            "room":20,
-            "schedule":17
-        },
-        {
-            "id":1977,
-            "room":21,
-            "schedule":17
-        },
-        {
-            "id":2075,
-            "room":22,
-            "schedule":17
-        },
-        {
-            "id":2173,
-            "room":23,
-            "schedule":17
-        },
-        {
-            "id":2271,
-            "room":24,
-            "schedule":17
-        },
-        {
-            "id":2761,
-            "room":30,
-            "schedule":17
-        },
-        {
-            "id":3153,
-            "room":34,
-            "schedule":17
-        },
-        {
-            "id":3055,
-            "room":33,
-            "schedule":17
-        },
-        {
-            "id":899,
-            "room":10,
-            "schedule":17
-        },
-        {
             "id":997,
             "room":11,
             "schedule":17
@@ -1295,11 +732,6 @@
         {
             "id":3251,
             "room":35,
-            "schedule":17
-        },
-        {
-            "id":409,
-            "room":5,
             "schedule":17
         },
         {
@@ -1348,86 +780,6 @@
             "schedule":17
         },
         {
-            "id":2664,
-            "room":29,
-            "schedule":18
-        },
-        {
-            "id":2468,
-            "room":26,
-            "schedule":18
-        },
-        {
-            "id":2370,
-            "room":25,
-            "schedule":18
-        },
-        {
-            "id":2566,
-            "room":27,
-            "schedule":18
-        },
-        {
-            "id":1586,
-            "room":17,
-            "schedule":18
-        },
-        {
-            "id":1684,
-            "room":18,
-            "schedule":18
-        },
-        {
-            "id":1782,
-            "room":19,
-            "schedule":18
-        },
-        {
-            "id":1880,
-            "room":20,
-            "schedule":18
-        },
-        {
-            "id":1978,
-            "room":21,
-            "schedule":18
-        },
-        {
-            "id":2076,
-            "room":22,
-            "schedule":18
-        },
-        {
-            "id":2174,
-            "room":23,
-            "schedule":18
-        },
-        {
-            "id":2272,
-            "room":24,
-            "schedule":18
-        },
-        {
-            "id":2762,
-            "room":30,
-            "schedule":18
-        },
-        {
-            "id":3154,
-            "room":34,
-            "schedule":18
-        },
-        {
-            "id":3056,
-            "room":33,
-            "schedule":18
-        },
-        {
-            "id":900,
-            "room":10,
-            "schedule":18
-        },
-        {
             "id":998,
             "room":11,
             "schedule":18
@@ -1470,11 +822,6 @@
         {
             "id":3252,
             "room":35,
-            "schedule":18
-        },
-        {
-            "id":410,
-            "room":5,
             "schedule":18
         },
         {
@@ -1523,86 +870,6 @@
             "schedule":18
         },
         {
-            "id":2677,
-            "room":29,
-            "schedule":31
-        },
-        {
-            "id":2481,
-            "room":26,
-            "schedule":31
-        },
-        {
-            "id":2383,
-            "room":25,
-            "schedule":31
-        },
-        {
-            "id":2579,
-            "room":27,
-            "schedule":31
-        },
-        {
-            "id":1599,
-            "room":17,
-            "schedule":31
-        },
-        {
-            "id":1697,
-            "room":18,
-            "schedule":31
-        },
-        {
-            "id":1795,
-            "room":19,
-            "schedule":31
-        },
-        {
-            "id":1893,
-            "room":20,
-            "schedule":31
-        },
-        {
-            "id":1991,
-            "room":21,
-            "schedule":31
-        },
-        {
-            "id":2089,
-            "room":22,
-            "schedule":31
-        },
-        {
-            "id":2187,
-            "room":23,
-            "schedule":31
-        },
-        {
-            "id":2285,
-            "room":24,
-            "schedule":31
-        },
-        {
-            "id":2775,
-            "room":30,
-            "schedule":31
-        },
-        {
-            "id":3167,
-            "room":34,
-            "schedule":31
-        },
-        {
-            "id":3069,
-            "room":33,
-            "schedule":31
-        },
-        {
-            "id":913,
-            "room":10,
-            "schedule":31
-        },
-        {
             "id":1011,
             "room":11,
             "schedule":31
@@ -1645,11 +912,6 @@
         {
             "id":3265,
             "room":35,
-            "schedule":31
-        },
-        {
-            "id":423,
-            "room":5,
             "schedule":31
         },
         {
@@ -1698,86 +960,6 @@
             "schedule":31
         },
         {
-            "id":2678,
-            "room":29,
-            "schedule":32
-        },
-        {
-            "id":2482,
-            "room":26,
-            "schedule":32
-        },
-        {
-            "id":2384,
-            "room":25,
-            "schedule":32
-        },
-        {
-            "id":2580,
-            "room":27,
-            "schedule":32
-        },
-        {
-            "id":1600,
-            "room":17,
-            "schedule":32
-        },
-        {
-            "id":1698,
-            "room":18,
-            "schedule":32
-        },
-        {
-            "id":1796,
-            "room":19,
-            "schedule":32
-        },
-        {
-            "id":1894,
-            "room":20,
-            "schedule":32
-        },
-        {
-            "id":1992,
-            "room":21,
-            "schedule":32
-        },
-        {
-            "id":2090,
-            "room":22,
-            "schedule":32
-        },
-        {
-            "id":2188,
-            "room":23,
-            "schedule":32
-        },
-        {
-            "id":2286,
-            "room":24,
-            "schedule":32
-        },
-        {
-            "id":2776,
-            "room":30,
-            "schedule":32
-        },
-        {
-            "id":3168,
-            "room":34,
-            "schedule":32
-        },
-        {
-            "id":3070,
-            "room":33,
-            "schedule":32
-        },
-        {
-            "id":914,
-            "room":10,
-            "schedule":32
-        },
-        {
             "id":1012,
             "room":11,
             "schedule":32
@@ -1820,11 +1002,6 @@
         {
             "id":3266,
             "room":35,
-            "schedule":32
-        },
-        {
-            "id":424,
-            "room":5,
             "schedule":32
         },
         {
@@ -1873,86 +1050,6 @@
             "schedule":32
         },
         {
-            "id":2679,
-            "room":29,
-            "schedule":33
-        },
-        {
-            "id":2483,
-            "room":26,
-            "schedule":33
-        },
-        {
-            "id":2385,
-            "room":25,
-            "schedule":33
-        },
-        {
-            "id":2581,
-            "room":27,
-            "schedule":33
-        },
-        {
-            "id":1601,
-            "room":17,
-            "schedule":33
-        },
-        {
-            "id":1699,
-            "room":18,
-            "schedule":33
-        },
-        {
-            "id":1797,
-            "room":19,
-            "schedule":33
-        },
-        {
-            "id":1895,
-            "room":20,
-            "schedule":33
-        },
-        {
-            "id":1993,
-            "room":21,
-            "schedule":33
-        },
-        {
-            "id":2091,
-            "room":22,
-            "schedule":33
-        },
-        {
-            "id":2189,
-            "room":23,
-            "schedule":33
-        },
-        {
-            "id":2287,
-            "room":24,
-            "schedule":33
-        },
-        {
-            "id":2777,
-            "room":30,
-            "schedule":33
-        },
-        {
-            "id":3169,
-            "room":34,
-            "schedule":33
-        },
-        {
-            "id":3071,
-            "room":33,
-            "schedule":33
-        },
-        {
-            "id":915,
-            "room":10,
-            "schedule":33
-        },
-        {
             "id":1013,
             "room":11,
             "schedule":33
@@ -1995,11 +1092,6 @@
         {
             "id":3267,
             "room":35,
-            "schedule":33
-        },
-        {
-            "id":425,
-            "room":5,
             "schedule":33
         },
         {
@@ -2048,86 +1140,6 @@
             "schedule":33
         },
         {
-            "id":2680,
-            "room":29,
-            "schedule":34
-        },
-        {
-            "id":2484,
-            "room":26,
-            "schedule":34
-        },
-        {
-            "id":2386,
-            "room":25,
-            "schedule":34
-        },
-        {
-            "id":2582,
-            "room":27,
-            "schedule":34
-        },
-        {
-            "id":1602,
-            "room":17,
-            "schedule":34
-        },
-        {
-            "id":1700,
-            "room":18,
-            "schedule":34
-        },
-        {
-            "id":1798,
-            "room":19,
-            "schedule":34
-        },
-        {
-            "id":1896,
-            "room":20,
-            "schedule":34
-        },
-        {
-            "id":1994,
-            "room":21,
-            "schedule":34
-        },
-        {
-            "id":2092,
-            "room":22,
-            "schedule":34
-        },
-        {
-            "id":2190,
-            "room":23,
-            "schedule":34
-        },
-        {
-            "id":2288,
-            "room":24,
-            "schedule":34
-        },
-        {
-            "id":2778,
-            "room":30,
-            "schedule":34
-        },
-        {
-            "id":3170,
-            "room":34,
-            "schedule":34
-        },
-        {
-            "id":3072,
-            "room":33,
-            "schedule":34
-        },
-        {
-            "id":916,
-            "room":10,
-            "schedule":34
-        },
-        {
             "id":1014,
             "room":11,
             "schedule":34
@@ -2170,11 +1182,6 @@
         {
             "id":3268,
             "room":35,
-            "schedule":34
-        },
-        {
-            "id":426,
-            "room":5,
             "schedule":34
         },
         {
@@ -2223,86 +1230,6 @@
             "schedule":34
         },
         {
-            "id":2681,
-            "room":29,
-            "schedule":35
-        },
-        {
-            "id":2485,
-            "room":26,
-            "schedule":35
-        },
-        {
-            "id":2387,
-            "room":25,
-            "schedule":35
-        },
-        {
-            "id":2583,
-            "room":27,
-            "schedule":35
-        },
-        {
-            "id":1603,
-            "room":17,
-            "schedule":35
-        },
-        {
-            "id":1701,
-            "room":18,
-            "schedule":35
-        },
-        {
-            "id":1799,
-            "room":19,
-            "schedule":35
-        },
-        {
-            "id":1897,
-            "room":20,
-            "schedule":35
-        },
-        {
-            "id":1995,
-            "room":21,
-            "schedule":35
-        },
-        {
-            "id":2093,
-            "room":22,
-            "schedule":35
-        },
-        {
-            "id":2191,
-            "room":23,
-            "schedule":35
-        },
-        {
-            "id":2289,
-            "room":24,
-            "schedule":35
-        },
-        {
-            "id":2779,
-            "room":30,
-            "schedule":35
-        },
-        {
-            "id":3171,
-            "room":34,
-            "schedule":35
-        },
-        {
-            "id":3073,
-            "room":33,
-            "schedule":35
-        },
-        {
-            "id":917,
-            "room":10,
-            "schedule":35
-        },
-        {
             "id":1015,
             "room":11,
             "schedule":35
@@ -2345,11 +1272,6 @@
         {
             "id":3269,
             "room":35,
-            "schedule":35
-        },
-        {
-            "id":427,
-            "room":5,
             "schedule":35
         },
         {
@@ -2398,86 +1320,6 @@
             "schedule":35
         },
         {
-            "id":2682,
-            "room":29,
-            "schedule":36
-        },
-        {
-            "id":2486,
-            "room":26,
-            "schedule":36
-        },
-        {
-            "id":2388,
-            "room":25,
-            "schedule":36
-        },
-        {
-            "id":2584,
-            "room":27,
-            "schedule":36
-        },
-        {
-            "id":1604,
-            "room":17,
-            "schedule":36
-        },
-        {
-            "id":1702,
-            "room":18,
-            "schedule":36
-        },
-        {
-            "id":1800,
-            "room":19,
-            "schedule":36
-        },
-        {
-            "id":1898,
-            "room":20,
-            "schedule":36
-        },
-        {
-            "id":1996,
-            "room":21,
-            "schedule":36
-        },
-        {
-            "id":2094,
-            "room":22,
-            "schedule":36
-        },
-        {
-            "id":2192,
-            "room":23,
-            "schedule":36
-        },
-        {
-            "id":2290,
-            "room":24,
-            "schedule":36
-        },
-        {
-            "id":2780,
-            "room":30,
-            "schedule":36
-        },
-        {
-            "id":3172,
-            "room":34,
-            "schedule":36
-        },
-        {
-            "id":3074,
-            "room":33,
-            "schedule":36
-        },
-        {
-            "id":918,
-            "room":10,
-            "schedule":36
-        },
-        {
             "id":1016,
             "room":11,
             "schedule":36
@@ -2520,11 +1362,6 @@
         {
             "id":3270,
             "room":35,
-            "schedule":36
-        },
-        {
-            "id":428,
-            "room":5,
             "schedule":36
         },
         {
@@ -2573,86 +1410,6 @@
             "schedule":36
         },
         {
-            "id":2695,
-            "room":29,
-            "schedule":49
-        },
-        {
-            "id":2499,
-            "room":26,
-            "schedule":49
-        },
-        {
-            "id":2401,
-            "room":25,
-            "schedule":49
-        },
-        {
-            "id":2597,
-            "room":27,
-            "schedule":49
-        },
-        {
-            "id":1617,
-            "room":17,
-            "schedule":49
-        },
-        {
-            "id":1715,
-            "room":18,
-            "schedule":49
-        },
-        {
-            "id":1813,
-            "room":19,
-            "schedule":49
-        },
-        {
-            "id":1911,
-            "room":20,
-            "schedule":49
-        },
-        {
-            "id":2009,
-            "room":21,
-            "schedule":49
-        },
-        {
-            "id":2107,
-            "room":22,
-            "schedule":49
-        },
-        {
-            "id":2205,
-            "room":23,
-            "schedule":49
-        },
-        {
-            "id":2303,
-            "room":24,
-            "schedule":49
-        },
-        {
-            "id":2793,
-            "room":30,
-            "schedule":49
-        },
-        {
-            "id":3185,
-            "room":34,
-            "schedule":49
-        },
-        {
-            "id":3087,
-            "room":33,
-            "schedule":49
-        },
-        {
-            "id":931,
-            "room":10,
-            "schedule":49
-        },
-        {
             "id":1029,
             "room":11,
             "schedule":49
@@ -2695,11 +1452,6 @@
         {
             "id":3283,
             "room":35,
-            "schedule":49
-        },
-        {
-            "id":441,
-            "room":5,
             "schedule":49
         },
         {
@@ -2748,86 +1500,6 @@
             "schedule":49
         },
         {
-            "id":2696,
-            "room":29,
-            "schedule":50
-        },
-        {
-            "id":2500,
-            "room":26,
-            "schedule":50
-        },
-        {
-            "id":2402,
-            "room":25,
-            "schedule":50
-        },
-        {
-            "id":2598,
-            "room":27,
-            "schedule":50
-        },
-        {
-            "id":1618,
-            "room":17,
-            "schedule":50
-        },
-        {
-            "id":1716,
-            "room":18,
-            "schedule":50
-        },
-        {
-            "id":1814,
-            "room":19,
-            "schedule":50
-        },
-        {
-            "id":1912,
-            "room":20,
-            "schedule":50
-        },
-        {
-            "id":2010,
-            "room":21,
-            "schedule":50
-        },
-        {
-            "id":2108,
-            "room":22,
-            "schedule":50
-        },
-        {
-            "id":2206,
-            "room":23,
-            "schedule":50
-        },
-        {
-            "id":2304,
-            "room":24,
-            "schedule":50
-        },
-        {
-            "id":2794,
-            "room":30,
-            "schedule":50
-        },
-        {
-            "id":3186,
-            "room":34,
-            "schedule":50
-        },
-        {
-            "id":3088,
-            "room":33,
-            "schedule":50
-        },
-        {
-            "id":932,
-            "room":10,
-            "schedule":50
-        },
-        {
             "id":1030,
             "room":11,
             "schedule":50
@@ -2870,11 +1542,6 @@
         {
             "id":3284,
             "room":35,
-            "schedule":50
-        },
-        {
-            "id":442,
-            "room":5,
             "schedule":50
         },
         {
@@ -2923,86 +1590,6 @@
             "schedule":50
         },
         {
-            "id":2697,
-            "room":29,
-            "schedule":51
-        },
-        {
-            "id":2501,
-            "room":26,
-            "schedule":51
-        },
-        {
-            "id":2403,
-            "room":25,
-            "schedule":51
-        },
-        {
-            "id":2599,
-            "room":27,
-            "schedule":51
-        },
-        {
-            "id":1619,
-            "room":17,
-            "schedule":51
-        },
-        {
-            "id":1717,
-            "room":18,
-            "schedule":51
-        },
-        {
-            "id":1815,
-            "room":19,
-            "schedule":51
-        },
-        {
-            "id":1913,
-            "room":20,
-            "schedule":51
-        },
-        {
-            "id":2011,
-            "room":21,
-            "schedule":51
-        },
-        {
-            "id":2109,
-            "room":22,
-            "schedule":51
-        },
-        {
-            "id":2207,
-            "room":23,
-            "schedule":51
-        },
-        {
-            "id":2305,
-            "room":24,
-            "schedule":51
-        },
-        {
-            "id":2795,
-            "room":30,
-            "schedule":51
-        },
-        {
-            "id":3187,
-            "room":34,
-            "schedule":51
-        },
-        {
-            "id":3089,
-            "room":33,
-            "schedule":51
-        },
-        {
-            "id":933,
-            "room":10,
-            "schedule":51
-        },
-        {
             "id":1031,
             "room":11,
             "schedule":51
@@ -3045,11 +1632,6 @@
         {
             "id":3285,
             "room":35,
-            "schedule":51
-        },
-        {
-            "id":443,
-            "room":5,
             "schedule":51
         },
         {
@@ -3098,86 +1680,6 @@
             "schedule":51
         },
         {
-            "id":2698,
-            "room":29,
-            "schedule":52
-        },
-        {
-            "id":2502,
-            "room":26,
-            "schedule":52
-        },
-        {
-            "id":2404,
-            "room":25,
-            "schedule":52
-        },
-        {
-            "id":2600,
-            "room":27,
-            "schedule":52
-        },
-        {
-            "id":1620,
-            "room":17,
-            "schedule":52
-        },
-        {
-            "id":1718,
-            "room":18,
-            "schedule":52
-        },
-        {
-            "id":1816,
-            "room":19,
-            "schedule":52
-        },
-        {
-            "id":1914,
-            "room":20,
-            "schedule":52
-        },
-        {
-            "id":2012,
-            "room":21,
-            "schedule":52
-        },
-        {
-            "id":2110,
-            "room":22,
-            "schedule":52
-        },
-        {
-            "id":2208,
-            "room":23,
-            "schedule":52
-        },
-        {
-            "id":2306,
-            "room":24,
-            "schedule":52
-        },
-        {
-            "id":2796,
-            "room":30,
-            "schedule":52
-        },
-        {
-            "id":3188,
-            "room":34,
-            "schedule":52
-        },
-        {
-            "id":3090,
-            "room":33,
-            "schedule":52
-        },
-        {
-            "id":934,
-            "room":10,
-            "schedule":52
-        },
-        {
             "id":1032,
             "room":11,
             "schedule":52
@@ -3220,11 +1722,6 @@
         {
             "id":3286,
             "room":35,
-            "schedule":52
-        },
-        {
-            "id":444,
-            "room":5,
             "schedule":52
         },
         {
@@ -3273,86 +1770,6 @@
             "schedule":52
         },
         {
-            "id":2699,
-            "room":29,
-            "schedule":53
-        },
-        {
-            "id":2503,
-            "room":26,
-            "schedule":53
-        },
-        {
-            "id":2405,
-            "room":25,
-            "schedule":53
-        },
-        {
-            "id":2601,
-            "room":27,
-            "schedule":53
-        },
-        {
-            "id":1621,
-            "room":17,
-            "schedule":53
-        },
-        {
-            "id":1719,
-            "room":18,
-            "schedule":53
-        },
-        {
-            "id":1817,
-            "room":19,
-            "schedule":53
-        },
-        {
-            "id":1915,
-            "room":20,
-            "schedule":53
-        },
-        {
-            "id":2013,
-            "room":21,
-            "schedule":53
-        },
-        {
-            "id":2111,
-            "room":22,
-            "schedule":53
-        },
-        {
-            "id":2209,
-            "room":23,
-            "schedule":53
-        },
-        {
-            "id":2307,
-            "room":24,
-            "schedule":53
-        },
-        {
-            "id":2797,
-            "room":30,
-            "schedule":53
-        },
-        {
-            "id":3189,
-            "room":34,
-            "schedule":53
-        },
-        {
-            "id":3091,
-            "room":33,
-            "schedule":53
-        },
-        {
-            "id":935,
-            "room":10,
-            "schedule":53
-        },
-        {
             "id":1033,
             "room":11,
             "schedule":53
@@ -3395,11 +1812,6 @@
         {
             "id":3287,
             "room":35,
-            "schedule":53
-        },
-        {
-            "id":445,
-            "room":5,
             "schedule":53
         },
         {
@@ -3448,86 +1860,6 @@
             "schedule":53
         },
         {
-            "id":2700,
-            "room":29,
-            "schedule":54
-        },
-        {
-            "id":2504,
-            "room":26,
-            "schedule":54
-        },
-        {
-            "id":2406,
-            "room":25,
-            "schedule":54
-        },
-        {
-            "id":2602,
-            "room":27,
-            "schedule":54
-        },
-        {
-            "id":1622,
-            "room":17,
-            "schedule":54
-        },
-        {
-            "id":1720,
-            "room":18,
-            "schedule":54
-        },
-        {
-            "id":1818,
-            "room":19,
-            "schedule":54
-        },
-        {
-            "id":1916,
-            "room":20,
-            "schedule":54
-        },
-        {
-            "id":2014,
-            "room":21,
-            "schedule":54
-        },
-        {
-            "id":2112,
-            "room":22,
-            "schedule":54
-        },
-        {
-            "id":2210,
-            "room":23,
-            "schedule":54
-        },
-        {
-            "id":2308,
-            "room":24,
-            "schedule":54
-        },
-        {
-            "id":2798,
-            "room":30,
-            "schedule":54
-        },
-        {
-            "id":3190,
-            "room":34,
-            "schedule":54
-        },
-        {
-            "id":3092,
-            "room":33,
-            "schedule":54
-        },
-        {
-            "id":936,
-            "room":10,
-            "schedule":54
-        },
-        {
             "id":1034,
             "room":11,
             "schedule":54
@@ -3570,11 +1902,6 @@
         {
             "id":3288,
             "room":35,
-            "schedule":54
-        },
-        {
-            "id":446,
-            "room":5,
             "schedule":54
         },
         {
@@ -3623,86 +1950,6 @@
             "schedule":54
         },
         {
-            "id":2713,
-            "room":29,
-            "schedule":67
-        },
-        {
-            "id":2517,
-            "room":26,
-            "schedule":67
-        },
-        {
-            "id":2419,
-            "room":25,
-            "schedule":67
-        },
-        {
-            "id":2615,
-            "room":27,
-            "schedule":67
-        },
-        {
-            "id":1635,
-            "room":17,
-            "schedule":67
-        },
-        {
-            "id":1733,
-            "room":18,
-            "schedule":67
-        },
-        {
-            "id":1831,
-            "room":19,
-            "schedule":67
-        },
-        {
-            "id":1929,
-            "room":20,
-            "schedule":67
-        },
-        {
-            "id":2027,
-            "room":21,
-            "schedule":67
-        },
-        {
-            "id":2125,
-            "room":22,
-            "schedule":67
-        },
-        {
-            "id":2223,
-            "room":23,
-            "schedule":67
-        },
-        {
-            "id":2321,
-            "room":24,
-            "schedule":67
-        },
-        {
-            "id":2811,
-            "room":30,
-            "schedule":67
-        },
-        {
-            "id":3203,
-            "room":34,
-            "schedule":67
-        },
-        {
-            "id":3105,
-            "room":33,
-            "schedule":67
-        },
-        {
-            "id":949,
-            "room":10,
-            "schedule":67
-        },
-        {
             "id":1047,
             "room":11,
             "schedule":67
@@ -3745,11 +1992,6 @@
         {
             "id":3301,
             "room":35,
-            "schedule":67
-        },
-        {
-            "id":459,
-            "room":5,
             "schedule":67
         },
         {
@@ -3798,86 +2040,6 @@
             "schedule":67
         },
         {
-            "id":2714,
-            "room":29,
-            "schedule":68
-        },
-        {
-            "id":2518,
-            "room":26,
-            "schedule":68
-        },
-        {
-            "id":2420,
-            "room":25,
-            "schedule":68
-        },
-        {
-            "id":2616,
-            "room":27,
-            "schedule":68
-        },
-        {
-            "id":1636,
-            "room":17,
-            "schedule":68
-        },
-        {
-            "id":1734,
-            "room":18,
-            "schedule":68
-        },
-        {
-            "id":1832,
-            "room":19,
-            "schedule":68
-        },
-        {
-            "id":1930,
-            "room":20,
-            "schedule":68
-        },
-        {
-            "id":2028,
-            "room":21,
-            "schedule":68
-        },
-        {
-            "id":2126,
-            "room":22,
-            "schedule":68
-        },
-        {
-            "id":2224,
-            "room":23,
-            "schedule":68
-        },
-        {
-            "id":2322,
-            "room":24,
-            "schedule":68
-        },
-        {
-            "id":2812,
-            "room":30,
-            "schedule":68
-        },
-        {
-            "id":3204,
-            "room":34,
-            "schedule":68
-        },
-        {
-            "id":3106,
-            "room":33,
-            "schedule":68
-        },
-        {
-            "id":950,
-            "room":10,
-            "schedule":68
-        },
-        {
             "id":1048,
             "room":11,
             "schedule":68
@@ -3920,11 +2082,6 @@
         {
             "id":3302,
             "room":35,
-            "schedule":68
-        },
-        {
-            "id":460,
-            "room":5,
             "schedule":68
         },
         {
@@ -3973,86 +2130,6 @@
             "schedule":68
         },
         {
-            "id":2715,
-            "room":29,
-            "schedule":69
-        },
-        {
-            "id":2519,
-            "room":26,
-            "schedule":69
-        },
-        {
-            "id":2421,
-            "room":25,
-            "schedule":69
-        },
-        {
-            "id":2617,
-            "room":27,
-            "schedule":69
-        },
-        {
-            "id":1637,
-            "room":17,
-            "schedule":69
-        },
-        {
-            "id":1735,
-            "room":18,
-            "schedule":69
-        },
-        {
-            "id":1833,
-            "room":19,
-            "schedule":69
-        },
-        {
-            "id":1931,
-            "room":20,
-            "schedule":69
-        },
-        {
-            "id":2029,
-            "room":21,
-            "schedule":69
-        },
-        {
-            "id":2127,
-            "room":22,
-            "schedule":69
-        },
-        {
-            "id":2225,
-            "room":23,
-            "schedule":69
-        },
-        {
-            "id":2323,
-            "room":24,
-            "schedule":69
-        },
-        {
-            "id":2813,
-            "room":30,
-            "schedule":69
-        },
-        {
-            "id":3205,
-            "room":34,
-            "schedule":69
-        },
-        {
-            "id":3107,
-            "room":33,
-            "schedule":69
-        },
-        {
-            "id":951,
-            "room":10,
-            "schedule":69
-        },
-        {
             "id":1049,
             "room":11,
             "schedule":69
@@ -4095,11 +2172,6 @@
         {
             "id":3303,
             "room":35,
-            "schedule":69
-        },
-        {
-            "id":461,
-            "room":5,
             "schedule":69
         },
         {
@@ -4148,86 +2220,6 @@
             "schedule":69
         },
         {
-            "id":2716,
-            "room":29,
-            "schedule":70
-        },
-        {
-            "id":2520,
-            "room":26,
-            "schedule":70
-        },
-        {
-            "id":2422,
-            "room":25,
-            "schedule":70
-        },
-        {
-            "id":2618,
-            "room":27,
-            "schedule":70
-        },
-        {
-            "id":1638,
-            "room":17,
-            "schedule":70
-        },
-        {
-            "id":1736,
-            "room":18,
-            "schedule":70
-        },
-        {
-            "id":1834,
-            "room":19,
-            "schedule":70
-        },
-        {
-            "id":1932,
-            "room":20,
-            "schedule":70
-        },
-        {
-            "id":2030,
-            "room":21,
-            "schedule":70
-        },
-        {
-            "id":2128,
-            "room":22,
-            "schedule":70
-        },
-        {
-            "id":2226,
-            "room":23,
-            "schedule":70
-        },
-        {
-            "id":2324,
-            "room":24,
-            "schedule":70
-        },
-        {
-            "id":2814,
-            "room":30,
-            "schedule":70
-        },
-        {
-            "id":3206,
-            "room":34,
-            "schedule":70
-        },
-        {
-            "id":3108,
-            "room":33,
-            "schedule":70
-        },
-        {
-            "id":952,
-            "room":10,
-            "schedule":70
-        },
-        {
             "id":1050,
             "room":11,
             "schedule":70
@@ -4270,11 +2262,6 @@
         {
             "id":3304,
             "room":35,
-            "schedule":70
-        },
-        {
-            "id":462,
-            "room":5,
             "schedule":70
         },
         {
@@ -4323,86 +2310,6 @@
             "schedule":70
         },
         {
-            "id":2717,
-            "room":29,
-            "schedule":71
-        },
-        {
-            "id":2521,
-            "room":26,
-            "schedule":71
-        },
-        {
-            "id":2423,
-            "room":25,
-            "schedule":71
-        },
-        {
-            "id":2619,
-            "room":27,
-            "schedule":71
-        },
-        {
-            "id":1639,
-            "room":17,
-            "schedule":71
-        },
-        {
-            "id":1737,
-            "room":18,
-            "schedule":71
-        },
-        {
-            "id":1835,
-            "room":19,
-            "schedule":71
-        },
-        {
-            "id":1933,
-            "room":20,
-            "schedule":71
-        },
-        {
-            "id":2031,
-            "room":21,
-            "schedule":71
-        },
-        {
-            "id":2129,
-            "room":22,
-            "schedule":71
-        },
-        {
-            "id":2227,
-            "room":23,
-            "schedule":71
-        },
-        {
-            "id":2325,
-            "room":24,
-            "schedule":71
-        },
-        {
-            "id":2815,
-            "room":30,
-            "schedule":71
-        },
-        {
-            "id":3207,
-            "room":34,
-            "schedule":71
-        },
-        {
-            "id":3109,
-            "room":33,
-            "schedule":71
-        },
-        {
-            "id":953,
-            "room":10,
-            "schedule":71
-        },
-        {
             "id":1051,
             "room":11,
             "schedule":71
@@ -4445,11 +2352,6 @@
         {
             "id":3305,
             "room":35,
-            "schedule":71
-        },
-        {
-            "id":463,
-            "room":5,
             "schedule":71
         },
         {
@@ -4498,86 +2400,6 @@
             "schedule":71
         },
         {
-            "id":2718,
-            "room":29,
-            "schedule":72
-        },
-        {
-            "id":2522,
-            "room":26,
-            "schedule":72
-        },
-        {
-            "id":2424,
-            "room":25,
-            "schedule":72
-        },
-        {
-            "id":2620,
-            "room":27,
-            "schedule":72
-        },
-        {
-            "id":1640,
-            "room":17,
-            "schedule":72
-        },
-        {
-            "id":1738,
-            "room":18,
-            "schedule":72
-        },
-        {
-            "id":1836,
-            "room":19,
-            "schedule":72
-        },
-        {
-            "id":1934,
-            "room":20,
-            "schedule":72
-        },
-        {
-            "id":2032,
-            "room":21,
-            "schedule":72
-        },
-        {
-            "id":2130,
-            "room":22,
-            "schedule":72
-        },
-        {
-            "id":2228,
-            "room":23,
-            "schedule":72
-        },
-        {
-            "id":2326,
-            "room":24,
-            "schedule":72
-        },
-        {
-            "id":2816,
-            "room":30,
-            "schedule":72
-        },
-        {
-            "id":3208,
-            "room":34,
-            "schedule":72
-        },
-        {
-            "id":3110,
-            "room":33,
-            "schedule":72
-        },
-        {
-            "id":954,
-            "room":10,
-            "schedule":72
-        },
-        {
             "id":1052,
             "room":11,
             "schedule":72
@@ -4620,11 +2442,6 @@
         {
             "id":3306,
             "room":35,
-            "schedule":72
-        },
-        {
-            "id":464,
-            "room":5,
             "schedule":72
         },
         {
@@ -4673,86 +2490,6 @@
             "schedule":72
         },
         {
-            "id":2733,
-            "room":29,
-            "schedule":87
-        },
-        {
-            "id":2537,
-            "room":26,
-            "schedule":87
-        },
-        {
-            "id":2439,
-            "room":25,
-            "schedule":87
-        },
-        {
-            "id":2635,
-            "room":27,
-            "schedule":87
-        },
-        {
-            "id":1655,
-            "room":17,
-            "schedule":87
-        },
-        {
-            "id":1753,
-            "room":18,
-            "schedule":87
-        },
-        {
-            "id":1851,
-            "room":19,
-            "schedule":87
-        },
-        {
-            "id":1949,
-            "room":20,
-            "schedule":87
-        },
-        {
-            "id":2047,
-            "room":21,
-            "schedule":87
-        },
-        {
-            "id":2145,
-            "room":22,
-            "schedule":87
-        },
-        {
-            "id":2243,
-            "room":23,
-            "schedule":87
-        },
-        {
-            "id":2341,
-            "room":24,
-            "schedule":87
-        },
-        {
-            "id":2831,
-            "room":30,
-            "schedule":87
-        },
-        {
-            "id":3223,
-            "room":34,
-            "schedule":87
-        },
-        {
-            "id":3125,
-            "room":33,
-            "schedule":87
-        },
-        {
-            "id":969,
-            "room":10,
-            "schedule":87
-        },
-        {
             "id":1067,
             "room":11,
             "schedule":87
@@ -4795,11 +2532,6 @@
         {
             "id":3321,
             "room":35,
-            "schedule":87
-        },
-        {
-            "id":479,
-            "room":5,
             "schedule":87
         },
         {
@@ -4848,86 +2580,6 @@
             "schedule":87
         },
         {
-            "id":2734,
-            "room":29,
-            "schedule":88
-        },
-        {
-            "id":2538,
-            "room":26,
-            "schedule":88
-        },
-        {
-            "id":2440,
-            "room":25,
-            "schedule":88
-        },
-        {
-            "id":2636,
-            "room":27,
-            "schedule":88
-        },
-        {
-            "id":1656,
-            "room":17,
-            "schedule":88
-        },
-        {
-            "id":1754,
-            "room":18,
-            "schedule":88
-        },
-        {
-            "id":1852,
-            "room":19,
-            "schedule":88
-        },
-        {
-            "id":1950,
-            "room":20,
-            "schedule":88
-        },
-        {
-            "id":2048,
-            "room":21,
-            "schedule":88
-        },
-        {
-            "id":2146,
-            "room":22,
-            "schedule":88
-        },
-        {
-            "id":2244,
-            "room":23,
-            "schedule":88
-        },
-        {
-            "id":2342,
-            "room":24,
-            "schedule":88
-        },
-        {
-            "id":2832,
-            "room":30,
-            "schedule":88
-        },
-        {
-            "id":3224,
-            "room":34,
-            "schedule":88
-        },
-        {
-            "id":3126,
-            "room":33,
-            "schedule":88
-        },
-        {
-            "id":970,
-            "room":10,
-            "schedule":88
-        },
-        {
             "id":1068,
             "room":11,
             "schedule":88
@@ -4970,11 +2622,6 @@
         {
             "id":3322,
             "room":35,
-            "schedule":88
-        },
-        {
-            "id":480,
-            "room":5,
             "schedule":88
         },
         {
@@ -5023,86 +2670,6 @@
             "schedule":88
         },
         {
-            "id":2735,
-            "room":29,
-            "schedule":89
-        },
-        {
-            "id":2539,
-            "room":26,
-            "schedule":89
-        },
-        {
-            "id":2441,
-            "room":25,
-            "schedule":89
-        },
-        {
-            "id":2637,
-            "room":27,
-            "schedule":89
-        },
-        {
-            "id":1657,
-            "room":17,
-            "schedule":89
-        },
-        {
-            "id":1755,
-            "room":18,
-            "schedule":89
-        },
-        {
-            "id":1853,
-            "room":19,
-            "schedule":89
-        },
-        {
-            "id":1951,
-            "room":20,
-            "schedule":89
-        },
-        {
-            "id":2049,
-            "room":21,
-            "schedule":89
-        },
-        {
-            "id":2147,
-            "room":22,
-            "schedule":89
-        },
-        {
-            "id":2245,
-            "room":23,
-            "schedule":89
-        },
-        {
-            "id":2343,
-            "room":24,
-            "schedule":89
-        },
-        {
-            "id":2833,
-            "room":30,
-            "schedule":89
-        },
-        {
-            "id":3225,
-            "room":34,
-            "schedule":89
-        },
-        {
-            "id":3127,
-            "room":33,
-            "schedule":89
-        },
-        {
-            "id":971,
-            "room":10,
-            "schedule":89
-        },
-        {
             "id":1069,
             "room":11,
             "schedule":89
@@ -5145,11 +2712,6 @@
         {
             "id":3323,
             "room":35,
-            "schedule":89
-        },
-        {
-            "id":481,
-            "room":5,
             "schedule":89
         },
         {
@@ -5198,86 +2760,6 @@
             "schedule":89
         },
         {
-            "id":2736,
-            "room":29,
-            "schedule":90
-        },
-        {
-            "id":2540,
-            "room":26,
-            "schedule":90
-        },
-        {
-            "id":2442,
-            "room":25,
-            "schedule":90
-        },
-        {
-            "id":2638,
-            "room":27,
-            "schedule":90
-        },
-        {
-            "id":1658,
-            "room":17,
-            "schedule":90
-        },
-        {
-            "id":1756,
-            "room":18,
-            "schedule":90
-        },
-        {
-            "id":1854,
-            "room":19,
-            "schedule":90
-        },
-        {
-            "id":1952,
-            "room":20,
-            "schedule":90
-        },
-        {
-            "id":2050,
-            "room":21,
-            "schedule":90
-        },
-        {
-            "id":2148,
-            "room":22,
-            "schedule":90
-        },
-        {
-            "id":2246,
-            "room":23,
-            "schedule":90
-        },
-        {
-            "id":2344,
-            "room":24,
-            "schedule":90
-        },
-        {
-            "id":2834,
-            "room":30,
-            "schedule":90
-        },
-        {
-            "id":3226,
-            "room":34,
-            "schedule":90
-        },
-        {
-            "id":3128,
-            "room":33,
-            "schedule":90
-        },
-        {
-            "id":972,
-            "room":10,
-            "schedule":90
-        },
-        {
             "id":1070,
             "room":11,
             "schedule":90
@@ -5320,11 +2802,6 @@
         {
             "id":3324,
             "room":35,
-            "schedule":90
-        },
-        {
-            "id":482,
-            "room":5,
             "schedule":90
         },
         {

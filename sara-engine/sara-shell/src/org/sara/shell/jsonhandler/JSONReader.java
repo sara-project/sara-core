@@ -78,7 +78,6 @@ public class JSONReader {
             Object populationNumber = configuration.get( "population_number" );
             Object maxGeneration = configuration.get( "max_generation" );
             Object mutationProbability = configuration.get( "mutation_probability" );
-            Object crossoverProbability = configuration.get( "crossover_probability" );
             Object selectProbability = configuration.get( "select_probability" );
             Object elitismProbability = configuration.get( "elitism_probability" );
 
@@ -103,14 +102,6 @@ public class JSONReader {
                     gaConfig.setMutationProbability( Double.parseDouble( mutationProbability.toString() ) );
                 } catch (NumberFormatException ex) {
                     System.out.println( "Json with wrong value to 'mutation_probability' property. The value was ignored..." );
-                }
-            }
-
-            if (crossoverProbability != null) {
-                try {
-                    gaConfig.setCrossoverProbability( Double.parseDouble( crossoverProbability.toString() ) );
-                } catch (NumberFormatException ex) {
-                    System.out.println( "Json with wrong value to 'crossover_probability' property. The value was ignored..." );
                 }
             }
 
@@ -328,16 +319,16 @@ public class JSONReader {
                     requirements.add( reqObj );
                 }
 
-                reqit = typeRoomsWantedArray.iterator();
+                Iterator typeRoomsIt = typeRoomsWantedArray.iterator();
                 List<Integer> typeRoomsWanted = new ArrayList<>();
                 while (reqit.hasNext()) {
-                    int trw = Integer.parseInt( reqit.next().toString() );
+                    String typeRoomsWantedID = typeRoomsIt.next().toString();
 
-                    if (!roomsHash.values().stream().anyMatch( r -> r.getType() == trw )) {
-                        throw new Exception( "Json File is invalid. There is any Requirement with id = " + trw + "." );
+                    if (!roomsHash.values().stream().anyMatch( r -> r.getType() == Integer.parseInt( typeRoomsWantedID ))) {
+                        throw new Exception( "Json File is invalid. There is any Room Type with id = " + typeRoomsWantedID + "." );
                     }
 
-                    typeRoomsWanted.add( trw );
+                    typeRoomsWanted.add( Integer.parseInt(typeRoomsWantedID) );
                 }
 
                 //Get School Class Schedules

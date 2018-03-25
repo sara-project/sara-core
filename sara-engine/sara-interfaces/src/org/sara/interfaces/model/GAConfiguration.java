@@ -12,35 +12,27 @@ public class GAConfiguration implements Cloneable {
         GAConfiguration.isDefault = true;
 
         if (!GAConfiguration.hasInitialized) {
-            System.out.println();
-            System.out.println("WARNING: The default parameters should be checked!");
-            System.out.println();
-
-            this.populationNumber = 5000;
-            this.maxGeneration = 4000;
+            this.populationNumber = 1000;
+            this.maxGeneration = 1000;
             this.mutationProbability = 0.1;
-            this.crossoverProbability = 0.1;
-            this.selectProbability = 0.1;
-            this.elitismProbability = 0.01;
+            this.selectProbability = 0.6;
+            this.elitismProbability = 0.1;
             GAConfiguration.hasInitialized = true;
         }
     }
 
     @Override
     public Object clone() {
-        return new GAConfiguration(
-                this.populationNumber,
-                this.maxGeneration,
-                this.mutationProbability,
-                this.crossoverProbability,
-                this.selectProbability,
-                this.elitismProbability,
-                this.fitness,
-                this.mutation,
-                this.crossover,
-                this.selection,
-                this.gaLightSwitch
-        );
+        return new GAConfiguration(this.populationNumber,
+                    this.maxGeneration,
+                    this.mutationProbability,
+                    this.selectProbability,
+                    this.elitismProbability,
+                    this.fitness,
+                    this.mutation,
+                    this.crossover,
+                    this.selection,
+                    this.gaLightSwitch);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Getters e Setters"> 
@@ -81,19 +73,6 @@ public class GAConfiguration implements Cloneable {
 
         GAConfiguration.isDefault = false;
         this.mutationProbability = mutationProbability;
-    }
-
-    public double getCrossoverProbability() {
-        return crossoverProbability;
-    }
-
-    public void setCrossoverProbability(double crossoverProbability) {
-        if (this.crossoverProbability == crossoverProbability) {
-            return;
-        }
-
-        GAConfiguration.isDefault = false;
-        this.crossoverProbability = crossoverProbability;
     }
 
     public double getSelectProbability() {
@@ -178,23 +157,21 @@ public class GAConfiguration implements Cloneable {
         string += "Parameters: \n";
         string += " - Population Size: " + this.populationNumber + "\n";
         string += " - Max Generation: " + this.maxGeneration + "\n";
-        string += " - Mutation Probability: " + this.mutationProbability + "\n";
-        string += " - Crossover Probability: " + this.crossoverProbability + "\n";
         string += " - Select Probability: " + this.selectProbability + "\n";
+        string += " - Mutation Probability: " + this.mutationProbability + "\n";
         string += " - Elitism Probability: " + this.elitismProbability;
 
         return string;
     }
 
     private GAConfiguration(int populationNumber, int maxGeneration, double mutationProbability,
-            double crossoverProbability, double selectProbability, double elitismProbability,
+            double selectProbability, double elitismProbability,
             IFitness fitness, IMutation mutation, ICrossover crossover, ISelection selection,
             IGALightSwitch gaLightSwitch) {
 
         this.populationNumber = populationNumber;
         this.maxGeneration = maxGeneration;
         this.mutationProbability = mutationProbability;
-        this.crossoverProbability = crossoverProbability;
         this.selectProbability = selectProbability;
         this.elitismProbability = elitismProbability;
 
@@ -218,7 +195,6 @@ public class GAConfiguration implements Cloneable {
     private int populationNumber;
     private int maxGeneration;
     private double mutationProbability;
-    private double crossoverProbability;
     private double selectProbability;
     private double elitismProbability;
 }

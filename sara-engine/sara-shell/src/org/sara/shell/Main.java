@@ -60,10 +60,9 @@ public class Main {
                 Core.getInstance().getModelController().setRooms( handler.getRoomsHash() );
                 Core.getInstance().getModelController().setGaConfiguration( handler.getGAConfiguration() );
 
-            } catch (IOException | ParseException ex) {
-                Logger.getLogger( Main.class.getName() ).log( Level.SEVERE, null, ex );
-            } catch (Exception ex) {
-                Logger.getLogger( Main.class.getName() ).log( Level.SEVERE, null, ex );
+            } catch (Exception ex ) {
+                System.err.println("An error occurred while json was being read. "+ ex.getMessage());
+                System.exit(3);
             }
         }//Releases the json handler after this block executes
 

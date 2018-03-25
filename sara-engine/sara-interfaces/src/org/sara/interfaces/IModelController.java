@@ -76,6 +76,9 @@ public abstract class IModelController {
     }
 
     public Map<String, ClassSchedule> getClassSchedule() {
+        if(this.classSchedules == null)
+            return null;
+
         Map<String, ClassSchedule> clone = new HashMap<>();
         this.classSchedules.values().forEach(cs -> clone.put(String.valueOf(cs.getID()), (ClassSchedule) cs.clone()));
         return clone;
