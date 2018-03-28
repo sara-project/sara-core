@@ -7,7 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.sara.interfaces.ICore;
 import org.sara.interfaces.IObserver;
+import org.sara.interfaces.model.GAConfiguration;
 
 public class ProjectController extends IProjectController {
 
@@ -56,7 +58,8 @@ public class ProjectController extends IProjectController {
     public boolean isDebugInfoAGActive() {
         return DEBUG_INFO_AG;
     }
-
+    
+    
     private URLClassLoader dataJars;
     public static boolean DEBUG_INFO_AG;
 }

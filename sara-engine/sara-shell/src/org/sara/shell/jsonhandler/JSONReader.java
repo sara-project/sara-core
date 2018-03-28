@@ -16,6 +16,8 @@ import org.sara.interfaces.model.SchoolClass;
 import org.sara.interfaces.model.ClassSchedule;
 import org.sara.interfaces.model.Requirement;
 import org.sara.interfaces.model.Slot;
+import org.sara.shell.Core;
+import org.sara.shell.controller.ProjectController;
 
 public class JSONReader {
 
@@ -31,11 +33,13 @@ public class JSONReader {
         JSONObject jsonObject = (JSONObject) ( ( new JSONParser() ).parse( new FileReader( jsonFile ) ) );
 
         Object request_type = jsonObject.get( "request_type" );
-        if (request_type == null) {
-            throw new Exception( "Json File is invalid. There is not ." );
+        if (request_type == null ||
+                (!ProjectController.EVAL_REQUEST.equalsIgnoreCase(request_type.toString()) &&
+                !ProjectController.NEW_SOLUTION_REQUEST.equalsIgnoreCase(request_type.toString()))) {
+            throw new Exception( "Json File is invalid. \""+request_type+ "\" is not a valid request." );
         }
-
-        this.requestType = request_type.toString();
+        
+        Core.getInstance().getModelController().setRequestType( request_type.toString() );
 
         this.parametersHandler( (JSONObject) jsonObject.get( "ga_config" ) );
         this.requirementsHandler( (JSONArray) jsonObject.get( "requirements" ) );
@@ -43,10 +47,6 @@ public class JSONReader {
         this.roomsHandler( (JSONArray) jsonObject.get( "rooms" ) );
         this.classesHandler( (JSONArray) jsonObject.get( "classes" ) );
         this.slotsHandler( (JSONArray) jsonObject.get( "slots" ) );
-    }
-
-    public String getRequestType() {
-        return this.requestType;
     }
 
     public GAConfiguration getGAConfiguration() {
@@ -360,5 +360,4 @@ public class JSONReader {
     private final HashMap<String, Room> roomsHash;
     private final HashMap<String, ClassSchedule> classScheduleHash;
     private final GAConfiguration gaConfig;
-    private final String requestType;
 }

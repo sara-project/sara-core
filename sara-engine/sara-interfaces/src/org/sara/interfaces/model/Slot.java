@@ -1,5 +1,7 @@
 package org.sara.interfaces.model;
 
+import org.sara.interfaces.ICore;
+
 public class Slot implements Cloneable {
 
     public Slot(int id, Schedule schedule, Room room) {
@@ -39,9 +41,14 @@ public class Slot implements Cloneable {
     }
 
     public boolean isValid(SchoolClass sClass) {
-        return this.hasSameSchedule(sClass) && this.room.thisFits(sClass);
+        return (this.hasSameSchedule(sClass) && this.room.thisFits(sClass))
+                || this.isFlexible();
     }
-
+    
+    public boolean isFlexible() {
+        return false;//ICore.getInstance().getModelController().isEvaluationRequest();
+    }
+    
     public boolean isValid() {
         return this.isValid(this.sClass);
     }

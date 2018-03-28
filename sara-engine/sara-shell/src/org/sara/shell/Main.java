@@ -9,6 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.simple.parser.ParseException;
 import org.sara.interfaces.ICore;
+import org.sara.interfaces.IProjectController;
 import org.sara.interfaces.model.InfoSolution;
 
 public class Main {
@@ -51,7 +52,6 @@ public class Main {
         {
             try {
                 JSONReader handler = new JSONReader( jsonFile.getName() );
-                Core.getInstance().getModelController().setRequestType( handler.getRequestType() );
                 Core.getInstance().getModelController().setSchedules( handler.getSchedulesHash() );
                 Core.getInstance().getModelController().setSlots( handler.getSlotsHash() );
                 Core.getInstance().getModelController().setSchoolClass( handler.getClassesHash() );
@@ -94,10 +94,10 @@ public class Main {
         String requestType = ICore.getInstance().getModelController().getRequestType();
 
         InfoSolution result = new InfoSolution();
-        if (requestType.equalsIgnoreCase( "class_assignment" )) {
+        if (requestType.equalsIgnoreCase( IProjectController.NEW_SOLUTION_REQUEST )) {
             System.out.println( "The evolutionary cyle was started." );
             result = Core.getInstance().getProjectController().getGAEngine().startCycle();
-        } else if (requestType.equalsIgnoreCase( "eval_solution" )) {
+        } else if (requestType.equalsIgnoreCase(  IProjectController.EVAL_REQUEST )) {
             System.out.println( "The evaluate solution was started." );
             result = Core.getInstance().getProjectController().getGAEngine()
                     .evalSolution( ICore.getInstance().getModelController().getSlots().values() );

@@ -115,6 +115,10 @@ public abstract class IModelController {
     public GAConfiguration getGaConfiguration() {
         return this.gaConfiguration;
     }
+    
+    public boolean isEvaluationRequest() {
+        return this.requestType.equalsIgnoreCase(IProjectController.EVAL_REQUEST);
+    }
 
     public void setGaConfiguration(GAConfiguration gaConfiguration) {
         this.gaConfiguration = gaConfiguration;

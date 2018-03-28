@@ -54,7 +54,9 @@ public abstract class IProjectController implements IObservable {
             //ob.update(/**/);
         }
     }
-
+    
+    public static String EVAL_REQUEST = "eval_solution";
+    public static String NEW_SOLUTION_REQUEST = "class_assignment";
     public final int AVAILABLE_PROCESSORS;
     public final String OS_NAME;
     protected List<IObserver> observers;
